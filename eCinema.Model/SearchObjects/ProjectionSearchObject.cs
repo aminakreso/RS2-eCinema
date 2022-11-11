@@ -6,8 +6,14 @@
 
         public Guid? HallId { get; set; }
 
-        public Guid? MovieId { get; set; }
+        public string? Name { get; set; }
 
-        public string? ProjectionStatus { get; set; }
+        public string? Status { get; set; }
+
+        public bool? IncludeMovies { get; set; }
+
+        public bool? IncludeHalls { get; set; }
+
+        public bool? IncludePrices { get; set; }
     }
 }

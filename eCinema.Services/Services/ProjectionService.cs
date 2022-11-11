@@ -5,6 +5,7 @@ using eCinema.Model.SearchObjects;
 using eCinema.Model.Constants;
 using eCinema.Services.Database;
 using eCinema.Services.ProjectionStateMachine;
+using Microsoft.EntityFrameworkCore;
 
 namespace eCinema.Services.Services
 {
@@ -27,8 +28,8 @@ namespace eCinema.Services.Services
         public override async Task<ProjectionDto> Update(Guid id, ProjectionUpsertRequest update)
         {
             var projection = await _cinemaContext.Projections.FindAsync(id);
-            
-            var state = _baseState.CreateState(projection?.ProjectionStatus ?? throw new InvalidOperationException());
+
+            var state = _baseState.CreateState(projection?.StateMachine ?? throw new InvalidOperationException());
             state.CurrentEntity = projection;
 
             await state.Update(update);
@@ -39,8 +40,8 @@ namespace eCinema.Services.Services
         public override async Task<ProjectionDto> Delete(Guid id)
         {
             var projection = await _cinemaContext.Projections.FindAsync(id);
-            
-            var state = _baseState.CreateState(projection?.ProjectionStatus ?? throw new InvalidOperationException());
+
+            var state = _baseState.CreateState(projection?.StateMachine ?? throw new InvalidOperationException());
             state.CurrentEntity = projection;
 
             await state.Delete();
@@ -51,8 +52,8 @@ namespace eCinema.Services.Services
         public async Task<ProjectionDto> Activate(Guid id)
         {
             var projection = await _cinemaContext.Projections.FindAsync(id);
-            
-            var state = _baseState.CreateState(projection?.ProjectionStatus ?? throw new InvalidOperationException());
+
+            var state = _baseState.CreateState(projection?.StateMachine ?? throw new InvalidOperationException());
             state.CurrentEntity = projection;
 
             await state.Activate();
@@ -64,7 +65,7 @@ namespace eCinema.Services.Services
         {
             var projection = await _cinemaContext.Projections.FindAsync(id);
 
-            var state = _baseState.CreateState(projection?.ProjectionStatus ?? throw new InvalidOperationException());
+            var state = _baseState.CreateState(projection?.StateMachine ?? throw new InvalidOperationException());
             state.CurrentEntity = projection;
 
             await state.Hide();
@@ -76,7 +77,7 @@ namespace eCinema.Services.Services
         public async Task<List<string>> AllowedActions(Guid id)
         {
             var projection = await GetById(id);
-            var state = _baseState.CreateState(projection.ProjectionStatus ?? throw new InvalidOperationException());
+            var state = _baseState.CreateState(projection.StateMachine ?? throw new InvalidOperationException());
 
             return state.AllowedActions();
         }
@@ -85,15 +86,42 @@ namespace eCinema.Services.Services
         {
             var filteredQuery = query;
 
-            if(!string.IsNullOrWhiteSpace(search.ProjectionStatus))
-                filteredQuery = filteredQuery.Where(x => x.ProjectionStatus!.ToLower().Contains(search.ProjectionStatus.ToLower()));
-            
-            if(search.DateTime is not null)
-                filteredQuery = filteredQuery.Where(x => x.DateTime!.Value == search.DateTime.Value);
+            if (!string.IsNullOrWhiteSpace(search.Name))
+                filteredQuery = filteredQuery.Include(x => x.Movie).Where(x => x.Movie.Name.ToLower().Contains(search.Name.ToLower()));
+
+            if (!string.IsNullOrWhiteSpace(search.Status) && search.Status != "Svi")
+                filteredQuery = filteredQuery.Where(x => x.Status!.ToLower().Contains(search.Status.ToLower()));
+
+            if (search.HallId != Guid.Empty && search.HallId is not null)
+                filteredQuery = filteredQuery.Where(x => x.HallId! == search.HallId);
+
+            //if (search.DateTime is not null)
+            //    filteredQuery = filteredQuery.Where(x => x.DateTime!.Value == search.DateTime.Value);
 
 
             return filteredQuery;
 
+        }
+
+        public override IQueryable<Projection> AddInclude(IQueryable<Projection> query, ProjectionSearchObject search)
+        {
+            
+            if(search?.IncludeMovies is true)
+            {
+                query = query.Include(x => x.Movie);
+            }
+
+            if (search?.IncludeHalls is true)
+            {
+                query = query.Include(x => x.Hall);
+            }
+
+            if (search?.IncludePrices is true)
+            {
+                query = query.Include(x => x.Price);
+            }
+
+            return query;
         }
     }
 }

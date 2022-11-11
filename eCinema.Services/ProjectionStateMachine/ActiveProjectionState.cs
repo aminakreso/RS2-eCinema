@@ -12,7 +12,7 @@ public class ActiveProjectionState : BaseProjectionState
 
     public override async Task Hide()
     {
-        CurrentEntity.ProjectionStatus = StateMachineConstants.HiddenState;
+        CurrentEntity.StateMachine = StateMachineConstants.HiddenState;
         await _cinemaContext.SaveChangesAsync();
     }
 

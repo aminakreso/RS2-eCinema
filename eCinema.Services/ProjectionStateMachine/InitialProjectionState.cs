@@ -18,7 +18,7 @@ public class InitialProjectionState : BaseProjectionState
         var set = _cinemaContext.Set<Projection>();
         
         CurrentEntity =  _mapper.Map<Projection>(request);
-        CurrentEntity.ProjectionStatus = StateMachineConstants.DraftState;
+        CurrentEntity.StateMachine = StateMachineConstants.DraftState;
 
         await set.AddAsync(CurrentEntity);
         IsActiveHelper<Projection>.SetIsActive(CurrentEntity,true);

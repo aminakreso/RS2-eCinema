@@ -23,7 +23,7 @@ namespace eCinema.Services.Services
             if (!string.IsNullOrWhiteSpace(search.Director))
                 filteredQuery = filteredQuery.Where(x => x.Director!.ToLower().Contains(search.Director.ToLower()));
 
-            if (!string.IsNullOrWhiteSpace(search.Genres))
+            if (!string.IsNullOrWhiteSpace(search.Genres) && search.Genres!="Svi")
                 filteredQuery = filteredQuery.Where(x => x.Genres!.ToLower().Contains(search.Genres.ToLower()));
 
             return filteredQuery;

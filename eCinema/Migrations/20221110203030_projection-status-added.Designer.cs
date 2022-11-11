@@ -12,8 +12,8 @@ using eCinema.Services.Database;
 namespace eCinema.Migrations
 {
     [DbContext(typeof(CinemaContext))]
-    [Migration("20221104171102_password_hash_and_salt")]
-    partial class password_hash_and_salt
+    [Migration("20221110203030_projection-status-added")]
+    partial class projectionstatusadded
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,7 +24,7 @@ namespace eCinema.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("eCinema.Models.Hall", b =>
+            modelBuilder.Entity("eCinema.Services.Database.Hall", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -38,7 +38,7 @@ namespace eCinema.Migrations
                     b.ToTable("Halls");
                 });
 
-            modelBuilder.Entity("eCinema.Models.Invoice", b =>
+            modelBuilder.Entity("eCinema.Services.Database.Invoice", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -64,7 +64,7 @@ namespace eCinema.Migrations
                     b.ToTable("Invoices");
                 });
 
-            modelBuilder.Entity("eCinema.Models.Movie", b =>
+            modelBuilder.Entity("eCinema.Services.Database.Movie", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -88,6 +88,9 @@ namespace eCinema.Migrations
                     b.Property<string>("Genres")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool?>("IsActive")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -102,7 +105,7 @@ namespace eCinema.Migrations
                     b.ToTable("Movies");
                 });
 
-            modelBuilder.Entity("eCinema.Models.Notification", b =>
+            modelBuilder.Entity("eCinema.Services.Database.Notification", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -116,6 +119,9 @@ namespace eCinema.Migrations
 
                     b.Property<DateTime?>("Date")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool?>("IsActive")
+                        .HasColumnType("bit");
 
                     b.Property<string>("NotificationType")
                         .HasColumnType("nvarchar(max)");
@@ -133,7 +139,7 @@ namespace eCinema.Migrations
                     b.ToTable("Notifications");
                 });
 
-            modelBuilder.Entity("eCinema.Models.Price", b =>
+            modelBuilder.Entity("eCinema.Services.Database.Price", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -150,7 +156,7 @@ namespace eCinema.Migrations
                     b.ToTable("Prices");
                 });
 
-            modelBuilder.Entity("eCinema.Models.Projection", b =>
+            modelBuilder.Entity("eCinema.Services.Database.Projection", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -162,16 +168,22 @@ namespace eCinema.Migrations
                     b.Property<Guid?>("HallId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<bool?>("IsActive")
+                        .HasColumnType("bit");
+
                     b.Property<Guid?>("MovieId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("PriceId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("ProjectionType")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("StateMachine")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ProjectionType")
+                    b.Property<string>("Status")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -185,7 +197,7 @@ namespace eCinema.Migrations
                     b.ToTable("Projections");
                 });
 
-            modelBuilder.Entity("eCinema.Models.Reservation", b =>
+            modelBuilder.Entity("eCinema.Services.Database.Reservation", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -212,7 +224,7 @@ namespace eCinema.Migrations
                     b.ToTable("Reservations");
                 });
 
-            modelBuilder.Entity("eCinema.Models.Role", b =>
+            modelBuilder.Entity("eCinema.Services.Database.Role", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -226,7 +238,7 @@ namespace eCinema.Migrations
                     b.ToTable("Roles");
                 });
 
-            modelBuilder.Entity("eCinema.Models.Seat", b =>
+            modelBuilder.Entity("eCinema.Services.Database.Seat", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -256,7 +268,7 @@ namespace eCinema.Migrations
                     b.ToTable("Seats");
                 });
 
-            modelBuilder.Entity("eCinema.Models.User", b =>
+            modelBuilder.Entity("eCinema.Services.Database.User", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -267,6 +279,9 @@ namespace eCinema.Migrations
 
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("IsActive")
+                        .HasColumnType("bit");
 
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
@@ -283,6 +298,9 @@ namespace eCinema.Migrations
                     b.Property<Guid>("RoleId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("Username")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("RoleId");
@@ -290,20 +308,20 @@ namespace eCinema.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("eCinema.Models.Invoice", b =>
+            modelBuilder.Entity("eCinema.Services.Database.Invoice", b =>
                 {
-                    b.HasOne("eCinema.Models.Reservation", "Reservation")
+                    b.HasOne("eCinema.Services.Database.Reservation", "Reservation")
                         .WithOne("Invoice")
-                        .HasForeignKey("eCinema.Models.Invoice", "ReservationId")
+                        .HasForeignKey("eCinema.Services.Database.Invoice", "ReservationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Reservation");
                 });
 
-            modelBuilder.Entity("eCinema.Models.Notification", b =>
+            modelBuilder.Entity("eCinema.Services.Database.Notification", b =>
                 {
-                    b.HasOne("eCinema.Models.User", "Author")
+                    b.HasOne("eCinema.Services.Database.User", "Author")
                         .WithMany("Notifications")
                         .HasForeignKey("AuthorId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -312,17 +330,17 @@ namespace eCinema.Migrations
                     b.Navigation("Author");
                 });
 
-            modelBuilder.Entity("eCinema.Models.Projection", b =>
+            modelBuilder.Entity("eCinema.Services.Database.Projection", b =>
                 {
-                    b.HasOne("eCinema.Models.Hall", "Hall")
+                    b.HasOne("eCinema.Services.Database.Hall", "Hall")
                         .WithMany()
                         .HasForeignKey("HallId");
 
-                    b.HasOne("eCinema.Models.Movie", "Movie")
+                    b.HasOne("eCinema.Services.Database.Movie", "Movie")
                         .WithMany("Projections")
                         .HasForeignKey("MovieId");
 
-                    b.HasOne("eCinema.Models.Price", "Price")
+                    b.HasOne("eCinema.Services.Database.Price", "Price")
                         .WithMany("Projections")
                         .HasForeignKey("PriceId");
 
@@ -333,13 +351,13 @@ namespace eCinema.Migrations
                     b.Navigation("Price");
                 });
 
-            modelBuilder.Entity("eCinema.Models.Reservation", b =>
+            modelBuilder.Entity("eCinema.Services.Database.Reservation", b =>
                 {
-                    b.HasOne("eCinema.Models.Projection", "Projection")
+                    b.HasOne("eCinema.Services.Database.Projection", "Projection")
                         .WithMany("Reservations")
                         .HasForeignKey("ProjectionId");
 
-                    b.HasOne("eCinema.Models.User", "User")
+                    b.HasOne("eCinema.Services.Database.User", "User")
                         .WithMany("Reservations")
                         .HasForeignKey("UserId");
 
@@ -348,22 +366,22 @@ namespace eCinema.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("eCinema.Models.Seat", b =>
+            modelBuilder.Entity("eCinema.Services.Database.Seat", b =>
                 {
-                    b.HasOne("eCinema.Models.Hall", "Hall")
+                    b.HasOne("eCinema.Services.Database.Hall", "Hall")
                         .WithMany("Seats")
                         .HasForeignKey("HallId1");
 
-                    b.HasOne("eCinema.Models.Reservation", null)
+                    b.HasOne("eCinema.Services.Database.Reservation", null)
                         .WithMany("Seats")
                         .HasForeignKey("ReservationId");
 
                     b.Navigation("Hall");
                 });
 
-            modelBuilder.Entity("eCinema.Models.User", b =>
+            modelBuilder.Entity("eCinema.Services.Database.User", b =>
                 {
-                    b.HasOne("eCinema.Models.Role", "Role")
+                    b.HasOne("eCinema.Services.Database.Role", "Role")
                         .WithMany("Users")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -372,39 +390,39 @@ namespace eCinema.Migrations
                     b.Navigation("Role");
                 });
 
-            modelBuilder.Entity("eCinema.Models.Hall", b =>
+            modelBuilder.Entity("eCinema.Services.Database.Hall", b =>
                 {
                     b.Navigation("Seats");
                 });
 
-            modelBuilder.Entity("eCinema.Models.Movie", b =>
+            modelBuilder.Entity("eCinema.Services.Database.Movie", b =>
                 {
                     b.Navigation("Projections");
                 });
 
-            modelBuilder.Entity("eCinema.Models.Price", b =>
+            modelBuilder.Entity("eCinema.Services.Database.Price", b =>
                 {
                     b.Navigation("Projections");
                 });
 
-            modelBuilder.Entity("eCinema.Models.Projection", b =>
+            modelBuilder.Entity("eCinema.Services.Database.Projection", b =>
                 {
                     b.Navigation("Reservations");
                 });
 
-            modelBuilder.Entity("eCinema.Models.Reservation", b =>
+            modelBuilder.Entity("eCinema.Services.Database.Reservation", b =>
                 {
                     b.Navigation("Invoice");
 
                     b.Navigation("Seats");
                 });
 
-            modelBuilder.Entity("eCinema.Models.Role", b =>
+            modelBuilder.Entity("eCinema.Services.Database.Role", b =>
                 {
                     b.Navigation("Users");
                 });
 
-            modelBuilder.Entity("eCinema.Models.User", b =>
+            modelBuilder.Entity("eCinema.Services.Database.User", b =>
                 {
                     b.Navigation("Notifications");
 

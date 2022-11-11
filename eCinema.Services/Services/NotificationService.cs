@@ -3,6 +3,7 @@ using eCinema.Model.Dtos;
 using eCinema.Model.Requests;
 using eCinema.Model.SearchObjects;
 using eCinema.Services.Database;
+using Microsoft.EntityFrameworkCore;
 
 namespace eCinema.Services.Services
 {
@@ -17,7 +18,12 @@ namespace eCinema.Services.Services
             var filteredQuery = query;
             if (!string.IsNullOrWhiteSpace(search.Title))
                 filteredQuery = query.Where(x => x.Title != null && x.Title.ToLower().Contains(search.Title.ToLower()));
-            if (!string.IsNullOrWhiteSpace(search.NotificationType))
+            if (search.AuthorId != Guid.Empty)
+            {
+                filteredQuery = query.Where(x => x.AuthorId == search.AuthorId);
+
+            }
+            if (!string.IsNullOrWhiteSpace(search.NotificationType) && search.NotificationType!="Svi")
                 filteredQuery = query.Where(x => x.NotificationType != null && x.NotificationType.ToLower().Contains(search.NotificationType.ToLower()));
 
             return filteredQuery;
@@ -26,13 +32,23 @@ namespace eCinema.Services.Services
 
         public override void BeforeInsert(NotificationInsertRequest insert,Notification entity)
         {
-            entity.AuthorId = new Guid("6f68092a-978e-4b67-8f9b-720cca484d43");
+            entity.AuthorId = new Guid("C25954C5-F3A1-408D-FDCD-08DAC04D3E13");
             entity.Date = DateTime.Now;
         }
 
         public override void BeforeUpdate(Notification entity)
         {
             entity.Date = DateTime.Now;
+        }
+
+        public override IQueryable<Notification> AddInclude(IQueryable<Notification> query, NotificationSearchObject search)
+        {
+            if (search?.IncludeUsers is true)
+            {
+                query = query.Include(x => x.Author);
+            }
+
+            return query;
         }
     }
 }

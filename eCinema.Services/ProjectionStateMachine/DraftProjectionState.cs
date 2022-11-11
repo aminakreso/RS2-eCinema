@@ -14,7 +14,7 @@ public class DraftProjectionState : BaseProjectionState
     public override async Task Update(ProjectionUpsertRequest request)
     {
         _mapper.Map(request, CurrentEntity);
-        CurrentEntity.ProjectionStatus = StateMachineConstants.DraftState;
+        CurrentEntity.StateMachine = StateMachineConstants.DraftState;
 
         await _cinemaContext.SaveChangesAsync();
 
@@ -22,7 +22,7 @@ public class DraftProjectionState : BaseProjectionState
     
     public override async Task Activate()
     {
-        CurrentEntity.ProjectionStatus = StateMachineConstants.ActiveState;
+        CurrentEntity.StateMachine = StateMachineConstants.ActiveState;
 
         await _cinemaContext.SaveChangesAsync();
 

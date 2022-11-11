@@ -168,7 +168,7 @@ namespace eCinema.Migrations
                     b.Property<Guid?>("PriceId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("ProjectionStatus")
+                    b.Property<string>("StateMachine")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProjectionType")

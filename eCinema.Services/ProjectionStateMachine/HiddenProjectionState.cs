@@ -15,7 +15,7 @@ public class HiddenProjectionState : BaseProjectionState
     public override async Task Update(ProjectionUpsertRequest request)
     {
         _mapper.Map(request, CurrentEntity);
-        CurrentEntity.ProjectionStatus = StateMachineConstants.HiddenState;
+        CurrentEntity.StateMachine = StateMachineConstants.HiddenState;
 
         await _cinemaContext.SaveChangesAsync();
 
@@ -23,7 +23,7 @@ public class HiddenProjectionState : BaseProjectionState
     
     public override async Task Activate()
     {
-        CurrentEntity.ProjectionStatus = StateMachineConstants.ActiveState;
+        CurrentEntity.StateMachine = StateMachineConstants.ActiveState;
 
         await _cinemaContext.SaveChangesAsync();
 
@@ -31,7 +31,7 @@ public class HiddenProjectionState : BaseProjectionState
     
     public override async Task Delete()
     {
-        CurrentEntity.ProjectionStatus = StateMachineConstants.DeletedState;
+        CurrentEntity.StateMachine = StateMachineConstants.DeletedState;
         
         IsActiveHelper<Projection>.SetIsActive(CurrentEntity,false);
 

@@ -111,5 +111,59 @@ namespace eCinema.WinUI
             childForm.WindowState = FormWindowState.Maximized;
             childForm.Show();
         }
+
+        private void obavijestiToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var childForm = new frmNotification();
+            childForm.MdiParent = this;
+            childForm.Text = "Window " + childFormNumber++;
+            childForm.WindowState = FormWindowState.Maximized;
+            childForm.Show();
+        }
+
+        private void dodajObavijestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var childForm = new frmNotificationDetails();
+            childForm.MdiParent = this;
+            childForm.Text = "Window " + childFormNumber++;
+            childForm.WindowState = FormWindowState.Maximized;
+            childForm.Show();
+        }
+
+        private void filmoviToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var childForm = new frmMovies();
+            childForm.MdiParent = this;
+            childForm.Text = "Window " + childFormNumber++;
+            childForm.WindowState = FormWindowState.Maximized;
+            childForm.Show();
+        }
+
+        private void dodajFilmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var childForm = new frmMovieDetails();
+            childForm.MdiParent = this;
+            childForm.Text = "Window " + childFormNumber++;
+            childForm.WindowState = FormWindowState.Maximized;
+            childForm.Show();
+        }
+
+        private void projekcijeToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var childForm = new frmProjection();
+            childForm.MdiParent = this;
+            childForm.Text = "Window " + childFormNumber++;
+            childForm.WindowState = FormWindowState.Maximized;
+            childForm.Show();
+        }
+
+        private void dodajProjekcijuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var childForm = new frmProjectionDetails();
+            childForm.MdiParent = this;
+            childForm.Text = "Window " + childFormNumber++;
+            childForm.WindowState = FormWindowState.Maximized;
+            childForm.Show();
+        }
     }
 }

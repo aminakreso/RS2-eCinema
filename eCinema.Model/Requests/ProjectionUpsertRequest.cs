@@ -11,5 +11,7 @@
         public Guid? PriceId { get; set; }
 
         public string? ProjectionType { get; set; }
+
+        public string? Status { get; set; }
     }
 }
