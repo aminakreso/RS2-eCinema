@@ -57,7 +57,7 @@ namespace eCinema.WinUI
             var searchObject = new ProjectionSearchObject
             {
                 Name = txtName.Text,
-                DateTime = dtpDate.Value,
+                DateTime = dtpDate.Value.Date,
                 Status = cmbStatus.Text,
                 IncludeHalls = true,
                 IncludeMovies = true,

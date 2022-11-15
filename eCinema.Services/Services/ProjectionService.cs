@@ -95,8 +95,8 @@ namespace eCinema.Services.Services
             if (search.HallId != Guid.Empty && search.HallId is not null)
                 filteredQuery = filteredQuery.Where(x => x.HallId! == search.HallId);
 
-            //if (search.DateTime is not null)
-            //    filteredQuery = filteredQuery.Where(x => x.DateTime!.Value == search.DateTime.Value);
+            if (search.DateTime is not null)
+                filteredQuery = filteredQuery.Where(x => x.DateTime.Value.Date == search.DateTime);
 
 
             return filteredQuery;
