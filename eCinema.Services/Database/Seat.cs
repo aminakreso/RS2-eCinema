@@ -5,11 +5,9 @@
         public Guid Id { get; set; }
 
         public string? Name { get; set; }
-
-        public int? HallId { get; set; }
+        
+        public Guid? HallId { get; set; }
 
         public Hall? Hall { get; set; }
-
-        public bool IsReserved { get; set; }
     }
 }

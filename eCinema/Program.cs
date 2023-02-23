@@ -1,5 +1,6 @@
 using eCinema.Handlers;
 using eCinema.Model.Dtos;
+using eCinema.Model.Helpers;
 using eCinema.Model.SearchObjects;
 using eCinema.Services.Database;
 using eCinema.Services.ProjectionStateMachine;
@@ -46,6 +47,8 @@ builder.Services.AddTransient<IPriceService, PriceService>();
 builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddTransient<IRoleService, RoleService>();
 builder.Services.AddTransient<IHallService, HallService>();
+builder.Services.AddTransient<IReservationService, ReservationService>();
+builder.Services.AddTransient<ISeatReservationService, SeatReservationService>();
 
 builder.Services.AddTransient<BaseProjectionState>();
 builder.Services.AddTransient<InitialProjectionState>();
@@ -61,13 +64,13 @@ builder.Services.AddAuthentication("BasicAuthentication")
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment() || app.Environment.IsEnvironment("Local"))
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();

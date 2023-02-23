@@ -14,7 +14,7 @@ namespace eCinema.Controllers
         }
 
         [HttpPost]
-        public virtual async Task<T> Insert(TInsert insert)
+        public virtual async Task<T> Insert([FromForm]TInsert insert)
         {
             return await _baseCRUDService.Insert(insert);
         }

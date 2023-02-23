@@ -8,5 +8,6 @@ namespace eCinema.Services.Services
        UserInsertRequest, UserUpdateRequest>
     {
         Task<UserDto> Login(string username, string password);
+        Task<UserDto> Register(RegistrationRequest registration);
     }
 }

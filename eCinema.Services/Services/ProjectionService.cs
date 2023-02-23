@@ -18,6 +18,13 @@ namespace eCinema.Services.Services
             _baseState = baseState;
         }
 
+        public override async Task<ProjectionDto> GetById(Guid id)
+        {
+            var entity =  await _cinemaContext.Projections.Include(x => x.Movie).FirstOrDefaultAsync(x => x.Id == id);
+            return _mapper.Map<ProjectionDto>(entity);
+
+        }
+
         public override async Task<ProjectionDto> Insert(ProjectionUpsertRequest insert)
         {
             var state = _baseState.CreateState(StateMachineConstants.InitialState);
@@ -95,8 +102,8 @@ namespace eCinema.Services.Services
             if (search.HallId != Guid.Empty && search.HallId is not null)
                 filteredQuery = filteredQuery.Where(x => x.HallId! == search.HallId);
 
-            if (search.DateTime is not null)
-                filteredQuery = filteredQuery.Where(x => x.DateTime.Value.Date == search.DateTime);
+            if (!string.IsNullOrWhiteSpace(search.StartDate))
+                filteredQuery = filteredQuery.Where(x => x.StartTime.Value.ToString("yyyy-MM-dd") == search.StartDate);
 
 
             return filteredQuery;
@@ -116,10 +123,10 @@ namespace eCinema.Services.Services
                 query = query.Include(x => x.Hall);
             }
 
-            if (search?.IncludePrices is true)
-            {
-                query = query.Include(x => x.Price);
-            }
+            // if (search?.IncludePrices is true)
+            // {
+            //     query = query.Include(x => x.Price);
+            // }
 
             return query;
         }

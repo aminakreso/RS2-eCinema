@@ -5,8 +5,8 @@
         public Guid Id { get; set; }
 
         public string? Name { get; set; }
-
-        public ICollection<Seat>? Seats { get; set; }
+        
+        public ICollection<Seat>? Seat { get; set; }
 
     }
 }

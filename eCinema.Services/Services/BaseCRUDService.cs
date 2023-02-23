@@ -2,6 +2,8 @@
 using eCinema.Model.Helpers;
 using eCinema.Model.SearchObjects;
 using eCinema.Services.Database;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace eCinema.Services.Services
 {

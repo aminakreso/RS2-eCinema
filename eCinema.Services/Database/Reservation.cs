@@ -3,21 +3,18 @@
     public class Reservation
     {
         public Guid Id { get; set; }
-
-        public Guid? UserId { get; set; }
-
+        public Guid UserId { get; set; }
         public User? User { get; set; }
-
-        public Guid? PojectionId { get; set; }
-
+        
+        public Guid ProjectionId { get; set; }
+        
         public Projection? Projection { get; set; }
-
-        public Invoice? Invoice { get; set; }
-
+        
         public bool? IsActive { get; set; }
-
-        public ICollection<Seat>? Seats { get; set; }
-       
-
+        public DateTime? DateTime { get; set; }
+        
+        public Invoice? Invoice { get; set; }
+        
+        public ICollection<SeatxrefReservation>? SeatsReservations { get; set; }
     }
 }

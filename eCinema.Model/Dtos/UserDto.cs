@@ -21,15 +21,14 @@
         
         public string? PhoneNumber { get; set; }
 
-        public string? Password { get; set; }
-
-        public string? ConfirmPassword { get; set; }
-
         public RoleDto? Role { get; set; }
-
+        
         public string? UserRole => Role?.Name;
         
         public bool? IsActive { get; set; }
+        
+        public ICollection<ReservationDto> Reservations { get; set; }
+
 
     }
 }

@@ -1,10 +1,13 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
+using System.Text.Json;
 using AutoMapper;
 using eCinema.Model.Dtos;
 using eCinema.Model.Requests;
 using eCinema.Model.SearchObjects;
 using eCinema.Services.Database;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace eCinema.Services.Services
@@ -72,6 +75,8 @@ namespace eCinema.Services.Services
                 query = query.Include(x => x.Role);
             }
 
+            query = query.Include(x => x.Reservations);
+            
             return query;
         }
 
@@ -89,6 +94,37 @@ namespace eCinema.Services.Services
 
             return _mapper.Map<UserDto>(entity);
         }
-        
+
+            [AllowAnonymous]
+            public async Task<UserDto> Register(RegistrationRequest registration)
+            {
+                // var user = JsonSerializer.Deserialize<UserDto>(registration.ToString());
+                // return user;
+                var user = new User
+                {
+                    FirstName = registration.FirstName,
+                    LastName = registration.LastName,
+                    Email = registration.Email,
+                    PhoneNumber = registration.PhoneNumber,
+                    Username = registration.Username,
+                    RoleId = new Guid("c1ec4da0-3eb8-47b3-83b5-6d8fbf31b30f"),
+                };
+                var salt = GenerateSalt();
+                user.LozinkaSalt = salt;
+                user.LozinkaHash = GenerateHash(salt, registration.Password!);
+                
+                await _cinemaContext.AddAsync(user);
+                await _cinemaContext.SaveChangesAsync();
+                
+                return new UserDto
+                {
+                    Id = user.Id,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    Email = user.Email,
+                    PhoneNumber = user.PhoneNumber,
+                    Username = user.Username
+                };
+            }
     }
 }

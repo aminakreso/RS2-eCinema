@@ -25,8 +25,8 @@ namespace eCinema.Services.Database
         public DbSet<Role> Roles { get; set; }
 
         public DbSet<Seat> Seats { get; set; }
-
         public DbSet<User> Users { get; set; }
+        public DbSet<SeatxrefReservation> SeatReservations { get; set; }
 
     }
 }

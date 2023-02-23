@@ -3,20 +3,25 @@ using eCinema.Model.Requests;
 using eCinema.Model.SearchObjects;
 using eCinema.Services.Services;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace eCinema.Controllers
 {
     public class UserController : BaseCRUDController<UserDto, UserSearchObject, UserInsertRequest, UserUpdateRequest>
     {
+        private readonly IUserService _userService;
+
         public UserController(IUserService userService)
             : base(userService)
         {
+            _userService = userService;
         }
-
-        [Authorize(Roles = "Admin")]
-        public override async Task<UserDto> Insert(UserInsertRequest insert)
+        
+        [AllowAnonymous]
+        [HttpPost("register")]
+        public virtual async Task<UserDto> Register([FromBody] RegistrationRequest registration)
         {
-            return await base.Insert(insert);
+            return await _userService.Register(registration);
         }
     }
 }

@@ -39,7 +39,7 @@ namespace eCinema.WinUI
                 cmbMovieName.SelectedValue = _model.MovieId;
                 cmbPrice.SelectedValue = _model.PriceId;
                 cmbProjectionType.Text = _model?.ProjectionType;
-                dtpProjectionDateTime.Value = _model.DateTime.GetValueOrDefault(DateTime.Now);
+                //dtpProjectionDateTime.Value = _model.DateTime.GetValueOrDefault(DateTime.Now);
             }
             LoadButtons();
 
@@ -123,7 +123,7 @@ namespace eCinema.WinUI
         {
             var upsert = new ProjectionUpsertRequest()
             {
-                DateTime = dtpProjectionDateTime.Value,
+                //DateTime = dtpProjectionDateTime.Value,
                 ProjectionType = cmbProjectionType.Text,
                 HallId = (Guid)cmbHall?.SelectedValue,
                 PriceId = (Guid)cmbPrice?.SelectedValue,
