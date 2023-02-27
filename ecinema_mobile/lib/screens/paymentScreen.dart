@@ -4,23 +4,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:provider/provider.dart';
 
+import '../models/payment.dart';
 import '../requests/addStripeCustomer.dart';
 
 class PaymentScreen extends StatefulWidget {
   static const String routeName = "/payment";
 
-late Payment payment;
-  PaymentForm(this.payment, {super.key});
+  late Payment payment;
+  PaymentScreen(this.payment, {super.key});
 
   @override
-  _PaymentScreenState createState() => _PaymentScreenState();
+  _PaymentScreenState createState() => _PaymentScreenState(payment);
 }
 
 class _PaymentScreenState extends State<PaymentScreen> {
- 
   final _formKey = GlobalKey<FormState>();
   _PaymentScreenState(payment);
-
 
   late AddStripeCustomer addStripeCustomer;
   late AddStripeCard addStripeCard;
@@ -39,7 +38,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
   TextEditingController? __cvcController = TextEditingController();
 
   //StripeCustomerProvider _stripeCustomerProvider = StripeCustomerProvider();
-  StripeAppServiceProvider _stripeAppServiceProvider = StripeAppServiceProvider();
+  StripeAppServiceProvider _stripeAppServiceProvider =
+      StripeAppServiceProvider();
   //StripeCustomerProvider _stripeCustomerProvider = StripeCustomerProvider();
 
 //AddPaymentProvider addPaymentProvider = AddPaymentProvider();
@@ -48,18 +48,17 @@ class _PaymentScreenState extends State<PaymentScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Payment"),
-      ),
-      body: Form(
-        key: _formKey,
-        child: Column(
-          children: [
-            Text( "Credit Card Information"),
+        appBar: AppBar(
+          title: Text("Payment"),
+        ),
+        body: Form(
+          key: _formKey,
+          child: Column(children: [
+            Text("Credit Card Information"),
             //SizedBox(height: 16),
-             TextFormField(
+            TextFormField(
               controller: _cardNameController,
-              decoration:  InputDecoration(
+              decoration: InputDecoration(
                 labelText: 'Name on card',
               ),
               validator: (value) {
@@ -72,7 +71,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
               //   _cardName = value!;
               // },
             ),
-             TextFormField(
+            TextFormField(
               controller: _cardNumberController,
               decoration: const InputDecoration(
                 labelText: 'Card number',
@@ -154,108 +153,107 @@ class _PaymentScreenState extends State<PaymentScreen> {
                     // },
                   ),
                 ),
-            TextButton(
-              onPressed: () async {
-                try {
-                    // SharedPreferences prefs =
-                    //     await SharedPreferences.getInstance();
-                    // String? email = prefs.getString('korisnikEmail');
-                    // String? name = prefs.getString('korisnikImePrezime');
-                    var creditCard = {
-                      //'name': 'Visa',
-                      'cardNumber': _cardNumberController?.text,
-                      'expirationYear': _expYearController?.text,
-                      'expirationMonth': __expMonthController?.text,
-                      'cvc': __cvcController?.text
-                    };
-                    var customerDetails = {
-                      'name': "Amina",
-                      'email': "amina@gmail.com",
-                      'creditCard': creditCard
-                    };
-                    var stripeCustomer =
-                        await _stripeAppServiceProvider.addCustomer(customerDetails); // sta koristi
-                    if (stripeCustomer?.customerId != null) {
-                      try {
-                        var stripePayment = {
-                          "customerId": stripeCustomer?.customerId,
-                          "receiptEmail": stripeCustomer?.email,
-                          "description": payment.naslov,
-                          "currency": "usd",
-                          "amount": (payment.iznos! * 100).toInt(),
-                        };
-                        var temp =
-                            await _stripeAppServiceProvider.addPayment(stripePayment);
-                        if (temp?.paymentId != null) {
-                          var update = {
-                            "paymentId": temp?.paymentId,
-                            "isProcessed": true,
-                            "nekretninaPayment": payment.nekretninaPayment,
-                            "komentar": payment.komentar,
-                            "iznos": payment.iznos,
-                            "mjesecno": payment.mjesecno,
-                            "nekretnina": payment.nekretnina,
-                            "korisnikPaymentId": payment.korisnikPaymentId,
-                          };
-                          var temp2 = AllPaymentsProvider()
-                              .update(payment.paymentRequestId!, update);
-                          if (temp2 != null) {
-                            showDialog(
-                                context: context,
-                                builder: (context) {
-                                  Future.delayed(Duration(seconds: 5), () {
-                                    Navigator.of(context).pop(true);
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              const NekretnineListScreen()),
-                                    );
-                                  });
-                                  return AlertDialog(
-                                    title: Text('Placanje uspješno!'),
-                                  );
-                                });
-                          }
-                        }
-                      } catch (e) {
-                        showDialog(
-                            context: context,
-                            builder: (BuildContext context) => AlertDialog(
-                                  title: const Text("Error"),
-                                  content: Text(e.toString()),
-                                  actions: [
-                                    TextButton(
-                                      child: const Text("Ok"),
-                                      onPressed: () => Navigator.pop(context),
-                                    )
-                                  ],
-                                ));
-                      }
+                TextButton(
+                  onPressed: () async {
+                    try {
+                      // SharedPreferences prefs =
+                      //     await SharedPreferences.getInstance();
+                      // String? email = prefs.getString('korisnikEmail');
+                      // String? name = prefs.getString('korisnikImePrezime');
+                      var creditCard = {
+                        //'name': 'Visa',
+                        'cardNumber': _cardNumberController?.text,
+                        'expirationYear': _expYearController?.text,
+                        'expirationMonth': __expMonthController?.text,
+                        'cvc': __cvcController?.text
+                      };
+                      var customerDetails = {
+                        'name': "Amina",
+                        'email': "amina@gmail.com",
+                        'creditCard': creditCard
+                      };
+
+                      //       var stripeCustomer =
+                      //           await _stripeAppServiceProvider.addCustomer(customerDetails); // sta koristi
+                      //       if (stripeCustomer?.customerId != null) {
+                      //         try {
+                      //           var stripePayment = {
+                      //             "customerId": stripeCustomer?.customerId,
+                      //             "receiptEmail": stripeCustomer?.email,
+                      //             "description": payment.naslov,
+                      //             "currency": "usd",
+                      //             "amount": (payment.iznos! * 100).toInt(),
+                      //           };
+                      //           var temp =
+                      //               await _stripeAppServiceProvider.addPayment(stripePayment);
+                      //           if (temp?.paymentId != null) {
+                      //             var update = {
+                      //               "paymentId": temp?.paymentId,
+                      //               "isProcessed": true,
+                      //               "nekretninaPayment": payment.nekretninaPayment,
+                      //               "komentar": payment.komentar,
+                      //               "iznos": payment.iznos,
+                      //               "mjesecno": payment.mjesecno,
+                      //               "nekretnina": payment.nekretnina,
+                      //               "korisnikPaymentId": payment.korisnikPaymentId,
+                      //             };
+                      //             var temp2 = AllPaymentsProvider()
+                      //                 .update(payment.paymentRequestId!, update);
+                      //             if (temp2 != null) {
+                      //               showDialog(
+                      //                   context: context,
+                      //                   builder: (context) {
+                      //                     Future.delayed(Duration(seconds: 5), () {
+                      //                       Navigator.of(context).pop(true);
+                      //                       Navigator.push(
+                      //                         context,
+                      //                         MaterialPageRoute(
+                      //                             builder: (context) =>
+                      //                                 const NekretnineListScreen()),
+                      //                       );
+                      //                     });
+                      //                     return AlertDialog(
+                      //                       title: Text('Placanje uspješno!'),
+                      //                     );
+                      //                   });
+                      //             }
+                      //           }
+                      //         } catch (e) {
+                      //           showDialog(
+                      //               context: context,
+                      //               builder: (BuildContext context) => AlertDialog(
+                      //                     title: const Text("Error"),
+                      //                     content: Text(e.toString()),
+                      //                     actions: [
+                      //                       TextButton(
+                      //                         child: const Text("Ok"),
+                      //                         onPressed: () => Navigator.pop(context),
+                      //                       )
+                      //                     ],
+                      //                   ));
+                      //         }
+                      //       }
+                    } catch (e) {
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) => AlertDialog(
+                                title: const Text("Error"),
+                                content: Text(e.toString()),
+                                actions: [
+                                  TextButton(
+                                    child: const Text("Ok"),
+                                    onPressed: () => Navigator.pop(context),
+                                  )
+                                ],
+                              ));
                     }
-                  } catch (e) {
-                    showDialog(
-                        context: context,
-                        builder: (BuildContext context) => AlertDialog(
-                              title: const Text("Error"),
-                              content: Text(e.toString()),
-                              actions: [
-                                TextButton(
-                                  child: const Text("Ok"),
-                                  onPressed: () => Navigator.pop(context),
-                                )
-                              ],
-                            ));
-                  }
-              },
-              child: Text("Submit"),
-              
+                  },
+                  child: Text("Submit"),
+                ),
+              ],
             ),
-          ],
-        ),
-      ]),
-    )
-    );
+          ]),
+        ));
   }
 
   void _handlePayPress() {}
