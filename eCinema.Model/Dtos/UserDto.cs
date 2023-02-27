@@ -25,6 +25,8 @@
         
         public string? UserRole => Role?.Name;
         
+        public string? CustomerId { get; set; }
+
         public bool? IsActive { get; set; }
         
         public ICollection<ReservationDto> Reservations { get; set; }

@@ -18,6 +18,8 @@
 
         public string? LozinkaSalt { get; set; }
 
+        public string? CustomerId { get; set; }
+
         public Guid RoleId { get; set; }
 
         public Role Role { get; set; }

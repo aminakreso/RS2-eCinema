@@ -10,7 +10,7 @@ namespace eCinema.Services.Database
 
         public DbSet<Hall> Halls { get; set; }
 
-        public DbSet<Invoice> Invoices { get; set; }
+        public DbSet<Payment> Payments { get; set; }
 
         public DbSet<Movie> Movies { get; set; }
 

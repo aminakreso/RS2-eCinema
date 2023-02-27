@@ -6,6 +6,7 @@ public class ReservationUpsertRequest
 {
     public Guid PojectionId { get; set; }
     
+    public ProjectionDto Projection { get; set; }
     public List<Guid>? SeatsId { get; set; }
 
 }

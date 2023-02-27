@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace eCinema.Services.Services
 {
-    public interface ISeatReservationService : IService<SeatxrefReservationDto, BaseSearchObject>
+    public interface ISeatReservationService : IService<SeatxrefReservationDto, SeatReservationSearchObject>
     {
     }
 }

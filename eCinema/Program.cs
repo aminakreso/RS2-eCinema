@@ -1,3 +1,4 @@
+using eCinema;
 using eCinema.Handlers;
 using eCinema.Model.Dtos;
 using eCinema.Model.Helpers;
@@ -60,6 +61,9 @@ builder.Services.AddAutoMapper(typeof(INotificationService));
 
 builder.Services.AddAuthentication("BasicAuthentication")
     .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
+
+// Add Stripe Infrastructure
+builder.Services.AddStripeInfrastructure(builder.Configuration);
 
 var app = builder.Build();
 

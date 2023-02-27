@@ -13,7 +13,7 @@
         public bool? IsActive { get; set; }
         public DateTime? DateTime { get; set; }
         
-        public Invoice? Invoice { get; set; }
+        public Payment? Payment { get; set; }
         
         public ICollection<SeatxrefReservation>? SeatsReservations { get; set; }
     }
