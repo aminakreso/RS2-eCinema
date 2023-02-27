@@ -15,14 +15,14 @@ class StripeAppServiceProvider extends BaseProvider<StripeCustomer> {
     return StripeCustomer.fromJson(data);
   }
 
-  /*   final response = await http.post(
-                        Uri.parse("https://api.stripe.com/v1/customers"),
-                        headers: {
-                          "Content-Type": "application/x-www-form-urlencoded",
-                          "Authorization": "Bearer ${sKey}",
-                        },
-                        body: json.encode(body),
-                      );
-                      print('resvfdg: ${jsonDecode(response.body)}');
-                      return jsonDecode(response.body);*/
+  // final response = await http.post(
+  //                       Uri.parse("https://api.stripe.com/v1/customers"),
+  //                       headers: {
+  //                         "Content-Type": "application/x-www-form-urlencoded",
+  //                         "Authorization": "Bearer ${sKey}",
+  //                       },
+  //                       body: json.encode(body),
+  //                     );
+  //                     print('resvfdg: ${jsonDecode(response.body)}');
+  //                     return jsonDecode(response.body);
 }
