@@ -89,6 +89,12 @@ namespace eCinema.Services.Services
             return state.AllowedActions();
         }
         
+        public override IQueryable<Projection> AddInclude(IQueryable<Projection> query, ProjectionSearchObject search = null)
+        {
+            query = query.Include(x => x.Movie);
+            return query;
+        }
+        
         public override IQueryable<Projection> AddFilter(IQueryable<Projection> query, ProjectionSearchObject search)
         {
             var filteredQuery = query;
@@ -110,25 +116,25 @@ namespace eCinema.Services.Services
 
         }
 
-        public override IQueryable<Projection> AddInclude(IQueryable<Projection> query, ProjectionSearchObject search)
-        {
-            
-            if(search?.IncludeMovies is true)
-            {
-                query = query.Include(x => x.Movie);
-            }
-
-            if (search?.IncludeHalls is true)
-            {
-                query = query.Include(x => x.Hall);
-            }
-
-            // if (search?.IncludePrices is true)
-            // {
-            //     query = query.Include(x => x.Price);
-            // }
-
-            return query;
-        }
+        // public override IQueryable<Projection> AddInclude(IQueryable<Projection> query, ProjectionSearchObject search)
+        // {
+        //     
+        //     if(search?.IncludeMovies is true)
+        //     {
+        //         query = query.Include(x => x.Movie);
+        //     }
+        //
+        //     if (search?.IncludeHalls is true)
+        //     {
+        //         query = query.Include(x => x.Hall);
+        //     }
+        //
+        //     // if (search?.IncludePrices is true)
+        //     // {
+        //     //     query = query.Include(x => x.Price);
+        //     // }
+        //
+        //     return query;
+        // }
     }
 }

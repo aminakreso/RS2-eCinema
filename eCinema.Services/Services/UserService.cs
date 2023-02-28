@@ -26,7 +26,7 @@ namespace eCinema.Services.Services
             entity.LozinkaHash = GenerateHash(salt, insert.Password!);
         }
 
-        private string GenerateHash(string salt, string password)
+        public static string GenerateHash(string salt, string password)
         {
             var src = Convert.FromBase64String(salt);
             var bytes = Encoding.Unicode.GetBytes(password);
@@ -40,7 +40,7 @@ namespace eCinema.Services.Services
             return Convert.ToBase64String(inArray!);
         }
 
-        private static string GenerateSalt()
+        public static string GenerateSalt()
         {
             var provider = new RNGCryptoServiceProvider();
             var byteArray = new byte[16];
