@@ -58,11 +58,11 @@ class _MovieListScreenState extends State<MovieListScreen> {
         },
         child: Row(
           children: [
-            Container(
-              height: 150,
-              width: 150,
-              child: imageFromBase64String(x.picture!),
-            ),
+            // Container(
+            //   height: 150,
+            //   width: 150,
+            //   child: imageFromBase64String(x.picture!),
+            // ),
             Column(
               children: [
                 Text("${x.name}", style: Theme.of(context).textTheme.headline5),

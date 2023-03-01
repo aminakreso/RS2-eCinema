@@ -8,10 +8,10 @@ part of 'addStripeCard.dart';
 
 AddStripeCard _$AddStripeCardFromJson(Map<String, dynamic> json) =>
     AddStripeCard(
-      json['cardNumber'] as String,
-      json['expirationYear'] as String,
-      json['expirationMonth'] as String,
-      json['cvc'] as String,
+      json['cardNumber'] as String?,
+      json['expirationYear'] as String?,
+      json['expirationMonth'] as String?,
+      json['cvc'] as String?,
     );
 
 Map<String, dynamic> _$AddStripeCardToJson(AddStripeCard instance) =>

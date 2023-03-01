@@ -86,10 +86,10 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
       return MasterScreenWidget(
           child: Column(
         children: [
-          Container(
-            height: 200,
-            child: imageFromBase64String(movie!.picture!),
-          ),
+          // Container(
+          //   height: 200,
+          //   child: imageFromBase64String(movie!.picture!),
+          // ),
           MovieCardLine(label: 'Duration', text: movie!.duration.toString()),
           MovieCardLine(label: 'Actors', text: movie!.actors),
           MovieCardLine(label: 'Director', text: movie!.director),

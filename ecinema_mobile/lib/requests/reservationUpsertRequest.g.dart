@@ -10,17 +10,18 @@ ReservationUpsertRequest _$ReservationUpsertRequestFromJson(
         Map<String, dynamic> json) =>
     ReservationUpsertRequest()
       ..projectionId = json['projectionId'] as String?
+      ..userId = json['userId'] as String?
       ..projection = json['projection'] == null
           ? null
           : Projection.fromJson(json['projection'] as Map<String, dynamic>)
-      ..seats = (json['seats'] as List<dynamic>?)
-          ?.map((e) => Seat.fromJson(e as Map<String, dynamic>))
-          .toList();
+      ..seatsId =
+          (json['seatsId'] as List<dynamic>?)?.map((e) => e as String).toList();
 
 Map<String, dynamic> _$ReservationUpsertRequestToJson(
         ReservationUpsertRequest instance) =>
     <String, dynamic>{
       'projectionId': instance.projectionId,
+      'userId': instance.userId,
       'projection': instance.projection,
-      'seats': instance.seats,
+      'seatsId': instance.seatsId,
     };

@@ -1,26 +1,24 @@
-import 'dart:ffi';
-
-import 'package:ecinema_mobile/models/seat.dart';
+import 'package:ecinema_mobile/requests/reservationUpsertRequest.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-part 'stripeCustomer.g.dart';
+part 'paymentUpsertRequest.g.dart';
 
 @JsonSerializable()
-class StripeCustomer {
-  String email;
-  String name;
-  String customerId;
+class PaymentUpsertRequest {
+  String? stripePaymentId;
+  double? amount;
+  ReservationUpsertRequest? reservation;
 
-  StripeCustomer(this.email, this.name, this.customerId);
+  PaymentUpsertRequest();
 
   /// A necessary factory constructor for creating a new User instance
   /// from a map. Pass the map to the generated `_$UserFromJson()` constructor.
   /// The constructor is named after the source class, in this case, User.
-  factory StripeCustomer.fromJson(Map<String, dynamic> json) =>
-      _$StripeCustomerFromJson(json);
+  factory PaymentUpsertRequest.fromJson(Map<String, dynamic> json) =>
+      _$PaymentUpsertRequestFromJson(json);
 
   /// `toJson` is the convention for a class to declare support for serialization
   /// to JSON. The implementation simply calls the private, generated
   /// helper method `_$UserToJson`.
-  Map<String, dynamic> toJson() => _$StripeCustomerToJson(this);
+  Map<String, dynamic> toJson() => _$PaymentUpsertRequestToJson(this);
 }

@@ -33,7 +33,7 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
 
   List<MaterialColor>? _colors = List.generate(30, (_) => Colors.grey);
   List<int>? _selectedIndexes = [];
-  List<Seat>? _selectedSeats = [];
+  List<String>? _selectedSeats = [];
 
   MaterialColor? _buttonColor;
 
@@ -102,7 +102,7 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
             Container(
               height: 200,
               width: screenWidth,
-              child: imageFromBase64String(_projection!.movie!.picture!),
+              //child: imageFromBase64String(_projection!.movie!.picture!),
             ),
             Positioned(
               left: 10,
@@ -161,10 +161,11 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
                                   if (_selectedIndexes!
                                       .any((element) => element == index)) {
                                     _selectedIndexes?.remove(index);
-                                    _selectedSeats?.remove(_allSeats![index]);
+                                    _selectedSeats
+                                        ?.remove(_allSeats![index].id);
                                   } else {
                                     _selectedIndexes?.add(index);
-                                    _selectedSeats?.add(_allSeats![index]);
+                                    _selectedSeats?.add(_allSeats![index].id);
                                   }
                                 },
                               )
@@ -179,9 +180,9 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
                   ),
                   TextButton(
                     onPressed: () {
-                      insert?.projectionId = _projection!.id;
+                      insert?.projectionId = widget.id;
                       insert?.projection = _projection;
-                      insert?.seats = _selectedSeats;
+                      insert?.seatsId = _selectedSeats;
 
                       Navigator.push(
                         context,

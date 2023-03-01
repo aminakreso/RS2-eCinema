@@ -11,8 +11,9 @@ part 'reservationUpsertRequest.g.dart';
 @JsonSerializable()
 class ReservationUpsertRequest {
   String? projectionId;
+  String? userId;
   Projection? projection;
-  List<Seat>? seats;
+  List<String>? seatsId;
 
   ReservationUpsertRequest();
 

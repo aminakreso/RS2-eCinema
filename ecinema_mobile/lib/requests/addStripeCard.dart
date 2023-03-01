@@ -7,10 +7,10 @@ part 'addStripeCard.g.dart';
 
 @JsonSerializable()
 class AddStripeCard {
-  String cardNumber;
-  String expirationYear;
-  String expirationMonth;
-  String cvc;
+  String? cardNumber;
+  String? expirationYear;
+  String? expirationMonth;
+  String? cvc;
 
   AddStripeCard(
       this.cardNumber, this.expirationYear, this.expirationMonth, this.cvc);

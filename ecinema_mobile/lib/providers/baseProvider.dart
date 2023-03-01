@@ -70,7 +70,7 @@ abstract class BaseProvider<T> with ChangeNotifier {
   }
 
   Future<T?> insert(dynamic request) async {
-    var url = "$_baseUrl$_endpoint/register";
+    var url = "$_baseUrl$_endpoint";
     var uri = Uri.parse(url);
 
     Map<String, String> headers = createHeaders();
@@ -121,24 +121,24 @@ abstract class BaseProvider<T> with ChangeNotifier {
     }
   }
 
-  Future<T?> addCustomer(dynamic request) async {
-    var url = "$_baseUrl$_endpoint/customer/add";
-    var uri = Uri.parse(url);
+  // Future<T?> addCustomer(dynamic request) async {
+  //   var url = "$_baseUrl$_endpoint/customer/add";
+  //   var uri = Uri.parse(url);
 
-    var headers = {
-      "Content-Type": "application/json",
-      'Connection': 'keep-alive',
-    };
-    var jsonRequest = jsonEncode(request);
-    var response = await http!.post(uri, headers: headers, body: jsonRequest);
+  //   var headers = {
+  //     "Content-Type": "application/json",
+  //     'Connection': 'keep-alive',
+  //   };
+  //   var jsonRequest = jsonEncode(request);
+  //   var response = await http!.post(uri, headers: headers, body: jsonRequest);
 
-    if (isValidResponseCode(response)) {
-      var data = jsonDecode(response.body);
-      return fromJson(data) as T;
-    } else {
-      return null;
-    }
-  }
+  //   if (isValidResponseCode(response)) {
+  //     var data = jsonDecode(response.body);
+  //     return fromJson(data) as T;
+  //   } else {
+  //     return null;
+  //   }
+  // }
 
   Map<String, String> createHeaders() {
     String? username = Authorization.username;
@@ -149,7 +149,7 @@ abstract class BaseProvider<T> with ChangeNotifier {
 
     var headers = {
       "Content-Type": "application/json",
-      //"Authorization": basicAuth,
+      "Authorization": basicAuth,
       'Connection': 'keep-alive',
     };
     return headers;
