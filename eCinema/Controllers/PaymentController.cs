@@ -9,11 +9,9 @@ namespace eCinema.Controllers
 {
     public class PaymentController : BaseCRUDController<PaymentDto, BaseSearchObject, PaymentUpsertRequest, PaymentUpsertRequest>
     {
-        private readonly IPaymentService _paymentService;
         public PaymentController(IPaymentService paymentService)
             : base(paymentService)
         {
-            _paymentService = paymentService;
         }
     }
 }

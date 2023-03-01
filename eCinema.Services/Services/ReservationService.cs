@@ -28,7 +28,7 @@ namespace eCinema.Services.Services
                 UserId = user.Id,
                 DateTime = DateTime.Now,
                 IsActive = true,
-                ProjectionId = insert.PojectionId
+                ProjectionId = insert.ProjectionId
             };
             await _cinemaContext.AddAsync(reservation);
             await _cinemaContext.SaveChangesAsync();

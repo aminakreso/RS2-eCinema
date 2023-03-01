@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace eCinema.Controllers
 {
-    [AllowAnonymous]
     public class ProjectionController : BaseCRUDController<ProjectionDto, ProjectionSearchObject, ProjectionUpsertRequest, ProjectionUpsertRequest>
     {
         private readonly IProjectionService _projectionService;

@@ -20,7 +20,8 @@ namespace eCinema.Services.Services
 
         public override async Task<ProjectionDto> GetById(Guid id)
         {
-            var entity =  await _cinemaContext.Projections.Include(x => x.Movie).FirstOrDefaultAsync(x => x.Id == id);
+            var entity =  await _cinemaContext.Projections.Include(x => x.Movie)
+                .Include(x=> x.Price).FirstOrDefaultAsync(x => x.Id == id);
             return _mapper.Map<ProjectionDto>(entity);
 
         }
@@ -92,6 +93,7 @@ namespace eCinema.Services.Services
         public override IQueryable<Projection> AddInclude(IQueryable<Projection> query, ProjectionSearchObject search = null)
         {
             query = query.Include(x => x.Movie);
+            query = query.Include(x => x.Price);
             return query;
         }
         

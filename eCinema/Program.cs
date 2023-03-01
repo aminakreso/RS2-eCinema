@@ -50,6 +50,7 @@ builder.Services.AddTransient<IRoleService, RoleService>();
 builder.Services.AddTransient<IHallService, HallService>();
 builder.Services.AddTransient<IReservationService, ReservationService>();
 builder.Services.AddTransient<ISeatReservationService, SeatReservationService>();
+builder.Services.AddTransient<IPaymentService, PaymentService>();
 
 builder.Services.AddTransient<BaseProjectionState>();
 builder.Services.AddTransient<InitialProjectionState>();
@@ -61,9 +62,6 @@ builder.Services.AddAutoMapper(typeof(INotificationService));
 
 builder.Services.AddAuthentication("BasicAuthentication")
     .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
-
-// Add Stripe Infrastructure
-builder.Services.AddStripeInfrastructure(builder.Configuration);
 
 var app = builder.Build();
 

@@ -15,6 +15,8 @@
 
         public Guid? PriceId { get; set; }
         
+        public PriceDto Price { get; set; }
+
         public string? ProjectionType { get; set; }
         
         public string? StateMachine { get; set; }

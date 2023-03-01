@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace eCinema.Controllers
-{   [AllowAnonymous]
+{   
     public class MovieController : BaseCRUDController<MovieDto, MovieSearchObject, MovieUpsertRequest, MovieUpsertRequest>
     {
         private readonly IMovieService _movieService;

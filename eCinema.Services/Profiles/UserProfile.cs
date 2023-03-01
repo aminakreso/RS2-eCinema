@@ -36,6 +36,8 @@ namespace eCinema.Services.Profiles
             CreateMap<Reservation, ReservationDto>().ReverseMap();
             
             CreateMap<SeatxrefReservation, SeatxrefReservationDto>().ReverseMap();
+            
+            CreateMap<PaymentDto, Payment>().ReverseMap();
 
         }
     }
