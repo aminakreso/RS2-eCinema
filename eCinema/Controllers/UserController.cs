@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace eCinema.Controllers
 {
+    [AllowAnonymous]
     public class UserController : BaseCRUDController<UserDto, UserSearchObject, UserInsertRequest, UserUpdateRequest>
     {
         private readonly IUserService _userService;
