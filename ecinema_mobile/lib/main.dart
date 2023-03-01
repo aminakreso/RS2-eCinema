@@ -120,53 +120,8 @@ class MovieList extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(children: [
           Center(
-            child: Column(
-              children: [
-                Container(
-                  padding: EdgeInsets.fromLTRB(0, 50.0, 0, 0),
-                  child: Icon(
-                    Icons.airplane_ticket,
-                    color: Colors.red[900],
-                    size: 100,
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "e",
-                      style: Theme.of(context).textTheme.headline2,
-                    ),
-                    Text(
-                      "Cinema",
-                      style: Theme.of(context).textTheme.headline3,
-                    ),
-                  ],
-                ),
-                Text(
-                  "ticket in your pocket",
-                  style: Theme.of(context).textTheme.bodyText2,
-                ),
-                SizedBox(
-                  height: 50,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Log",
-                      style: Theme.of(context).textTheme.headline1,
-                    ),
-                    Text(
-                      "In",
-                      style: Theme.of(context).textTheme.headline4,
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 50,
-                ),
-              ],
+            child: LogoText(
+              login: true,
             ),
           ),
           Container(
@@ -238,5 +193,76 @@ class MovieList extends StatelessWidget {
                 )
               ],
             ));
+  }
+}
+
+class LogoText extends StatelessWidget {
+  final bool login;
+  const LogoText({
+    required this.login,
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          padding: EdgeInsets.fromLTRB(0, 50.0, 0, 0),
+          child: Icon(
+            Icons.airplane_ticket,
+            color: Colors.red[900],
+            size: 100,
+          ),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "e",
+              style: Theme.of(context).textTheme.headline2,
+            ),
+            Text(
+              "Cinema",
+              style: Theme.of(context).textTheme.headline3,
+            ),
+          ],
+        ),
+        Text(
+          "ticket in your pocket",
+          style: Theme.of(context).textTheme.bodyText2,
+        ),
+        SizedBox(
+          height: 50,
+        ),
+        if (login) LoginText(),
+        SizedBox(
+          height: 50,
+        ),
+      ],
+    );
+  }
+}
+
+class LoginText extends StatelessWidget {
+  const LoginText({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          "Log",
+          style: Theme.of(context).textTheme.headline1,
+        ),
+        Text(
+          "In",
+          style: Theme.of(context).textTheme.headline4,
+        ),
+      ],
+    );
   }
 }
