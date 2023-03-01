@@ -98,16 +98,14 @@ namespace eCinema.Services.Services
             [AllowAnonymous]
             public async Task<UserDto> Register(RegistrationRequest registration)
             {
-                // var user = JsonSerializer.Deserialize<UserDto>(registration.ToString());
-                // return user;
-                var user = new User
+               var user = new User
                 {
                     FirstName = registration.FirstName,
                     LastName = registration.LastName,
                     Email = registration.Email,
                     PhoneNumber = registration.PhoneNumber,
                     Username = registration.Username,
-                    RoleId = new Guid("c1ec4da0-3eb8-47b3-83b5-6d8fbf31b30f"),
+                    RoleId = new Guid("7ba66fcc-69b4-465e-8ad4-4f7d1a7b1788"),
                 };
                 var salt = GenerateSalt();
                 user.LozinkaSalt = salt;

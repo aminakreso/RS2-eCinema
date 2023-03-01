@@ -8,11 +8,11 @@ import 'package:ecinema_mobile/providers/userProvider.dart';
 import 'package:ecinema_mobile/screens/movieDetailsScreen.dart';
 import 'package:ecinema_mobile/screens/movieListScreen.dart';
 import 'package:ecinema_mobile/screens/myProfileScreen.dart';
-import 'package:ecinema_mobile/screens/paymentScreen.dart';
 import 'package:ecinema_mobile/screens/reservationListScreen.dart';
 import 'package:ecinema_mobile/screens/seatSelectionScreen.dart';
 import 'package:ecinema_mobile/screens/userRegistrationScreen.dart';
 import 'package:ecinema_mobile/utils/util.dart';
+import 'package:ecinema_mobile/wigdets/logoTextWidget.dart';
 import 'package:ecinema_mobile/wigdets/textInputWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
@@ -111,71 +111,79 @@ class MovieList extends StatelessWidget {
   static const String routeName = "/login";
   TextEditingController _usernameController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
+
+  final _formKey = GlobalKey<FormState>();
   //late UserProvider _userProvider;
 
   @override
   Widget build(BuildContext context) {
     //_userProvider = Provider.of<UserProvider>(context, listen: false);
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(children: [
-          Center(
-            child: LogoText(
-              login: true,
-            ),
-          ),
-          Container(
-              decoration: BoxDecoration(
-                color: Colors.white70,
-                borderRadius: BorderRadius.circular(10),
+    return Form(
+      key: _formKey,
+      child: Scaffold(
+        body: SingleChildScrollView(
+          child: Column(children: [
+            Center(
+              child: LogoTextWidget(
+                login: true,
               ),
-              child: Column(
-                children: [
-                  TextInputWidget(
-                    controller: _usernameController,
-                    labelText: 'e-mail',
-                  ),
-                  TextInputWidget(
-                    controller: _passwordController,
-                    labelText: 'password',
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: TextButton(
-                          onPressed: () async {
-                            try {
-                              Authorization.username = _usernameController.text;
-                              Authorization.password = _passwordController.text;
-
-                              Navigator.pushNamed(
-                                  context, MovieListScreen.routeName);
-                            } catch (e) {
-                              errorDialog(context, e);
-                            }
-                          },
-                          child: Text("Login"),
-                        ),
-                      ),
-                      Expanded(
+            ),
+            Container(
+                decoration: BoxDecoration(
+                  color: Colors.white70,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Column(
+                  children: [
+                    TextInputWidget(
+                      controller: _usernameController,
+                      labelText: 'E-mail',
+                    ),
+                    TextInputWidget(
+                      controller: _passwordController,
+                      labelText: 'Password',
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
                           child: TextButton(
                               onPressed: () async {
-                                try {
-                                  Navigator.pushNamed(context,
-                                      UserRegistrationScreen.routeName);
-                                } catch (e) {
-                                  errorDialog(context, e);
+                                if (_formKey.currentState!.validate()) {
+                                  try {
+                                    Authorization.username =
+                                        _usernameController.text;
+                                    Authorization.password =
+                                        _passwordController.text;
+
+                                    Navigator.pushNamed(
+                                        context, MovieListScreen.routeName);
+                                  } catch (e) {
+                                    errorDialog(context, e);
+                                  }
                                 }
                               },
-                              child: Text("Register")))
-                    ],
-                  )
-                ],
-              ))
-        ]),
+                              child: Text("Login")),
+                        ),
+                        Expanded(
+                            child: TextButton(
+                                onPressed: () async {
+                                  try {
+                                    Navigator.pushNamed(context,
+                                        UserRegistrationScreen.routeName);
+                                  } catch (e) {
+                                    errorDialog(context, e);
+                                  }
+                                },
+                                child: Text("Register")))
+                      ],
+                    )
+                  ],
+                ))
+          ]),
+        ),
       ),
     );
   }
@@ -193,76 +201,5 @@ class MovieList extends StatelessWidget {
                 )
               ],
             ));
-  }
-}
-
-class LogoText extends StatelessWidget {
-  final bool login;
-  const LogoText({
-    required this.login,
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          padding: EdgeInsets.fromLTRB(0, 50.0, 0, 0),
-          child: Icon(
-            Icons.airplane_ticket,
-            color: Colors.red[900],
-            size: 100,
-          ),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              "e",
-              style: Theme.of(context).textTheme.headline2,
-            ),
-            Text(
-              "Cinema",
-              style: Theme.of(context).textTheme.headline3,
-            ),
-          ],
-        ),
-        Text(
-          "ticket in your pocket",
-          style: Theme.of(context).textTheme.bodyText2,
-        ),
-        SizedBox(
-          height: 50,
-        ),
-        if (login) LoginText(),
-        SizedBox(
-          height: 50,
-        ),
-      ],
-    );
-  }
-}
-
-class LoginText extends StatelessWidget {
-  const LoginText({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          "Log",
-          style: Theme.of(context).textTheme.headline1,
-        ),
-        Text(
-          "In",
-          style: Theme.of(context).textTheme.headline4,
-        ),
-      ],
-    );
   }
 }
