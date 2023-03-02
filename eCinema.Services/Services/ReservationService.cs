@@ -69,6 +69,7 @@ namespace eCinema.Services.Services
         {
             query = query.Include(x => x.SeatsReservations);
             query = query.Include(x => x.Projection);
+            query = query.Include(x => x.Projection.Movie);
             return query;
         }
         

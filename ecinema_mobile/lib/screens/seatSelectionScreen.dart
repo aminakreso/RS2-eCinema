@@ -5,7 +5,6 @@ import 'package:ecinema_mobile/requests/reservationUpsertRequest.dart';
 import 'package:ecinema_mobile/screens/reservationDetailsScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../models/seatxrefReservation.dart';
 import '../providers/hallProvider.dart';
 import '../providers/seatReservationProvider.dart';
@@ -31,13 +30,15 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
   HallProvider? _hallProvider = null;
   ProjectionProvider? _projectionProvider = null;
 
-  List<MaterialColor>? _colors = List.generate(30, (_) => Colors.grey);
+  late List<MaterialColor>? _colors;
   List<int>? _selectedIndexes = [];
   List<String>? _selectedSeats = [];
 
   MaterialColor? _buttonColor;
 
   ReservationUpsertRequest? insert = ReservationUpsertRequest();
+
+  bool _isButtonEnabled = true;
 
   void _changeButtonColor(int index) {
     bool _isTaken = _reservedSeats!
@@ -66,26 +67,33 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
   Future loadData() async {
     var projection = await _projectionProvider?.getById(this.widget.id);
 
-    setState(() {
-      _projection = projection;
-      loadAllSeats(_projection!.hallId);
-      load_ReservedSeats(_projection!.id);
-    });
+    if (projection != null) {
+      setState(() {
+        _projection = projection;
+        loadAllSeats(_projection!.hallId);
+        load_ReservedSeats(_projection!.id);
+      });
+    }
   }
 
   Future loadAllSeats(String hallId) async {
     var hall = await _hallProvider?.getById(hallId);
-    setState(() {
-      _allSeats = hall?.seat;
-    });
+    if (hall != null) {
+      setState(() {
+        _allSeats = hall.seat;
+        _colors = List.generate(_allSeats?.length ?? 0, (_) => Colors.grey);
+      });
+    }
   }
 
   Future load_ReservedSeats(String projectionId) async {
     var searchRequest = {'ProjectionId': projectionId};
     var tmp_ReservedSeats = await _seatReservationProvider?.get(searchRequest);
-    setState(() {
-      _reservedSeats = tmp_ReservedSeats;
-    });
+    if (tmp_ReservedSeats != null) {
+      setState(() {
+        _reservedSeats = tmp_ReservedSeats;
+      });
+    }
   }
 
   @override
@@ -102,13 +110,13 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
             Container(
               height: 200,
               width: screenWidth,
-              //child: imageFromBase64String(_projection!.movie!.picture!),
+              child: imageFromBase64String(_projection!.movie!.picture!),
             ),
             Positioned(
               left: 10,
               top: 100,
               child: Text(
-                _projection!.movie!.name!,
+                _projection?.movie?.name ?? "",
                 style: Theme.of(context).textTheme.headline1,
               ),
             )
@@ -126,7 +134,7 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
                       Container(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
-                          "${getDate(_projection!.startTime!)}",
+                          "${getDate(_projection?.startTime)}",
                           style: TextStyle(color: Colors.black, fontSize: 16),
                         ),
                       ),
@@ -135,7 +143,7 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
                           padding: EdgeInsets.all(5),
                           color: Colors.red[900],
                           child: Text(
-                            "${getTime(_projection!.startTime!)}",
+                            "${getTime(_projection?.startTime)}",
                             style: TextStyle(color: Colors.white, fontSize: 16),
                           )),
                     ],
@@ -152,48 +160,33 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
                   Expanded(
                     child: GridView.count(
                         crossAxisCount: 5,
-                        children: List.generate(_allSeats!.length, (index) {
+                        children:
+                            List.generate(_allSeats?.length ?? 0, (index) {
                           _changeButtonColor(index);
                           return InkWell(
-                            onLongPress: () => {
-                              setState(
-                                () {
-                                  if (_selectedIndexes!
-                                      .any((element) => element == index)) {
-                                    _selectedIndexes?.remove(index);
-                                    _selectedSeats
-                                        ?.remove(_allSeats![index].id);
-                                  } else {
-                                    _selectedIndexes?.add(index);
-                                    _selectedSeats?.add(_allSeats![index].id);
+                            onLongPress: _isButtonEnabled
+                                ? () {
+                                    if (_colors?[index] != Colors.red) {
+                                      setState(() {
+                                        if (_selectedIndexes!.any(
+                                            (element) => element == index)) {
+                                          _selectedIndexes?.remove(index);
+                                          _selectedSeats
+                                              ?.remove(_allSeats![index].id);
+                                        } else {
+                                          _selectedIndexes?.add(index);
+                                          _selectedSeats
+                                              ?.add(_allSeats![index].id);
+                                        }
+                                      });
+                                    }
                                   }
-                                },
-                              )
-                            },
+                                : null,
                             child: Icon(Icons.square, color: _colors![index]),
                           );
-                        })
-
-                        //_changeButtonColor(index);
-
-                        ),
+                        })),
                   ),
-                  TextButton(
-                    onPressed: () {
-                      insert?.projectionId = widget.id;
-                      insert?.projection = _projection;
-                      insert?.seatsId = _selectedSeats;
-
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ReservationDetailsScreen(
-                              reservationInsertRequest: insert!),
-                        ),
-                      );
-                    },
-                    child: Text("Confirm reservation"),
-                  )
+                  availableSeatsLeft(context)
                 ],
               ),
             ),
@@ -201,5 +194,37 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
         ],
       ));
     }
+  }
+
+  Widget availableSeatsLeft(BuildContext context) {
+    var freeSeats = _colors!.any((x) => x == Colors.grey || x == Colors.amber);
+    if (!freeSeats) {
+      setState(() {
+        _isButtonEnabled = freeSeats;
+      });
+    }
+    if (freeSeats) {
+      return TextButton(
+        onPressed: () {
+          insert?.projectionId = widget.id;
+          insert?.projection = _projection;
+          insert?.seatsId = _selectedSeats;
+
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) =>
+                  ReservationDetailsScreen(reservationInsertRequest: insert!),
+            ),
+          );
+        },
+        child: Text("Confirm reservation"),
+      );
+    }
+    return Center(
+        child: Text(
+      "There is no available seats!",
+      style: Theme.of(context).textTheme.headline2,
+    ));
   }
 }

@@ -2,10 +2,10 @@ import 'package:ecinema_mobile/models/reservation.dart';
 import 'package:ecinema_mobile/providers/reservationProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../utils/util.dart';
 import '../wigdets/headerWidget.dart';
 import '../wigdets/master_screen.dart';
+import '../wigdets/movieCardLine.dart';
 
 class ReservationListScreen extends StatefulWidget {
   static const String routeName = "/reservation";
@@ -16,7 +16,8 @@ class ReservationListScreen extends StatefulWidget {
 
 class _ReservationListScreenState extends State<ReservationListScreen> {
   ReservationProvider? _reservationProvider = null;
-  List<Reservation>? data = [];
+
+  List<Reservation>? data = null;
   TextEditingController _searchController = TextEditingController();
   @override
   void initState() {
@@ -28,7 +29,6 @@ class _ReservationListScreenState extends State<ReservationListScreen> {
   Future loadData() async {
     if (Authorization.username != null) {
       var searchRequest = {'User': Authorization.username};
-      // Ne posalje se request
       var tmpData = await _reservationProvider?.get(searchRequest);
       setState(() {
         data = tmpData;
@@ -38,7 +38,7 @@ class _ReservationListScreenState extends State<ReservationListScreen> {
 
   @override
   Widget build(BuildContext context) {
-    if (data == null)
+    if (data == null || data == [])
       return Text("No available reservation yet",
           style: Theme.of(context).textTheme.headline3);
     return MasterScreenWidget(
@@ -68,33 +68,31 @@ class _ReservationListScreenState extends State<ReservationListScreen> {
             child: imageFromBase64String(x.projection!.movie!.picture!),
           ),
           Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("${x.projection!.movie!.name}",
+              Text("${x.projection?.movie?.name}",
                   style: Theme.of(context).textTheme.headline5),
               SizedBox(
                 height: 10,
               ),
-              Text(
-                "${x.projection!.movie!.director}",
-                style: TextStyle(
-                    color: Colors.red[900],
-                    fontWeight: FontWeight.bold,
-                    fontSize: 12),
-              ),
-              Text(
-                "${x.projection!.movie!.genres}",
-                style: TextStyle(
-                    color: Colors.red[900],
-                    fontWeight: FontWeight.bold,
-                    fontSize: 12),
-              ),
-              Text(
-                "${x.projection!.startTime.toString()}",
-                style: TextStyle(
-                    color: Colors.red[900],
-                    fontWeight: FontWeight.bold,
-                    fontSize: 12),
-              )
+              MovieCardLine(
+                  label: "Director :",
+                  text: "${x.projection?.movie?.director ?? "Movie name"}",
+                  font: 14),
+              MovieCardLine(
+                  label: "Genres :",
+                  text: "${x.projection?.movie?.genres ?? "Movie genres"}",
+                  font: 14),
+              MovieCardLine(
+                  label: "Projection date :",
+                  text:
+                      "${getDate(x.projection?.startTime) ?? "Projection date"}",
+                  font: 14),
+              MovieCardLine(
+                  label: "Projection time :",
+                  text:
+                      "${getTime(x.projection?.startTime) ?? "Projection start time"}",
+                  font: 14),
             ],
           ),
         ],

@@ -34,10 +34,12 @@ String formatNumber(dynamic) {
   return f.format(dynamic);
 }
 
-String getDate(DateTime dateTime) {
+String getDate(DateTime? dateTime) {
+  if (dateTime == null) return "Invalid format";
   return DateFormat("yyyy-MM-dd").format(dateTime);
 }
 
-String getTime(DateTime dateTime) {
+String getTime(DateTime? dateTime) {
+  if (dateTime == null) return "Invalid format";
   return DateFormat('HH:mm').format(dateTime);
 }
