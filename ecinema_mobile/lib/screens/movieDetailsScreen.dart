@@ -1,14 +1,8 @@
-import 'dart:convert';
-import 'dart:io';
-
 import 'package:ecinema_mobile/models/projection.dart';
 import 'package:ecinema_mobile/providers/projectionProvider.dart';
 import 'package:ecinema_mobile/screens/seatSelectionScreen.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-import 'package:collection/collection.dart';
-
 import '../models/movie.dart';
 import '../providers/movieProvider.dart';
 import '../utils/util.dart';
@@ -86,10 +80,10 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
       return MasterScreenWidget(
           child: Column(
         children: [
-          // Container(
-          //   height: 200,
-          //   child: imageFromBase64String(movie!.picture!),
-          // ),
+          Container(
+            height: 200,
+            child: imageFromBase64String(movie!.picture!),
+          ),
           MovieCardLine(label: 'Duration', text: movie!.duration.toString()),
           MovieCardLine(label: 'Actors', text: movie!.actors),
           MovieCardLine(label: 'Director', text: movie!.director),
@@ -119,33 +113,41 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                   style: Theme.of(context).textTheme.bodyText1,
                 ),
                 Row(
-                  children: _createTimeButtonsList(date)!,
+                  children: _createTimeButtonsList(date),
                 )
               ],
             )));
   }
 
-  List<Widget>? _createTimeButtonsList(String date) {
-    List<Projection?> list = movieProjection!
-        .where((x) => getDate(x.startTime!) == date)
-        //.map((x) => x.startTime)
-        .toList();
+  List<Widget> _createTimeButtonsList(String date) {
+    List<Projection?>? list =
+        movieProjection?.where((x) => getDate(x.startTime) == date).toList();
+
+    if (list == null) {
+      Text text = Text("No available projections",
+          style: Theme.of(context).textTheme.headline2);
+      List<Text> list = List.empty();
+      list.add(text);
+      return list;
+    }
 
     List<Widget> newList = list
         .map((x) => Container(
+              padding: EdgeInsets.all(8.0),
               child: InkWell(
                 onTap: () {
                   Navigator.pushNamed(
-                      context, "${SeatSelectionScreen.routeName}/${x.id}");
+                      context, "${SeatSelectionScreen.routeName}/${x?.id}");
                 },
                 child: Text(
-                  getTime(x!.startTime!),
+                  getTime(x?.startTime),
                   style: Theme.of(context).textTheme.bodyText1,
                 ),
               ),
             ))
         .cast<Widget>()
         .toList();
+
     return newList;
   }
 }

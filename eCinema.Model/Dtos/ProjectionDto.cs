@@ -9,6 +9,7 @@
         public DateTime? EndTime { get; set; }
 
         public Guid HallId { get; set; }
+        public HallDto Hall { get; set; }
         
         public Guid MovieId { get; set; }
         public MovieDto Movie { get; set; }

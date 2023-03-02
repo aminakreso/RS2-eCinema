@@ -32,9 +32,9 @@ namespace eCinema.WinUI
                 txtLastName.Text = _model.LastName;
                 txtEmail.Text = _model.Email;
                 txtPhoneNumber.Text = _model.PhoneNumber;
-                txtUsername.Text = _model.Username;
-                txtPassword.Text = _model.Password;
-                txtConfirmPassword.Text = _model.ConfirmPassword;
+                //txtUsername.Text = _model.Username;
+                //txtPassword.Text = _model.Password;
+                //txtConfirmPassword.Text = _model.ConfirmPassword;
                 cmbRole.Text = _model.Role?.Name;
                 cbIsActive.Checked = _model.IsActive.GetValueOrDefault(false);
             }
@@ -84,10 +84,10 @@ namespace eCinema.WinUI
                     LastName = txtLastName.Text,
                     Email = txtEmail.Text,
                     PhoneNumber = txtPhoneNumber.Text,
-                    Password = txtPassword.Text,
-                    ConfirmPassword = txtConfirmPassword.Text,
-                    RoleId = roleId,
-                    IsActive = cbIsActive.Checked,
+                    //Password = txtPassword.Text,
+                    //ConfirmPassword = txtConfirmPassword.Text,
+                    //RoleId = roleId,
+                    //IsActive = cbIsActive.Checked,
                 };
 
                 _model = await _userService.Put<UserDto>(_model.Id, update);
