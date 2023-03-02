@@ -32,9 +32,6 @@ namespace eCinema.WinUI
                 txtLastName.Text = _model.LastName;
                 txtEmail.Text = _model.Email;
                 txtPhoneNumber.Text = _model.PhoneNumber;
-                //txtUsername.Text = _model.Username;
-                //txtPassword.Text = _model.Password;
-                //txtConfirmPassword.Text = _model.ConfirmPassword;
                 cmbRole.Text = _model.Role?.Name;
                 cbIsActive.Checked = _model.IsActive.GetValueOrDefault(false);
             }
@@ -54,44 +51,75 @@ namespace eCinema.WinUI
 
         private async void btnSave_Click(object sender, EventArgs e)
         {
-            if (!ValidateChildren())
-                throw new Exception("Validation failed!");
-
-            var roleId = (Guid)cmbRole.SelectedValue;
-
-            if(_model is null)
+            if (ValidateChildren())
             {
-                var insert = new UserInsertRequest
-                {
-                    FirstName = txtFirstName.Text,
-                    LastName = txtLastName.Text,
-                    Email = txtEmail.Text,
-                    PhoneNumber = txtPhoneNumber.Text,
-                    Username = txtUsername.Text,
-                    Password = txtPassword.Text,
-                    ConfirmPassword = txtConfirmPassword.Text,
-                    RoleId = roleId,
-                    IsActive = cbIsActive.Checked,
-                };
+                var roleId = (Guid)cmbRole.SelectedValue;
 
-                var user = await _userService.Post<UserDto>(insert);
-            }
-            else
-            {
-                var update = new UserUpdateRequest
+                if (_model is null)
                 {
-                    FirstName = txtFirstName.Text,
-                    LastName = txtLastName.Text,
-                    Email = txtEmail.Text,
-                    PhoneNumber = txtPhoneNumber.Text,
-                    //Password = txtPassword.Text,
-                    //ConfirmPassword = txtConfirmPassword.Text,
-                    //RoleId = roleId,
-                    //IsActive = cbIsActive.Checked,
-                };
+                    var insert = new UserInsertRequest
+                    {
+                        FirstName = txtFirstName.Text,
+                        LastName = txtLastName.Text,
+                        Email = txtEmail.Text,
+                        PhoneNumber = txtPhoneNumber.Text,
+                        Username = txtUsername.Text,
+                        Password = txtPassword.Text,
+                        ConfirmPassword = txtConfirmPassword.Text,
+                        RoleId = roleId,
+                        IsActive = cbIsActive.Checked,
+                    };
 
-                _model = await _userService.Put<UserDto>(_model.Id, update);
+                    var user = await _userService.Post<UserDto>(insert);
+                    MessageBox.Show("User added.");
+                    this.Close();
+                }
+                else
+                {
+                    var update = new UserAdminUpdateRequest
+                    {
+                        FirstName = txtFirstName.Text,
+                        LastName = txtLastName.Text,
+                        Email = txtEmail.Text,
+                        PhoneNumber = txtPhoneNumber.Text,
+                        RoleId = roleId,
+                        IsActive = cbIsActive.Checked,
+                    };
+
+                    _model = await _userService.PutAdminUser<UserDto>(_model.Id, update);
+                    MessageBox.Show("User edited.");
+                    this.Close();
+                }
             }
         }
+
+        private void cmbRole_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtFirstName_Validating(object sender, CancelEventArgs e)
+        {
+            ValidationHelper.Validate(txtFirstName, e, "First name", errorProvider);
+        }
+
+        private void txtLastName_Validating(object sender, CancelEventArgs e)
+        {
+            ValidationHelper.Validate(txtLastName, e, "Last name", errorProvider);
+        }
+
+        private void txtEmail_Validating(object sender, CancelEventArgs e)
+        {
+            ValidationHelper.Validate(txtEmail, e, "Email", errorProvider);
+        }
+
+        private void txtPhoneNumber_Validating(object sender, CancelEventArgs e)
+        {
+            ValidationHelper.Validate(txtPhoneNumber, e, "Phone number", errorProvider);
+        }
+
+       
+
+      
     }
 }

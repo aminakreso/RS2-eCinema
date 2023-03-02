@@ -42,7 +42,12 @@ public class APIService
     {
         return await $"{_endpoint}{_resource}/{id}".WithBasicAuth(Username, Password).PutJsonAsync(request).ReceiveJson<T>();
     }
-    
+
+    public async Task<T> PutAdminUser<T>(Guid id, object request)
+    {
+        return await $"{_endpoint}{_resource}/adminUpdate/{id}".WithBasicAuth(Username, Password).PutJsonAsync(request).ReceiveJson<T>();
+    }
+
     public async Task<T> Delete<T>(Guid id)
     {
         return await $"{_endpoint}{_resource}/{id}".WithBasicAuth(Username, Password).PutJsonAsync(id).ReceiveJson<T>();

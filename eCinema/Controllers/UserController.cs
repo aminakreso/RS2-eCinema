@@ -24,5 +24,11 @@ namespace eCinema.Controllers
         {
             return await _userService.Register(registration);
         }
+
+        [HttpPut("adminUpdate/{id}")]
+        public virtual async Task<UserDto> AdminUpdate(Guid id, [FromBody] UserAdminUpdateRequest updateRequest)
+        {
+            return await _userService.UpdateUserAdmin(id, updateRequest);
+        }
     }
 }

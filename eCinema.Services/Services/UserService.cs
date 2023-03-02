@@ -19,6 +19,22 @@ namespace eCinema.Services.Services
         {
         }
 
+        public async Task<UserDto> UpdateUserAdmin(Guid id, UserAdminUpdateRequest update)
+        {
+
+            var entity = await _cinemaContext.Users.FindAsync(id);
+
+            if (entity is null)
+                throw new InvalidOperationException();
+
+            _mapper.Map(update, entity);
+
+            await _cinemaContext.SaveChangesAsync();
+
+            return _mapper.Map<UserDto>(entity);
+
+        }
+
         public override void BeforeInsert(UserInsertRequest insert, User entity)
         {
             var salt = GenerateSalt();

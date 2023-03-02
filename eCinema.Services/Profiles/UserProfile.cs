@@ -26,6 +26,7 @@ namespace eCinema.Services.Profiles
             CreateMap<User, UserDto>().ReverseMap();
             CreateMap<User, UserInsertRequest>().ReverseMap();
             CreateMap<User, UserUpdateRequest>().ReverseMap();
+            CreateMap<User, UserAdminUpdateRequest>().ReverseMap();
             
             CreateMap<Role, RoleDto>().ReverseMap();
 

@@ -9,5 +9,6 @@ namespace eCinema.Services.Services
     {
         Task<UserDto> Login(string username, string password);
         Task<UserDto> Register(RegistrationRequest registration);
+        Task<UserDto> UpdateUserAdmin(Guid id, UserAdminUpdateRequest update);
     }
 }
