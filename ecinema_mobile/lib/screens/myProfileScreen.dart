@@ -1,18 +1,9 @@
-import 'dart:convert';
-import 'dart:io';
-
-import 'package:ecinema_mobile/models/reservation.dart';
-import 'package:ecinema_mobile/providers/reservationProvider.dart';
 import 'package:ecinema_mobile/providers/userProvider.dart';
 import 'package:ecinema_mobile/screens/movieListScreen.dart';
-import 'package:ecinema_mobile/wigdets/textInputWidget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
-import '../models/movie.dart';
 import '../models/user.dart';
-import '../providers/movieProvider.dart';
 import '../requests/userUpdateRequest.dart';
 import '../utils/util.dart';
 import '../wigdets/headerWidget.dart';
@@ -36,6 +27,8 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
   TextEditingController _phoneController = new TextEditingController();
   TextEditingController _usernameController = new TextEditingController();
 
+  final _formKey = GlobalKey<FormState>();
+
   @override
   void initState() {
     super.initState();
@@ -44,67 +37,102 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
   }
 
   Future loadData() async {
-    var tmpData =
-        await _userProvider?.getById("8624280d-0da0-48bb-c4c8-08db0f698d29");
-    setState(() {
-      user = tmpData;
-      _firstNameController.text = tmpData!.firstName!;
-      _lastnameController.text = tmpData.lastName!;
-      _emailController.text = tmpData.email!;
-      _phoneController.text = tmpData.phoneNumber!;
-      _usernameController.text = tmpData.username!;
-    });
+    if (Authorization.id != null) {
+      var tmpData = await _userProvider?.getById(Authorization.id!);
 
-    print(user);
+      setState(() {
+        user = tmpData;
+        _firstNameController.text = tmpData?.firstName ?? "";
+        _lastnameController.text = tmpData?.lastName ?? "";
+        _emailController.text = tmpData?.email ?? "";
+        _phoneController.text = tmpData?.phoneNumber ?? "";
+        _usernameController.text = tmpData?.username ?? "";
+      });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    return MasterScreenWidget(
-      child: Column(
-        children: [
-          HeaderWidget(title: "My Profile"),
-          setProfileInput(_firstNameController),
-          setProfileInput(_lastnameController),
-          setProfileInput(_emailController),
-          setProfileInput(_phoneController),
-          setProfileInput(_usernameController),
-          Row(
-            children: [
-              TextButton(
-                onPressed: () async {},
-                child: Text('Change password'),
-              ),
-              TextButton(
-                onPressed: () async {
-                  userUpdateRequest.firstName = _firstNameController.text;
-                  userUpdateRequest.lastName = _lastnameController.text;
-                  userUpdateRequest.email = _emailController.text;
-                  userUpdateRequest.phoneNumber = _phoneController.text;
-                  userUpdateRequest.username = _usernameController.text;
+    if (user == null)
+      return Text("User doesn't exist",
+          style: Theme.of(context).textTheme.headline3);
+    return Form(
+      key: _formKey,
+      child: MasterScreenWidget(
+        child: Column(
+          children: [
+            HeaderWidget(title: "My Profile"),
+            setProfileInput(_firstNameController, "First name"),
+            setProfileInput(_lastnameController, "Last name"),
+            setProfileInput(_emailController, "Email"),
+            setProfileInput(_phoneController, "Phone number"),
+            setProfileInput(_usernameController, "Username"),
+            Row(
+              children: [
+                TextButton(
+                  onPressed: () async {},
+                  child: Text('Change password'),
+                ),
+                TextButton(
+                  onPressed: () async {
+                    if (_formKey.currentState!.validate()) {
+                      try {
+                        userUpdateRequest.firstName = _firstNameController.text;
+                        userUpdateRequest.lastName = _lastnameController.text;
+                        userUpdateRequest.email = _emailController.text;
+                        userUpdateRequest.phoneNumber = _phoneController.text;
+                        userUpdateRequest.username = _usernameController.text;
 
-                  await _userProvider?.update(user!.id, userUpdateRequest);
-                  Navigator.pushNamed(context, MovieListScreen.routeName);
-                },
-                child: Text('Save'),
-              )
-            ],
-          )
-        ],
+                        await _userProvider?.update(
+                            user!.id, userUpdateRequest);
+                        Navigator.pushNamed(context, MovieListScreen.routeName);
+                      } catch (e) {
+                        errorDialog(context, e);
+                      }
+                    }
+                  },
+                  child: Text('Save'),
+                )
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
 
-  Container setProfileInput(TextEditingController controller) {
+  Container setProfileInput(
+      TextEditingController controller, String labelText) {
     return Container(
         margin: EdgeInsets.all(8),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(10),
         ),
-        child: TextField(
+        child: TextFormField(
+          validator: (value) {
+            if (value!.isEmpty) {
+              return '$labelText must not be empty!';
+            }
+            return null;
+          },
           style: Theme.of(context).textTheme.bodyText1,
           controller: controller,
         ));
   }
+}
+
+Future<dynamic> errorDialog(BuildContext context, Object e) {
+  return showDialog(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+            title: Text("Error"),
+            content: Text(e.toString()),
+            actions: [
+              TextButton(
+                child: Text("Ok"),
+                onPressed: () => Navigator.pop(context),
+              )
+            ],
+          ));
 }

@@ -7,10 +7,12 @@ part of 'reservation.dart';
 // **************************************************************************
 
 Reservation _$ReservationFromJson(Map<String, dynamic> json) => Reservation(
-      json['id'] as String,
-      json['userId'] as String,
-      json['projectionId'] as String,
-      Projection.fromJson(json['projection'] as Map<String, dynamic>),
+      json['id'] as String?,
+      json['userId'] as String?,
+      json['projectionId'] as String?,
+      json['projection'] == null
+          ? null
+          : Projection.fromJson(json['projection'] as Map<String, dynamic>),
       json['isActive'] as bool?,
       json['dateTime'] == null
           ? null

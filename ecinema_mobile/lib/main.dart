@@ -20,6 +20,7 @@ import 'package:provider/provider.dart';
 import 'package:ecinema_mobile/.env';
 
 import 'models/payment.dart';
+import 'models/user.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -113,11 +114,11 @@ class MovieList extends StatelessWidget {
   TextEditingController _passwordController = TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
-  //late UserProvider _userProvider;
+  late UserProvider _userProvider;
 
   @override
   Widget build(BuildContext context) {
-    //_userProvider = Provider.of<UserProvider>(context, listen: false);
+    _userProvider = Provider.of<UserProvider>(context, listen: false);
     return Form(
       key: _formKey,
       child: Scaffold(
@@ -157,6 +158,14 @@ class MovieList extends StatelessWidget {
                                         _usernameController.text;
                                     Authorization.password =
                                         _passwordController.text;
+
+                                    List<User> users =
+                                        await _userProvider.get();
+                                    Authorization.id = users
+                                        .firstWhere((user) =>
+                                            user.username ==
+                                            Authorization.username)
+                                        .id;
 
                                     Navigator.pushNamed(
                                         context, MovieListScreen.routeName);

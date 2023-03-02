@@ -74,8 +74,6 @@ namespace eCinema.Services.Services
             {
                 query = query.Include(x => x.Role);
             }
-
-            query = query.Include(x => x.Reservations);
             
             return query;
         }

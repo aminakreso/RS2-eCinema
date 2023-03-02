@@ -13,13 +13,11 @@ class User {
   String? email;
   String? phoneNumber;
   String? username;
-  String? password;
-  String? confirmPassword;
 
-  List<Reservation>? reservations;
+  //List<Reservation>? reservations;
 
   User(this.id, this.firstName, this.lastName, this.email, this.phoneNumber,
-      this.username, this.password, this.confirmPassword, this.reservations) {}
+      this.username) {}
 
   /// A necessary factory constructor for creating a new User instance
   /// from a map. Pass the map to the generated `_$UserFromJson()` constructor.

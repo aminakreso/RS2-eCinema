@@ -6,10 +6,10 @@ part 'reservation.g.dart';
 
 @JsonSerializable()
 class Reservation {
-  String id;
-  String userId;
-  String projectionId;
-  Projection projection;
+  String? id;
+  String? userId;
+  String? projectionId;
+  Projection? projection;
   bool? isActive;
   DateTime? dateTime;
   Reservation(

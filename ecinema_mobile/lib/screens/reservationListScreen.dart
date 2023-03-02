@@ -1,14 +1,8 @@
-import 'dart:convert';
-import 'dart:io';
-
 import 'package:ecinema_mobile/models/reservation.dart';
 import 'package:ecinema_mobile/providers/reservationProvider.dart';
-import 'package:ecinema_mobile/providers/userProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../models/movie.dart';
-import '../providers/movieProvider.dart';
 import '../utils/util.dart';
 import '../wigdets/headerWidget.dart';
 import '../wigdets/master_screen.dart';
@@ -32,15 +26,21 @@ class _ReservationListScreenState extends State<ReservationListScreen> {
   }
 
   Future loadData() async {
-    var tmpData = await _reservationProvider?.get(null);
-    setState(() {
-      data = tmpData;
-    });
-    print(data);
+    if (Authorization.username != null) {
+      var searchRequest = {'User': Authorization.username};
+      // Ne posalje se request
+      var tmpData = await _reservationProvider?.get(searchRequest);
+      setState(() {
+        data = tmpData;
+      });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
+    if (data == null)
+      return Text("No available reservation yet",
+          style: Theme.of(context).textTheme.headline3);
     return MasterScreenWidget(
       child: Column(
         children: [

@@ -69,7 +69,6 @@ namespace eCinema.Services.Services
         {
             query = query.Include(x => x.SeatsReservations);
             query = query.Include(x => x.Projection);
-            query = query.Include(x => x.Projection.Movie);
             return query;
         }
         
@@ -83,7 +82,9 @@ namespace eCinema.Services.Services
 
             if (!string.IsNullOrWhiteSpace(search.User))
                 filteredQuery = filteredQuery.Include(x => x.User).Where(x => x.User.FirstName.ToLower().Contains(search.User.ToLower())
-                || x.User.LastName.ToLower().Contains(search.User.ToLower()));
+                || x.User.LastName.ToLower().Contains(search.User.ToLower())
+                || x.User.Username.ToLower().Contains(search.User.ToLower())
+                );
             
             if (search.DateTime is not null)
                 filteredQuery = filteredQuery.Where(x => x.DateTime.Value.Date == search.DateTime);

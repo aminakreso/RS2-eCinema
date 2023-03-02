@@ -8,6 +8,7 @@ import '../models/movie.dart';
 import '../providers/movieProvider.dart';
 import '../utils/util.dart';
 import '../wigdets/master_screen.dart';
+import '../wigdets/movieCardLine.dart';
 import 'movieDetailsScreen.dart';
 
 class MovieListScreen extends StatefulWidget {
@@ -58,45 +59,26 @@ class _MovieListScreenState extends State<MovieListScreen> {
         },
         child: Row(
           children: [
-            // Container(
-            //   height: 150,
-            //   width: 150,
-            //   child: imageFromBase64String(x.picture!),
-            // ),
+            Container(
+              height: 150,
+              width: 150,
+              child: imageFromBase64String(x.picture!),
+            ),
             Column(
               children: [
                 Text("${x.name}", style: Theme.of(context).textTheme.headline5),
                 SizedBox(
                   height: 20,
                 ),
-                movieCardLine("Duration:", x.duration.toString()),
-                movieCardLine("Actors:", x.actors),
-                movieCardLine("Director:", x.director.toString()),
-                movieCardLine("Genres: ", x.genres.toString()),
-                movieCardLine("Country:", x.country.toString()),
+                MovieCardLine(label: "Duration:", text: x.duration.toString()),
+                MovieCardLine(label: "Actors:", text: x.actors),
+                MovieCardLine(label: "Director:", text: x.director),
+                MovieCardLine(label: "Genres:", text: x.genres),
+                MovieCardLine(label: "Country:", text: x.country),
               ],
             ),
           ],
         ),
-      ),
-    );
-  }
-
-  RichText movieCardLine(String label, String? text) {
-    return RichText(
-      text: TextSpan(
-        text: label,
-        style: TextStyle(
-            color: Colors.red[900], fontWeight: FontWeight.bold, fontSize: 12),
-        children: <TextSpan>[
-          TextSpan(
-            text: '$text' ?? "",
-            style: TextStyle(
-                color: Colors.black,
-                fontSize: 12,
-                fontWeight: FontWeight.normal),
-          ),
-        ],
       ),
     );
   }
