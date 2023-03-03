@@ -44,36 +44,36 @@ namespace eCinema.WinUI
 
         private async void btnSave_Click(object sender, EventArgs e)
         {
-           var upsert = new MovieUpsertRequest()
+            if (ValidateChildren())
             {
-                Name = txtName.Text,
-                Description = txtDescription.Text,
-                Actors = txtActors.Text,
-                Director = txtDirector.Text,
-                Country = txtDirector.Text,
-                Genres = txtGenres.Text,
-                Picture = ImageHelper.FromImageToBase64(pbPicture.Image)
+                var upsert = new MovieUpsertRequest()
+                {
+                    Name = txtName.Text,
+                    Description = txtDescription.Text,
+                    Actors = txtActors.Text,
+                    Director = txtDirector.Text,
+                    Country = txtDirector.Text,
+                    Genres = txtGenres.Text,
+                    Duration = Convert.ToInt32(txtDuration?.Text),
+                    ReleaseYear = Convert.ToInt32(txtReleaseYear?.Text)
 
-        };
+                };
 
-            if (!string.IsNullOrWhiteSpace(txtDuration?.Text))
-                upsert.Duration = Convert.ToInt32(txtDuration?.Text);
+                if (pbPicture.Image != null)
+                    upsert.Picture = ImageHelper.FromImageToBase64(pbPicture.Image);
 
-            if (!string.IsNullOrWhiteSpace(txtReleaseYear?.Text))
-                upsert.ReleaseYear = Convert.ToInt32(txtReleaseYear?.Text);
-
-
-            if (_model is null)
-            {
-                await _movieService.Post<MovieDto>(upsert);
-                MessageBox.Show("Movie added.");
-                this.Close();
-            }
-            else
-            {
-                _model = await _movieService.Put<MovieDto>(_model.Id, upsert);
-                MessageBox.Show("Movie edited.");
-                this.Close();
+                if (_model is null)
+                {
+                    await _movieService.Post<MovieDto>(upsert);
+                    MessageBox.Show("Movie added.");
+                    this.Close();
+                }
+                else
+                {
+                    _model = await _movieService.Put<MovieDto>(_model.Id, upsert);
+                    MessageBox.Show("Movie edited.");
+                    this.Close();
+                }
             }
         }
 
@@ -98,13 +98,13 @@ namespace eCinema.WinUI
 
         private void txtDuration_Validating(object sender, CancelEventArgs e)
         {
-            ValidationHelper.Validate(txtDuration, e, "Duration", errorProvider);
+            ValidationHelper.Validate(txtDuration, e, "Duration", errorProvider, true);
 
         }
 
         private void txtReleaseYear_Validating(object sender, CancelEventArgs e)
         {
-            ValidationHelper.Validate(txtReleaseYear, e, "ReleaseYear", errorProvider);
+            ValidationHelper.Validate(txtReleaseYear, e, "ReleaseYear", errorProvider, true);
 
         }
 
@@ -117,19 +117,19 @@ namespace eCinema.WinUI
         //Rich text
         private void txtGenres_Validating(object sender, CancelEventArgs e)
         {
-            //ValidationHelper.Validate(txtGenres, e, "Genres", errorProvider);
+            ValidationHelper.ValidateRichTextBox(txtGenres, e, "Genres", errorProvider);
 
         }
 
         private void txtActors_Validating(object sender, CancelEventArgs e)
         {
-            //ValidationHelper.Validate(txtName, e, "First name", errorProvider);
+            ValidationHelper.ValidateRichTextBox(txtActors, e, "Actors", errorProvider);
 
         }
 
         private void txtDescription_Validating(object sender, CancelEventArgs e)
         {
-
+            ValidationHelper.ValidateRichTextBox(txtDescription, e, "Description", errorProvider);
         }
     }
 }

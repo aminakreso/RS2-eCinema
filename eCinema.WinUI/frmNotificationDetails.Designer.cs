@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -35,6 +36,8 @@
             this.txtTitle = new System.Windows.Forms.TextBox();
             this.txtContent = new System.Windows.Forms.RichTextBox();
             this.btnSave = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -86,6 +89,7 @@
             this.txtContent.Size = new System.Drawing.Size(274, 135);
             this.txtContent.TabIndex = 5;
             this.txtContent.Text = "";
+            this.txtContent.Validating += new System.ComponentModel.CancelEventHandler(this.txtContent_Validating);
             // 
             // btnSave
             // 
@@ -96,6 +100,10 @@
             this.btnSave.Text = "Snimi";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // frmNotificationDetails
             // 
@@ -112,6 +120,7 @@
             this.Name = "frmNotificationDetails";
             this.Text = "frmNotificationDetails";
             this.Load += new System.EventHandler(this.frmNotificationDetails_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -126,5 +135,6 @@
         private TextBox txtTitle;
         private RichTextBox txtContent;
         private Button btnSave;
+        private ErrorProvider errorProvider;
     }
 }

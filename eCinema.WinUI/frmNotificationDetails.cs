@@ -45,28 +45,42 @@ namespace eCinema.WinUI
 
         private async void btnSave_Click(object sender, EventArgs e)
         {
-            if(_model is null)
+            if (ValidateChildren())
             {
-                var insert = new NotificationInsertRequest()
+                if (_model is null)
                 {
-                    Title = txtTitle.Text,
-                    Content = txtContent.Text,
-                    NotificationType = cmbNotificationType.Text
-                };
+                    var insert = new NotificationInsertRequest()
+                    {
+                        Title = txtTitle.Text,
+                        Content = txtContent.Text,
+                        NotificationType = cmbNotificationType.Text
+                    };
 
-                await _notificationService.Post<NotificationDto>(insert);
-            }
-            else
-            {
-                var update = new NotificationUpdateRequest()
+                    await _notificationService.Post<NotificationDto>(insert);
+                }
+                else
                 {
-                    Title = txtTitle.Text,
-                    Content = txtContent.Text,
-                    NotificationType = cmbNotificationType.Text,
-                };
+                    var update = new NotificationUpdateRequest()
+                    {
+                        Title = txtTitle.Text,
+                        Content = txtContent.Text,
+                        NotificationType = cmbNotificationType.Text,
+                    };
 
-                _model = await _notificationService.Put<NotificationDto>(_model.Id,update);
+                    _model = await _notificationService.Put<NotificationDto>(_model.Id, update);
+                }
             }
+        }
+
+        private void txtTitle_Validating(object sender, CancelEventArgs e)
+        {
+            ValidationHelper.Validate(txtTitle, e, "Title", errorProvider);
+
+        }
+
+        private void txtContent_Validating(object sender, CancelEventArgs e)
+        {
+            ValidationHelper.ValidateRichTextBox(txtContent, e, "Content", errorProvider);
         }
     }
 }

@@ -32,7 +32,7 @@ namespace eCinema.Services.Services
 
         public override void BeforeInsert(NotificationInsertRequest insert,Notification entity)
         {
-            entity.AuthorId = new Guid("C25954C5-F3A1-408D-FDCD-08DAC04D3E13");
+            entity.AuthorId = new Guid("1a5a5f90-f2ff-4ca6-a59e-a6b223615576");
             entity.Date = DateTime.Now;
         }
 
