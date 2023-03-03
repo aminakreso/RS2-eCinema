@@ -2,7 +2,7 @@
 {
     public class ProjectionSearchObject : BaseSearchObject
     {
-        public string? StartDate { get; set; }
+        public DateTime? StartDate { get; set; }
 
         public Guid? HallId { get; set; }
 

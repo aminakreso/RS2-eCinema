@@ -5,7 +5,7 @@ using eCinema.Services.Services;
 
 namespace eCinema.Controllers
 {
-    public class PriceController : BaseCRUDController<PriceDto, BaseSearchObject, PriceUpsertRequest, PriceUpsertRequest>
+    public class PriceController : BaseCRUDController<PriceDto, PriceSearchObject, PriceUpsertRequest, PriceUpsertRequest>
     {
         public PriceController(IPriceService priceService)
             : base(priceService)

@@ -42,7 +42,7 @@
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.authorIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.notificationTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Content = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Aktivna = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNotifications)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.notificationDtoBindingSource)).BeginInit();
@@ -100,6 +100,8 @@
             // 
             // dgvNotifications
             // 
+            this.dgvNotifications.AllowUserToAddRows = false;
+            this.dgvNotifications.AllowUserToDeleteRows = false;
             this.dgvNotifications.AutoGenerateColumns = false;
             this.dgvNotifications.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNotifications.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -107,11 +109,12 @@
             this.dateDataGridViewTextBoxColumn,
             this.authorIdDataGridViewTextBoxColumn,
             this.notificationTypeDataGridViewTextBoxColumn,
-            this.Content,
+            this.Description,
             this.Aktivna});
             this.dgvNotifications.DataSource = this.notificationDtoBindingSource;
             this.dgvNotifications.Location = new System.Drawing.Point(31, 92);
             this.dgvNotifications.Name = "dgvNotifications";
+            this.dgvNotifications.ReadOnly = true;
             this.dgvNotifications.RowHeadersWidth = 51;
             this.dgvNotifications.RowTemplate.Height = 29;
             this.dgvNotifications.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -139,6 +142,7 @@
             this.titleDataGridViewTextBoxColumn.HeaderText = "Naziv";
             this.titleDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
+            this.titleDataGridViewTextBoxColumn.ReadOnly = true;
             this.titleDataGridViewTextBoxColumn.Width = 125;
             // 
             // dateDataGridViewTextBoxColumn
@@ -147,6 +151,7 @@
             this.dateDataGridViewTextBoxColumn.HeaderText = "Datum";
             this.dateDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+            this.dateDataGridViewTextBoxColumn.ReadOnly = true;
             this.dateDataGridViewTextBoxColumn.Width = 125;
             // 
             // authorIdDataGridViewTextBoxColumn
@@ -164,15 +169,17 @@
             this.notificationTypeDataGridViewTextBoxColumn.HeaderText = "Tip";
             this.notificationTypeDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.notificationTypeDataGridViewTextBoxColumn.Name = "notificationTypeDataGridViewTextBoxColumn";
+            this.notificationTypeDataGridViewTextBoxColumn.ReadOnly = true;
             this.notificationTypeDataGridViewTextBoxColumn.Width = 125;
             // 
-            // Content
+            // Description
             // 
-            this.Content.DataPropertyName = "Content";
-            this.Content.HeaderText = "Sadržaj";
-            this.Content.MinimumWidth = 6;
-            this.Content.Name = "Content";
-            this.Content.Width = 125;
+            this.Description.DataPropertyName = "Description";
+            this.Description.HeaderText = "Sadržaj";
+            this.Description.MinimumWidth = 6;
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
+            this.Description.Width = 125;
             // 
             // Aktivna
             // 
@@ -180,6 +187,7 @@
             this.Aktivna.HeaderText = "Aktivna";
             this.Aktivna.MinimumWidth = 6;
             this.Aktivna.Name = "Aktivna";
+            this.Aktivna.ReadOnly = true;
             this.Aktivna.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Aktivna.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Aktivna.Width = 125;
@@ -222,7 +230,7 @@
         private DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn authorIdDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn notificationTypeDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn Content;
+        private DataGridViewTextBoxColumn Description;
         private DataGridViewCheckBoxColumn Aktivna;
     }
 }

@@ -123,7 +123,7 @@ namespace eCinema.WinUI
         {
             var upsert = new ProjectionUpsertRequest()
             {
-                //DateTime = dtpProjectionDateTime.Value,
+                StartTime = dtpProjectionDateTime.Value,
                 ProjectionType = cmbProjectionType.Text,
                 HallId = (Guid)cmbHall?.SelectedValue,
                 PriceId = (Guid)cmbPrice?.SelectedValue,
@@ -133,10 +133,14 @@ namespace eCinema.WinUI
             if (_model is null)
             {
                 await _projectionService.Post<ProjectionDto>(upsert);
+                MessageBox.Show("Projection added.");
+                this.Close();
             }
             else
             {
                 _model = await _projectionService.Put<ProjectionDto>(_model.Id, upsert);
+                MessageBox.Show("Projection edited.");
+                this.Close();
             }
         }
     }

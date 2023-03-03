@@ -36,13 +36,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvMovies = new System.Windows.Forms.DataGridView();
-            this.movieDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.txtDirector = new System.Windows.Forms.TextBox();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.directorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.genresDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.durationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isActiveDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.movieDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.txtDirector = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMovies)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.movieDtoBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -101,6 +101,8 @@
             // 
             // dgvMovies
             // 
+            this.dgvMovies.AllowUserToAddRows = false;
+            this.dgvMovies.AllowUserToDeleteRows = false;
             this.dgvMovies.AutoGenerateColumns = false;
             this.dgvMovies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMovies.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -112,23 +114,14 @@
             this.dgvMovies.DataSource = this.movieDtoBindingSource;
             this.dgvMovies.Location = new System.Drawing.Point(37, 110);
             this.dgvMovies.Name = "dgvMovies";
+            this.dgvMovies.ReadOnly = true;
             this.dgvMovies.RowHeadersWidth = 51;
             this.dgvMovies.RowTemplate.Height = 29;
             this.dgvMovies.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMovies.Size = new System.Drawing.Size(687, 312);
             this.dgvMovies.TabIndex = 15;
+            this.dgvMovies.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMovies_CellContentClick);
             this.dgvMovies.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsers_CellDoubleClick);
-            // 
-            // movieDtoBindingSource
-            // 
-            this.movieDtoBindingSource.DataSource = typeof(eCinema.Model.Dtos.MovieDto);
-            // 
-            // txtDirector
-            // 
-            this.txtDirector.Location = new System.Drawing.Point(296, 43);
-            this.txtDirector.Name = "txtDirector";
-            this.txtDirector.Size = new System.Drawing.Size(119, 27);
-            this.txtDirector.TabIndex = 16;
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -176,6 +169,17 @@
             this.isActiveDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.isActiveDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.isActiveDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // movieDtoBindingSource
+            // 
+            this.movieDtoBindingSource.DataSource = typeof(eCinema.Model.Dtos.MovieDto);
+            // 
+            // txtDirector
+            // 
+            this.txtDirector.Location = new System.Drawing.Point(296, 43);
+            this.txtDirector.Name = "txtDirector";
+            this.txtDirector.Size = new System.Drawing.Size(119, 27);
+            this.txtDirector.TabIndex = 16;
             // 
             // frmMovies
             // 

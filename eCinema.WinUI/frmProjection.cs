@@ -56,22 +56,29 @@ namespace eCinema.WinUI
         {
             var searchObject = new ProjectionSearchObject
             {
-                Name = txtName.Text,
-                StartDate = dtpDate.Value.Date.ToString(),
-                Status = cmbStatus.Text,
-                IncludeHalls = true,
-                IncludeMovies = true,
-                IncludePrices = true
+                StartDate = dtpDate.Value,
+                IncludeHalls = false,
+                IncludeMovies = false,
+                IncludePrices = false
             };
 
-            if(cmbHall.Text == "Svi")
+            if (!string.IsNullOrEmpty(txtName.Text))
             {
-                searchObject.HallId = Guid.Empty;
+                searchObject.Name = txtName.Text;
+                searchObject.IncludeMovies = true;
+
             }
 
-            else
+            if (cmbHall.Text != "Svi")
             {
                 searchObject.HallId = (Guid)cmbHall.SelectedValue;
+                searchObject.IncludeHalls = true;
+
+            }
+
+            if (cmbStatus.Text != "Svi")
+            {
+                searchObject.Status = cmbStatus.SelectedValue.ToString();
             }
 
             var list = await _projectionService.Get<List<ProjectionDto>>(searchObject);

@@ -165,5 +165,23 @@ namespace eCinema.WinUI
             childForm.WindowState = FormWindowState.Maximized;
             childForm.Show();
         }
+
+        private void cijeneToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var childForm = new frmPrices();
+            childForm.MdiParent = this;
+            childForm.Text = "Window " + childFormNumber++;
+            childForm.WindowState = FormWindowState.Maximized;
+            childForm.Show();
+        }
+
+        private void dodajCijenuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var childForm = new frmPriceDetails();
+            childForm.MdiParent = this;
+            childForm.Text = "Window " + childFormNumber++;
+            childForm.WindowState = FormWindowState.Maximized;
+            childForm.Show();
+        }
     }
 }

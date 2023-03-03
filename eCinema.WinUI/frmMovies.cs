@@ -54,5 +54,10 @@ namespace eCinema.WinUI
             var frmMovieDetails = new frmMovieDetails(movie);
             frmMovieDetails.ShowDialog();
         }
+
+        private void dgvMovies_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

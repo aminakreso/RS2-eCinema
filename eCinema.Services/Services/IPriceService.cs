@@ -4,7 +4,7 @@ using eCinema.Model.SearchObjects;
 
 namespace eCinema.Services.Services
 {
-    public interface IPriceService : ICRUDService<PriceDto, BaseSearchObject,
+    public interface IPriceService : ICRUDService<PriceDto, PriceSearchObject,
        PriceUpsertRequest, PriceUpsertRequest>
     {
     }
