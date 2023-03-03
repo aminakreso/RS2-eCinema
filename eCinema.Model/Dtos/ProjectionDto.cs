@@ -10,13 +10,18 @@
 
         public Guid HallId { get; set; }
         public HallDto Hall { get; set; }
-        
+        public string? HallName => Hall?.Name;
+
+
         public Guid MovieId { get; set; }
         public MovieDto Movie { get; set; }
+        public string? MovieName => Movie?.Name;
+
 
         public Guid? PriceId { get; set; }
-        
         public PriceDto Price { get; set; }
+        public string? PriceName => Price?.Name;
+
 
         public string? ProjectionType { get; set; }
         
