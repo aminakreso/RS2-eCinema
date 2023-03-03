@@ -12,7 +12,7 @@ using eCinema.Services.Database;
 namespace eCinema.Migrations
 {
     [DbContext(typeof(CinemaContext))]
-    [Migration("20230303011846_init")]
+    [Migration("20230303023758_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -40,27 +40,27 @@ namespace eCinema.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("2269b63d-3d2b-404a-a322-8a855aa5cd69"),
+                            Id = new Guid("ce25d69d-9fb6-48ec-94ae-31077ea7bbc2"),
                             Name = "Hall 1"
                         },
                         new
                         {
-                            Id = new Guid("b5462f22-4f78-46fe-96a0-3dc4629ecbd8"),
+                            Id = new Guid("6457b6c7-b1d7-4046-93de-0bffcf095b9d"),
                             Name = "Hall 2"
                         },
                         new
                         {
-                            Id = new Guid("c932e702-ba23-4d05-97f9-166796c02e37"),
+                            Id = new Guid("3248dfa8-fe3d-49f8-897d-e15591b634b1"),
                             Name = "Hall 3"
                         },
                         new
                         {
-                            Id = new Guid("61200b16-64a0-452e-827d-4860a8d0c761"),
+                            Id = new Guid("899db9f3-f42f-48a5-b24f-93f1b9b55ca4"),
                             Name = "Hall 4"
                         },
                         new
                         {
-                            Id = new Guid("6a3437ba-36a6-40af-b8ea-a6682762a959"),
+                            Id = new Guid("462dd58b-59fb-47cc-8519-54f172976e9a"),
                             Name = "Hall 5"
                         });
                 });
@@ -108,7 +108,7 @@ namespace eCinema.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("f09d18f8-4f14-4ac4-8f34-1a282847e405"),
+                            Id = new Guid("75f5422f-fa84-4722-976c-899c1131f43f"),
                             Actors = "Ima",
                             Country = "SAD",
                             Description = "Lol",
@@ -200,19 +200,19 @@ namespace eCinema.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("f9de5860-2c1a-489b-b084-c543604f0ee8"),
+                            Id = new Guid("00b85b2b-19cf-40db-817d-0eb32c185127"),
                             Name = "Dnevna projekcija",
                             Value = 6m
                         },
                         new
                         {
-                            Id = new Guid("97724e3b-882e-40aa-b779-544742c9bf85"),
+                            Id = new Guid("8eca5d7a-57c5-474d-8b77-192406ffc315"),
                             Name = "Vecernja projekcija",
                             Value = 7m
                         },
                         new
                         {
-                            Id = new Guid("f5221040-1881-4276-85e7-64e0f6505f2a"),
+                            Id = new Guid("d774fa8d-a39e-4379-95c4-6e582d2c197b"),
                             Name = "Vikend projekcija",
                             Value = 8m
                         });
@@ -264,12 +264,12 @@ namespace eCinema.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("9b0a4cfe-d5af-4584-9c0c-78e2dc99aaaf"),
+                            Id = new Guid("a0f237ba-125d-4175-96d9-f2852042832b"),
                             EndTime = new DateTime(2023, 3, 1, 19, 30, 0, 0, DateTimeKind.Unspecified),
-                            HallId = new Guid("2269b63d-3d2b-404a-a322-8a855aa5cd69"),
+                            HallId = new Guid("ce25d69d-9fb6-48ec-94ae-31077ea7bbc2"),
                             IsActive = true,
-                            MovieId = new Guid("f09d18f8-4f14-4ac4-8f34-1a282847e405"),
-                            PriceId = new Guid("f9de5860-2c1a-489b-b084-c543604f0ee8"),
+                            MovieId = new Guid("75f5422f-fa84-4722-976c-899c1131f43f"),
+                            PriceId = new Guid("00b85b2b-19cf-40db-817d-0eb32c185127"),
                             ProjectionType = "Late",
                             StartTime = new DateTime(2023, 3, 1, 17, 30, 0, 0, DateTimeKind.Unspecified),
                             StateMachine = "Draft",
@@ -320,12 +320,12 @@ namespace eCinema.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("9addaa3c-849d-490b-9884-5c12ce9992c7"),
+                            Id = new Guid("ad0efa21-a57d-4dbe-bc64-3a1e5e2c216c"),
                             Name = "Admin"
                         },
                         new
                         {
-                            Id = new Guid("f7805ca2-3cf2-4949-a978-88cd99c0e8e5"),
+                            Id = new Guid("483e8b0c-8869-4ca2-aedf-686cb2b49f2f"),
                             Name = "User"
                         });
                 });
@@ -418,24 +418,24 @@ namespace eCinema.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("17e37dd8-762f-4a3f-bf62-ab7f7bdcce34"),
+                            Id = new Guid("82466f1d-90fe-436d-9f9b-90a348cb47cd"),
                             Email = "admin@gmail.com",
                             FirstName = "Admin",
                             LastName = "Admin",
-                            LozinkaHash = "BKSmCy4KJqiqWsp+Bdg3gnGgmZ8=",
-                            LozinkaSalt = "VrmMBT9khwJUY2enGHTFgw==",
-                            RoleId = new Guid("9addaa3c-849d-490b-9884-5c12ce9992c7"),
+                            LozinkaHash = "EmZVx61PusqHliSUpr6bjrwvOQg=",
+                            LozinkaSalt = "zT5SasrEKMkOPWMCUmxslg==",
+                            RoleId = new Guid("ad0efa21-a57d-4dbe-bc64-3a1e5e2c216c"),
                             Username = "admin"
                         },
                         new
                         {
-                            Id = new Guid("d34c38bd-1a61-4287-9bd5-c3a97bbcd28e"),
+                            Id = new Guid("f63e71e9-1042-4fc4-8365-546a2a7accbd"),
                             Email = "user@gmail.com",
                             FirstName = "User",
                             LastName = "User",
-                            LozinkaHash = "DvCd6WPxkYVublhpeX1tWgDuseQ=",
-                            LozinkaSalt = "jyxqW/wzSLFp48iJ5AtrsA==",
-                            RoleId = new Guid("9addaa3c-849d-490b-9884-5c12ce9992c7"),
+                            LozinkaHash = "yYaGh4FqcKZrr6IzMqzMISLM8o4=",
+                            LozinkaSalt = "iI4H54IXJF+JQn7soTYytg==",
+                            RoleId = new Guid("ad0efa21-a57d-4dbe-bc64-3a1e5e2c216c"),
                             Username = "user"
                         });
                 });

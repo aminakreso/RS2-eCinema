@@ -81,6 +81,7 @@
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(125, 27);
             this.txtTitle.TabIndex = 4;
+            this.txtTitle.Validating += new System.ComponentModel.CancelEventHandler(this.txtTitle_Validating);
             // 
             // txtContent
             // 

@@ -29,7 +29,7 @@ namespace eCinema.WinUI
             if(_model is not null)
             {
                 txtTitle.Text = _model.Title;
-                txtContent.Text = _model.Content;
+                txtContent.Text = _model.Description;
                 cmbNotificationType.Text = _model.NotificationType;
             }
             await LoadTypes();
@@ -52,22 +52,26 @@ namespace eCinema.WinUI
                     var insert = new NotificationInsertRequest()
                     {
                         Title = txtTitle.Text,
-                        Content = txtContent.Text,
+                        Description = txtContent.Text,
                         NotificationType = cmbNotificationType.Text
                     };
 
                     await _notificationService.Post<NotificationDto>(insert);
+                    MessageBox.Show("Notification added.");
+                    this.Close();
                 }
                 else
                 {
                     var update = new NotificationUpdateRequest()
                     {
                         Title = txtTitle.Text,
-                        Content = txtContent.Text,
+                        Description = txtContent.Text,
                         NotificationType = cmbNotificationType.Text,
                     };
 
                     _model = await _notificationService.Put<NotificationDto>(_model.Id, update);
+                    MessageBox.Show("Notification edited.");
+                    this.Close();
                 }
             }
         }

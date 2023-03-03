@@ -251,26 +251,26 @@ namespace eCinema.Migrations
                 columns: new[] { "Id", "Name" },
                 values: new object[,]
                 {
-                    { new Guid("2269b63d-3d2b-404a-a322-8a855aa5cd69"), "Hall 1" },
-                    { new Guid("61200b16-64a0-452e-827d-4860a8d0c761"), "Hall 4" },
-                    { new Guid("6a3437ba-36a6-40af-b8ea-a6682762a959"), "Hall 5" },
-                    { new Guid("b5462f22-4f78-46fe-96a0-3dc4629ecbd8"), "Hall 2" },
-                    { new Guid("c932e702-ba23-4d05-97f9-166796c02e37"), "Hall 3" }
+                    { new Guid("3248dfa8-fe3d-49f8-897d-e15591b634b1"), "Hall 3" },
+                    { new Guid("462dd58b-59fb-47cc-8519-54f172976e9a"), "Hall 5" },
+                    { new Guid("6457b6c7-b1d7-4046-93de-0bffcf095b9d"), "Hall 2" },
+                    { new Guid("899db9f3-f42f-48a5-b24f-93f1b9b55ca4"), "Hall 4" },
+                    { new Guid("ce25d69d-9fb6-48ec-94ae-31077ea7bbc2"), "Hall 1" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Movies",
                 columns: new[] { "Id", "Actors", "Country", "Description", "Director", "Duration", "Genres", "IsActive", "Name", "Picture", "ReleaseYear" },
-                values: new object[] { new Guid("f09d18f8-4f14-4ac4-8f34-1a282847e405"), "Ima", "SAD", "Lol", "Ima", 202, null, true, "Avatar", null, 2010 });
+                values: new object[] { new Guid("75f5422f-fa84-4722-976c-899c1131f43f"), "Ima", "SAD", "Lol", "Ima", 202, null, true, "Avatar", null, 2010 });
 
             migrationBuilder.InsertData(
                 table: "Prices",
                 columns: new[] { "Id", "Name", "Value" },
                 values: new object[,]
                 {
-                    { new Guid("97724e3b-882e-40aa-b779-544742c9bf85"), "Vecernja projekcija", 7m },
-                    { new Guid("f5221040-1881-4276-85e7-64e0f6505f2a"), "Vikend projekcija", 8m },
-                    { new Guid("f9de5860-2c1a-489b-b084-c543604f0ee8"), "Dnevna projekcija", 6m }
+                    { new Guid("00b85b2b-19cf-40db-817d-0eb32c185127"), "Dnevna projekcija", 6m },
+                    { new Guid("8eca5d7a-57c5-474d-8b77-192406ffc315"), "Vecernja projekcija", 7m },
+                    { new Guid("d774fa8d-a39e-4379-95c4-6e582d2c197b"), "Vikend projekcija", 8m }
                 });
 
             migrationBuilder.InsertData(
@@ -278,24 +278,24 @@ namespace eCinema.Migrations
                 columns: new[] { "Id", "Name" },
                 values: new object[,]
                 {
-                    { new Guid("9addaa3c-849d-490b-9884-5c12ce9992c7"), "Admin" },
-                    { new Guid("f7805ca2-3cf2-4949-a978-88cd99c0e8e5"), "User" }
+                    { new Guid("483e8b0c-8869-4ca2-aedf-686cb2b49f2f"), "User" },
+                    { new Guid("ad0efa21-a57d-4dbe-bc64-3a1e5e2c216c"), "Admin" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Projections",
                 columns: new[] { "Id", "EndTime", "HallId", "IsActive", "MovieId", "PriceId", "ProjectionType", "StartTime", "StateMachine", "Status" },
-                values: new object[] { new Guid("9b0a4cfe-d5af-4584-9c0c-78e2dc99aaaf"), new DateTime(2023, 3, 1, 19, 30, 0, 0, DateTimeKind.Unspecified), new Guid("2269b63d-3d2b-404a-a322-8a855aa5cd69"), true, new Guid("f09d18f8-4f14-4ac4-8f34-1a282847e405"), new Guid("f9de5860-2c1a-489b-b084-c543604f0ee8"), "Late", new DateTime(2023, 3, 1, 17, 30, 0, 0, DateTimeKind.Unspecified), "Draft", "Active" });
+                values: new object[] { new Guid("a0f237ba-125d-4175-96d9-f2852042832b"), new DateTime(2023, 3, 1, 19, 30, 0, 0, DateTimeKind.Unspecified), new Guid("ce25d69d-9fb6-48ec-94ae-31077ea7bbc2"), true, new Guid("75f5422f-fa84-4722-976c-899c1131f43f"), new Guid("00b85b2b-19cf-40db-817d-0eb32c185127"), "Late", new DateTime(2023, 3, 1, 17, 30, 0, 0, DateTimeKind.Unspecified), "Draft", "Active" });
 
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "Id", "CustomerId", "Email", "FirstName", "IsActive", "LastName", "LozinkaHash", "LozinkaSalt", "PhoneNumber", "RoleId", "Username" },
-                values: new object[] { new Guid("17e37dd8-762f-4a3f-bf62-ab7f7bdcce34"), null, "admin@gmail.com", "Admin", null, "Admin", "BKSmCy4KJqiqWsp+Bdg3gnGgmZ8=", "VrmMBT9khwJUY2enGHTFgw==", null, new Guid("9addaa3c-849d-490b-9884-5c12ce9992c7"), "admin" });
+                values: new object[] { new Guid("82466f1d-90fe-436d-9f9b-90a348cb47cd"), null, "admin@gmail.com", "Admin", null, "Admin", "EmZVx61PusqHliSUpr6bjrwvOQg=", "zT5SasrEKMkOPWMCUmxslg==", null, new Guid("ad0efa21-a57d-4dbe-bc64-3a1e5e2c216c"), "admin" });
 
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "Id", "CustomerId", "Email", "FirstName", "IsActive", "LastName", "LozinkaHash", "LozinkaSalt", "PhoneNumber", "RoleId", "Username" },
-                values: new object[] { new Guid("d34c38bd-1a61-4287-9bd5-c3a97bbcd28e"), null, "user@gmail.com", "User", null, "User", "DvCd6WPxkYVublhpeX1tWgDuseQ=", "jyxqW/wzSLFp48iJ5AtrsA==", null, new Guid("9addaa3c-849d-490b-9884-5c12ce9992c7"), "user" });
+                values: new object[] { new Guid("f63e71e9-1042-4fc4-8365-546a2a7accbd"), null, "user@gmail.com", "User", null, "User", "yYaGh4FqcKZrr6IzMqzMISLM8o4=", "iI4H54IXJF+JQn7soTYytg==", null, new Guid("ad0efa21-a57d-4dbe-bc64-3a1e5e2c216c"), "user" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Notifications_AuthorId",
