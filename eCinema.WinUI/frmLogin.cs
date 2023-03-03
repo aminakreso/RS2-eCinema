@@ -21,13 +21,34 @@ namespace eCinema.WinUI
 
         private async void btnLogin_Click(object sender, EventArgs e)
         {
-            APIService.Username = txtUsername.Text;
-            APIService.Password = txtPassword.Text;
+            if (ValidateChildren())
+            {
+                APIService.Username = txtUsername.Text;
+                APIService.Password = txtPassword.Text;
 
-            await _userService.Get<dynamic>();
+                try
+                {
+                    await _userService.Get<dynamic>();
 
-            mdiMain frm = new mdiMain();
-            frm.Show();
+                    mdiMain frm = new mdiMain();
+                    frm.Show();
+                }
+                catch
+                {
+                    MessageBox.Show("Invalid username or password!");
+                }
+
+            }
+        }
+
+        private void txtUsername_Validating(object sender, CancelEventArgs e)
+        {
+            ValidationHelper.Validate(txtUsername, e, "Username", err);
+        }
+
+        private void txtPassword_Validating(object sender, CancelEventArgs e)
+        {
+            ValidationHelper.Validate(txtPassword, e, "Password", err);
         }
     }
 }

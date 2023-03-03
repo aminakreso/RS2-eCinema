@@ -8,6 +8,5 @@ namespace eCinema.Services.Services
     public interface IMovieService : ICRUDService<MovieDto, MovieSearchObject,
         MovieUpsertRequest, MovieUpsertRequest>
     {
-        Task<byte[]?> UploadPicture(IFormFile? pictureImage);
     }
 }

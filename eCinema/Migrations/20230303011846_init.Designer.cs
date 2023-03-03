@@ -12,8 +12,8 @@ using eCinema.Services.Database;
 namespace eCinema.Migrations
 {
     [DbContext(typeof(CinemaContext))]
-    [Migration("20230227194409_UsersCustomerId")]
-    partial class UsersCustomerId
+    [Migration("20230303011846_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -36,6 +36,33 @@ namespace eCinema.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Halls");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("2269b63d-3d2b-404a-a322-8a855aa5cd69"),
+                            Name = "Hall 1"
+                        },
+                        new
+                        {
+                            Id = new Guid("b5462f22-4f78-46fe-96a0-3dc4629ecbd8"),
+                            Name = "Hall 2"
+                        },
+                        new
+                        {
+                            Id = new Guid("c932e702-ba23-4d05-97f9-166796c02e37"),
+                            Name = "Hall 3"
+                        },
+                        new
+                        {
+                            Id = new Guid("61200b16-64a0-452e-827d-4860a8d0c761"),
+                            Name = "Hall 4"
+                        },
+                        new
+                        {
+                            Id = new Guid("6a3437ba-36a6-40af-b8ea-a6682762a959"),
+                            Name = "Hall 5"
+                        });
                 });
 
             modelBuilder.Entity("eCinema.Services.Database.Movie", b =>
@@ -68,8 +95,8 @@ namespace eCinema.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("Picture")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<string>("Picture")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("ReleaseYear")
                         .HasColumnType("int");
@@ -77,6 +104,20 @@ namespace eCinema.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Movies");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("f09d18f8-4f14-4ac4-8f34-1a282847e405"),
+                            Actors = "Ima",
+                            Country = "SAD",
+                            Description = "Lol",
+                            Director = "Ima",
+                            Duration = 202,
+                            IsActive = true,
+                            Name = "Avatar",
+                            ReleaseYear = 2010
+                        });
                 });
 
             modelBuilder.Entity("eCinema.Services.Database.Notification", b =>
@@ -155,6 +196,26 @@ namespace eCinema.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Prices");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("f9de5860-2c1a-489b-b084-c543604f0ee8"),
+                            Name = "Dnevna projekcija",
+                            Value = 6m
+                        },
+                        new
+                        {
+                            Id = new Guid("97724e3b-882e-40aa-b779-544742c9bf85"),
+                            Name = "Vecernja projekcija",
+                            Value = 7m
+                        },
+                        new
+                        {
+                            Id = new Guid("f5221040-1881-4276-85e7-64e0f6505f2a"),
+                            Name = "Vikend projekcija",
+                            Value = 8m
+                        });
                 });
 
             modelBuilder.Entity("eCinema.Services.Database.Projection", b =>
@@ -199,6 +260,21 @@ namespace eCinema.Migrations
                     b.HasIndex("PriceId");
 
                     b.ToTable("Projections");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("9b0a4cfe-d5af-4584-9c0c-78e2dc99aaaf"),
+                            EndTime = new DateTime(2023, 3, 1, 19, 30, 0, 0, DateTimeKind.Unspecified),
+                            HallId = new Guid("2269b63d-3d2b-404a-a322-8a855aa5cd69"),
+                            IsActive = true,
+                            MovieId = new Guid("f09d18f8-4f14-4ac4-8f34-1a282847e405"),
+                            PriceId = new Guid("f9de5860-2c1a-489b-b084-c543604f0ee8"),
+                            ProjectionType = "Late",
+                            StartTime = new DateTime(2023, 3, 1, 17, 30, 0, 0, DateTimeKind.Unspecified),
+                            StateMachine = "Draft",
+                            Status = "Active"
+                        });
                 });
 
             modelBuilder.Entity("eCinema.Services.Database.Reservation", b =>
@@ -240,6 +316,18 @@ namespace eCinema.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Roles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("9addaa3c-849d-490b-9884-5c12ce9992c7"),
+                            Name = "Admin"
+                        },
+                        new
+                        {
+                            Id = new Guid("f7805ca2-3cf2-4949-a978-88cd99c0e8e5"),
+                            Name = "User"
+                        });
                 });
 
             modelBuilder.Entity("eCinema.Services.Database.Seat", b =>
@@ -326,6 +414,30 @@ namespace eCinema.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("17e37dd8-762f-4a3f-bf62-ab7f7bdcce34"),
+                            Email = "admin@gmail.com",
+                            FirstName = "Admin",
+                            LastName = "Admin",
+                            LozinkaHash = "BKSmCy4KJqiqWsp+Bdg3gnGgmZ8=",
+                            LozinkaSalt = "VrmMBT9khwJUY2enGHTFgw==",
+                            RoleId = new Guid("9addaa3c-849d-490b-9884-5c12ce9992c7"),
+                            Username = "admin"
+                        },
+                        new
+                        {
+                            Id = new Guid("d34c38bd-1a61-4287-9bd5-c3a97bbcd28e"),
+                            Email = "user@gmail.com",
+                            FirstName = "User",
+                            LastName = "User",
+                            LozinkaHash = "DvCd6WPxkYVublhpeX1tWgDuseQ=",
+                            LozinkaSalt = "jyxqW/wzSLFp48iJ5AtrsA==",
+                            RoleId = new Guid("9addaa3c-849d-490b-9884-5c12ce9992c7"),
+                            Username = "user"
+                        });
                 });
 
             modelBuilder.Entity("eCinema.Services.Database.Notification", b =>

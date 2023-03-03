@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using eCinema.WinUI.Helpers;
 
 namespace eCinema.WinUI
 {
@@ -36,21 +37,24 @@ namespace eCinema.WinUI
                 txtCountry.Text = _model.Country;
                 txtActors.Text = _model.Actors;
                 cbIsActive.Checked = _model.IsActive.GetValueOrDefault(false);
+                if(_model.Picture != null)
+                    pbPicture.Image = ImageHelper.FromByteToImage(_model.Picture);
             }
         }
 
         private async void btnSave_Click(object sender, EventArgs e)
         {
-            var upsert = new MovieUpsertRequest()
+           var upsert = new MovieUpsertRequest()
             {
                 Name = txtName.Text,
                 Description = txtDescription.Text,
                 Actors = txtActors.Text,
                 Director = txtDirector.Text,
                 Country = txtDirector.Text,
-                Genres = txtGenres.Text
+                Genres = txtGenres.Text,
+                Picture = ImageHelper.FromImageToBase64(pbPicture.Image)
 
-            };
+        };
 
             if (!string.IsNullOrWhiteSpace(txtDuration?.Text))
                 upsert.Duration = Convert.ToInt32(txtDuration?.Text);
@@ -62,11 +66,70 @@ namespace eCinema.WinUI
             if (_model is null)
             {
                 await _movieService.Post<MovieDto>(upsert);
+                MessageBox.Show("Movie added.");
+                this.Close();
             }
             else
             {
                 _model = await _movieService.Put<MovieDto>(_model.Id, upsert);
+                MessageBox.Show("Movie edited.");
+                this.Close();
             }
+        }
+
+        private void btnAddPicture_Click(object sender, EventArgs e)
+        {
+            if (ofdPicture.ShowDialog() == DialogResult.OK)
+            {
+                pbPicture.Image = Image.FromFile(ofdPicture.FileName);
+            }
+        }
+
+        private void txtName_Validating(object sender, CancelEventArgs e)
+        {
+            ValidationHelper.Validate(txtName, e, "Name", errorProvider);
+        }
+
+        private void txtDirector_Validating(object sender, CancelEventArgs e)
+        {
+            ValidationHelper.Validate(txtDirector, e, "Director", errorProvider);
+
+        }
+
+        private void txtDuration_Validating(object sender, CancelEventArgs e)
+        {
+            ValidationHelper.Validate(txtDuration, e, "Duration", errorProvider);
+
+        }
+
+        private void txtReleaseYear_Validating(object sender, CancelEventArgs e)
+        {
+            ValidationHelper.Validate(txtReleaseYear, e, "ReleaseYear", errorProvider);
+
+        }
+
+        private void txtCountry_Validating(object sender, CancelEventArgs e)
+        {
+            ValidationHelper.Validate(txtCountry, e, "Country", errorProvider);
+
+        }
+
+        //Rich text
+        private void txtGenres_Validating(object sender, CancelEventArgs e)
+        {
+            //ValidationHelper.Validate(txtGenres, e, "Genres", errorProvider);
+
+        }
+
+        private void txtActors_Validating(object sender, CancelEventArgs e)
+        {
+            //ValidationHelper.Validate(txtName, e, "First name", errorProvider);
+
+        }
+
+        private void txtDescription_Validating(object sender, CancelEventArgs e)
+        {
+
         }
     }
 }

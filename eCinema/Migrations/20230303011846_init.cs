@@ -33,7 +33,7 @@ namespace eCinema.Migrations
                     Country = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Actors = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Director = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Picture = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
+                    Picture = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Genres = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     IsActive = table.Column<bool>(type: "bit", nullable: true)
                 },
@@ -133,6 +133,7 @@ namespace eCinema.Migrations
                     PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LozinkaHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LozinkaSalt = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CustomerId = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     RoleId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: true)
                 },
@@ -199,7 +200,7 @@ namespace eCinema.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Invoices",
+                name: "Payments",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -210,9 +211,9 @@ namespace eCinema.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Invoices", x => x.Id);
+                    table.PrimaryKey("PK_Payments", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Invoices_Reservations_ReservationId",
+                        name: "FK_Payments_Reservations_ReservationId",
                         column: x => x.ReservationId,
                         principalTable: "Reservations",
                         principalColumn: "Id",
@@ -245,16 +246,67 @@ namespace eCinema.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateIndex(
-                name: "IX_Invoices_ReservationId",
-                table: "Invoices",
-                column: "ReservationId",
-                unique: true);
+            migrationBuilder.InsertData(
+                table: "Halls",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { new Guid("2269b63d-3d2b-404a-a322-8a855aa5cd69"), "Hall 1" },
+                    { new Guid("61200b16-64a0-452e-827d-4860a8d0c761"), "Hall 4" },
+                    { new Guid("6a3437ba-36a6-40af-b8ea-a6682762a959"), "Hall 5" },
+                    { new Guid("b5462f22-4f78-46fe-96a0-3dc4629ecbd8"), "Hall 2" },
+                    { new Guid("c932e702-ba23-4d05-97f9-166796c02e37"), "Hall 3" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Movies",
+                columns: new[] { "Id", "Actors", "Country", "Description", "Director", "Duration", "Genres", "IsActive", "Name", "Picture", "ReleaseYear" },
+                values: new object[] { new Guid("f09d18f8-4f14-4ac4-8f34-1a282847e405"), "Ima", "SAD", "Lol", "Ima", 202, null, true, "Avatar", null, 2010 });
+
+            migrationBuilder.InsertData(
+                table: "Prices",
+                columns: new[] { "Id", "Name", "Value" },
+                values: new object[,]
+                {
+                    { new Guid("97724e3b-882e-40aa-b779-544742c9bf85"), "Vecernja projekcija", 7m },
+                    { new Guid("f5221040-1881-4276-85e7-64e0f6505f2a"), "Vikend projekcija", 8m },
+                    { new Guid("f9de5860-2c1a-489b-b084-c543604f0ee8"), "Dnevna projekcija", 6m }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Roles",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { new Guid("9addaa3c-849d-490b-9884-5c12ce9992c7"), "Admin" },
+                    { new Guid("f7805ca2-3cf2-4949-a978-88cd99c0e8e5"), "User" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Projections",
+                columns: new[] { "Id", "EndTime", "HallId", "IsActive", "MovieId", "PriceId", "ProjectionType", "StartTime", "StateMachine", "Status" },
+                values: new object[] { new Guid("9b0a4cfe-d5af-4584-9c0c-78e2dc99aaaf"), new DateTime(2023, 3, 1, 19, 30, 0, 0, DateTimeKind.Unspecified), new Guid("2269b63d-3d2b-404a-a322-8a855aa5cd69"), true, new Guid("f09d18f8-4f14-4ac4-8f34-1a282847e405"), new Guid("f9de5860-2c1a-489b-b084-c543604f0ee8"), "Late", new DateTime(2023, 3, 1, 17, 30, 0, 0, DateTimeKind.Unspecified), "Draft", "Active" });
+
+            migrationBuilder.InsertData(
+                table: "Users",
+                columns: new[] { "Id", "CustomerId", "Email", "FirstName", "IsActive", "LastName", "LozinkaHash", "LozinkaSalt", "PhoneNumber", "RoleId", "Username" },
+                values: new object[] { new Guid("17e37dd8-762f-4a3f-bf62-ab7f7bdcce34"), null, "admin@gmail.com", "Admin", null, "Admin", "BKSmCy4KJqiqWsp+Bdg3gnGgmZ8=", "VrmMBT9khwJUY2enGHTFgw==", null, new Guid("9addaa3c-849d-490b-9884-5c12ce9992c7"), "admin" });
+
+            migrationBuilder.InsertData(
+                table: "Users",
+                columns: new[] { "Id", "CustomerId", "Email", "FirstName", "IsActive", "LastName", "LozinkaHash", "LozinkaSalt", "PhoneNumber", "RoleId", "Username" },
+                values: new object[] { new Guid("d34c38bd-1a61-4287-9bd5-c3a97bbcd28e"), null, "user@gmail.com", "User", null, "User", "DvCd6WPxkYVublhpeX1tWgDuseQ=", "jyxqW/wzSLFp48iJ5AtrsA==", null, new Guid("9addaa3c-849d-490b-9884-5c12ce9992c7"), "user" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Notifications_AuthorId",
                 table: "Notifications",
                 column: "AuthorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Payments_ReservationId",
+                table: "Payments",
+                column: "ReservationId",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Projections_HallId",
@@ -305,10 +357,10 @@ namespace eCinema.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Invoices");
+                name: "Notifications");
 
             migrationBuilder.DropTable(
-                name: "Notifications");
+                name: "Payments");
 
             migrationBuilder.DropTable(
                 name: "SeatReservations");

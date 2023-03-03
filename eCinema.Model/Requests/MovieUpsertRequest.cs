@@ -18,10 +18,9 @@ namespace eCinema.Model.Requests
         public string? Actors { get; set; }
 
         public string? Director { get; set; }
-        [NotMapped]
-        public IFormFile? AcctualPicture { get; set; }
-        //slika s forme
-        public byte[]? Picture { get; set; }
+ 
+        public string? Picture { get; set; }
+
         public string? Genres { get; set; }
 
     }

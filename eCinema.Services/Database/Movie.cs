@@ -17,7 +17,7 @@
         public string? Actors { get; set; }
         public string? Director { get; set; }
         
-        public byte[]? Picture { get; set; }
+        public string? Picture { get; set; }
         public string? Genres { get; set; }
 
         public ICollection<Projection>? Projections { get; set; }

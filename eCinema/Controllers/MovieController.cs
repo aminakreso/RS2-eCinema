@@ -15,13 +15,6 @@ namespace eCinema.Controllers
         {
             _movieService = movieService;
         }
-        
-        [HttpPost]
-        [Route("upload")]
-        public virtual async Task<byte[]?> UploadPicture(IFormFile? pictureImage)
-        {
-            return await _movieService.UploadPicture(pictureImage);
-        }
 
     }
 }

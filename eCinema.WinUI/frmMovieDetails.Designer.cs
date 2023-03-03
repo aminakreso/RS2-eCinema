@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtDuration = new System.Windows.Forms.TextBox();
             this.txtDirector = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
@@ -46,6 +47,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.cbIsActive = new System.Windows.Forms.CheckBox();
             this.btnSave = new System.Windows.Forms.Button();
+            this.pbPicture = new System.Windows.Forms.PictureBox();
+            this.ofdPicture = new System.Windows.Forms.OpenFileDialog();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnAddPicture = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // txtDuration
@@ -54,6 +62,7 @@
             this.txtDuration.Name = "txtDuration";
             this.txtDuration.Size = new System.Drawing.Size(125, 27);
             this.txtDuration.TabIndex = 21;
+            this.txtDuration.Validating += new System.ComponentModel.CancelEventHandler(this.txtDuration_Validating);
             // 
             // txtDirector
             // 
@@ -61,6 +70,7 @@
             this.txtDirector.Name = "txtDirector";
             this.txtDirector.Size = new System.Drawing.Size(125, 27);
             this.txtDirector.TabIndex = 20;
+            this.txtDirector.Validating += new System.ComponentModel.CancelEventHandler(this.txtDirector_Validating);
             // 
             // txtName
             // 
@@ -68,6 +78,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(125, 27);
             this.txtName.TabIndex = 19;
+            this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.txtName_Validating);
             // 
             // label8
             // 
@@ -102,6 +113,7 @@
             this.txtCountry.Name = "txtCountry";
             this.txtCountry.Size = new System.Drawing.Size(125, 27);
             this.txtCountry.TabIndex = 26;
+            this.txtCountry.Validating += new System.ComponentModel.CancelEventHandler(this.txtCountry_Validating);
             // 
             // txtReleaseYear
             // 
@@ -109,6 +121,7 @@
             this.txtReleaseYear.Name = "txtReleaseYear";
             this.txtReleaseYear.Size = new System.Drawing.Size(125, 27);
             this.txtReleaseYear.TabIndex = 25;
+            this.txtReleaseYear.Validating += new System.ComponentModel.CancelEventHandler(this.txtReleaseYear_Validating);
             // 
             // label1
             // 
@@ -144,6 +157,7 @@
             this.txtDescription.Size = new System.Drawing.Size(212, 113);
             this.txtDescription.TabIndex = 27;
             this.txtDescription.Text = "";
+            this.txtDescription.Validating += new System.ComponentModel.CancelEventHandler(this.txtDescription_Validating);
             // 
             // txtActors
             // 
@@ -152,6 +166,7 @@
             this.txtActors.Size = new System.Drawing.Size(212, 71);
             this.txtActors.TabIndex = 28;
             this.txtActors.Text = "";
+            this.txtActors.Validating += new System.ComponentModel.CancelEventHandler(this.txtActors_Validating);
             // 
             // txtGenres
             // 
@@ -160,6 +175,7 @@
             this.txtGenres.Size = new System.Drawing.Size(212, 52);
             this.txtGenres.TabIndex = 29;
             this.txtGenres.Text = "";
+            this.txtGenres.Validating += new System.ComponentModel.CancelEventHandler(this.txtGenres_Validating);
             // 
             // label4
             // 
@@ -182,7 +198,7 @@
             // cbIsActive
             // 
             this.cbIsActive.AutoSize = true;
-            this.cbIsActive.Location = new System.Drawing.Point(174, 397);
+            this.cbIsActive.Location = new System.Drawing.Point(99, 392);
             this.cbIsActive.Name = "cbIsActive";
             this.cbIsActive.Size = new System.Drawing.Size(80, 24);
             this.cbIsActive.TabIndex = 32;
@@ -191,7 +207,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(363, 394);
+            this.btnSave.Location = new System.Drawing.Point(304, 392);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(94, 29);
             this.btnSave.TabIndex = 33;
@@ -199,11 +215,50 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // pbPicture
+            // 
+            this.pbPicture.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pbPicture.Location = new System.Drawing.Point(512, 71);
+            this.pbPicture.Name = "pbPicture";
+            this.pbPicture.Size = new System.Drawing.Size(188, 295);
+            this.pbPicture.TabIndex = 34;
+            this.pbPicture.TabStop = false;
+            // 
+            // ofdPicture
+            // 
+            this.ofdPicture.FileName = "openFileDialog1";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(512, 48);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(40, 20);
+            this.label7.TabIndex = 35;
+            this.label7.Text = "Slika";
+            // 
+            // btnAddPicture
+            // 
+            this.btnAddPicture.Location = new System.Drawing.Point(606, 387);
+            this.btnAddPicture.Name = "btnAddPicture";
+            this.btnAddPicture.Size = new System.Drawing.Size(94, 29);
+            this.btnAddPicture.TabIndex = 36;
+            this.btnAddPicture.Text = "Dodaj sliku";
+            this.btnAddPicture.UseVisualStyleBackColor = true;
+            this.btnAddPicture.Click += new System.EventHandler(this.btnAddPicture_Click);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // frmMovieDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnAddPicture);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.pbPicture);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.cbIsActive);
             this.Controls.Add(this.label5);
@@ -225,6 +280,8 @@
             this.Name = "frmMovieDetails";
             this.Text = "MovieDetails";
             this.Load += new System.EventHandler(this.frmMovieDetails_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -250,5 +307,10 @@
         private Label label5;
         private CheckBox cbIsActive;
         private Button btnSave;
+        private PictureBox pbPicture;
+        private OpenFileDialog ofdPicture;
+        private Label label7;
+        private Button btnAddPicture;
+        private ErrorProvider errorProvider;
     }
 }
