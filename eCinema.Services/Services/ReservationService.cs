@@ -86,9 +86,9 @@ namespace eCinema.Services.Services
                 || x.User.LastName.ToLower().Contains(search.User.ToLower())
                 || x.User.Username.ToLower().Contains(search.User.ToLower())
                 );
-            
+
             if (search.DateTime is not null)
-                filteredQuery = filteredQuery.Where(x => x.DateTime.Value.Date == search.DateTime);
+                filteredQuery = filteredQuery.Where(x => x.DateTime.Value.Date == search.DateTime.Value.Date);
             
             return filteredQuery;
 

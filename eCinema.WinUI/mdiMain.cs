@@ -183,5 +183,14 @@ namespace eCinema.WinUI
             childForm.WindowState = FormWindowState.Maximized;
             childForm.Show();
         }
+
+        private void rezervacijeToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var childForm = new frmReservations();
+            childForm.MdiParent = this;
+            childForm.Text = "Window " + childFormNumber++;
+            childForm.WindowState = FormWindowState.Maximized;
+            childForm.Show();
+        }
     }
 }

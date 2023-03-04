@@ -30,6 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgvProjection = new System.Windows.Forms.DataGridView();
+            this.startTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hallNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.movieNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.projectionTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stateMachineDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.projectionDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnShow = new System.Windows.Forms.Button();
             this.cmbStatus = new System.Windows.Forms.ComboBox();
             this.txtName = new System.Windows.Forms.TextBox();
@@ -41,13 +48,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.movieIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.projectionDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.startTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hallNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.movieNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.projectionTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stateMachineDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectionDtoBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -76,6 +76,64 @@
             this.dgvProjection.TabIndex = 23;
             this.dgvProjection.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProjection_CellContentDoubleClick);
             this.dgvProjection.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvProjection_CellFormatting);
+            // 
+            // startTimeDataGridViewTextBoxColumn
+            // 
+            this.startTimeDataGridViewTextBoxColumn.DataPropertyName = "StartTime";
+            this.startTimeDataGridViewTextBoxColumn.HeaderText = "Početak projekcije";
+            this.startTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.startTimeDataGridViewTextBoxColumn.Name = "startTimeDataGridViewTextBoxColumn";
+            this.startTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.startTimeDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // hallNameDataGridViewTextBoxColumn
+            // 
+            this.hallNameDataGridViewTextBoxColumn.DataPropertyName = "HallName";
+            this.hallNameDataGridViewTextBoxColumn.HeaderText = "Sala";
+            this.hallNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.hallNameDataGridViewTextBoxColumn.Name = "hallNameDataGridViewTextBoxColumn";
+            this.hallNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.hallNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // movieNameDataGridViewTextBoxColumn
+            // 
+            this.movieNameDataGridViewTextBoxColumn.DataPropertyName = "MovieName";
+            this.movieNameDataGridViewTextBoxColumn.HeaderText = "Film";
+            this.movieNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.movieNameDataGridViewTextBoxColumn.Name = "movieNameDataGridViewTextBoxColumn";
+            this.movieNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.movieNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // priceNameDataGridViewTextBoxColumn
+            // 
+            this.priceNameDataGridViewTextBoxColumn.DataPropertyName = "PriceName";
+            this.priceNameDataGridViewTextBoxColumn.HeaderText = "Tip karte";
+            this.priceNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.priceNameDataGridViewTextBoxColumn.Name = "priceNameDataGridViewTextBoxColumn";
+            this.priceNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.priceNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // projectionTypeDataGridViewTextBoxColumn
+            // 
+            this.projectionTypeDataGridViewTextBoxColumn.DataPropertyName = "ProjectionType";
+            this.projectionTypeDataGridViewTextBoxColumn.HeaderText = "Tip";
+            this.projectionTypeDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.projectionTypeDataGridViewTextBoxColumn.Name = "projectionTypeDataGridViewTextBoxColumn";
+            this.projectionTypeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.projectionTypeDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // stateMachineDataGridViewTextBoxColumn
+            // 
+            this.stateMachineDataGridViewTextBoxColumn.DataPropertyName = "StateMachine";
+            this.stateMachineDataGridViewTextBoxColumn.HeaderText = "StateMachine";
+            this.stateMachineDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.stateMachineDataGridViewTextBoxColumn.Name = "stateMachineDataGridViewTextBoxColumn";
+            this.stateMachineDataGridViewTextBoxColumn.ReadOnly = true;
+            this.stateMachineDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // projectionDtoBindingSource
+            // 
+            this.projectionDtoBindingSource.DataSource = typeof(eCinema.Model.Dtos.ProjectionDto);
             // 
             // btnShow
             // 
@@ -167,64 +225,6 @@
             this.movieIdDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.movieIdDataGridViewTextBoxColumn.Name = "movieIdDataGridViewTextBoxColumn";
             this.movieIdDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // projectionDtoBindingSource
-            // 
-            this.projectionDtoBindingSource.DataSource = typeof(eCinema.Model.Dtos.ProjectionDto);
-            // 
-            // startTimeDataGridViewTextBoxColumn
-            // 
-            this.startTimeDataGridViewTextBoxColumn.DataPropertyName = "StartTime";
-            this.startTimeDataGridViewTextBoxColumn.HeaderText = "Početak projekcije";
-            this.startTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.startTimeDataGridViewTextBoxColumn.Name = "startTimeDataGridViewTextBoxColumn";
-            this.startTimeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.startTimeDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // hallNameDataGridViewTextBoxColumn
-            // 
-            this.hallNameDataGridViewTextBoxColumn.DataPropertyName = "HallName";
-            this.hallNameDataGridViewTextBoxColumn.HeaderText = "Sala";
-            this.hallNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.hallNameDataGridViewTextBoxColumn.Name = "hallNameDataGridViewTextBoxColumn";
-            this.hallNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.hallNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // movieNameDataGridViewTextBoxColumn
-            // 
-            this.movieNameDataGridViewTextBoxColumn.DataPropertyName = "MovieName";
-            this.movieNameDataGridViewTextBoxColumn.HeaderText = "Film";
-            this.movieNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.movieNameDataGridViewTextBoxColumn.Name = "movieNameDataGridViewTextBoxColumn";
-            this.movieNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.movieNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // priceNameDataGridViewTextBoxColumn
-            // 
-            this.priceNameDataGridViewTextBoxColumn.DataPropertyName = "PriceName";
-            this.priceNameDataGridViewTextBoxColumn.HeaderText = "Tip karte";
-            this.priceNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.priceNameDataGridViewTextBoxColumn.Name = "priceNameDataGridViewTextBoxColumn";
-            this.priceNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.priceNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // projectionTypeDataGridViewTextBoxColumn
-            // 
-            this.projectionTypeDataGridViewTextBoxColumn.DataPropertyName = "ProjectionType";
-            this.projectionTypeDataGridViewTextBoxColumn.HeaderText = "Tip";
-            this.projectionTypeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.projectionTypeDataGridViewTextBoxColumn.Name = "projectionTypeDataGridViewTextBoxColumn";
-            this.projectionTypeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.projectionTypeDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // stateMachineDataGridViewTextBoxColumn
-            // 
-            this.stateMachineDataGridViewTextBoxColumn.DataPropertyName = "StateMachine";
-            this.stateMachineDataGridViewTextBoxColumn.HeaderText = "StateMachine";
-            this.stateMachineDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.stateMachineDataGridViewTextBoxColumn.Name = "stateMachineDataGridViewTextBoxColumn";
-            this.stateMachineDataGridViewTextBoxColumn.ReadOnly = true;
-            this.stateMachineDataGridViewTextBoxColumn.Width = 125;
             // 
             // frmProjection
             // 

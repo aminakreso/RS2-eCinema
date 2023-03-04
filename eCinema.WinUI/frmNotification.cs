@@ -67,6 +67,7 @@ namespace eCinema.WinUI
             }
 
             searchObject.NotificationType = cmbNotificationType.Text;
+            searchObject.IncludeUsers = true;
 
             var list = await _notificationService.Get<List<NotificationDto>>(searchObject);
             dgvNotifications.DataSource = list;
