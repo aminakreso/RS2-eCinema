@@ -67,9 +67,19 @@ namespace eCinema.Services.Services
 
         public override IQueryable<Reservation> AddInclude(IQueryable<Reservation> query, ReservationSearchObject search = null)
         {
-            query = query.Include(x => x.SeatsReservations);
-            query = query.Include(x => x.Projection);
-            query = query.Include(x => x.Projection.Movie);
+            if(search?.IncludeSeatsReservations is true)
+                query = query.Include(x => x.SeatsReservations);
+            if (search?.IncludeProjection is true)
+                query = query.Include(x => x.Projection);
+            if (search?.IncludeMovies is true)
+                query = query.Include(x => x.Projection!.Movie);
+            if (search?.IncludePrices is true)
+                query = query.Include(x => x.Projection!.Price);
+            if (search?.IncludeUsers is true)
+                query = query.Include(x => x.User); 
+            if (search?.IncludePayments is true)
+                query = query.Include(x => x.Payment);
+    
             return query;
         }
         
@@ -89,7 +99,7 @@ namespace eCinema.Services.Services
 
             if (search.DateTime is not null)
                 filteredQuery = filteredQuery.Where(x => x.DateTime.Value.Date == search.DateTime.Value.Date);
-            
+
             return filteredQuery;
 
         }

@@ -16,8 +16,6 @@ namespace eCinema.Model.Requests
 
         public string? PhoneNumber { get; set; }
 
-        public string? Username { get; set; }
-
         public Guid RoleId { get; set; }
 
         public bool? IsActive { get; set; }

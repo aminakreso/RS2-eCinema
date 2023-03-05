@@ -81,5 +81,23 @@ namespace eCinema.WinUI
             var frmNotificationDetails = new frmNotificationDetails(notification);
             frmNotificationDetails.ShowDialog();
         }
+
+        private void dgvNotifications_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                var notification = (NotificationDto)(this.dgvNotifications.Rows[e.RowIndex]
+                    .DataBoundItem);
+
+                if (notification is not null)
+                {
+                    if (notification.Author is not null && e.ColumnIndex == 2)
+                    {
+                        e.Value = $"{notification.Author.FirstName} {notification.Author.LastName}";
+                    }
+
+                }
+            }
+        }
     }
 }

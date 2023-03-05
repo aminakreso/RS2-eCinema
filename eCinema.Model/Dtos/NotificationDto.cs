@@ -11,13 +11,13 @@
         public DateTime? Date { get; set; }
 
         public Guid AuthorId { get; set; }
-        public UserDto Autor { get; set; }
+        public UserDto Author { get; set; }
 
         public string? AuthorName
         {
             get
             {
-                return Autor?.FirstName + " " + Autor?.LastName;
+                return Author?.FirstName + " " + Author?.LastName;
             }
         }
 

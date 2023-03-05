@@ -64,7 +64,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(46, 20);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Autor";
+            this.label2.Text = "Author";
             // 
             // label3
             // 
@@ -121,6 +121,7 @@
             this.dgvNotifications.Size = new System.Drawing.Size(687, 305);
             this.dgvNotifications.TabIndex = 6;
             this.dgvNotifications.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNotifications_CellContentDoubleClick);
+            this.dgvNotifications.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvNotifications_CellFormatting);
             // 
             // notificationDtoBindingSource
             // 
@@ -156,8 +157,7 @@
             // 
             // authorIdDataGridViewTextBoxColumn
             // 
-            this.authorIdDataGridViewTextBoxColumn.DataPropertyName = "AuthorName";
-            this.authorIdDataGridViewTextBoxColumn.HeaderText = "Autor";
+            this.authorIdDataGridViewTextBoxColumn.HeaderText = "Author";
             this.authorIdDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.authorIdDataGridViewTextBoxColumn.Name = "authorIdDataGridViewTextBoxColumn";
             this.authorIdDataGridViewTextBoxColumn.ReadOnly = true;

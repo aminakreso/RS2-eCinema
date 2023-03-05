@@ -135,17 +135,14 @@ namespace eCinema.WinUI
 
         private void txtUserPassword_Validating(object sender, CancelEventArgs e)
         {
-            ValidationHelper.Validate(txtUserPassword, e, "Phone number", errorProvider);
-        }
-
-        private void txtPasswordConfirm_Validated(object sender, EventArgs e)
-        {
-            //ValidationHelper.Validate(txtUserPassword, e, "Phone number", errorProvider);
+            if(_model is null)
+                ValidationHelper.Validate(txtUserPassword, e, "Phone number", errorProvider);
         }
 
         private void txtPasswordConfirm_Validating(object sender, CancelEventArgs e)
         {
-            ValidationHelper.Validate(txtPasswordConfirm, e, "Phone number", errorProvider);
+            if (_model is null)
+                ValidationHelper.Validate(txtPasswordConfirm, e, "Phone number", errorProvider);
         }
     }
 }

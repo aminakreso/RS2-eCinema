@@ -72,5 +72,22 @@ namespace eCinema.WinUI
             var frmUserDetails = new frmUserDetails(user);
             frmUserDetails.ShowDialog();
         }
+
+        private void dgvUsers_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                var user = (UserDto)(this.dgvUsers.Rows[e.RowIndex]
+                    .DataBoundItem);
+
+                if (user is not null)
+                {
+                    if (user.Role is not null && e.ColumnIndex == 5)
+                    {
+                        e.Value = user.Role.Name;
+                    }
+                }
+            }
+        }
     }
 }
