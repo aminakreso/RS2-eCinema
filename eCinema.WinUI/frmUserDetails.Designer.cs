@@ -43,8 +43,13 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txtUsernamee = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtUserPassword = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtPasswordConfirm = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -89,7 +94,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(24, 38);
+            this.label5.Location = new System.Drawing.Point(24, 73);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(49, 20);
             this.label5.TabIndex = 4;
@@ -130,7 +135,7 @@
             // cbIsActive
             // 
             this.cbIsActive.AutoSize = true;
-            this.cbIsActive.Location = new System.Drawing.Point(24, 187);
+            this.cbIsActive.Location = new System.Drawing.Point(267, 280);
             this.cbIsActive.Name = "cbIsActive";
             this.cbIsActive.Size = new System.Drawing.Size(80, 24);
             this.cbIsActive.TabIndex = 16;
@@ -140,7 +145,7 @@
             // cmbRole
             // 
             this.cmbRole.FormattingEnabled = true;
-            this.cmbRole.Location = new System.Drawing.Point(24, 73);
+            this.cmbRole.Location = new System.Drawing.Point(24, 96);
             this.cmbRole.Name = "cmbRole";
             this.cmbRole.Size = new System.Drawing.Size(151, 28);
             this.cmbRole.TabIndex = 17;
@@ -175,29 +180,72 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.txtPasswordConfirm);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.txtUserPassword);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.txtUsernamee);
+            this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.cmbRole);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.cbIsActive);
             this.groupBox2.Location = new System.Drawing.Point(259, 26);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(216, 217);
+            this.groupBox2.Size = new System.Drawing.Size(216, 235);
             this.groupBox2.TabIndex = 20;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Pristupni podaci";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(24, 154);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(49, 20);
-            this.label6.TabIndex = 18;
-            this.label6.Text = "Status";
-            // 
             // errorProvider
             // 
             this.errorProvider.ContainerControl = this;
+            // 
+            // txtUsernamee
+            // 
+            this.txtUsernamee.Location = new System.Drawing.Point(24, 43);
+            this.txtUsernamee.Name = "txtUsernamee";
+            this.txtUsernamee.Size = new System.Drawing.Size(125, 27);
+            this.txtUsernamee.TabIndex = 20;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(24, 23);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(106, 20);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "Korisnicko ime";
+            // 
+            // txtUserPassword
+            // 
+            this.txtUserPassword.Location = new System.Drawing.Point(24, 149);
+            this.txtUserPassword.Name = "txtUserPassword";
+            this.txtUserPassword.Size = new System.Drawing.Size(125, 27);
+            this.txtUserPassword.TabIndex = 22;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(24, 127);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(59, 20);
+            this.label10.TabIndex = 21;
+            this.label10.Text = "Lozinka";
+            // 
+            // txtPasswordConfirm
+            // 
+            this.txtPasswordConfirm.Location = new System.Drawing.Point(24, 202);
+            this.txtPasswordConfirm.Name = "txtPasswordConfirm";
+            this.txtPasswordConfirm.Size = new System.Drawing.Size(125, 27);
+            this.txtPasswordConfirm.TabIndex = 24;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(24, 179);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(106, 20);
+            this.label11.TabIndex = 23;
+            this.label11.Text = "Potvrdi lozinku";
             // 
             // frmUserDetails
             // 
@@ -207,6 +255,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.cbIsActive);
             this.Name = "frmUserDetails";
             this.Text = "frmUserDetails";
             this.Load += new System.EventHandler(this.frmUserDetails_Load);
@@ -216,6 +265,7 @@
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -226,7 +276,6 @@
         private Label label3;
         private Label label4;
         private Label label5;
-        private Label label6;
         private Label label8;
         private Label label9;
         private TextBox txtFirstName;
@@ -242,5 +291,11 @@
         private GroupBox groupBox1;
         private GroupBox groupBox2;
         private ErrorProvider errorProvider;
+        private TextBox txtPasswordConfirm;
+        private Label label11;
+        private TextBox txtUserPassword;
+        private Label label10;
+        private TextBox txtUsernamee;
+        private Label label7;
     }
 }
