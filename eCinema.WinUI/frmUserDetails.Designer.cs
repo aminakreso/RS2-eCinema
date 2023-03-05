@@ -43,13 +43,13 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txtPasswordConfirm = new System.Windows.Forms.TextBox();
+            this.lblConfirmPassword = new System.Windows.Forms.Label();
+            this.txtUserPassword = new System.Windows.Forms.TextBox();
+            this.lblPassword = new System.Windows.Forms.Label();
             this.txtUsernamee = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtUserPassword = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtPasswordConfirm = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -181,9 +181,9 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.txtPasswordConfirm);
-            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.lblConfirmPassword);
             this.groupBox2.Controls.Add(this.txtUserPassword);
-            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.lblPassword);
             this.groupBox2.Controls.Add(this.txtUsernamee);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.cmbRole);
@@ -195,9 +195,39 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Pristupni podaci";
             // 
-            // errorProvider
+            // txtPasswordConfirm
             // 
-            this.errorProvider.ContainerControl = this;
+            this.txtPasswordConfirm.Location = new System.Drawing.Point(24, 202);
+            this.txtPasswordConfirm.Name = "txtPasswordConfirm";
+            this.txtPasswordConfirm.Size = new System.Drawing.Size(125, 27);
+            this.txtPasswordConfirm.TabIndex = 24;
+            this.txtPasswordConfirm.Validating += new System.ComponentModel.CancelEventHandler(this.txtPasswordConfirm_Validating);
+            // 
+            // lblConfirmPassword
+            // 
+            this.lblConfirmPassword.AutoSize = true;
+            this.lblConfirmPassword.Location = new System.Drawing.Point(24, 179);
+            this.lblConfirmPassword.Name = "lblConfirmPassword";
+            this.lblConfirmPassword.Size = new System.Drawing.Size(106, 20);
+            this.lblConfirmPassword.TabIndex = 23;
+            this.lblConfirmPassword.Text = "Potvrdi lozinku";
+            // 
+            // txtUserPassword
+            // 
+            this.txtUserPassword.Location = new System.Drawing.Point(24, 149);
+            this.txtUserPassword.Name = "txtUserPassword";
+            this.txtUserPassword.Size = new System.Drawing.Size(125, 27);
+            this.txtUserPassword.TabIndex = 22;
+            this.txtUserPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtUserPassword_Validating);
+            // 
+            // lblPassword
+            // 
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Location = new System.Drawing.Point(24, 127);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(59, 20);
+            this.lblPassword.TabIndex = 21;
+            this.lblPassword.Text = "Lozinka";
             // 
             // txtUsernamee
             // 
@@ -215,37 +245,9 @@
             this.label7.TabIndex = 19;
             this.label7.Text = "Korisnicko ime";
             // 
-            // txtUserPassword
+            // errorProvider
             // 
-            this.txtUserPassword.Location = new System.Drawing.Point(24, 149);
-            this.txtUserPassword.Name = "txtUserPassword";
-            this.txtUserPassword.Size = new System.Drawing.Size(125, 27);
-            this.txtUserPassword.TabIndex = 22;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(24, 127);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(59, 20);
-            this.label10.TabIndex = 21;
-            this.label10.Text = "Lozinka";
-            // 
-            // txtPasswordConfirm
-            // 
-            this.txtPasswordConfirm.Location = new System.Drawing.Point(24, 202);
-            this.txtPasswordConfirm.Name = "txtPasswordConfirm";
-            this.txtPasswordConfirm.Size = new System.Drawing.Size(125, 27);
-            this.txtPasswordConfirm.TabIndex = 24;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(24, 179);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(106, 20);
-            this.label11.TabIndex = 23;
-            this.label11.Text = "Potvrdi lozinku";
+            this.errorProvider.ContainerControl = this;
             // 
             // frmUserDetails
             // 
@@ -292,9 +294,9 @@
         private GroupBox groupBox2;
         private ErrorProvider errorProvider;
         private TextBox txtPasswordConfirm;
-        private Label label11;
+        private Label lblConfirmPassword;
         private TextBox txtUserPassword;
-        private Label label10;
+        private Label lblPassword;
         private TextBox txtUsernamee;
         private Label label7;
     }

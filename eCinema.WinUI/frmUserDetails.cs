@@ -28,12 +28,27 @@ namespace eCinema.WinUI
 
             if (_model is not null)
             {
+                LoadAccessInfo();
                 txtFirstName.Text = _model.FirstName;
                 txtLastName.Text = _model.LastName;
                 txtEmail.Text = _model.Email;
                 txtPhoneNumber.Text = _model.PhoneNumber;
+                txtUsernamee.Text = _model.Username;
                 cmbRole.Text = _model.Role?.Name;
                 cbIsActive.Checked = _model.IsActive.GetValueOrDefault(false);
+            }
+        }
+
+        private void LoadAccessInfo()
+        {
+            if(_model is not null)
+            {
+                txtUsernamee.ReadOnly = true;
+                lblPassword.Visible = false;
+                txtUserPassword.Visible = false;
+                lblConfirmPassword.Visible = false;
+                txtPasswordConfirm.Visible = false;
+                
             }
         }
 
@@ -63,9 +78,9 @@ namespace eCinema.WinUI
                         LastName = txtLastName.Text,
                         Email = txtEmail.Text,
                         PhoneNumber = txtPhoneNumber.Text,
-                        Username = txtUsername.Text,
-                        Password = txtPassword.Text,
-                        ConfirmPassword = txtConfirmPassword.Text,
+                        Username = txtUsernamee.Text,
+                        Password = txtUserPassword.Text,
+                        ConfirmPassword = txtPasswordConfirm.Text,
                         RoleId = roleId,
                         IsActive = cbIsActive.Checked,
                     };
@@ -118,8 +133,19 @@ namespace eCinema.WinUI
             ValidationHelper.Validate(txtPhoneNumber, e, "Phone number", errorProvider);
         }
 
-       
+        private void txtUserPassword_Validating(object sender, CancelEventArgs e)
+        {
+            ValidationHelper.Validate(txtUserPassword, e, "Phone number", errorProvider);
+        }
 
-      
+        private void txtPasswordConfirm_Validated(object sender, EventArgs e)
+        {
+            //ValidationHelper.Validate(txtUserPassword, e, "Phone number", errorProvider);
+        }
+
+        private void txtPasswordConfirm_Validating(object sender, CancelEventArgs e)
+        {
+            ValidationHelper.Validate(txtPasswordConfirm, e, "Phone number", errorProvider);
+        }
     }
 }
