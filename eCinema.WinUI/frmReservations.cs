@@ -1,5 +1,10 @@
 ﻿using eCinema.Model.Dtos;
 using eCinema.Model.SearchObjects;
+using iText.Kernel.Font;
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+using iText.Layout.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -79,5 +84,59 @@ namespace eCinema.WinUI
                 }
             }
         }
+
+        private async void btnReport_Click(object sender, EventArgs e)
+        {
+            var searchObject = new ReservationSearchObject
+            {
+                IncludeUsers = true,
+                IncludeProjection = true,
+                IncludeMovies = true,
+                IncludePayments = true,
+                IncludePrices = true
+            };
+
+            List<ReservationDto> data = await _reservationService.Get<List<ReservationDto>>(searchObject);
+
+            PdfDocument pdfDoc = new PdfDocument(new PdfWriter(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\rezervacije.pdf"));
+
+            Document doc = new Document(pdfDoc);
+
+            Table table = new Table(6);
+
+            table.AddHeaderCell("Korisnik");
+            table.AddHeaderCell("Datum projekcije");
+            table.AddHeaderCell("Film");
+            table.AddHeaderCell("Tip projekcije");
+            table.AddHeaderCell("Iznos");
+            table.AddHeaderCell("Datum rezervacije");
+
+
+            foreach (ReservationDto item in data)
+            {
+                table.AddCell(item.User.FirstName ?? "");
+                table.AddCell(item.Projection?.StartTime.ToString() ?? "");
+                table.AddCell(item.Projection?.Movie.Name ?? "");
+                table.AddCell(item.Projection?.Price.Name ?? "");
+                table.AddCell(item.Payment?.Amount.ToString() ?? "");
+                table.AddCell(item.DateTime.ToString() ?? "");
+            }
+
+            Paragraph title = new Paragraph("Lista rezervacija")
+                .SetFont(PdfFontFactory
+                .CreateFont("Helvetica-Bold"))
+                .SetFontSize(22)
+                .SetTextAlignment(TextAlignment.CENTER);
+            Paragraph para = new Paragraph("Broj rezervacija " + data.Count + ".");
+            // add the table to the document
+            doc.Add(title);
+            doc.Add(table);
+            doc.Add(para);
+            // close the document
+            doc.Close();
+            MessageBox.Show("Report generated on desktop.");
+            this.Close();
+        }
+      
     }
 }
