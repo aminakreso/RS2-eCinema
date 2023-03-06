@@ -50,34 +50,41 @@ class _MovieListScreenState extends State<MovieListScreen> {
     ));
   }
 
-  Card _buildMovieCard(Movie x) {
-    return Card(
-      child: InkWell(
-        onTap: () {
-          Navigator.pushNamed(
-              context, "${MovieDetailsScreen.routeName}/${x.id}");
-        },
-        child: Row(
-          children: [
-            Container(
-              height: 150,
-              width: 150,
-              child: imageFromBase64String(x.picture!),
-            ),
-            Column(
-              children: [
-                Text("${x.name}", style: Theme.of(context).textTheme.headline5),
-                SizedBox(
-                  height: 20,
-                ),
-                MovieCardLine(label: "Duration:", text: x.duration.toString()),
-                MovieCardLine(label: "Actors:", text: x.actors),
-                MovieCardLine(label: "Director:", text: x.director),
-                MovieCardLine(label: "Genres:", text: x.genres),
-                MovieCardLine(label: "Country:", text: x.country),
-              ],
-            ),
-          ],
+  Widget _buildMovieCard(Movie x) {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Card(
+        child: InkWell(
+          onTap: () {
+            Navigator.pushNamed(
+                context, "${MovieDetailsScreen.routeName}/${x.id}");
+          },
+          child: Row(
+            children: [
+              Container(
+                height: 150,
+                width: 150,
+                child: imageFromBase64String(x.picture!),
+                margin: EdgeInsets.only(right: 10.0),
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("${x.name}",
+                      style: Theme.of(context).textTheme.headline5),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  MovieCardLine(
+                      label: "Duration:", text: x.duration.toString()),
+                  MovieCardLine(label: "Actors:", text: x.actors),
+                  MovieCardLine(label: "Director:", text: x.director),
+                  MovieCardLine(label: "Genres:", text: x.genres),
+                  MovieCardLine(label: "Country:", text: x.country),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

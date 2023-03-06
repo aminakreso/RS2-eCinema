@@ -61,7 +61,7 @@ Future<void> main() async {
                   color: Colors.white70),
               headline2: TextStyle(fontSize: 36.0, color: Colors.red[900]),
               headline3: TextStyle(fontSize: 36.0, color: Colors.white70),
-              headline5: TextStyle(fontSize: 36.0, color: Colors.black),
+              headline5: TextStyle(fontSize: 24.0, color: Colors.black),
               bodyText1: TextStyle(fontSize: 18.0, color: Colors.red[900]),
               bodyText2: TextStyle(
                   fontSize: 12.0,
@@ -70,9 +70,9 @@ Future<void> main() async {
           cardTheme: CardTheme(
             color: Colors.white,
             elevation: 5.0,
-            margin: EdgeInsets.fromLTRB(10.0, 20.0, 10.0, 20.0),
+            margin: EdgeInsets.only(top: 20.0),
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10.0),
+              borderRadius: BorderRadius.circular(20.0),
             ),
           ),
         ),
