@@ -135,7 +135,7 @@ namespace eCinema.Services.Services
             var returnList = await _cinemaContext.Movies.Where(x =>
                     x.Name == finalResult[0].Name || x.Name == finalResult[1].Name || x.Name == finalResult[2].Name)
                 .ToListAsync();
-
+            mlContext = null;
             return _mapper.Map<List<MovieDto>>(returnList);
         }
 
