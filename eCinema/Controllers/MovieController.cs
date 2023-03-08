@@ -2,7 +2,6 @@
 using eCinema.Model.Requests;
 using eCinema.Model.SearchObjects;
 using eCinema.Services.Services;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace eCinema.Controllers
@@ -14,6 +13,12 @@ namespace eCinema.Controllers
             : base(movieService)
         {
             _movieService = movieService;
+        }
+        
+        [HttpGet("Recommend/{movieId}")]
+        public async Task<IEnumerable<MovieDto>> Recommend(Guid movieId)
+        {
+            return await _movieService.Recommend(movieId);
         }
 
     }

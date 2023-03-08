@@ -1,4 +1,5 @@
-﻿using eCinema.Model.Dtos;
+﻿using System.Collections;
+using eCinema.Model.Dtos;
 using eCinema.Model.Requests;
 using eCinema.Model.SearchObjects;
 

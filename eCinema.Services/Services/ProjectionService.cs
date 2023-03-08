@@ -102,14 +102,10 @@ namespace eCinema.Services.Services
 
             if (search.HallId != Guid.Empty && search.HallId is not null)
                 filteredQuery = filteredQuery.Where(x => x.HallId! == search.HallId);
-
-            search.StartDate = DateTime.Now;
-
+            
             if (search.StartDate is not null)
                 filteredQuery = filteredQuery.Where(x => x.StartTime.Value.Date==search.StartDate.Value.Date);
-
-            var list = filteredQuery.ToList();
-
+            
             return filteredQuery;
 
         }

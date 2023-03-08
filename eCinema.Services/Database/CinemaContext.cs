@@ -284,6 +284,45 @@ namespace eCinema.Services.Database
                 listProjectionId.Add(Guid.NewGuid());
             }
 
+            List<Seat> LoadSeatInHall(Guid hallId)
+            {
+                var listSeatsId = new List<Guid>();
+                var seatList = new List<Seat>();
+                string name = "";
+                for (int i = 0; i < 20; i++)
+                {
+                    switch (i)
+                    {
+                        case <=5 : name = "A" + i;
+                            break;
+                        case <= 10 : name = "B" + (i - 5);
+                            break;
+                        case <= 15 : name = "C" + (i - 10);
+                            break;
+                        case <= 20 : name = "D" + (i - 15);
+                            break;
+                    }
+
+                    listSeatsId.Add(Guid.NewGuid());
+                    seatList.Add(new Seat
+                    {
+                        Id = listSeatsId[i],
+                        Name = name,
+                        HallId = hallId
+                    });
+                }
+
+                return seatList;
+            }
+
+            var loadAllList = LoadSeatInHall(listHallId[0]);
+            loadAllList.AddRange(LoadSeatInHall(listHallId[1]));
+            loadAllList.AddRange(LoadSeatInHall(listHallId[2]));
+            loadAllList.AddRange(LoadSeatInHall(listHallId[3]));
+            loadAllList.AddRange(LoadSeatInHall(listHallId[4]));
+            
+            modelBuilder.Entity<Seat>().HasData(loadAllList);
+            
             modelBuilder.Entity<Projection>().HasData(
                 new Projection
                 {
@@ -326,7 +365,7 @@ namespace eCinema.Services.Database
                 },
                 new Projection
                 {
-                    Id = listProjectionId[0],
+                    Id = listProjectionId[3],
                     StartTime = DateTime.Now,
                     EndTime = DateTime.Now.AddHours(2),
                     HallId = listHallId[1],
