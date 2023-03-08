@@ -11,9 +11,6 @@ ReservationUpsertRequest _$ReservationUpsertRequestFromJson(
     ReservationUpsertRequest()
       ..projectionId = json['projectionId'] as String?
       ..userId = json['userId'] as String?
-      ..projection = json['projection'] == null
-          ? null
-          : Projection.fromJson(json['projection'] as Map<String, dynamic>)
       ..seatsId =
           (json['seatsId'] as List<dynamic>?)?.map((e) => e as String).toList();
 
@@ -22,6 +19,5 @@ Map<String, dynamic> _$ReservationUpsertRequestToJson(
     <String, dynamic>{
       'projectionId': instance.projectionId,
       'userId': instance.userId,
-      'projection': instance.projection,
       'seatsId': instance.seatsId,
     };

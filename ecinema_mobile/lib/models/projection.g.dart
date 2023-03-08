@@ -6,30 +6,28 @@ part of 'projection.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Projection _$ProjectionFromJson(Map<String, dynamic> json) => Projection(
-      json['id'] as String,
-      json['startTime'] == null
-          ? null
-          : DateTime.parse(json['startTime'] as String),
-      json['endTime'] == null
-          ? null
-          : DateTime.parse(json['endTime'] as String),
-      json['hallId'] as String,
-      json['hall'] == null
-          ? null
-          : Hall.fromJson(json['hall'] as Map<String, dynamic>),
-      json['movieId'] as String,
-      json['movie'] == null
-          ? null
-          : Movie.fromJson(json['movie'] as Map<String, dynamic>),
-      json['priceId'] as String,
-      json['price'] == null
-          ? null
-          : Price.fromJson(json['price'] as Map<String, dynamic>),
-      json['projectionType'] as String?,
-      json['status'] as String?,
-      json['isActive'] as bool?,
-    );
+Projection _$ProjectionFromJson(Map<String, dynamic> json) => Projection()
+  ..id = json['id'] as String?
+  ..startTime = json['startTime'] == null
+      ? null
+      : DateTime.parse(json['startTime'] as String)
+  ..endTime =
+      json['endTime'] == null ? null : DateTime.parse(json['endTime'] as String)
+  ..hallId = json['hallId'] as String?
+  ..hall = json['hall'] == null
+      ? null
+      : Hall.fromJson(json['hall'] as Map<String, dynamic>)
+  ..movieId = json['movieId'] as String?
+  ..movie = json['movie'] == null
+      ? null
+      : Movie.fromJson(json['movie'] as Map<String, dynamic>)
+  ..priceId = json['priceId'] as String?
+  ..price = json['price'] == null
+      ? null
+      : Price.fromJson(json['price'] as Map<String, dynamic>)
+  ..projectionType = json['projectionType'] as String?
+  ..status = json['status'] as String?
+  ..isActive = json['isActive'] as bool?;
 
 Map<String, dynamic> _$ProjectionToJson(Projection instance) =>
     <String, dynamic>{

@@ -26,8 +26,12 @@ import 'package:http/http.dart' as http;
 class ReservationDetailsScreen extends StatefulWidget {
   static const String routeName = "/reservation_details";
   late ReservationUpsertRequest reservationInsertRequest;
+  late Projection projection;
 
-  ReservationDetailsScreen({required this.reservationInsertRequest, super.key});
+  ReservationDetailsScreen(
+      {required this.reservationInsertRequest,
+      required this.projection,
+      super.key});
 
   @override
   _ReservationDetailsScreenState createState() =>
@@ -39,13 +43,15 @@ class _ReservationDetailsScreenState extends State<ReservationDetailsScreen> {
   Map<String, dynamic>? paymentIntentData;
   ReservationUpsertRequest reservationInsertRequest =
       ReservationUpsertRequest();
-
+  Projection projection = Projection();
+// izvuc projekciju
   PaymentProvider? _paymentProvider = null;
 
   @override
   void initState() {
     super.initState();
     reservationInsertRequest = widget.reservationInsertRequest;
+    projection = widget.projection;
     _paymentProvider = context.read<PaymentProvider>();
   }
 
@@ -63,28 +69,24 @@ class _ReservationDetailsScreenState extends State<ReservationDetailsScreen> {
               children: [
                 MovieCardLine(
                   label: "Movie: ",
-                  text:
-                      '${widget.reservationInsertRequest.projection?.movie?.name}',
+                  text: '${widget.projection?.movie?.name}',
                   font: 18,
                   padding: 8,
                 ),
                 MovieCardLine(
                     label: "Date: ",
-                    text: getDate(
-                        widget.reservationInsertRequest.projection!.startTime!),
+                    text: getDate(widget.projection!.startTime!),
                     font: 18,
                     padding: 8),
                 MovieCardLine(
                   label: "Time ",
-                  text: getTime(
-                      widget.reservationInsertRequest.projection!.startTime!),
+                  text: getTime(widget.projection!.startTime!),
                   font: 18,
                   padding: 8,
                 ),
                 MovieCardLine(
                   label: "Hall: ",
-                  text:
-                      '${widget.reservationInsertRequest.projection?.hall?.name}',
+                  text: '${widget.projection?.hall?.name}',
                   font: 18,
                   padding: 8,
                 ),
@@ -109,7 +111,7 @@ class _ReservationDetailsScreenState extends State<ReservationDetailsScreen> {
                               borderRadius: BorderRadius.circular(10.0)),
                           child: Center(
                             child: Text(
-                              "${widget.reservationInsertRequest.projection?.projectionType}  - Sjedalo ${widget.reservationInsertRequest.seatsId![index]}", // da pise ime
+                              "${widget.projection?.projectionType}  - Sjedalo ${widget.reservationInsertRequest.seatsId![index]}", // da pise ime
                               style: TextStyle(color: Colors.black),
                             ),
                           ),
@@ -163,8 +165,7 @@ class _ReservationDetailsScreenState extends State<ReservationDetailsScreen> {
   }
 
   double calculateToPay() {
-    return reservationInsertRequest.projection!.price!.value! *
-        reservationInsertRequest.seatsId!.length;
+    return projection!.price!.value! * reservationInsertRequest.seatsId!.length;
   }
 
   Future<void> InsertPayment() async {

@@ -12,7 +12,6 @@ part 'reservationUpsertRequest.g.dart';
 class ReservationUpsertRequest {
   String? projectionId;
   String? userId;
-  Projection? projection;
   List<String>? seatsId;
 
   ReservationUpsertRequest();

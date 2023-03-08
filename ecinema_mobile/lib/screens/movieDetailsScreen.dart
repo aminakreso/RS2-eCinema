@@ -36,32 +36,27 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
     _movieProvider = context.read<MovieProvider>();
     _projectionProvider = context.read<ProjectionProvider>();
 
-    loadData().then((movie) {
-      setState(() {
-        this.movie = movie;
-      });
-    });
-
-    loadProjections().then((movieProjection) {
-      setState(() {
-        this.movieProjection = movieProjection;
-        loadProjectionsDates();
-      });
-    });
+    loadData();
   }
 
   Future loadData() async {
     var movie = await _movieProvider?.getById(this.widget.id);
-    return movie;
+    setState(() {
+      this.movie = movie;
+      loadProjections(movie?.name);
+    });
   }
 
-  Future loadProjections() async {
-    var searchRequest = {'Name': movie?.name};
+  Future loadProjections(String? name) async {
+    var searchRequest = {'Name': name};
     var movieProjection = await _projectionProvider?.get(searchRequest);
-    return movieProjection;
+    setState(() {
+      this.movieProjection = movieProjection;
+      loadProjectionsDates(movieProjection);
+    });
   }
 
-  Future loadProjectionsDates() async {
+  Future loadProjectionsDates(List<Projection>? movieProjection) async {
     List<String>? movieProjectionDates =
         movieProjection?.map((x) => getDate(x.startTime!)).toSet().toList();
     setState(() {

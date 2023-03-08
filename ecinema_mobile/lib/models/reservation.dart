@@ -1,6 +1,7 @@
 import 'dart:ffi';
 import 'package:ecinema_mobile/models/projection.dart';
 import 'package:ecinema_mobile/models/projection.dart';
+import 'package:ecinema_mobile/models/user.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'reservation.g.dart';
 
@@ -12,6 +13,7 @@ class Reservation {
   Projection? projection;
   bool? isActive;
   DateTime? dateTime;
+
   Reservation(
     this.id,
     this.userId,

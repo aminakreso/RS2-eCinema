@@ -70,8 +70,8 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
     if (projection != null) {
       setState(() {
         _projection = projection;
-        loadAllSeats(_projection!.hallId);
-        load_ReservedSeats(_projection!.id);
+        loadAllSeats(_projection!.hallId!);
+        load_ReservedSeats(_projection!.id!);
       });
     }
   }
@@ -207,14 +207,14 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
       return TextButton(
         onPressed: () {
           insert?.projectionId = widget.id;
-          insert?.projection = _projection;
+          //insert?.projection = _projection;
           insert?.seatsId = _selectedSeats;
 
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) =>
-                  ReservationDetailsScreen(reservationInsertRequest: insert!),
+              builder: (context) => ReservationDetailsScreen(
+                  reservationInsertRequest: insert!, projection: _projection!),
             ),
           );
         },

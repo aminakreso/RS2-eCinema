@@ -8,31 +8,31 @@ part 'projection.g.dart';
 
 @JsonSerializable()
 class Projection {
-  String id;
+  String? id;
   DateTime? startTime;
   DateTime? endTime;
-  String hallId;
+  String? hallId;
   Hall? hall;
-  String movieId;
+  String? movieId;
   Movie? movie;
-  String priceId;
+  String? priceId;
   Price? price;
   String? projectionType;
   String? status;
   bool? isActive;
-  Projection(
-      this.id,
-      this.startTime,
-      this.endTime,
-      this.hallId,
-      this.hall,
-      this.movieId,
-      this.movie,
-      this.priceId,
-      this.price,
-      this.projectionType,
-      this.status,
-      this.isActive) {}
+  Projection();
+  // this.id,
+  // this.startTime,
+  // this.endTime,
+  // this.hallId,
+  // this.hall,
+  // this.movieId,
+  // this.movie,
+  // this.priceId,
+  // this.price,
+  // this.projectionType,
+  // this.status,
+  // this.isActive) {}
   // A necessary factory constructor for creating a new User instance
   // from a map. Pass the map to the generated `_$UserFromJson()` constructor.
   // The constructor is named after the source class, in this case, User.
