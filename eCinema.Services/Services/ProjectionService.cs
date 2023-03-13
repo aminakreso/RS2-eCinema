@@ -21,7 +21,7 @@ namespace eCinema.Services.Services
         public override async Task<ProjectionDto> GetById(Guid id)
         {
             var entity =  await _cinemaContext.Projections.Include(x => x.Movie)
-                .Include(x=> x.Price).FirstOrDefaultAsync(x => x.Id == id);
+                .Include(x=> x.Price).Include(x=> x.Hall).FirstOrDefaultAsync(x => x.Id == id);
             return _mapper.Map<ProjectionDto>(entity);
 
         }

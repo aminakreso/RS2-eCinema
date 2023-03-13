@@ -16,16 +16,17 @@ namespace eCinema.Services.Services
         
         public override async Task<ReservationDto> Insert(ReservationUpsertRequest insert)
         {
-            if (await CheckSeat(insert.SeatsId))
+            var seatsId = insert.Seats?.Select(x => x.Id).ToList();
+            if (await CheckSeat(seatsId))
             {
                 return new ReservationDto();
             }
 
-            var user = await _cinemaContext.Users.FirstOrDefaultAsync();
+            //var user = await _cinemaContext.Users.FirstOrDefaultAsync();
 
             var reservation = new Reservation
             {
-                UserId = user.Id,
+                UserId = insert.UserId,
                 DateTime = DateTime.Now,
                 IsActive = true,
                 ProjectionId = insert.ProjectionId
@@ -35,7 +36,7 @@ namespace eCinema.Services.Services
             
             var seatList = new List<SeatxrefReservation>();
 
-            foreach (var seatId in insert.SeatsId)
+            foreach (var seatId in seatsId)
             {
                 seatList.Add(new SeatxrefReservation
                 {

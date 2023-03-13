@@ -130,7 +130,7 @@ namespace eCinema.Services.Services
             }
 
             var finalResult = predictionResult.OrderByDescending(x => x.Item2)
-                .Select(x => x.Item1).Take(3).ToList();
+                .Select(x => x.Item1).Distinct().Take(3).ToList();
 
             var returnList = await _cinemaContext.Movies.Where(x =>
                     x.Name == finalResult[0].Name || x.Name == finalResult[1].Name || x.Name == finalResult[2].Name)
