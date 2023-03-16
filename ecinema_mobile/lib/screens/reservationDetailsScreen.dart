@@ -19,6 +19,9 @@ import '../wigdets/movieCardLine.dart';
 import 'loadingScreen.dart';
 import 'package:http/http.dart' as http;
 
+import 'movieDetailsScreen.dart';
+import 'seatSelectionScreen.dart';
+
 class ReservationDetailsScreen extends StatefulWidget {
   static const String routeName = "/reservation_details";
   late ReservationUpsertRequest? reservationInsertRequest;
@@ -199,7 +202,9 @@ class _ReservationDetailsScreenState extends State<ReservationDetailsScreen> {
 
                         await InsertPayment();
 
-                        Navigator.pop(context);
+                        //Navigator.popAndPushNamed(context);
+                        Navigator.popAndPushNamed(context,
+                            "${MovieDetailsScreen.routeName}/${projection?.movie?.id}");
                       },
                       child: Text('Submit'),
                     ),

@@ -26,7 +26,7 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
   List<Seat>? _allSeats = null;
   Projection? _projection = null;
 
-  SeatReservationProvider? _seatReservationProvider = null;
+  late SeatReservationProvider? _seatReservationProvider;
   HallProvider? _hallProvider = null;
   ProjectionProvider? _projectionProvider = null;
 
@@ -56,9 +56,14 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _seatReservationProvider = context.watch<SeatReservationProvider>();
+  }
+
+  @override
   void initState() {
     super.initState();
-    _seatReservationProvider = context.read<SeatReservationProvider>();
     _hallProvider = context.read<HallProvider>();
     _projectionProvider = context.read<ProjectionProvider>();
     loadData();
@@ -172,7 +177,7 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
                                             (element) => element == index)) {
                                           _selectedIndexes?.remove(index);
                                           _selectedSeats
-                                              ?.remove(_allSeats![index].id);
+                                              ?.remove(_allSeats![index]);
                                         } else {
                                           _selectedIndexes?.add(index);
                                           _selectedSeats
