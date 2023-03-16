@@ -6,6 +6,7 @@ import '../utils/util.dart';
 import '../wigdets/headerWidget.dart';
 import '../wigdets/master_screen.dart';
 import '../wigdets/movieCardLine.dart';
+import 'loadingScreen.dart';
 import 'reservationDetailsScreen.dart';
 
 class ReservationListScreen extends StatefulWidget {
@@ -28,13 +29,13 @@ class _ReservationListScreenState extends State<ReservationListScreen> {
   }
 
   Future loadData() async {
-    if (Authorization.username != null) {
+    if (Authorization.id != null) {
       //var searchRequest = {'User': Authorization.username};
       var tmpData = await _reservationProvider!.get({
         'IncludeUsers': true,
         'IncludeProjection': true,
         'IncludeMovies': true,
-        'User': Authorization.username
+        'UserId': Authorization.id
       });
       //var tmpData = await _reservationProvider?.get(searchRequest);
       setState(() {
@@ -45,13 +46,16 @@ class _ReservationListScreenState extends State<ReservationListScreen> {
 
   @override
   Widget build(BuildContext context) {
-    if (data == null || data == [])
-      return Text("No available reservation yet",
-          style: Theme.of(context).textTheme.headline3);
+    if (data == null) {
+      return LoadingScreen();
+    }
     return MasterScreenWidget(
       child: Column(
         children: [
           HeaderWidget(title: "Reservations"),
+          if (data!.isEmpty)
+            Text("No available reservation yet",
+                style: Theme.of(context).textTheme.headline3),
           Expanded(
             child: ListView.builder(
               itemCount: data?.length,
@@ -59,7 +63,7 @@ class _ReservationListScreenState extends State<ReservationListScreen> {
                 return _buildResevationCard(data![index]);
               },
             ),
-          ),
+          )
         ],
       ),
     );

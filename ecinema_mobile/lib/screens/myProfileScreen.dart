@@ -8,6 +8,7 @@ import '../requests/userUpdateRequest.dart';
 import '../utils/util.dart';
 import '../wigdets/headerWidget.dart';
 import '../wigdets/master_screen.dart';
+import 'loadingScreen.dart';
 
 class MyProfileScreen extends StatefulWidget {
   static const String routeName = "/profile";
@@ -53,9 +54,7 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    if (user == null)
-      return Text("User doesn't exist",
-          style: Theme.of(context).textTheme.headline3);
+    if (user == null) return LoadingScreen();
     return Form(
       key: _formKey,
       child: MasterScreenWidget(

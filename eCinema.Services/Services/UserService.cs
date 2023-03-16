@@ -113,14 +113,15 @@ namespace eCinema.Services.Services
             [AllowAnonymous]
             public async Task<UserDto> Register(RegistrationRequest registration)
             {
-               var user = new User
+                var userRole = await _cinemaContext.Roles.FirstOrDefaultAsync(x => x.Name == "User");
+                var user = new User
                 {
                     FirstName = registration.FirstName,
                     LastName = registration.LastName,
                     Email = registration.Email,
                     PhoneNumber = registration.PhoneNumber,
                     Username = registration.Username,
-                    RoleId = new Guid("7ba66fcc-69b4-465e-8ad4-4f7d1a7b1788"),
+                    RoleId = userRole.Id,
                 };
                 var salt = GenerateSalt();
                 user.LozinkaSalt = salt;

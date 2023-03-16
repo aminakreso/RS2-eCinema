@@ -97,10 +97,11 @@ namespace eCinema.Services.Services
 
             if (!string.IsNullOrWhiteSpace(search.User))
                 filteredQuery = filteredQuery.Include(x => x.User).Where(x => x.User.FirstName.ToLower().Contains(search.User.ToLower())
-                || x.User.LastName.ToLower().Contains(search.User.ToLower())
-                || x.User.Username.ToLower().Contains(search.User.ToLower())
-                );
+                || x.User.LastName.ToLower().Contains(search.User.ToLower()));
 
+            if (search.UserId != Guid.Empty && search.UserId is not null)
+                filteredQuery = filteredQuery.Where(x => x.UserId! == search.UserId);
+            
             if (search.DateTime is not null)
                 filteredQuery = filteredQuery.Where(x => x.DateTime.Value.Date == search.DateTime.Value.Date);
 
