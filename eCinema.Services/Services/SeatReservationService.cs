@@ -24,9 +24,18 @@ namespace eCinema.Services.Services
             if (search.ProjectionId != Guid.Empty && search.ProjectionId is not null)
                 filteredQuery = filteredQuery.Include(x=>x.Reservation)
                     .Where(x => x.Reservation.ProjectionId == search.ProjectionId);
-
+            if (search.ReservationId != Guid.Empty && search.ReservationId is not null)
+                filteredQuery = filteredQuery.Include(x => x.Seat ).Where(x => x.ReservationId == search.ReservationId);
 
             return filteredQuery;
+
+        }
+
+        public override IQueryable<SeatxrefReservation> AddInclude(IQueryable<SeatxrefReservation> query, SeatReservationSearchObject search = null)
+        {
+            if (search.IncludeSeats)
+                query.Include(x => x.Seat);
+            return query;
 
         }
     }

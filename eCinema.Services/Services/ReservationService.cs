@@ -3,6 +3,7 @@ using eCinema.Model.Dtos;
 using eCinema.Model.Requests;
 using eCinema.Model.SearchObjects;
 using eCinema.Services.Database;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace eCinema.Services.Services
@@ -17,47 +18,49 @@ namespace eCinema.Services.Services
         public override async Task<ReservationDto> Insert(ReservationUpsertRequest insert)
         {
             var seatsId = insert.Seats?.Select(x => x.Id).ToList();
-            if (await CheckSeat(seatsId))
-            {
-                return new ReservationDto();
-            }
-
-            //var user = await _cinemaContext.Users.FirstOrDefaultAsync();
-
-            var reservation = new Reservation
-            {
-                UserId = insert.UserId,
-                DateTime = DateTime.Now,
-                IsActive = true,
-                ProjectionId = insert.ProjectionId
-            };
-            await _cinemaContext.AddAsync(reservation);
-            await _cinemaContext.SaveChangesAsync();
-            
-            var seatList = new List<SeatxrefReservation>();
-
-            foreach (var seatId in seatsId)
-            {
-                seatList.Add(new SeatxrefReservation
+          
+                if (await CheckSeat(seatsId, insert.ProjectionId))
                 {
-                    ReservationId = reservation.Id,
-                    SeatId = seatId,
-                    IsTaken = true
-                });
+                    throw new Exception("Seat unavailable!");
+                }
+       
+                //var user = await _cinemaContext.Users.FirstOrDefaultAsync();
+
+                var reservation = new Reservation
+                {
+                    UserId = insert.UserId,
+                    DateTime = DateTime.Now,
+                    IsActive = true,
+                    ProjectionId = insert.ProjectionId
+                };
+                await _cinemaContext.AddAsync(reservation);
+                await _cinemaContext.SaveChangesAsync();
+
+                var seatList = new List<SeatxrefReservation>();
+
+                foreach (var seatId in seatsId)
+                {
+                    seatList.Add(new SeatxrefReservation
+                    {
+                        ReservationId = reservation.Id,
+                        SeatId = seatId,
+                        IsTaken = true
+                    });
+                }
+
+                await _cinemaContext.AddRangeAsync(seatList);
+                await _cinemaContext.SaveChangesAsync();
+
+                return _mapper.Map<ReservationDto>(reservation);
             }
 
-            await _cinemaContext.AddRangeAsync(seatList);
-            await _cinemaContext.SaveChangesAsync();
-
-            return _mapper.Map<ReservationDto>(reservation);
-            
-        }
-
-        private async Task<bool> CheckSeat(List<Guid> insertSeatsId)
+        private async Task<bool> CheckSeat(List<Guid> insertSeatsId, Guid projectionId)
         {
+            //if(insertSeatsId == null || projectionId == null)
             foreach (var seatId in insertSeatsId )
             {
-                var flag = await _cinemaContext.SeatReservations.AnyAsync(x => x.SeatId == seatId);
+                var flag = await _cinemaContext.SeatReservations.Include(x=> x.Reservation)
+                    .AnyAsync(x => x.SeatId == seatId && x.Reservation.ProjectionId == projectionId);
                 if (flag)
                 {
                     return flag;
