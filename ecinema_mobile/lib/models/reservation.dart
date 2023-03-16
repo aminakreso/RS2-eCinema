@@ -3,6 +3,9 @@ import 'package:ecinema_mobile/models/projection.dart';
 import 'package:ecinema_mobile/models/projection.dart';
 import 'package:ecinema_mobile/models/user.dart';
 import 'package:json_annotation/json_annotation.dart';
+
+import 'seat.dart';
+import 'seatxrefReservation.dart';
 part 'reservation.g.dart';
 
 @JsonSerializable()
@@ -13,15 +16,9 @@ class Reservation {
   Projection? projection;
   bool? isActive;
   DateTime? dateTime;
+  List<SeatxrefReservation>? seats;
 
-  Reservation(
-    this.id,
-    this.userId,
-    this.projectionId,
-    this.projection,
-    this.isActive,
-    this.dateTime,
-  ) {}
+  Reservation();
 
   /// A necessary factory constructor for creating a new User instance
   /// from a map. Pass the map to the generated `_$UserFromJson()` constructor.

@@ -5,7 +5,7 @@ class MovieCardLine extends StatelessWidget {
       {Key? key,
       required this.label,
       required this.text,
-      this.font = 12,
+      this.font = 14,
       this.padding = 0})
       : super(key: key);
 
@@ -17,10 +17,11 @@ class MovieCardLine extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(padding!),
+      padding: EdgeInsets.only(top: padding!),
       child: RichText(
+        overflow: TextOverflow.clip,
         text: TextSpan(
-          text: label,
+          text: label + " ",
           style: TextStyle(
               color: Colors.red[900],
               fontWeight: FontWeight.bold,

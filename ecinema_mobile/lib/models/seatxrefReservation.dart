@@ -11,11 +11,12 @@ class SeatxrefReservation {
   String id;
   String seatId;
   String reservationId;
-  //Seat seat;
+  Seat? seat;
   //Reservation reservation;
   bool? isTaken;
 
-  SeatxrefReservation(this.id, this.seatId, this.reservationId, this.isTaken);
+  SeatxrefReservation(
+      this.id, this.seatId, this.reservationId, this.seat, this.isTaken);
 
   /// A necessary factory constructor for creating a new User instance
   /// from a map. Pass the map to the generated `_$UserFromJson()` constructor.

@@ -32,7 +32,7 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
 
   late List<MaterialColor>? _colors;
   List<int>? _selectedIndexes = [];
-  List<String>? _selectedSeats = [];
+  List<Seat>? _selectedSeats = [];
 
   MaterialColor? _buttonColor;
 
@@ -176,7 +176,7 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
                                         } else {
                                           _selectedIndexes?.add(index);
                                           _selectedSeats
-                                              ?.add(_allSeats![index].id);
+                                              ?.add(_allSeats![index]);
                                         }
                                       });
                                     }
@@ -207,14 +207,13 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
       return TextButton(
         onPressed: () {
           insert?.projectionId = widget.id;
-          //insert?.projection = _projection;
-          insert?.seatsId = _selectedSeats;
+          insert?.seats = _selectedSeats;
 
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => ReservationDetailsScreen(
-                  reservationInsertRequest: insert!, projection: _projection!),
+              builder: (context) =>
+                  ReservationDetailsScreen(reservationInsertRequest: insert!),
             ),
           );
         },

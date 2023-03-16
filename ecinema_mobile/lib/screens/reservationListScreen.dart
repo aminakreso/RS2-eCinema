@@ -6,6 +6,7 @@ import '../utils/util.dart';
 import '../wigdets/headerWidget.dart';
 import '../wigdets/master_screen.dart';
 import '../wigdets/movieCardLine.dart';
+import 'reservationDetailsScreen.dart';
 
 class ReservationListScreen extends StatefulWidget {
   static const String routeName = "/reservation";
@@ -28,8 +29,14 @@ class _ReservationListScreenState extends State<ReservationListScreen> {
 
   Future loadData() async {
     if (Authorization.username != null) {
-      var searchRequest = {'User': Authorization.username};
-      var tmpData = await _reservationProvider?.get(searchRequest);
+      //var searchRequest = {'User': Authorization.username};
+      var tmpData = await _reservationProvider!.get({
+        'IncludeUsers': true,
+        'IncludeProjection': true,
+        'IncludeMovies': true,
+        'User': Authorization.username
+      });
+      //var tmpData = await _reservationProvider?.get(searchRequest);
       setState(() {
         data = tmpData;
       });
@@ -58,44 +65,59 @@ class _ReservationListScreenState extends State<ReservationListScreen> {
     );
   }
 
-  Card _buildResevationCard(Reservation x) {
-    return Card(
-      child: Row(
-        children: [
-          Container(
-            height: 150,
-            width: 150,
-            child: imageFromBase64String(x.projection!.movie!.picture!),
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+  Widget _buildResevationCard(Reservation x) {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: InkWell(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ReservationDetailsScreen(id: x.id!),
+            ),
+          );
+          // Navigator.pushNamed(
+          //     context, "${ReservationDetailsScreen.routeName}/${x.id}");
+        },
+        child: Card(
+          child: Row(
             children: [
-              Text("${x.projection?.movie?.name}",
-                  style: Theme.of(context).textTheme.headline5),
-              SizedBox(
-                height: 10,
+              Container(
+                height: 150,
+                width: 150,
+                child: imageFromBase64String(x.projection!.movie!.picture!),
               ),
-              MovieCardLine(
-                  label: "Director :",
-                  text: "${x.projection?.movie?.director ?? "Movie name"}",
-                  font: 14),
-              MovieCardLine(
-                  label: "Genres :",
-                  text: "${x.projection?.movie?.genres ?? "Movie genres"}",
-                  font: 14),
-              MovieCardLine(
-                  label: "Projection date :",
-                  text:
-                      "${getDate(x.projection?.startTime) ?? "Projection date"}",
-                  font: 14),
-              MovieCardLine(
-                  label: "Projection time :",
-                  text:
-                      "${getTime(x.projection?.startTime) ?? "Projection start time"}",
-                  font: 14),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("${x.projection?.movie?.name}",
+                      style: Theme.of(context).textTheme.headline5),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  MovieCardLine(
+                      label: "Director :",
+                      text: "${x.projection?.movie?.director ?? "Movie name"}",
+                      font: 14),
+                  MovieCardLine(
+                      label: "Genres :",
+                      text: "${x.projection?.movie?.genres ?? "Movie genres"}",
+                      font: 14),
+                  MovieCardLine(
+                      label: "Projection date :",
+                      text:
+                          "${getDate(x.projection?.startTime) ?? "Projection date"}",
+                      font: 14),
+                  MovieCardLine(
+                      label: "Projection time :",
+                      text:
+                          "${getTime(x.projection?.startTime) ?? "Projection start time"}",
+                      font: 14),
+                ],
+              ),
             ],
           ),
-        ],
+        ),
       ),
     );
   }

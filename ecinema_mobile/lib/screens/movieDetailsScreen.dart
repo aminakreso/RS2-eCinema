@@ -2,6 +2,7 @@ import 'package:ecinema_mobile/models/projection.dart';
 import 'package:ecinema_mobile/providers/projectionProvider.dart';
 import 'package:ecinema_mobile/screens/seatSelectionScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
 import '../models/movie.dart';
 import '../providers/movieProvider.dart';
@@ -27,6 +28,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
   Movie? movie = null;
   List<Projection>? movieProjection = null;
   List<String>? movieProjectionDates = null;
+  List<Movie>? _recommendList = null;
 
   TextEditingController _searchController = TextEditingController();
 
@@ -37,6 +39,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
     _projectionProvider = context.read<ProjectionProvider>();
 
     loadData();
+    loadRecommendedList(this.widget.id);
   }
 
   Future loadData() async {
@@ -64,37 +67,136 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
     });
   }
 
+  Future loadRecommendedList(String id) async {
+    var tempRecommendList = await _movieProvider?.recommend(id);
+    setState(() {
+      _recommendList = tempRecommendList;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     if (movie == null ||
         movieProjection == null ||
-        movieProjectionDates == null) {
+        movieProjectionDates == null ||
+        _recommendList == null) {
       loadData();
       return LoadingScreen();
     } else {
       return MasterScreenWidget(
-          child: Column(
-        children: [
-          Container(
-            height: 200,
-            child: imageFromBase64String(movie!.picture!),
-          ),
-          MovieCardLine(label: 'Duration', text: movie!.duration.toString()),
-          MovieCardLine(label: 'Actors', text: movie!.actors),
-          MovieCardLine(label: 'Director', text: movie!.director),
-          MovieCardLine(label: 'Genres', text: movie!.genres),
-          MovieCardLine(label: 'Country', text: movie!.country),
-          Container(
-            height: 300,
-            child: ListView.builder(
-                itemCount: movieProjectionDates?.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return _buildProjectionCard(movieProjectionDates![index]);
-                }),
-          )
-        ],
+          child: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(
+          children: [
+            Container(
+              margin: EdgeInsets.symmetric(vertical: 10),
+              height: 210,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: 10),
+                    height: 200,
+                    child: imageFromBase64String(movie!.picture!),
+                  ),
+                  Expanded(
+                    child: ListView(
+                      children: [
+                        Text(movie!.name!,
+                            style: Theme.of(context).textTheme.headline6),
+                        MovieCardLine(
+                          label: 'Duration',
+                          text: movie!.duration.toString(),
+                          padding: 2,
+                        ),
+                        MovieCardLine(
+                          label: 'Actors',
+                          text: movie!.actors,
+                          padding: 2,
+                        ),
+                        MovieCardLine(
+                          label: 'Director',
+                          text: movie!.director,
+                          padding: 2,
+                        ),
+                        MovieCardLine(
+                          label: 'Genres',
+                          text: movie!.genres,
+                          padding: 2,
+                        ),
+                        MovieCardLine(
+                          label: 'Country',
+                          text: movie!.country,
+                          padding: 2,
+                        ),
+                        MovieCardLine(
+                            label: 'Description', text: movie!.description),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Text("Projekcije ", style: Theme.of(context).textTheme.headline6),
+            Container(
+              height: 250,
+              child: ListView.builder(
+                  itemCount: movieProjectionDates?.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return _buildProjectionCard(movieProjectionDates![index]);
+                  }),
+            ),
+            Text("Preporučeno ", style: Theme.of(context).textTheme.headline6),
+            Container(
+              margin: EdgeInsets.only(top: 10),
+              height: 200,
+              child: GridView(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 1,
+                    childAspectRatio: 1.5 / 1,
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 20),
+                scrollDirection: Axis.horizontal,
+                children: _buildMovieCardList(),
+              ),
+            ),
+          ],
+        ),
       ));
     }
+  }
+
+  List<Widget> _buildMovieCardList() {
+    if (_recommendList?.length == 0) {
+      return [Text("Loading...")];
+    }
+
+    List<Widget> list = _recommendList!
+        .map((x) => Container(
+              child: Stack(
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(
+                          context, "${MovieDetailsScreen.routeName}/${x.id}");
+                    },
+                    child: Container(
+                      // height: 100,
+                      // width: 100,
+                      child: imageFromBase64String(x.picture!),
+                    ),
+                  ),
+                  Text(
+                    x.name ?? "",
+                    style: Theme.of(context).textTheme.bodyText1,
+                  ),
+                ],
+              ),
+            ))
+        .cast<Widget>()
+        .toList();
+
+    return list;
   }
 
   Widget _buildProjectionCard(String date) {
