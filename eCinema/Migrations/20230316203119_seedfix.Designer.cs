@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eCinema.Services.Database;
 
@@ -11,9 +12,10 @@ using eCinema.Services.Database;
 namespace eCinema.Migrations
 {
     [DbContext(typeof(CinemaContext))]
-    partial class CinemaContextModelSnapshot : ModelSnapshot
+    [Migration("20230316203119_seedfix")]
+    partial class seedfix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,27 +40,27 @@ namespace eCinema.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("cf0596e3-40b6-405d-838d-2bbbf6fdc562"),
+                            Id = new Guid("5aea3a56-96f9-4540-8fed-48d020e70aca"),
                             Name = "Hall 1"
                         },
                         new
                         {
-                            Id = new Guid("ab574d9c-fd92-4c82-8402-54d2b34852b8"),
+                            Id = new Guid("1477a350-dcd6-4625-857b-a8584c3f974c"),
                             Name = "Hall 2"
                         },
                         new
                         {
-                            Id = new Guid("248a716c-cb2f-446a-a6fc-71921b9aafa5"),
+                            Id = new Guid("d10934ce-f539-4951-83d3-059ddaa00eb6"),
                             Name = "Hall 3"
                         },
                         new
                         {
-                            Id = new Guid("c219e761-199b-48f4-b679-55a6a93dd647"),
+                            Id = new Guid("664deb6a-9a00-4db9-8cf1-12f97a5f9dc1"),
                             Name = "Hall 4"
                         },
                         new
                         {
-                            Id = new Guid("06affbc0-99d0-462f-8bfe-eff3f83b3b65"),
+                            Id = new Guid("faadb9ef-010a-4f77-97db-63c0c45fc0c7"),
                             Name = "Hall 5"
                         });
                 });
@@ -106,7 +108,7 @@ namespace eCinema.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("e6bd3815-7179-459b-8c4d-5c494642ceb6"),
+                            Id = new Guid("7142cecd-2559-4868-8f38-f375903a3670"),
                             Actors = "Zachary Levi, Helen Mirren, Lucy Liu",
                             Country = "SAD",
                             Description = "Svi imamo superjunake u sebi, potrebno je samo malo magije. U slučaju 14-godišnjeg dječaka Billyja Batsona potrebno je samo reći SHAZAM!Henry Gayden je i ovog puta napisao scenarij pun akcije i smijeha.Superheroj Shazam je cinični tinejdžer koji se trudi pronaći svoje mjesto u svijetu i ne zna ništa o takvim junacima, a kamoli kako biti jedan. U njegovomse životu sve vrti oko magične riječi koja ga transformira u njegov odrasli alter ego superheroja, Shazama.",
@@ -120,7 +122,7 @@ namespace eCinema.Migrations
                         },
                         new
                         {
-                            Id = new Guid("97f10aeb-8dfd-4f07-afaa-86391d9d59d9"),
+                            Id = new Guid("11c99e6e-9079-487d-a917-5a855da9dc41"),
                             Actors = "Keanu Reeves, Donnie Yen, Bill Skarsgard, Laurence Fishburne",
                             Country = "SAD",
                             Description = "U četvrtom nastavku velikog akcijskog spektakla John Wick se suočava sa dosad najsmrtonosnijim protivnicima.John Wick (Keanu Reeves) otkriva put do pobjede nad Visokim stolom. Ali prije nego što uspije zaslužiti slobodu, Wick se mora suočiti s novim neprijateljem i moćnim savezima diljem svijeta, te silama koje stare prijatelje pretvaraju u neprijatelje.Radnja novog filma odvija se diljem svijeta i donosi precizno-koreografiranu akciju posebne vrste. U potrazi za najmoćnijim igračima kriminalnog podzemnog svijeta, film vodi gledatelje u New York, Pariz, Osaku i Berlin.",
@@ -134,7 +136,7 @@ namespace eCinema.Migrations
                         },
                         new
                         {
-                            Id = new Guid("a34f4730-5752-49c5-a186-b0f873c183d7"),
+                            Id = new Guid("217db14c-2385-4b42-92f4-2a18c3730a84"),
                             Actors = "Metallica",
                             Country = "SAD",
                             Description = "Budite prvi koji će čuti novi album benda, 72 Seasons, dan prije njegovog objavljivanja, na velikom platnu sa zapanjujućim surround zvukom u ovom specijalnom događaju ekskluzivno u kinima na samo jednu noć.72 Seasons je dugoočekivani 12. studijski album Metallice, kojem prethodi prvi singl „Lux Aterna“— pozdravljen po njegovom izdanju 28. novembra 2022., kao „gromovit, vratoloman“ (Billboard), „emocionalno pogađajući“ (Rolling Stone) i „ vatren“ (USA Today)..",
@@ -148,7 +150,7 @@ namespace eCinema.Migrations
                         },
                         new
                         {
-                            Id = new Guid("7143d770-d077-47c5-9ad8-8b91b8048aee"),
+                            Id = new Guid("24f7a4b1-fe4e-49da-9a59-d681f8879128"),
                             Actors = "Michael B. Jordan, Jonathan Majors, Tessa Thompson",
                             Country = "SAD",
                             Description = "Nakon uspjeha u svijetu boksa, Adonis Creed napreduje i u karijeri i u porodičnom životu. Kada se nakon odslužene zatvorske kazne pojavi njegov prijatelj iz djetinjstva, i nekadašnje boksačko čudo, Damian (Jonathan Majors) će zaželjeti priliku u ringu. Sučeljavanje bivših prijatelja više je od obične tučnjave. Kako bi poravnao račune, Adonis mora staviti svoju budućnost na kocku kako bi se borio protiv Damiana - borca koji nema što izgubiti.",
@@ -162,7 +164,7 @@ namespace eCinema.Migrations
                         },
                         new
                         {
-                            Id = new Guid("0b7b618b-6632-4758-8c3f-304183627b64"),
+                            Id = new Guid("e4d2b21e-432a-4008-a54e-c46c607bf09c"),
                             Actors = "Emma Roberts, Luke Bracey, Richard Gere, Diane Keaton, William H. Macy, Susan Sarandon",
                             Country = "SAD",
                             Description = "Multigeneracijska romantična komedija predvođena Richardom Gereom, oskarovkama Diane Keaton i Susan Sarandon te Williamom H. Macyjem.Michelle i Allen su u svojoj vezi došli do točke kada trebaju poduzeti slijedeći korak prema braku. Misleći da je dobra ideja pozvati roditelje da se konačno upoznaju, priprema se večera i igre počinju.",
@@ -176,7 +178,7 @@ namespace eCinema.Migrations
                         },
                         new
                         {
-                            Id = new Guid("6ea17b04-194d-4333-9bc6-17335f28a439"),
+                            Id = new Guid("7f36d60b-f549-4bbf-8200-71466b6ee61f"),
                             Actors = "Colin Farrell, Brendan Gleeson, Kerry Condon, Barry Keoghan",
                             Country = "Velika Britanija, Irska ",
                             Description = "Crna komedija scenarista i redatelja filma „Tri plakata izvan grada” u kojoj su zvijezde Colin Farrell i Brendan Gleeson, nasmijat će vas, ali i rastužiti do suza.Smješten na udaljenom otoku u blizini zapadne obale Irske, film prati dugogodišnje prijatelje Pádraica (Colin Farrell) i Colma (Brendan Gleeson), koji se nađu u slijepoj ulici kada Colm neočekivano prekine njihovo prijateljstvo.",
@@ -190,7 +192,7 @@ namespace eCinema.Migrations
                         },
                         new
                         {
-                            Id = new Guid("0b8e0bcd-347b-4e8c-afea-227fd92f14d0"),
+                            Id = new Guid("f25d3481-1197-4abf-b433-174c87cc503e"),
                             Actors = "Tom Cruise, Miles Teller, Jennifer Connelly, Jon Hamm, Glen Powell",
                             Country = "SAD",
                             Description = " Nakon više od 30 godina služenja u mornarici, kao jedan od najboljih pilota, Pete “Maverick” Mitchell (Tom Cruise) je tamo gdje i treba da bude. Ne preza da probije barijere kao hrabar test pilot i izbjegava da prihvati unapređenje koje bi ga zauvijek spustilo na zemlju. Kada je počeo da podučava vod mladih pilota koji su na obuci za specijalne misije, kakve ni jedan živi pilot nikada još nije vidio, Maverick sreće poručnika Bradleya Bradshawa čiji je nadimak “Rooster”, sina Maverickovog pokojnog prijatelja i oficira za presretanje radara, poručnika Nicka Bradshawa, zvanog “Gus”.",
@@ -204,7 +206,7 @@ namespace eCinema.Migrations
                         },
                         new
                         {
-                            Id = new Guid("fb8ef4b0-fef6-4291-8c2e-c54e8d234877"),
+                            Id = new Guid("b32e47e6-87ac-439b-bdca-f254c203acd6"),
                             Actors = "Martin Freeman, Letitia Wright, Angela Bassett, Lupita Nyong’o, Danai Gurira",
                             Country = "SAD",
                             Description = "Pripremite se za povratak u Wakandu! Nastavak filma Black Panther iz 2018. godine koji je oduševio kritičare i publiku diljem svijeta. Uz to, film je osvojio i tri Oscara, za najbolju originalnu glazbu, najbolji dizajn kostima i najbolju scenografiju.Wakanda se mora zaštititi od svjetskih sila koje interveniraju nakon smrti kralja T’Challe. Dok Wakanđani nastoje prihvatiti gubitak voljenog vođe, heroji se moraju udružiti te uz pomoć Nakiae i Everetta Rossa iskovati novi plan za kraljevstvo Wakande.",
@@ -218,7 +220,7 @@ namespace eCinema.Migrations
                         },
                         new
                         {
-                            Id = new Guid("1bdfc1ae-7f09-4c55-9d48-2bd5f0e65865"),
+                            Id = new Guid("909a0d62-0425-45ce-bc2a-13720ec3dd56"),
                             Actors = "Michelle Williams, Gabriel LaBelle, Paul Dano",
                             Country = "SAD",
                             Description = "Višestruko nagrađivani Steven Spielberg, jedan od najznačajnijih reditelja u povijesti kinematografije, nakon ekranizacija svih mogućih priča, od fantastičnih avantura do ozbiljnih ratnih filmova, napokon je snimio film o sebi.U novoj uzbudljivoj filmskoj priči Spielberg donosi intimni pogled u svoje djetinjstvo u polu-autobiografskom filmu koji prati osjetljive godine mladića koji će otkriti potresnu porodičnu tajnu što će ga potaknuti da uroni u svijet filmova koji će mu pomoći da spozna istinu o sebi i drugima.",
@@ -232,7 +234,7 @@ namespace eCinema.Migrations
                         },
                         new
                         {
-                            Id = new Guid("50d8b7c2-9511-4eb6-a7f9-9b690bcc6e3d"),
+                            Id = new Guid("3f04daa1-bc45-4347-ad70-f6388c666dff"),
                             Actors = "Brendan Fraser, Sadie Sink, Hong Chau",
                             Country = "SAD",
                             Description = "Priča govori o povučenom učitelju engleskog, ozbiljno pretilom, koji se bori sa zdravstvenim problemima te se pokušava ponovno povezati sa svojom otuđenom sedamnaestogodišnjom kćeri. Nju i njezinu majku ostavio je prije mnogo godina, zbog veze s muškarcem.Na ovogodišnjem Venecijanskom filmskom festivalu film je dobio sve pohvale, kako kritike, tako i publike koja ga je nagradila višeminutnim ovacijama..",
@@ -305,184 +307,6 @@ namespace eCinema.Migrations
                         .IsUnique();
 
                     b.ToTable("Payments");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("adce2fe7-8345-4715-a861-83a418fc58ed"),
-                            Amount = 24m,
-                            Created = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1456),
-                            ReservationId = new Guid("c9f7a3ff-609c-4734-a518-afd89694ca9c"),
-                            StripePaymentId = "stripe payment id"
-                        },
-                        new
-                        {
-                            Id = new Guid("7f91a58c-e4b4-4a75-929a-b571c4ad5da7"),
-                            Amount = 18m,
-                            Created = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1462),
-                            ReservationId = new Guid("56b7d7ac-3ac9-4ddc-9e49-cba765a4a685"),
-                            StripePaymentId = "stripe payment id"
-                        },
-                        new
-                        {
-                            Id = new Guid("2e97810f-a984-446b-a53d-fc336ca39af9"),
-                            Amount = 24m,
-                            Created = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1466),
-                            ReservationId = new Guid("91a76bb0-a1a6-4c0e-877d-e258c83c787d"),
-                            StripePaymentId = "stripe payment id"
-                        },
-                        new
-                        {
-                            Id = new Guid("afd406df-e5b1-4025-b8ea-9cd2aa96ac2d"),
-                            Amount = 18m,
-                            Created = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1469),
-                            ReservationId = new Guid("decf01fc-e9df-4e1c-b0e1-0b48e0ff21a5"),
-                            StripePaymentId = "stripe payment id"
-                        },
-                        new
-                        {
-                            Id = new Guid("35070548-745d-40c4-824c-4628ecd17f41"),
-                            Amount = 24m,
-                            Created = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1473),
-                            ReservationId = new Guid("c8a58bfb-e679-4b6e-b65d-df90b63b7349"),
-                            StripePaymentId = "stripe payment id"
-                        },
-                        new
-                        {
-                            Id = new Guid("b38ba26f-c522-4dc2-bf01-0c159237f06b"),
-                            Amount = 18m,
-                            Created = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1478),
-                            ReservationId = new Guid("0472f8af-3d1e-4689-944e-103d69c40676"),
-                            StripePaymentId = "stripe payment id"
-                        },
-                        new
-                        {
-                            Id = new Guid("b14347dd-1763-4bd0-9bb3-dffd9178847b"),
-                            Amount = 24m,
-                            Created = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1481),
-                            ReservationId = new Guid("153b5cf1-ba37-4694-9f1d-24487a0ec171"),
-                            StripePaymentId = "stripe payment id"
-                        },
-                        new
-                        {
-                            Id = new Guid("d5f41444-1d77-4b59-bf10-2621bf98f553"),
-                            Amount = 18m,
-                            Created = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1487),
-                            ReservationId = new Guid("28d69fe3-5a66-41f7-81e7-d3da2ea5d89b"),
-                            StripePaymentId = "stripe payment id"
-                        },
-                        new
-                        {
-                            Id = new Guid("9eeb29e4-d13f-4df1-bebe-9de395406c4e"),
-                            Amount = 24m,
-                            Created = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1491),
-                            ReservationId = new Guid("39245cb8-b6a2-4faa-8f2d-573ddc57797e"),
-                            StripePaymentId = "stripe payment id"
-                        },
-                        new
-                        {
-                            Id = new Guid("ba4a0151-2f72-4ba2-99c0-6a10eee9aabc"),
-                            Amount = 18m,
-                            Created = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1495),
-                            ReservationId = new Guid("2d88d26a-01ce-4a77-901a-f2ea36a1574e"),
-                            StripePaymentId = "stripe payment id"
-                        },
-                        new
-                        {
-                            Id = new Guid("d7cd6cae-13ef-4605-b557-5ef8fb272cfe"),
-                            Amount = 24m,
-                            Created = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1498),
-                            ReservationId = new Guid("28f10f74-4f05-4d7d-b8ae-849d8b007784"),
-                            StripePaymentId = "stripe payment id"
-                        },
-                        new
-                        {
-                            Id = new Guid("755443c9-e2a2-4f74-b852-92e6b191970f"),
-                            Amount = 18m,
-                            Created = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1502),
-                            ReservationId = new Guid("e408085c-0276-4b8a-92df-6fd745ec9cfe"),
-                            StripePaymentId = "stripe payment id"
-                        },
-                        new
-                        {
-                            Id = new Guid("3ca96ad1-810c-4551-9e45-732159ac4ca8"),
-                            Amount = 24m,
-                            Created = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1505),
-                            ReservationId = new Guid("dd7724e6-555e-434d-ae85-dcdb5d2453a9"),
-                            StripePaymentId = "stripe payment id"
-                        },
-                        new
-                        {
-                            Id = new Guid("cc30bc6e-153d-441b-ab51-77076e8d7400"),
-                            Amount = 18m,
-                            Created = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1508),
-                            ReservationId = new Guid("afec0163-0585-4abc-993a-e2969c9b0816"),
-                            StripePaymentId = "stripe payment id"
-                        },
-                        new
-                        {
-                            Id = new Guid("b5e8ec97-221e-4086-a6a2-ea7da78f3719"),
-                            Amount = 24m,
-                            Created = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1511),
-                            ReservationId = new Guid("9020f4ea-d0e1-417e-a83f-3ee69fbb05c5"),
-                            StripePaymentId = "stripe payment id"
-                        },
-                        new
-                        {
-                            Id = new Guid("84e57b0b-33a2-4b87-a761-734fdd837928"),
-                            Amount = 18m,
-                            Created = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1516),
-                            ReservationId = new Guid("3e68795e-913a-4886-aa96-476153330595"),
-                            StripePaymentId = "stripe payment id"
-                        },
-                        new
-                        {
-                            Id = new Guid("f7e6e04a-5d47-4d3a-8561-078176eeb0c0"),
-                            Amount = 24m,
-                            Created = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1560),
-                            ReservationId = new Guid("0a31898a-8a4e-44dc-abe8-d1f10a7bd0ee"),
-                            StripePaymentId = "stripe payment id"
-                        },
-                        new
-                        {
-                            Id = new Guid("7facb200-0fc9-41d1-94d9-ef8202b9da4b"),
-                            Amount = 18m,
-                            Created = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1564),
-                            ReservationId = new Guid("808729a6-e89d-4989-b1e5-79db259fdecc"),
-                            StripePaymentId = "stripe payment id"
-                        },
-                        new
-                        {
-                            Id = new Guid("06d7ee59-54f6-4ef9-b5ed-c04386a74ab4"),
-                            Amount = 24m,
-                            Created = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1567),
-                            ReservationId = new Guid("baa7233a-2375-41ba-a3f0-88202143ef72"),
-                            StripePaymentId = "stripe payment id"
-                        },
-                        new
-                        {
-                            Id = new Guid("655b2d82-a0b4-422c-9101-d957eb478d3f"),
-                            Amount = 18m,
-                            Created = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1570),
-                            ReservationId = new Guid("6425153c-79da-4dd0-b55f-ce1d8a5c55a1"),
-                            StripePaymentId = "stripe payment id"
-                        },
-                        new
-                        {
-                            Id = new Guid("081dd076-b20d-4cad-aebd-041060ae6e2b"),
-                            Amount = 24m,
-                            Created = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1574),
-                            ReservationId = new Guid("a7091efe-e7d0-46eb-af09-70bc115c2c7b"),
-                            StripePaymentId = "stripe payment id"
-                        },
-                        new
-                        {
-                            Id = new Guid("1408dae1-3635-4f50-b82d-f3d9f9137b8d"),
-                            Amount = 18m,
-                            Created = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1577),
-                            ReservationId = new Guid("781fd6ad-025c-4cc9-b96c-3673901ac00d"),
-                            StripePaymentId = "stripe payment id"
-                        });
                 });
 
             modelBuilder.Entity("eCinema.Services.Database.Price", b =>
@@ -504,19 +328,19 @@ namespace eCinema.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("73e80996-fae1-4723-a3b8-95474d472d7d"),
+                            Id = new Guid("c9f70c18-09a4-4d61-9110-f480e72f0f6d"),
                             Name = "Dnevna projekcija",
                             Value = 6m
                         },
                         new
                         {
-                            Id = new Guid("02abff92-33c0-49f2-8700-bb8b9ab5b2c8"),
+                            Id = new Guid("01cfcfe2-6e77-4427-a7bc-5a57db296456"),
                             Name = "Vecernja projekcija",
                             Value = 7m
                         },
                         new
                         {
-                            Id = new Guid("69cce5da-d207-4d8c-b1cf-75305f6b51bf"),
+                            Id = new Guid("6076eed6-e9ce-4c53-b617-5d01027b47af"),
                             Name = "Vikend projekcija",
                             Value = 8m
                         });
@@ -568,300 +392,300 @@ namespace eCinema.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("39d63ba9-129c-448e-af2d-22a509818a4f"),
-                            EndTime = new DateTime(2023, 3, 16, 23, 41, 7, 323, DateTimeKind.Local).AddTicks(820),
-                            HallId = new Guid("cf0596e3-40b6-405d-838d-2bbbf6fdc562"),
+                            Id = new Guid("31daec8e-fc6a-4c26-86f5-012816cd0d5b"),
+                            EndTime = new DateTime(2023, 3, 16, 23, 31, 18, 257, DateTimeKind.Local).AddTicks(5449),
+                            HallId = new Guid("5aea3a56-96f9-4540-8fed-48d020e70aca"),
                             IsActive = true,
-                            MovieId = new Guid("e6bd3815-7179-459b-8c4d-5c494642ceb6"),
-                            PriceId = new Guid("73e80996-fae1-4723-a3b8-95474d472d7d"),
+                            MovieId = new Guid("7142cecd-2559-4868-8f38-f375903a3670"),
+                            PriceId = new Guid("c9f70c18-09a4-4d61-9110-f480e72f0f6d"),
                             ProjectionType = "Late",
-                            StartTime = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(774),
+                            StartTime = new DateTime(2023, 3, 16, 21, 31, 18, 257, DateTimeKind.Local).AddTicks(5397),
                             StateMachine = "Draft",
                             Status = "Active"
                         },
                         new
                         {
-                            Id = new Guid("743d49cc-1f18-44aa-b4c1-b0bb2ebe2b8b"),
-                            EndTime = new DateTime(2023, 3, 17, 1, 41, 7, 323, DateTimeKind.Local).AddTicks(829),
-                            HallId = new Guid("cf0596e3-40b6-405d-838d-2bbbf6fdc562"),
+                            Id = new Guid("34d23472-8e8e-4259-ac51-83cdabfbd354"),
+                            EndTime = new DateTime(2023, 3, 17, 1, 31, 18, 257, DateTimeKind.Local).AddTicks(5462),
+                            HallId = new Guid("5aea3a56-96f9-4540-8fed-48d020e70aca"),
                             IsActive = true,
-                            MovieId = new Guid("e6bd3815-7179-459b-8c4d-5c494642ceb6"),
-                            PriceId = new Guid("73e80996-fae1-4723-a3b8-95474d472d7d"),
+                            MovieId = new Guid("7142cecd-2559-4868-8f38-f375903a3670"),
+                            PriceId = new Guid("c9f70c18-09a4-4d61-9110-f480e72f0f6d"),
                             ProjectionType = "Late",
-                            StartTime = new DateTime(2023, 3, 16, 23, 41, 7, 323, DateTimeKind.Local).AddTicks(826),
+                            StartTime = new DateTime(2023, 3, 16, 23, 31, 18, 257, DateTimeKind.Local).AddTicks(5459),
                             StateMachine = "Draft",
                             Status = "Active"
                         },
                         new
                         {
-                            Id = new Guid("b803de1d-ce08-4b2f-a726-48a6bc2d80c7"),
-                            EndTime = new DateTime(2023, 3, 17, 3, 41, 7, 323, DateTimeKind.Local).AddTicks(836),
-                            HallId = new Guid("cf0596e3-40b6-405d-838d-2bbbf6fdc562"),
+                            Id = new Guid("cb4a3078-1ba3-4ee1-8c43-3a9f04ceefea"),
+                            EndTime = new DateTime(2023, 3, 17, 3, 31, 18, 257, DateTimeKind.Local).AddTicks(5471),
+                            HallId = new Guid("5aea3a56-96f9-4540-8fed-48d020e70aca"),
                             IsActive = true,
-                            MovieId = new Guid("e6bd3815-7179-459b-8c4d-5c494642ceb6"),
-                            PriceId = new Guid("73e80996-fae1-4723-a3b8-95474d472d7d"),
+                            MovieId = new Guid("7142cecd-2559-4868-8f38-f375903a3670"),
+                            PriceId = new Guid("c9f70c18-09a4-4d61-9110-f480e72f0f6d"),
                             ProjectionType = "Late",
-                            StartTime = new DateTime(2023, 3, 17, 1, 41, 7, 323, DateTimeKind.Local).AddTicks(834),
+                            StartTime = new DateTime(2023, 3, 17, 1, 31, 18, 257, DateTimeKind.Local).AddTicks(5468),
                             StateMachine = "Draft",
                             Status = "Active"
                         },
                         new
                         {
-                            Id = new Guid("c378f4b4-8bed-4764-9baf-45c4f7d56a38"),
-                            EndTime = new DateTime(2023, 3, 16, 23, 41, 7, 323, DateTimeKind.Local).AddTicks(843),
-                            HallId = new Guid("ab574d9c-fd92-4c82-8402-54d2b34852b8"),
+                            Id = new Guid("046239cb-f3a0-4c20-bd47-4e1e619f239d"),
+                            EndTime = new DateTime(2023, 3, 16, 23, 31, 18, 257, DateTimeKind.Local).AddTicks(5480),
+                            HallId = new Guid("1477a350-dcd6-4625-857b-a8584c3f974c"),
                             IsActive = true,
-                            MovieId = new Guid("97f10aeb-8dfd-4f07-afaa-86391d9d59d9"),
-                            PriceId = new Guid("73e80996-fae1-4723-a3b8-95474d472d7d"),
+                            MovieId = new Guid("11c99e6e-9079-487d-a917-5a855da9dc41"),
+                            PriceId = new Guid("c9f70c18-09a4-4d61-9110-f480e72f0f6d"),
                             ProjectionType = "Late",
-                            StartTime = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(841),
+                            StartTime = new DateTime(2023, 3, 16, 21, 31, 18, 257, DateTimeKind.Local).AddTicks(5477),
                             StateMachine = "Draft",
                             Status = "Active"
                         },
                         new
                         {
-                            Id = new Guid("b06e0fce-a778-4566-853f-0047c82f0fe0"),
-                            EndTime = new DateTime(2023, 3, 17, 23, 41, 7, 323, DateTimeKind.Local).AddTicks(988),
-                            HallId = new Guid("ab574d9c-fd92-4c82-8402-54d2b34852b8"),
+                            Id = new Guid("2c2e38b4-6a21-4059-b18c-204eacd60b60"),
+                            EndTime = new DateTime(2023, 3, 17, 23, 31, 18, 257, DateTimeKind.Local).AddTicks(5489),
+                            HallId = new Guid("1477a350-dcd6-4625-857b-a8584c3f974c"),
                             IsActive = true,
-                            MovieId = new Guid("50d8b7c2-9511-4eb6-a7f9-9b690bcc6e3d"),
-                            PriceId = new Guid("73e80996-fae1-4723-a3b8-95474d472d7d"),
+                            MovieId = new Guid("3f04daa1-bc45-4347-ad70-f6388c666dff"),
+                            PriceId = new Guid("c9f70c18-09a4-4d61-9110-f480e72f0f6d"),
                             ProjectionType = "Late",
-                            StartTime = new DateTime(2023, 3, 17, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(847),
+                            StartTime = new DateTime(2023, 3, 17, 21, 31, 18, 257, DateTimeKind.Local).AddTicks(5486),
                             StateMachine = "Draft",
                             Status = "Active"
                         },
                         new
                         {
-                            Id = new Guid("cc1bd46c-d43a-49ce-ab72-419cb57cc108"),
-                            EndTime = new DateTime(2023, 3, 17, 2, 41, 7, 323, DateTimeKind.Local).AddTicks(997),
-                            HallId = new Guid("ab574d9c-fd92-4c82-8402-54d2b34852b8"),
+                            Id = new Guid("2c082ed1-bb11-46c1-aea0-e60fdf6e9d0d"),
+                            EndTime = new DateTime(2023, 3, 17, 2, 31, 18, 257, DateTimeKind.Local).AddTicks(5499),
+                            HallId = new Guid("1477a350-dcd6-4625-857b-a8584c3f974c"),
                             IsActive = true,
-                            MovieId = new Guid("97f10aeb-8dfd-4f07-afaa-86391d9d59d9"),
-                            PriceId = new Guid("02abff92-33c0-49f2-8700-bb8b9ab5b2c8"),
+                            MovieId = new Guid("11c99e6e-9079-487d-a917-5a855da9dc41"),
+                            PriceId = new Guid("01cfcfe2-6e77-4427-a7bc-5a57db296456"),
                             ProjectionType = "Late",
-                            StartTime = new DateTime(2023, 3, 17, 0, 41, 7, 323, DateTimeKind.Local).AddTicks(995),
+                            StartTime = new DateTime(2023, 3, 17, 0, 31, 18, 257, DateTimeKind.Local).AddTicks(5496),
                             StateMachine = "Draft",
                             Status = "Active"
                         },
                         new
                         {
-                            Id = new Guid("1e8ab813-537f-400a-88f4-e17d18612a5a"),
-                            EndTime = new DateTime(2023, 3, 16, 23, 41, 7, 323, DateTimeKind.Local).AddTicks(1003),
-                            HallId = new Guid("248a716c-cb2f-446a-a6fc-71921b9aafa5"),
+                            Id = new Guid("8b079d36-860f-4ff7-ac2a-e89b042e0d3a"),
+                            EndTime = new DateTime(2023, 3, 16, 23, 31, 18, 257, DateTimeKind.Local).AddTicks(5508),
+                            HallId = new Guid("d10934ce-f539-4951-83d3-059ddaa00eb6"),
                             IsActive = true,
-                            MovieId = new Guid("a34f4730-5752-49c5-a186-b0f873c183d7"),
-                            PriceId = new Guid("73e80996-fae1-4723-a3b8-95474d472d7d"),
+                            MovieId = new Guid("217db14c-2385-4b42-92f4-2a18c3730a84"),
+                            PriceId = new Guid("c9f70c18-09a4-4d61-9110-f480e72f0f6d"),
                             ProjectionType = "Late",
-                            StartTime = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1001),
+                            StartTime = new DateTime(2023, 3, 16, 21, 31, 18, 257, DateTimeKind.Local).AddTicks(5505),
                             StateMachine = "Draft",
                             Status = "Active"
                         },
                         new
                         {
-                            Id = new Guid("e92b372f-cf36-462e-940f-0ab5213d7d69"),
-                            EndTime = new DateTime(2023, 3, 17, 2, 41, 7, 323, DateTimeKind.Local).AddTicks(1009),
-                            HallId = new Guid("248a716c-cb2f-446a-a6fc-71921b9aafa5"),
+                            Id = new Guid("78065526-b904-4844-be07-1ba974dbd616"),
+                            EndTime = new DateTime(2023, 3, 17, 2, 31, 18, 257, DateTimeKind.Local).AddTicks(5517),
+                            HallId = new Guid("d10934ce-f539-4951-83d3-059ddaa00eb6"),
                             IsActive = true,
-                            MovieId = new Guid("a34f4730-5752-49c5-a186-b0f873c183d7"),
-                            PriceId = new Guid("02abff92-33c0-49f2-8700-bb8b9ab5b2c8"),
+                            MovieId = new Guid("217db14c-2385-4b42-92f4-2a18c3730a84"),
+                            PriceId = new Guid("01cfcfe2-6e77-4427-a7bc-5a57db296456"),
                             ProjectionType = "Late",
-                            StartTime = new DateTime(2023, 3, 17, 0, 41, 7, 323, DateTimeKind.Local).AddTicks(1008),
+                            StartTime = new DateTime(2023, 3, 17, 0, 31, 18, 257, DateTimeKind.Local).AddTicks(5514),
                             StateMachine = "Draft",
                             Status = "Active"
                         },
                         new
                         {
-                            Id = new Guid("36a70afc-7ec9-4ae4-aec8-484ad5842516"),
-                            EndTime = new DateTime(2023, 3, 16, 23, 41, 7, 323, DateTimeKind.Local).AddTicks(1015),
-                            HallId = new Guid("c219e761-199b-48f4-b679-55a6a93dd647"),
+                            Id = new Guid("eb72b94c-583a-4336-82aa-5c705406c016"),
+                            EndTime = new DateTime(2023, 3, 16, 23, 31, 18, 257, DateTimeKind.Local).AddTicks(5529),
+                            HallId = new Guid("664deb6a-9a00-4db9-8cf1-12f97a5f9dc1"),
                             IsActive = true,
-                            MovieId = new Guid("7143d770-d077-47c5-9ad8-8b91b8048aee"),
-                            PriceId = new Guid("73e80996-fae1-4723-a3b8-95474d472d7d"),
+                            MovieId = new Guid("24f7a4b1-fe4e-49da-9a59-d681f8879128"),
+                            PriceId = new Guid("c9f70c18-09a4-4d61-9110-f480e72f0f6d"),
                             ProjectionType = "Late",
-                            StartTime = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1013),
+                            StartTime = new DateTime(2023, 3, 16, 21, 31, 18, 257, DateTimeKind.Local).AddTicks(5526),
                             StateMachine = "Draft",
                             Status = "Active"
                         },
                         new
                         {
-                            Id = new Guid("2c758285-f932-4006-bc23-82b73dff9cf8"),
-                            EndTime = new DateTime(2023, 3, 17, 2, 41, 7, 323, DateTimeKind.Local).AddTicks(1020),
-                            HallId = new Guid("c219e761-199b-48f4-b679-55a6a93dd647"),
+                            Id = new Guid("426c3318-1372-47b8-967e-dd7348bd174b"),
+                            EndTime = new DateTime(2023, 3, 17, 2, 31, 18, 257, DateTimeKind.Local).AddTicks(5537),
+                            HallId = new Guid("664deb6a-9a00-4db9-8cf1-12f97a5f9dc1"),
                             IsActive = true,
-                            MovieId = new Guid("7143d770-d077-47c5-9ad8-8b91b8048aee"),
-                            PriceId = new Guid("02abff92-33c0-49f2-8700-bb8b9ab5b2c8"),
+                            MovieId = new Guid("24f7a4b1-fe4e-49da-9a59-d681f8879128"),
+                            PriceId = new Guid("01cfcfe2-6e77-4427-a7bc-5a57db296456"),
                             ProjectionType = "Late",
-                            StartTime = new DateTime(2023, 3, 17, 0, 41, 7, 323, DateTimeKind.Local).AddTicks(1018),
+                            StartTime = new DateTime(2023, 3, 17, 0, 31, 18, 257, DateTimeKind.Local).AddTicks(5535),
                             StateMachine = "Draft",
                             Status = "Active"
                         },
                         new
                         {
-                            Id = new Guid("8606be6d-63c1-4f2a-bc1b-6fc35cf03723"),
-                            EndTime = new DateTime(2023, 3, 17, 2, 41, 7, 323, DateTimeKind.Local).AddTicks(1027),
-                            HallId = new Guid("06affbc0-99d0-462f-8bfe-eff3f83b3b65"),
+                            Id = new Guid("4d1426bf-2597-4f9c-b535-04816fc4d71b"),
+                            EndTime = new DateTime(2023, 3, 17, 2, 31, 18, 257, DateTimeKind.Local).AddTicks(5548),
+                            HallId = new Guid("faadb9ef-010a-4f77-97db-63c0c45fc0c7"),
                             IsActive = true,
-                            MovieId = new Guid("7143d770-d077-47c5-9ad8-8b91b8048aee"),
-                            PriceId = new Guid("69cce5da-d207-4d8c-b1cf-75305f6b51bf"),
+                            MovieId = new Guid("24f7a4b1-fe4e-49da-9a59-d681f8879128"),
+                            PriceId = new Guid("6076eed6-e9ce-4c53-b617-5d01027b47af"),
                             ProjectionType = "Late",
-                            StartTime = new DateTime(2023, 3, 17, 0, 41, 7, 323, DateTimeKind.Local).AddTicks(1025),
+                            StartTime = new DateTime(2023, 3, 17, 0, 31, 18, 257, DateTimeKind.Local).AddTicks(5545),
                             StateMachine = "Draft",
                             Status = "Active"
                         },
                         new
                         {
-                            Id = new Guid("7024f4c5-1ada-4f6e-bc52-7461e425b2a2"),
-                            EndTime = new DateTime(2023, 3, 16, 23, 41, 7, 323, DateTimeKind.Local).AddTicks(1034),
-                            HallId = new Guid("06affbc0-99d0-462f-8bfe-eff3f83b3b65"),
+                            Id = new Guid("b17390d4-82e3-47ce-b828-ba26f9ffde19"),
+                            EndTime = new DateTime(2023, 3, 16, 23, 31, 18, 257, DateTimeKind.Local).AddTicks(5555),
+                            HallId = new Guid("faadb9ef-010a-4f77-97db-63c0c45fc0c7"),
                             IsActive = true,
-                            MovieId = new Guid("7143d770-d077-47c5-9ad8-8b91b8048aee"),
-                            PriceId = new Guid("73e80996-fae1-4723-a3b8-95474d472d7d"),
+                            MovieId = new Guid("24f7a4b1-fe4e-49da-9a59-d681f8879128"),
+                            PriceId = new Guid("c9f70c18-09a4-4d61-9110-f480e72f0f6d"),
                             ProjectionType = "Late",
-                            StartTime = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1033),
+                            StartTime = new DateTime(2023, 3, 16, 21, 31, 18, 257, DateTimeKind.Local).AddTicks(5552),
                             StateMachine = "Draft",
                             Status = "Active"
                         },
                         new
                         {
-                            Id = new Guid("95c0dbdc-2ec8-43c1-9b70-f70e0916334b"),
-                            EndTime = new DateTime(2023, 3, 17, 12, 41, 7, 323, DateTimeKind.Local).AddTicks(1040),
-                            HallId = new Guid("06affbc0-99d0-462f-8bfe-eff3f83b3b65"),
+                            Id = new Guid("a96b532b-36d5-44ef-b433-d610a170c1ba"),
+                            EndTime = new DateTime(2023, 3, 17, 12, 31, 18, 257, DateTimeKind.Local).AddTicks(5563),
+                            HallId = new Guid("faadb9ef-010a-4f77-97db-63c0c45fc0c7"),
                             IsActive = true,
-                            MovieId = new Guid("0b7b618b-6632-4758-8c3f-304183627b64"),
-                            PriceId = new Guid("02abff92-33c0-49f2-8700-bb8b9ab5b2c8"),
+                            MovieId = new Guid("e4d2b21e-432a-4008-a54e-c46c607bf09c"),
+                            PriceId = new Guid("01cfcfe2-6e77-4427-a7bc-5a57db296456"),
                             ProjectionType = "Late",
-                            StartTime = new DateTime(2023, 3, 17, 10, 41, 7, 323, DateTimeKind.Local).AddTicks(1038),
+                            StartTime = new DateTime(2023, 3, 17, 10, 31, 18, 257, DateTimeKind.Local).AddTicks(5560),
                             StateMachine = "Draft",
                             Status = "Active"
                         },
                         new
                         {
-                            Id = new Guid("efa4926d-26e7-404e-9e39-2272180d9e2a"),
-                            EndTime = new DateTime(2023, 3, 16, 23, 41, 7, 323, DateTimeKind.Local).AddTicks(1045),
-                            HallId = new Guid("06affbc0-99d0-462f-8bfe-eff3f83b3b65"),
+                            Id = new Guid("395730d4-041f-4df1-a643-52929067e11c"),
+                            EndTime = new DateTime(2023, 3, 16, 23, 31, 18, 257, DateTimeKind.Local).AddTicks(5571),
+                            HallId = new Guid("faadb9ef-010a-4f77-97db-63c0c45fc0c7"),
                             IsActive = true,
-                            MovieId = new Guid("0b7b618b-6632-4758-8c3f-304183627b64"),
-                            PriceId = new Guid("73e80996-fae1-4723-a3b8-95474d472d7d"),
+                            MovieId = new Guid("e4d2b21e-432a-4008-a54e-c46c607bf09c"),
+                            PriceId = new Guid("c9f70c18-09a4-4d61-9110-f480e72f0f6d"),
                             ProjectionType = "Late",
-                            StartTime = new DateTime(2023, 3, 17, 7, 41, 7, 323, DateTimeKind.Local).AddTicks(1043),
+                            StartTime = new DateTime(2023, 3, 17, 7, 31, 18, 257, DateTimeKind.Local).AddTicks(5568),
                             StateMachine = "Draft",
                             Status = "Active"
                         },
                         new
                         {
-                            Id = new Guid("9f05fc56-4cd5-468b-be88-22e330274d7d"),
-                            EndTime = new DateTime(2023, 3, 17, 2, 41, 7, 323, DateTimeKind.Local).AddTicks(1108),
-                            HallId = new Guid("06affbc0-99d0-462f-8bfe-eff3f83b3b65"),
+                            Id = new Guid("0049da84-775c-4f0d-b22b-80aaf0613d2c"),
+                            EndTime = new DateTime(2023, 3, 17, 2, 31, 18, 257, DateTimeKind.Local).AddTicks(5582),
+                            HallId = new Guid("faadb9ef-010a-4f77-97db-63c0c45fc0c7"),
                             IsActive = true,
-                            MovieId = new Guid("0b7b618b-6632-4758-8c3f-304183627b64"),
-                            PriceId = new Guid("02abff92-33c0-49f2-8700-bb8b9ab5b2c8"),
+                            MovieId = new Guid("e4d2b21e-432a-4008-a54e-c46c607bf09c"),
+                            PriceId = new Guid("01cfcfe2-6e77-4427-a7bc-5a57db296456"),
                             ProjectionType = "Late",
-                            StartTime = new DateTime(2023, 3, 17, 0, 41, 7, 323, DateTimeKind.Local).AddTicks(1105),
+                            StartTime = new DateTime(2023, 3, 17, 0, 31, 18, 257, DateTimeKind.Local).AddTicks(5578),
                             StateMachine = "Draft",
                             Status = "Active"
                         },
                         new
                         {
-                            Id = new Guid("02e66594-2de9-42f1-bd3c-4208b9b13d3f"),
-                            EndTime = new DateTime(2023, 3, 17, 9, 41, 7, 323, DateTimeKind.Local).AddTicks(1117),
-                            HallId = new Guid("c219e761-199b-48f4-b679-55a6a93dd647"),
+                            Id = new Guid("ff682aa8-5bd7-48a1-a202-7be285bd570b"),
+                            EndTime = new DateTime(2023, 3, 17, 9, 31, 18, 257, DateTimeKind.Local).AddTicks(5590),
+                            HallId = new Guid("664deb6a-9a00-4db9-8cf1-12f97a5f9dc1"),
                             IsActive = true,
-                            MovieId = new Guid("6ea17b04-194d-4333-9bc6-17335f28a439"),
-                            PriceId = new Guid("73e80996-fae1-4723-a3b8-95474d472d7d"),
+                            MovieId = new Guid("7f36d60b-f549-4bbf-8200-71466b6ee61f"),
+                            PriceId = new Guid("c9f70c18-09a4-4d61-9110-f480e72f0f6d"),
                             ProjectionType = "Late",
-                            StartTime = new DateTime(2023, 3, 17, 7, 41, 7, 323, DateTimeKind.Local).AddTicks(1115),
+                            StartTime = new DateTime(2023, 3, 17, 7, 31, 18, 257, DateTimeKind.Local).AddTicks(5587),
                             StateMachine = "Draft",
                             Status = "Active"
                         },
                         new
                         {
-                            Id = new Guid("8fe5750d-e64b-4429-8428-bd0917e57ad2"),
-                            EndTime = new DateTime(2023, 3, 17, 2, 41, 7, 323, DateTimeKind.Local).AddTicks(1126),
-                            HallId = new Guid("c219e761-199b-48f4-b679-55a6a93dd647"),
+                            Id = new Guid("2bffc26e-a48c-4b76-9e3c-6b5ff7b514fb"),
+                            EndTime = new DateTime(2023, 3, 17, 2, 31, 18, 257, DateTimeKind.Local).AddTicks(5598),
+                            HallId = new Guid("664deb6a-9a00-4db9-8cf1-12f97a5f9dc1"),
                             IsActive = true,
-                            MovieId = new Guid("6ea17b04-194d-4333-9bc6-17335f28a439"),
-                            PriceId = new Guid("02abff92-33c0-49f2-8700-bb8b9ab5b2c8"),
+                            MovieId = new Guid("7f36d60b-f549-4bbf-8200-71466b6ee61f"),
+                            PriceId = new Guid("01cfcfe2-6e77-4427-a7bc-5a57db296456"),
                             ProjectionType = "Late",
-                            StartTime = new DateTime(2023, 3, 17, 0, 41, 7, 323, DateTimeKind.Local).AddTicks(1124),
+                            StartTime = new DateTime(2023, 3, 17, 0, 31, 18, 257, DateTimeKind.Local).AddTicks(5595),
                             StateMachine = "Draft",
                             Status = "Active"
                         },
                         new
                         {
-                            Id = new Guid("e7f36158-9976-4825-b98d-a84616cfb3b4"),
-                            EndTime = new DateTime(2023, 3, 17, 9, 41, 7, 323, DateTimeKind.Local).AddTicks(1136),
-                            HallId = new Guid("248a716c-cb2f-446a-a6fc-71921b9aafa5"),
+                            Id = new Guid("eb25d4c8-3cfb-4d41-9c12-5008fd3fe6e5"),
+                            EndTime = new DateTime(2023, 3, 17, 9, 31, 18, 257, DateTimeKind.Local).AddTicks(5607),
+                            HallId = new Guid("d10934ce-f539-4951-83d3-059ddaa00eb6"),
                             IsActive = true,
-                            MovieId = new Guid("0b8e0bcd-347b-4e8c-afea-227fd92f14d0"),
-                            PriceId = new Guid("73e80996-fae1-4723-a3b8-95474d472d7d"),
+                            MovieId = new Guid("f25d3481-1197-4abf-b433-174c87cc503e"),
+                            PriceId = new Guid("c9f70c18-09a4-4d61-9110-f480e72f0f6d"),
                             ProjectionType = "Late",
-                            StartTime = new DateTime(2023, 3, 17, 7, 41, 7, 323, DateTimeKind.Local).AddTicks(1134),
+                            StartTime = new DateTime(2023, 3, 17, 7, 31, 18, 257, DateTimeKind.Local).AddTicks(5603),
                             StateMachine = "Draft",
                             Status = "Active"
                         },
                         new
                         {
-                            Id = new Guid("c6c79d4a-8c05-4d00-895a-deebaf77c0f0"),
-                            EndTime = new DateTime(2023, 3, 17, 2, 41, 7, 323, DateTimeKind.Local).AddTicks(1142),
-                            HallId = new Guid("248a716c-cb2f-446a-a6fc-71921b9aafa5"),
+                            Id = new Guid("f249fab9-ffa5-4e62-937c-dcc64327c8ea"),
+                            EndTime = new DateTime(2023, 3, 17, 2, 31, 18, 257, DateTimeKind.Local).AddTicks(5616),
+                            HallId = new Guid("d10934ce-f539-4951-83d3-059ddaa00eb6"),
                             IsActive = true,
-                            MovieId = new Guid("0b8e0bcd-347b-4e8c-afea-227fd92f14d0"),
-                            PriceId = new Guid("02abff92-33c0-49f2-8700-bb8b9ab5b2c8"),
+                            MovieId = new Guid("f25d3481-1197-4abf-b433-174c87cc503e"),
+                            PriceId = new Guid("01cfcfe2-6e77-4427-a7bc-5a57db296456"),
                             ProjectionType = "Late",
-                            StartTime = new DateTime(2023, 3, 17, 0, 41, 7, 323, DateTimeKind.Local).AddTicks(1141),
+                            StartTime = new DateTime(2023, 3, 17, 0, 31, 18, 257, DateTimeKind.Local).AddTicks(5613),
                             StateMachine = "Draft",
                             Status = "Active"
                         },
                         new
                         {
-                            Id = new Guid("26b211c8-6f32-42df-8c64-89969937e83c"),
-                            EndTime = new DateTime(2023, 3, 17, 9, 41, 7, 323, DateTimeKind.Local).AddTicks(1154),
-                            HallId = new Guid("ab574d9c-fd92-4c82-8402-54d2b34852b8"),
+                            Id = new Guid("df6b5e5d-8bbc-4b58-a313-591857d6e7e5"),
+                            EndTime = new DateTime(2023, 3, 17, 9, 31, 18, 257, DateTimeKind.Local).AddTicks(5626),
+                            HallId = new Guid("1477a350-dcd6-4625-857b-a8584c3f974c"),
                             IsActive = true,
-                            MovieId = new Guid("fb8ef4b0-fef6-4291-8c2e-c54e8d234877"),
-                            PriceId = new Guid("73e80996-fae1-4723-a3b8-95474d472d7d"),
+                            MovieId = new Guid("b32e47e6-87ac-439b-bdca-f254c203acd6"),
+                            PriceId = new Guid("c9f70c18-09a4-4d61-9110-f480e72f0f6d"),
                             ProjectionType = "Late",
-                            StartTime = new DateTime(2023, 3, 17, 7, 41, 7, 323, DateTimeKind.Local).AddTicks(1152),
+                            StartTime = new DateTime(2023, 3, 17, 7, 31, 18, 257, DateTimeKind.Local).AddTicks(5622),
                             StateMachine = "Draft",
                             Status = "Active"
                         },
                         new
                         {
-                            Id = new Guid("7f0106f1-010c-49b0-8bc7-c15c1b77f534"),
-                            EndTime = new DateTime(2023, 3, 17, 2, 41, 7, 323, DateTimeKind.Local).AddTicks(1163),
-                            HallId = new Guid("cf0596e3-40b6-405d-838d-2bbbf6fdc562"),
+                            Id = new Guid("300ee576-af50-43d8-b50f-09267678dcd2"),
+                            EndTime = new DateTime(2023, 3, 17, 2, 31, 18, 257, DateTimeKind.Local).AddTicks(5634),
+                            HallId = new Guid("5aea3a56-96f9-4540-8fed-48d020e70aca"),
                             IsActive = true,
-                            MovieId = new Guid("1bdfc1ae-7f09-4c55-9d48-2bd5f0e65865"),
-                            PriceId = new Guid("02abff92-33c0-49f2-8700-bb8b9ab5b2c8"),
+                            MovieId = new Guid("909a0d62-0425-45ce-bc2a-13720ec3dd56"),
+                            PriceId = new Guid("01cfcfe2-6e77-4427-a7bc-5a57db296456"),
                             ProjectionType = "Late",
-                            StartTime = new DateTime(2023, 3, 17, 0, 41, 7, 323, DateTimeKind.Local).AddTicks(1162),
+                            StartTime = new DateTime(2023, 3, 17, 0, 31, 18, 257, DateTimeKind.Local).AddTicks(5631),
                             StateMachine = "Draft",
                             Status = "Active"
                         },
                         new
                         {
-                            Id = new Guid("6ec6b5f0-da19-4fc8-b038-d4963b0793fa"),
-                            EndTime = new DateTime(2023, 3, 17, 9, 41, 7, 323, DateTimeKind.Local).AddTicks(1173),
-                            HallId = new Guid("cf0596e3-40b6-405d-838d-2bbbf6fdc562"),
+                            Id = new Guid("c7576bd3-8c91-4106-85fc-42328c2da988"),
+                            EndTime = new DateTime(2023, 3, 17, 9, 31, 18, 257, DateTimeKind.Local).AddTicks(5642),
+                            HallId = new Guid("5aea3a56-96f9-4540-8fed-48d020e70aca"),
                             IsActive = true,
-                            MovieId = new Guid("1bdfc1ae-7f09-4c55-9d48-2bd5f0e65865"),
-                            PriceId = new Guid("73e80996-fae1-4723-a3b8-95474d472d7d"),
+                            MovieId = new Guid("909a0d62-0425-45ce-bc2a-13720ec3dd56"),
+                            PriceId = new Guid("c9f70c18-09a4-4d61-9110-f480e72f0f6d"),
                             ProjectionType = "Late",
-                            StartTime = new DateTime(2023, 3, 17, 7, 41, 7, 323, DateTimeKind.Local).AddTicks(1171),
+                            StartTime = new DateTime(2023, 3, 17, 7, 31, 18, 257, DateTimeKind.Local).AddTicks(5639),
                             StateMachine = "Draft",
                             Status = "Active"
                         },
                         new
                         {
-                            Id = new Guid("056ad100-310b-4e10-810c-df3ccd8d48a1"),
-                            EndTime = new DateTime(2023, 3, 17, 2, 41, 7, 323, DateTimeKind.Local).AddTicks(1202),
-                            HallId = new Guid("ab574d9c-fd92-4c82-8402-54d2b34852b8"),
+                            Id = new Guid("34c8c29e-c1d8-41d0-865a-f76e7c4d38cd"),
+                            EndTime = new DateTime(2023, 3, 17, 2, 31, 18, 257, DateTimeKind.Local).AddTicks(5652),
+                            HallId = new Guid("1477a350-dcd6-4625-857b-a8584c3f974c"),
                             IsActive = true,
-                            MovieId = new Guid("fb8ef4b0-fef6-4291-8c2e-c54e8d234877"),
-                            PriceId = new Guid("02abff92-33c0-49f2-8700-bb8b9ab5b2c8"),
+                            MovieId = new Guid("b32e47e6-87ac-439b-bdca-f254c203acd6"),
+                            PriceId = new Guid("01cfcfe2-6e77-4427-a7bc-5a57db296456"),
                             ProjectionType = "Late",
-                            StartTime = new DateTime(2023, 3, 17, 0, 41, 7, 323, DateTimeKind.Local).AddTicks(1181),
+                            StartTime = new DateTime(2023, 3, 17, 0, 31, 18, 257, DateTimeKind.Local).AddTicks(5649),
                             StateMachine = "Draft",
                             Status = "Active"
                         });
@@ -892,184 +716,6 @@ namespace eCinema.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Reservations");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("c9f7a3ff-609c-4734-a518-afd89694ca9c"),
-                            DateTime = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1264),
-                            IsActive = true,
-                            ProjectionId = new Guid("39d63ba9-129c-448e-af2d-22a509818a4f"),
-                            UserId = new Guid("bde9401e-3fc1-4feb-889a-268fd93d5373")
-                        },
-                        new
-                        {
-                            Id = new Guid("56b7d7ac-3ac9-4ddc-9e49-cba765a4a685"),
-                            DateTime = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1270),
-                            IsActive = true,
-                            ProjectionId = new Guid("743d49cc-1f18-44aa-b4c1-b0bb2ebe2b8b"),
-                            UserId = new Guid("81a879bd-9797-4927-bab8-1d208fec7414")
-                        },
-                        new
-                        {
-                            Id = new Guid("91a76bb0-a1a6-4c0e-877d-e258c83c787d"),
-                            DateTime = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1273),
-                            IsActive = true,
-                            ProjectionId = new Guid("b803de1d-ce08-4b2f-a726-48a6bc2d80c7"),
-                            UserId = new Guid("bde9401e-3fc1-4feb-889a-268fd93d5373")
-                        },
-                        new
-                        {
-                            Id = new Guid("decf01fc-e9df-4e1c-b0e1-0b48e0ff21a5"),
-                            DateTime = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1277),
-                            IsActive = true,
-                            ProjectionId = new Guid("c378f4b4-8bed-4764-9baf-45c4f7d56a38"),
-                            UserId = new Guid("81a879bd-9797-4927-bab8-1d208fec7414")
-                        },
-                        new
-                        {
-                            Id = new Guid("c8a58bfb-e679-4b6e-b65d-df90b63b7349"),
-                            DateTime = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1280),
-                            IsActive = true,
-                            ProjectionId = new Guid("b06e0fce-a778-4566-853f-0047c82f0fe0"),
-                            UserId = new Guid("bde9401e-3fc1-4feb-889a-268fd93d5373")
-                        },
-                        new
-                        {
-                            Id = new Guid("0472f8af-3d1e-4689-944e-103d69c40676"),
-                            DateTime = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1288),
-                            IsActive = true,
-                            ProjectionId = new Guid("cc1bd46c-d43a-49ce-ab72-419cb57cc108"),
-                            UserId = new Guid("81a879bd-9797-4927-bab8-1d208fec7414")
-                        },
-                        new
-                        {
-                            Id = new Guid("153b5cf1-ba37-4694-9f1d-24487a0ec171"),
-                            DateTime = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1292),
-                            IsActive = true,
-                            ProjectionId = new Guid("1e8ab813-537f-400a-88f4-e17d18612a5a"),
-                            UserId = new Guid("bde9401e-3fc1-4feb-889a-268fd93d5373")
-                        },
-                        new
-                        {
-                            Id = new Guid("28d69fe3-5a66-41f7-81e7-d3da2ea5d89b"),
-                            DateTime = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1295),
-                            IsActive = true,
-                            ProjectionId = new Guid("e92b372f-cf36-462e-940f-0ab5213d7d69"),
-                            UserId = new Guid("81a879bd-9797-4927-bab8-1d208fec7414")
-                        },
-                        new
-                        {
-                            Id = new Guid("39245cb8-b6a2-4faa-8f2d-573ddc57797e"),
-                            DateTime = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1299),
-                            IsActive = true,
-                            ProjectionId = new Guid("36a70afc-7ec9-4ae4-aec8-484ad5842516"),
-                            UserId = new Guid("bde9401e-3fc1-4feb-889a-268fd93d5373")
-                        },
-                        new
-                        {
-                            Id = new Guid("2d88d26a-01ce-4a77-901a-f2ea36a1574e"),
-                            DateTime = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1303),
-                            IsActive = true,
-                            ProjectionId = new Guid("2c758285-f932-4006-bc23-82b73dff9cf8"),
-                            UserId = new Guid("81a879bd-9797-4927-bab8-1d208fec7414")
-                        },
-                        new
-                        {
-                            Id = new Guid("28f10f74-4f05-4d7d-b8ae-849d8b007784"),
-                            DateTime = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1306),
-                            IsActive = true,
-                            ProjectionId = new Guid("8606be6d-63c1-4f2a-bc1b-6fc35cf03723"),
-                            UserId = new Guid("bde9401e-3fc1-4feb-889a-268fd93d5373")
-                        },
-                        new
-                        {
-                            Id = new Guid("e408085c-0276-4b8a-92df-6fd745ec9cfe"),
-                            DateTime = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1309),
-                            IsActive = true,
-                            ProjectionId = new Guid("7024f4c5-1ada-4f6e-bc52-7461e425b2a2"),
-                            UserId = new Guid("81a879bd-9797-4927-bab8-1d208fec7414")
-                        },
-                        new
-                        {
-                            Id = new Guid("dd7724e6-555e-434d-ae85-dcdb5d2453a9"),
-                            DateTime = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1312),
-                            IsActive = true,
-                            ProjectionId = new Guid("95c0dbdc-2ec8-43c1-9b70-f70e0916334b"),
-                            UserId = new Guid("bde9401e-3fc1-4feb-889a-268fd93d5373")
-                        },
-                        new
-                        {
-                            Id = new Guid("afec0163-0585-4abc-993a-e2969c9b0816"),
-                            DateTime = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1317),
-                            IsActive = true,
-                            ProjectionId = new Guid("efa4926d-26e7-404e-9e39-2272180d9e2a"),
-                            UserId = new Guid("81a879bd-9797-4927-bab8-1d208fec7414")
-                        },
-                        new
-                        {
-                            Id = new Guid("9020f4ea-d0e1-417e-a83f-3ee69fbb05c5"),
-                            DateTime = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1321),
-                            IsActive = true,
-                            ProjectionId = new Guid("9f05fc56-4cd5-468b-be88-22e330274d7d"),
-                            UserId = new Guid("bde9401e-3fc1-4feb-889a-268fd93d5373")
-                        },
-                        new
-                        {
-                            Id = new Guid("3e68795e-913a-4886-aa96-476153330595"),
-                            DateTime = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1324),
-                            IsActive = true,
-                            ProjectionId = new Guid("02e66594-2de9-42f1-bd3c-4208b9b13d3f"),
-                            UserId = new Guid("81a879bd-9797-4927-bab8-1d208fec7414")
-                        },
-                        new
-                        {
-                            Id = new Guid("0a31898a-8a4e-44dc-abe8-d1f10a7bd0ee"),
-                            DateTime = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1327),
-                            IsActive = true,
-                            ProjectionId = new Guid("8fe5750d-e64b-4429-8428-bd0917e57ad2"),
-                            UserId = new Guid("bde9401e-3fc1-4feb-889a-268fd93d5373")
-                        },
-                        new
-                        {
-                            Id = new Guid("808729a6-e89d-4989-b1e5-79db259fdecc"),
-                            DateTime = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1331),
-                            IsActive = true,
-                            ProjectionId = new Guid("e7f36158-9976-4825-b98d-a84616cfb3b4"),
-                            UserId = new Guid("81a879bd-9797-4927-bab8-1d208fec7414")
-                        },
-                        new
-                        {
-                            Id = new Guid("baa7233a-2375-41ba-a3f0-88202143ef72"),
-                            DateTime = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1334),
-                            IsActive = true,
-                            ProjectionId = new Guid("c6c79d4a-8c05-4d00-895a-deebaf77c0f0"),
-                            UserId = new Guid("bde9401e-3fc1-4feb-889a-268fd93d5373")
-                        },
-                        new
-                        {
-                            Id = new Guid("6425153c-79da-4dd0-b55f-ce1d8a5c55a1"),
-                            DateTime = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1337),
-                            IsActive = true,
-                            ProjectionId = new Guid("26b211c8-6f32-42df-8c64-89969937e83c"),
-                            UserId = new Guid("81a879bd-9797-4927-bab8-1d208fec7414")
-                        },
-                        new
-                        {
-                            Id = new Guid("a7091efe-e7d0-46eb-af09-70bc115c2c7b"),
-                            DateTime = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1340),
-                            IsActive = true,
-                            ProjectionId = new Guid("7f0106f1-010c-49b0-8bc7-c15c1b77f534"),
-                            UserId = new Guid("bde9401e-3fc1-4feb-889a-268fd93d5373")
-                        },
-                        new
-                        {
-                            Id = new Guid("781fd6ad-025c-4cc9-b96c-3673901ac00d"),
-                            DateTime = new DateTime(2023, 3, 16, 21, 41, 7, 323, DateTimeKind.Local).AddTicks(1345),
-                            IsActive = true,
-                            ProjectionId = new Guid("6ec6b5f0-da19-4fc8-b038-d4963b0793fa"),
-                            UserId = new Guid("81a879bd-9797-4927-bab8-1d208fec7414")
-                        });
                 });
 
             modelBuilder.Entity("eCinema.Services.Database.Role", b =>
@@ -1088,12 +734,12 @@ namespace eCinema.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("6a2409c1-c6e9-4bc9-8912-3ba5a972e865"),
+                            Id = new Guid("af5d78c7-d21c-4edd-bebf-b9046d356302"),
                             Name = "Admin"
                         },
                         new
                         {
-                            Id = new Guid("3a423ac0-8ad1-4d5d-85bd-36607868d180"),
+                            Id = new Guid("d600fea3-881e-4721-a1e2-e2c18cd4e37d"),
                             Name = "User"
                         });
                 });
@@ -1119,602 +765,602 @@ namespace eCinema.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("c1e3dff1-060d-44b6-8149-8d24a88d447b"),
-                            HallId = new Guid("cf0596e3-40b6-405d-838d-2bbbf6fdc562"),
+                            Id = new Guid("ce314f35-8e99-454d-b07c-5a9ceee7448e"),
+                            HallId = new Guid("5aea3a56-96f9-4540-8fed-48d020e70aca"),
                             Name = "A0"
                         },
                         new
                         {
-                            Id = new Guid("13d62216-129d-4c6a-99b2-3b2fdd926b26"),
-                            HallId = new Guid("cf0596e3-40b6-405d-838d-2bbbf6fdc562"),
+                            Id = new Guid("293092ac-c4d4-41d1-9fad-537cb5bb22ac"),
+                            HallId = new Guid("5aea3a56-96f9-4540-8fed-48d020e70aca"),
                             Name = "A1"
                         },
                         new
                         {
-                            Id = new Guid("90f61062-39c4-473e-8b48-786511ece2e3"),
-                            HallId = new Guid("cf0596e3-40b6-405d-838d-2bbbf6fdc562"),
+                            Id = new Guid("3cbf64fa-cfb7-472f-bbc9-4a2bdc6d7d1a"),
+                            HallId = new Guid("5aea3a56-96f9-4540-8fed-48d020e70aca"),
                             Name = "A2"
                         },
                         new
                         {
-                            Id = new Guid("6bf31821-8567-4fb6-b8bb-6018b9393ea8"),
-                            HallId = new Guid("cf0596e3-40b6-405d-838d-2bbbf6fdc562"),
+                            Id = new Guid("6e36bc1e-e7ee-4864-a32d-27066d56c826"),
+                            HallId = new Guid("5aea3a56-96f9-4540-8fed-48d020e70aca"),
                             Name = "A3"
                         },
                         new
                         {
-                            Id = new Guid("129316ca-7682-4dda-986e-fe985dd70318"),
-                            HallId = new Guid("cf0596e3-40b6-405d-838d-2bbbf6fdc562"),
+                            Id = new Guid("a11bb855-09df-42d4-a119-cd0e2cb25310"),
+                            HallId = new Guid("5aea3a56-96f9-4540-8fed-48d020e70aca"),
                             Name = "A4"
                         },
                         new
                         {
-                            Id = new Guid("3b04ccd5-2e08-447e-9f3c-2efa5bc1586a"),
-                            HallId = new Guid("cf0596e3-40b6-405d-838d-2bbbf6fdc562"),
+                            Id = new Guid("c93014ed-953d-4e28-92de-b5cf26608900"),
+                            HallId = new Guid("5aea3a56-96f9-4540-8fed-48d020e70aca"),
                             Name = "A5"
                         },
                         new
                         {
-                            Id = new Guid("6f4f8871-d7f5-469a-9264-3fa277147431"),
-                            HallId = new Guid("cf0596e3-40b6-405d-838d-2bbbf6fdc562"),
+                            Id = new Guid("7180b575-5fab-43dc-98cd-d5e3a65a52e1"),
+                            HallId = new Guid("5aea3a56-96f9-4540-8fed-48d020e70aca"),
                             Name = "B1"
                         },
                         new
                         {
-                            Id = new Guid("a9db198a-2d9f-4dd2-9bc5-3340349293f1"),
-                            HallId = new Guid("cf0596e3-40b6-405d-838d-2bbbf6fdc562"),
+                            Id = new Guid("7a1cb8ce-b978-4796-8fa2-5e054a9403ef"),
+                            HallId = new Guid("5aea3a56-96f9-4540-8fed-48d020e70aca"),
                             Name = "B2"
                         },
                         new
                         {
-                            Id = new Guid("3fb193ed-e06a-4e5d-8e66-58475d4e8067"),
-                            HallId = new Guid("cf0596e3-40b6-405d-838d-2bbbf6fdc562"),
+                            Id = new Guid("fb832c5b-6387-40ff-9260-f9d723572301"),
+                            HallId = new Guid("5aea3a56-96f9-4540-8fed-48d020e70aca"),
                             Name = "B3"
                         },
                         new
                         {
-                            Id = new Guid("aa9bc61b-3c88-4227-a007-119b16efe49f"),
-                            HallId = new Guid("cf0596e3-40b6-405d-838d-2bbbf6fdc562"),
+                            Id = new Guid("a6e4079c-8381-40af-aa0f-06167b581bde"),
+                            HallId = new Guid("5aea3a56-96f9-4540-8fed-48d020e70aca"),
                             Name = "B4"
                         },
                         new
                         {
-                            Id = new Guid("51200ff3-cf21-425c-8234-13ce6621e0c2"),
-                            HallId = new Guid("cf0596e3-40b6-405d-838d-2bbbf6fdc562"),
+                            Id = new Guid("23db94f4-42c7-4a3d-b2db-c2c9d3a91db7"),
+                            HallId = new Guid("5aea3a56-96f9-4540-8fed-48d020e70aca"),
                             Name = "B5"
                         },
                         new
                         {
-                            Id = new Guid("1231efee-ead5-4ca0-854d-eb9e782ae4a7"),
-                            HallId = new Guid("cf0596e3-40b6-405d-838d-2bbbf6fdc562"),
+                            Id = new Guid("4568e861-f27e-442a-bb09-3aebb5c8397c"),
+                            HallId = new Guid("5aea3a56-96f9-4540-8fed-48d020e70aca"),
                             Name = "C1"
                         },
                         new
                         {
-                            Id = new Guid("ff005a89-b1c5-456c-9533-92fe39a0647f"),
-                            HallId = new Guid("cf0596e3-40b6-405d-838d-2bbbf6fdc562"),
+                            Id = new Guid("c3666047-775d-4872-baef-1a157c33b5da"),
+                            HallId = new Guid("5aea3a56-96f9-4540-8fed-48d020e70aca"),
                             Name = "C2"
                         },
                         new
                         {
-                            Id = new Guid("761329fe-fbbe-4dd6-8873-207da55800c1"),
-                            HallId = new Guid("cf0596e3-40b6-405d-838d-2bbbf6fdc562"),
+                            Id = new Guid("e8eacca1-2177-4f55-9081-cb389865a853"),
+                            HallId = new Guid("5aea3a56-96f9-4540-8fed-48d020e70aca"),
                             Name = "C3"
                         },
                         new
                         {
-                            Id = new Guid("bad803c7-0344-47e0-944f-c506adb9c2f0"),
-                            HallId = new Guid("cf0596e3-40b6-405d-838d-2bbbf6fdc562"),
+                            Id = new Guid("762944d1-8df5-43ff-9106-a2616a9d05c4"),
+                            HallId = new Guid("5aea3a56-96f9-4540-8fed-48d020e70aca"),
                             Name = "C4"
                         },
                         new
                         {
-                            Id = new Guid("9284f5ce-c49f-486c-864c-e9dc14b66927"),
-                            HallId = new Guid("cf0596e3-40b6-405d-838d-2bbbf6fdc562"),
+                            Id = new Guid("6fed040d-64db-4619-bd3c-551448022112"),
+                            HallId = new Guid("5aea3a56-96f9-4540-8fed-48d020e70aca"),
                             Name = "C5"
                         },
                         new
                         {
-                            Id = new Guid("cf108f8a-53a0-4d94-aad6-ce10e7d4d6db"),
-                            HallId = new Guid("cf0596e3-40b6-405d-838d-2bbbf6fdc562"),
+                            Id = new Guid("5f052709-9b58-4c92-a5a5-c164bd48e174"),
+                            HallId = new Guid("5aea3a56-96f9-4540-8fed-48d020e70aca"),
                             Name = "D1"
                         },
                         new
                         {
-                            Id = new Guid("f32f38c0-1495-4af4-9222-1f5ecad8fac7"),
-                            HallId = new Guid("cf0596e3-40b6-405d-838d-2bbbf6fdc562"),
+                            Id = new Guid("149f35f3-f2b5-4a15-8e46-b237231235da"),
+                            HallId = new Guid("5aea3a56-96f9-4540-8fed-48d020e70aca"),
                             Name = "D2"
                         },
                         new
                         {
-                            Id = new Guid("ab077300-41ae-4387-9f7c-a7f1d0b58bb0"),
-                            HallId = new Guid("cf0596e3-40b6-405d-838d-2bbbf6fdc562"),
+                            Id = new Guid("7871a143-7637-4547-a581-76b53cee1f2c"),
+                            HallId = new Guid("5aea3a56-96f9-4540-8fed-48d020e70aca"),
                             Name = "D3"
                         },
                         new
                         {
-                            Id = new Guid("ceb66cf9-38e1-49e0-8ede-543644aa65c4"),
-                            HallId = new Guid("cf0596e3-40b6-405d-838d-2bbbf6fdc562"),
+                            Id = new Guid("8f8903ae-0545-456f-bc14-c9896f48fa0f"),
+                            HallId = new Guid("5aea3a56-96f9-4540-8fed-48d020e70aca"),
                             Name = "D4"
                         },
                         new
                         {
-                            Id = new Guid("97c41c53-0e79-47a7-9029-eaeeaec461c6"),
-                            HallId = new Guid("ab574d9c-fd92-4c82-8402-54d2b34852b8"),
+                            Id = new Guid("184e57c9-8c12-41c4-b6d4-40fafdefc876"),
+                            HallId = new Guid("1477a350-dcd6-4625-857b-a8584c3f974c"),
                             Name = "A0"
                         },
                         new
                         {
-                            Id = new Guid("6803248a-3da5-40ed-b522-455c2e16ed77"),
-                            HallId = new Guid("ab574d9c-fd92-4c82-8402-54d2b34852b8"),
+                            Id = new Guid("ee824220-5369-4866-a7c9-57a85515c3cd"),
+                            HallId = new Guid("1477a350-dcd6-4625-857b-a8584c3f974c"),
                             Name = "A1"
                         },
                         new
                         {
-                            Id = new Guid("be27deb7-4934-46fe-a701-0a6fc77cb888"),
-                            HallId = new Guid("ab574d9c-fd92-4c82-8402-54d2b34852b8"),
+                            Id = new Guid("2de99aca-8590-4e33-8c49-ae9ef7f12438"),
+                            HallId = new Guid("1477a350-dcd6-4625-857b-a8584c3f974c"),
                             Name = "A2"
                         },
                         new
                         {
-                            Id = new Guid("19f8fa6e-73ca-433a-97c5-0fd568df7942"),
-                            HallId = new Guid("ab574d9c-fd92-4c82-8402-54d2b34852b8"),
+                            Id = new Guid("f48d02b0-235e-4f0c-8576-8250624fd48c"),
+                            HallId = new Guid("1477a350-dcd6-4625-857b-a8584c3f974c"),
                             Name = "A3"
                         },
                         new
                         {
-                            Id = new Guid("6bb1601e-8026-4bd9-80fc-c83283837172"),
-                            HallId = new Guid("ab574d9c-fd92-4c82-8402-54d2b34852b8"),
+                            Id = new Guid("be7f7396-0d79-49e4-adb2-49845e434111"),
+                            HallId = new Guid("1477a350-dcd6-4625-857b-a8584c3f974c"),
                             Name = "A4"
                         },
                         new
                         {
-                            Id = new Guid("504fadf6-4920-418e-994e-c4856a049479"),
-                            HallId = new Guid("ab574d9c-fd92-4c82-8402-54d2b34852b8"),
+                            Id = new Guid("a617bad4-adb2-41c3-a378-322fdd03f588"),
+                            HallId = new Guid("1477a350-dcd6-4625-857b-a8584c3f974c"),
                             Name = "A5"
                         },
                         new
                         {
-                            Id = new Guid("66e0d1ed-d0a8-4e47-93e3-6bed26637853"),
-                            HallId = new Guid("ab574d9c-fd92-4c82-8402-54d2b34852b8"),
+                            Id = new Guid("682da772-5157-48ef-9cac-3dba3ee5f93d"),
+                            HallId = new Guid("1477a350-dcd6-4625-857b-a8584c3f974c"),
                             Name = "B1"
                         },
                         new
                         {
-                            Id = new Guid("1101ef5c-da0f-445f-a7ba-5644348fa32e"),
-                            HallId = new Guid("ab574d9c-fd92-4c82-8402-54d2b34852b8"),
+                            Id = new Guid("67966145-825b-4217-98a9-5f10c57af742"),
+                            HallId = new Guid("1477a350-dcd6-4625-857b-a8584c3f974c"),
                             Name = "B2"
                         },
                         new
                         {
-                            Id = new Guid("ebbbea43-d9f5-4017-afc9-fdbba04eb198"),
-                            HallId = new Guid("ab574d9c-fd92-4c82-8402-54d2b34852b8"),
+                            Id = new Guid("b30ebc3b-97d8-4cfb-b915-91701d9c1c42"),
+                            HallId = new Guid("1477a350-dcd6-4625-857b-a8584c3f974c"),
                             Name = "B3"
                         },
                         new
                         {
-                            Id = new Guid("2b942f27-6aba-43c6-aa8e-3a584e0aa0b8"),
-                            HallId = new Guid("ab574d9c-fd92-4c82-8402-54d2b34852b8"),
+                            Id = new Guid("0d062db0-886c-43da-b9f4-28d622a854df"),
+                            HallId = new Guid("1477a350-dcd6-4625-857b-a8584c3f974c"),
                             Name = "B4"
                         },
                         new
                         {
-                            Id = new Guid("0e42d274-d5ed-48c7-b289-a53a452891f1"),
-                            HallId = new Guid("ab574d9c-fd92-4c82-8402-54d2b34852b8"),
+                            Id = new Guid("95c0dae8-9170-43d5-a255-7e5911a63ae9"),
+                            HallId = new Guid("1477a350-dcd6-4625-857b-a8584c3f974c"),
                             Name = "B5"
                         },
                         new
                         {
-                            Id = new Guid("9d01aff3-dc4c-458f-a817-efbb55b68a00"),
-                            HallId = new Guid("ab574d9c-fd92-4c82-8402-54d2b34852b8"),
+                            Id = new Guid("7acba744-a146-4424-8a66-6ae453bce492"),
+                            HallId = new Guid("1477a350-dcd6-4625-857b-a8584c3f974c"),
                             Name = "C1"
                         },
                         new
                         {
-                            Id = new Guid("0605f7da-8247-4113-9590-7560f86685e4"),
-                            HallId = new Guid("ab574d9c-fd92-4c82-8402-54d2b34852b8"),
+                            Id = new Guid("b288c314-05e7-4dce-8688-6bc1228a066b"),
+                            HallId = new Guid("1477a350-dcd6-4625-857b-a8584c3f974c"),
                             Name = "C2"
                         },
                         new
                         {
-                            Id = new Guid("929ce42d-1f74-43e4-8df8-12c5db460dbf"),
-                            HallId = new Guid("ab574d9c-fd92-4c82-8402-54d2b34852b8"),
+                            Id = new Guid("ae091805-5bef-4d0f-8a31-a483e3c4ee79"),
+                            HallId = new Guid("1477a350-dcd6-4625-857b-a8584c3f974c"),
                             Name = "C3"
                         },
                         new
                         {
-                            Id = new Guid("57f61308-341a-4e0b-bba0-0a2439ce3407"),
-                            HallId = new Guid("ab574d9c-fd92-4c82-8402-54d2b34852b8"),
+                            Id = new Guid("51a636d1-9ab2-4390-8840-8880b6bbb445"),
+                            HallId = new Guid("1477a350-dcd6-4625-857b-a8584c3f974c"),
                             Name = "C4"
                         },
                         new
                         {
-                            Id = new Guid("67c2b171-74da-491e-a44e-a22285230da2"),
-                            HallId = new Guid("ab574d9c-fd92-4c82-8402-54d2b34852b8"),
+                            Id = new Guid("a4648d75-998e-4037-bf6a-378618620447"),
+                            HallId = new Guid("1477a350-dcd6-4625-857b-a8584c3f974c"),
                             Name = "C5"
                         },
                         new
                         {
-                            Id = new Guid("34f7332d-c95c-414f-9c11-144c03bf18d6"),
-                            HallId = new Guid("ab574d9c-fd92-4c82-8402-54d2b34852b8"),
+                            Id = new Guid("3f5433e2-2beb-449d-a531-7e575c714fba"),
+                            HallId = new Guid("1477a350-dcd6-4625-857b-a8584c3f974c"),
                             Name = "D1"
                         },
                         new
                         {
-                            Id = new Guid("84e2bd1c-a254-476c-adbb-5bbe297707a1"),
-                            HallId = new Guid("ab574d9c-fd92-4c82-8402-54d2b34852b8"),
+                            Id = new Guid("abeb4122-175a-4554-ba20-24a3777c5df7"),
+                            HallId = new Guid("1477a350-dcd6-4625-857b-a8584c3f974c"),
                             Name = "D2"
                         },
                         new
                         {
-                            Id = new Guid("ac00e276-2370-409f-b4d9-a1a9803a9e80"),
-                            HallId = new Guid("ab574d9c-fd92-4c82-8402-54d2b34852b8"),
+                            Id = new Guid("9c0ee62e-3969-488f-ab2b-13bac8193bdc"),
+                            HallId = new Guid("1477a350-dcd6-4625-857b-a8584c3f974c"),
                             Name = "D3"
                         },
                         new
                         {
-                            Id = new Guid("3a38dc58-2ec1-4e04-b211-21cc444b4987"),
-                            HallId = new Guid("ab574d9c-fd92-4c82-8402-54d2b34852b8"),
+                            Id = new Guid("988f5972-0dca-424e-8382-9e436e338457"),
+                            HallId = new Guid("1477a350-dcd6-4625-857b-a8584c3f974c"),
                             Name = "D4"
                         },
                         new
                         {
-                            Id = new Guid("4bd851b0-7570-4cf6-adc5-6ae07cba6340"),
-                            HallId = new Guid("248a716c-cb2f-446a-a6fc-71921b9aafa5"),
+                            Id = new Guid("c957e9cd-df80-4b7b-8985-ef9b8066ca9d"),
+                            HallId = new Guid("d10934ce-f539-4951-83d3-059ddaa00eb6"),
                             Name = "A0"
                         },
                         new
                         {
-                            Id = new Guid("6a4f0ef9-37db-4be4-a25d-c421c1f66e0f"),
-                            HallId = new Guid("248a716c-cb2f-446a-a6fc-71921b9aafa5"),
+                            Id = new Guid("3266dbf8-818c-4f97-9d0d-7a0ff8a9e451"),
+                            HallId = new Guid("d10934ce-f539-4951-83d3-059ddaa00eb6"),
                             Name = "A1"
                         },
                         new
                         {
-                            Id = new Guid("eb8b62be-a9f2-49b1-9e3b-f8cfce1dee9c"),
-                            HallId = new Guid("248a716c-cb2f-446a-a6fc-71921b9aafa5"),
+                            Id = new Guid("af5a5e05-4a20-4192-819f-b4b62f25a2f6"),
+                            HallId = new Guid("d10934ce-f539-4951-83d3-059ddaa00eb6"),
                             Name = "A2"
                         },
                         new
                         {
-                            Id = new Guid("ff6d2f6c-04b8-4626-a053-19d8b0af4438"),
-                            HallId = new Guid("248a716c-cb2f-446a-a6fc-71921b9aafa5"),
+                            Id = new Guid("36556edd-b3de-4be2-bec3-334846a4d5d9"),
+                            HallId = new Guid("d10934ce-f539-4951-83d3-059ddaa00eb6"),
                             Name = "A3"
                         },
                         new
                         {
-                            Id = new Guid("f5b63112-de49-4c1f-9799-cdb7eb7de65d"),
-                            HallId = new Guid("248a716c-cb2f-446a-a6fc-71921b9aafa5"),
+                            Id = new Guid("8d7f50e5-2517-4d40-8672-031af41d1f3b"),
+                            HallId = new Guid("d10934ce-f539-4951-83d3-059ddaa00eb6"),
                             Name = "A4"
                         },
                         new
                         {
-                            Id = new Guid("7d2ae640-ab3d-4da7-91e8-4713616ed444"),
-                            HallId = new Guid("248a716c-cb2f-446a-a6fc-71921b9aafa5"),
+                            Id = new Guid("4b42355b-859e-447e-ae3c-c07390cf7d8c"),
+                            HallId = new Guid("d10934ce-f539-4951-83d3-059ddaa00eb6"),
                             Name = "A5"
                         },
                         new
                         {
-                            Id = new Guid("4dcbed5e-7e3a-46e6-99c5-fab4ed465168"),
-                            HallId = new Guid("248a716c-cb2f-446a-a6fc-71921b9aafa5"),
+                            Id = new Guid("e25cf2d7-f990-46dd-ae7d-b1e77fe291d5"),
+                            HallId = new Guid("d10934ce-f539-4951-83d3-059ddaa00eb6"),
                             Name = "B1"
                         },
                         new
                         {
-                            Id = new Guid("dc24c807-b31d-4ee9-ae9d-6f4227d8c6c3"),
-                            HallId = new Guid("248a716c-cb2f-446a-a6fc-71921b9aafa5"),
+                            Id = new Guid("2f6597d5-b53d-47d7-b9c7-ad028c4fd930"),
+                            HallId = new Guid("d10934ce-f539-4951-83d3-059ddaa00eb6"),
                             Name = "B2"
                         },
                         new
                         {
-                            Id = new Guid("f708b7f6-2b7d-41d0-877d-17aa14f387fe"),
-                            HallId = new Guid("248a716c-cb2f-446a-a6fc-71921b9aafa5"),
+                            Id = new Guid("8a1fd2de-a78e-4102-a709-8b9027d4266a"),
+                            HallId = new Guid("d10934ce-f539-4951-83d3-059ddaa00eb6"),
                             Name = "B3"
                         },
                         new
                         {
-                            Id = new Guid("f5b6bd2f-bf63-4c30-b7ad-7f7294e5ab86"),
-                            HallId = new Guid("248a716c-cb2f-446a-a6fc-71921b9aafa5"),
+                            Id = new Guid("eb86495d-0e01-4ab0-8204-c6e42632c243"),
+                            HallId = new Guid("d10934ce-f539-4951-83d3-059ddaa00eb6"),
                             Name = "B4"
                         },
                         new
                         {
-                            Id = new Guid("c463a440-41c0-4726-9833-0c1cfb7f48e3"),
-                            HallId = new Guid("248a716c-cb2f-446a-a6fc-71921b9aafa5"),
+                            Id = new Guid("c4e8a6f6-0c6f-4a6a-a582-a4d13d8ac943"),
+                            HallId = new Guid("d10934ce-f539-4951-83d3-059ddaa00eb6"),
                             Name = "B5"
                         },
                         new
                         {
-                            Id = new Guid("1987c1a4-4d2c-43c5-b494-92452e767635"),
-                            HallId = new Guid("248a716c-cb2f-446a-a6fc-71921b9aafa5"),
+                            Id = new Guid("8f0c6880-d8d5-4289-9b45-d1e7434fd3d4"),
+                            HallId = new Guid("d10934ce-f539-4951-83d3-059ddaa00eb6"),
                             Name = "C1"
                         },
                         new
                         {
-                            Id = new Guid("9953e729-b7e2-4558-ba84-9181f00b983a"),
-                            HallId = new Guid("248a716c-cb2f-446a-a6fc-71921b9aafa5"),
+                            Id = new Guid("7e239908-f24f-4edc-a1e6-a93ac6b3592c"),
+                            HallId = new Guid("d10934ce-f539-4951-83d3-059ddaa00eb6"),
                             Name = "C2"
                         },
                         new
                         {
-                            Id = new Guid("d5831ecf-84b8-4380-9391-cbd6b9e7db30"),
-                            HallId = new Guid("248a716c-cb2f-446a-a6fc-71921b9aafa5"),
+                            Id = new Guid("e99cacab-45aa-4363-92c7-988cc4b9977a"),
+                            HallId = new Guid("d10934ce-f539-4951-83d3-059ddaa00eb6"),
                             Name = "C3"
                         },
                         new
                         {
-                            Id = new Guid("d626b92a-d33a-41ff-a3cd-f06642f2c992"),
-                            HallId = new Guid("248a716c-cb2f-446a-a6fc-71921b9aafa5"),
+                            Id = new Guid("2f2de23c-f218-4b73-856c-8ade3b78d5d5"),
+                            HallId = new Guid("d10934ce-f539-4951-83d3-059ddaa00eb6"),
                             Name = "C4"
                         },
                         new
                         {
-                            Id = new Guid("41a1a596-60cc-44be-8382-1607dcda2e2b"),
-                            HallId = new Guid("248a716c-cb2f-446a-a6fc-71921b9aafa5"),
+                            Id = new Guid("d5fa7e70-57ec-43b1-b1e1-b956ac747e46"),
+                            HallId = new Guid("d10934ce-f539-4951-83d3-059ddaa00eb6"),
                             Name = "C5"
                         },
                         new
                         {
-                            Id = new Guid("640e9804-a641-4a6d-8294-28d494f9aea2"),
-                            HallId = new Guid("248a716c-cb2f-446a-a6fc-71921b9aafa5"),
+                            Id = new Guid("4f14283e-b8dc-4a1d-b560-6afa7e725336"),
+                            HallId = new Guid("d10934ce-f539-4951-83d3-059ddaa00eb6"),
                             Name = "D1"
                         },
                         new
                         {
-                            Id = new Guid("94ee10c8-4918-4834-ad91-7d27cf0f47a8"),
-                            HallId = new Guid("248a716c-cb2f-446a-a6fc-71921b9aafa5"),
+                            Id = new Guid("caeb5026-5d15-4170-8f2a-ae92f7f30093"),
+                            HallId = new Guid("d10934ce-f539-4951-83d3-059ddaa00eb6"),
                             Name = "D2"
                         },
                         new
                         {
-                            Id = new Guid("a6be33c7-e7c1-411f-b09e-c6003bab4fc2"),
-                            HallId = new Guid("248a716c-cb2f-446a-a6fc-71921b9aafa5"),
+                            Id = new Guid("f308814e-c0d6-4e41-ae05-f0644a7367d4"),
+                            HallId = new Guid("d10934ce-f539-4951-83d3-059ddaa00eb6"),
                             Name = "D3"
                         },
                         new
                         {
-                            Id = new Guid("a3ebdd52-f047-471b-803f-d969938402db"),
-                            HallId = new Guid("248a716c-cb2f-446a-a6fc-71921b9aafa5"),
+                            Id = new Guid("b650fa9d-d264-43a7-adda-75c5813a571d"),
+                            HallId = new Guid("d10934ce-f539-4951-83d3-059ddaa00eb6"),
                             Name = "D4"
                         },
                         new
                         {
-                            Id = new Guid("beb42e85-64eb-4b37-81e2-287b874f87fa"),
-                            HallId = new Guid("c219e761-199b-48f4-b679-55a6a93dd647"),
+                            Id = new Guid("bde00ad2-a97a-4b28-9fde-ce2b248089d5"),
+                            HallId = new Guid("664deb6a-9a00-4db9-8cf1-12f97a5f9dc1"),
                             Name = "A0"
                         },
                         new
                         {
-                            Id = new Guid("02bd62fc-d6cd-4b95-901d-3664ebf0b6c8"),
-                            HallId = new Guid("c219e761-199b-48f4-b679-55a6a93dd647"),
+                            Id = new Guid("d3981732-5e92-46e0-a06f-65afe71bf4da"),
+                            HallId = new Guid("664deb6a-9a00-4db9-8cf1-12f97a5f9dc1"),
                             Name = "A1"
                         },
                         new
                         {
-                            Id = new Guid("d62168ea-587c-43c8-91a2-52d8722900db"),
-                            HallId = new Guid("c219e761-199b-48f4-b679-55a6a93dd647"),
+                            Id = new Guid("59b634be-a559-442c-b7a5-7c0b0e47e73a"),
+                            HallId = new Guid("664deb6a-9a00-4db9-8cf1-12f97a5f9dc1"),
                             Name = "A2"
                         },
                         new
                         {
-                            Id = new Guid("f42e2397-6e22-4d01-9d2e-6df9b5619da5"),
-                            HallId = new Guid("c219e761-199b-48f4-b679-55a6a93dd647"),
+                            Id = new Guid("1a219ed3-423f-47aa-8d94-fcade6701312"),
+                            HallId = new Guid("664deb6a-9a00-4db9-8cf1-12f97a5f9dc1"),
                             Name = "A3"
                         },
                         new
                         {
-                            Id = new Guid("debf8801-9456-4604-b58c-1a0e8ece9386"),
-                            HallId = new Guid("c219e761-199b-48f4-b679-55a6a93dd647"),
+                            Id = new Guid("63402066-5279-4640-95a0-0d86bd6bebbd"),
+                            HallId = new Guid("664deb6a-9a00-4db9-8cf1-12f97a5f9dc1"),
                             Name = "A4"
                         },
                         new
                         {
-                            Id = new Guid("f59b1a9a-21a9-4338-8aea-53afc57575de"),
-                            HallId = new Guid("c219e761-199b-48f4-b679-55a6a93dd647"),
+                            Id = new Guid("6155549a-76f9-40eb-852a-3f18a16fed1d"),
+                            HallId = new Guid("664deb6a-9a00-4db9-8cf1-12f97a5f9dc1"),
                             Name = "A5"
                         },
                         new
                         {
-                            Id = new Guid("3c13f1c0-ae55-4f41-9c6f-73fd00b973e7"),
-                            HallId = new Guid("c219e761-199b-48f4-b679-55a6a93dd647"),
+                            Id = new Guid("4768f277-c4eb-4c50-8265-8fd8575f72d2"),
+                            HallId = new Guid("664deb6a-9a00-4db9-8cf1-12f97a5f9dc1"),
                             Name = "B1"
                         },
                         new
                         {
-                            Id = new Guid("f19b008d-deff-48cc-982a-6b883732d2da"),
-                            HallId = new Guid("c219e761-199b-48f4-b679-55a6a93dd647"),
+                            Id = new Guid("e4726367-680b-4599-88d5-a05e2d3ca026"),
+                            HallId = new Guid("664deb6a-9a00-4db9-8cf1-12f97a5f9dc1"),
                             Name = "B2"
                         },
                         new
                         {
-                            Id = new Guid("09b4c7c4-ebbe-4fc3-8dcf-a37503443983"),
-                            HallId = new Guid("c219e761-199b-48f4-b679-55a6a93dd647"),
+                            Id = new Guid("e1420476-97c1-449c-9f59-d9729652d5e6"),
+                            HallId = new Guid("664deb6a-9a00-4db9-8cf1-12f97a5f9dc1"),
                             Name = "B3"
                         },
                         new
                         {
-                            Id = new Guid("57c62871-2277-49c8-a3f6-4d677f7d39bd"),
-                            HallId = new Guid("c219e761-199b-48f4-b679-55a6a93dd647"),
+                            Id = new Guid("e2ce3c1e-23c5-4f3b-9507-8823197323c1"),
+                            HallId = new Guid("664deb6a-9a00-4db9-8cf1-12f97a5f9dc1"),
                             Name = "B4"
                         },
                         new
                         {
-                            Id = new Guid("443a96ae-899d-42b2-b3d3-fc8d6d11bc8a"),
-                            HallId = new Guid("c219e761-199b-48f4-b679-55a6a93dd647"),
+                            Id = new Guid("cf961832-eb3d-4efa-bfa4-a3cb50be2bf8"),
+                            HallId = new Guid("664deb6a-9a00-4db9-8cf1-12f97a5f9dc1"),
                             Name = "B5"
                         },
                         new
                         {
-                            Id = new Guid("4f39f7c1-d197-4edb-8eff-a4d9ef39c0b0"),
-                            HallId = new Guid("c219e761-199b-48f4-b679-55a6a93dd647"),
+                            Id = new Guid("2e29b1a2-42ae-4906-9b41-034a291596dc"),
+                            HallId = new Guid("664deb6a-9a00-4db9-8cf1-12f97a5f9dc1"),
                             Name = "C1"
                         },
                         new
                         {
-                            Id = new Guid("568f15ad-2065-4b7c-832f-1e1131806032"),
-                            HallId = new Guid("c219e761-199b-48f4-b679-55a6a93dd647"),
+                            Id = new Guid("4c412659-cf7e-432a-a2c7-94bfca06627a"),
+                            HallId = new Guid("664deb6a-9a00-4db9-8cf1-12f97a5f9dc1"),
                             Name = "C2"
                         },
                         new
                         {
-                            Id = new Guid("91b6caec-6147-4a74-a015-79dab1da1a44"),
-                            HallId = new Guid("c219e761-199b-48f4-b679-55a6a93dd647"),
+                            Id = new Guid("7f01ec72-d66b-4a70-b22f-7c432f1b9a47"),
+                            HallId = new Guid("664deb6a-9a00-4db9-8cf1-12f97a5f9dc1"),
                             Name = "C3"
                         },
                         new
                         {
-                            Id = new Guid("ffd515e5-c7a1-4f76-8fbc-30d9e9e02f78"),
-                            HallId = new Guid("c219e761-199b-48f4-b679-55a6a93dd647"),
+                            Id = new Guid("f504d542-2ccd-44c1-bb4b-8a9166d0990e"),
+                            HallId = new Guid("664deb6a-9a00-4db9-8cf1-12f97a5f9dc1"),
                             Name = "C4"
                         },
                         new
                         {
-                            Id = new Guid("aa169cd5-fc04-49db-bc79-07f13de0c32c"),
-                            HallId = new Guid("c219e761-199b-48f4-b679-55a6a93dd647"),
+                            Id = new Guid("9c8f7d66-fc5b-46ac-98dc-49fb815930eb"),
+                            HallId = new Guid("664deb6a-9a00-4db9-8cf1-12f97a5f9dc1"),
                             Name = "C5"
                         },
                         new
                         {
-                            Id = new Guid("6f8fc6c9-d779-4bc0-aaad-fb7d3d84dff6"),
-                            HallId = new Guid("c219e761-199b-48f4-b679-55a6a93dd647"),
+                            Id = new Guid("6c516ac0-2181-4b9d-b22c-90d4fdab9ca7"),
+                            HallId = new Guid("664deb6a-9a00-4db9-8cf1-12f97a5f9dc1"),
                             Name = "D1"
                         },
                         new
                         {
-                            Id = new Guid("5f3d5482-ada8-4e87-8360-c5a4d844eb65"),
-                            HallId = new Guid("c219e761-199b-48f4-b679-55a6a93dd647"),
+                            Id = new Guid("42edf378-ee81-4f78-bc2f-16e034daa134"),
+                            HallId = new Guid("664deb6a-9a00-4db9-8cf1-12f97a5f9dc1"),
                             Name = "D2"
                         },
                         new
                         {
-                            Id = new Guid("dc1cb4bc-4e51-4372-b6ed-1bf77294f212"),
-                            HallId = new Guid("c219e761-199b-48f4-b679-55a6a93dd647"),
+                            Id = new Guid("0df39548-58d6-4c46-a805-dd0977011e38"),
+                            HallId = new Guid("664deb6a-9a00-4db9-8cf1-12f97a5f9dc1"),
                             Name = "D3"
                         },
                         new
                         {
-                            Id = new Guid("d20bcb26-e63a-4530-9eca-9adb5b14a2d3"),
-                            HallId = new Guid("c219e761-199b-48f4-b679-55a6a93dd647"),
+                            Id = new Guid("43ade3a5-14c1-4c8c-8dd7-ab7eb3ebcb3d"),
+                            HallId = new Guid("664deb6a-9a00-4db9-8cf1-12f97a5f9dc1"),
                             Name = "D4"
                         },
                         new
                         {
-                            Id = new Guid("db7d44fa-3dfa-4441-a2aa-dfc66a1e096a"),
-                            HallId = new Guid("06affbc0-99d0-462f-8bfe-eff3f83b3b65"),
+                            Id = new Guid("15d0fb21-3f51-4ce1-9b18-ae4951371ee5"),
+                            HallId = new Guid("faadb9ef-010a-4f77-97db-63c0c45fc0c7"),
                             Name = "A0"
                         },
                         new
                         {
-                            Id = new Guid("2921d8ab-52e8-44e4-87cd-1692aa5eed68"),
-                            HallId = new Guid("06affbc0-99d0-462f-8bfe-eff3f83b3b65"),
+                            Id = new Guid("dbb907fb-364c-40c8-8dea-abfc20a21461"),
+                            HallId = new Guid("faadb9ef-010a-4f77-97db-63c0c45fc0c7"),
                             Name = "A1"
                         },
                         new
                         {
-                            Id = new Guid("76d637dd-f83d-4dcc-a7eb-53c55cea5dd1"),
-                            HallId = new Guid("06affbc0-99d0-462f-8bfe-eff3f83b3b65"),
+                            Id = new Guid("4be2e09a-1b83-49c7-b496-7482b1bb742f"),
+                            HallId = new Guid("faadb9ef-010a-4f77-97db-63c0c45fc0c7"),
                             Name = "A2"
                         },
                         new
                         {
-                            Id = new Guid("35f23681-b010-4c9c-88d4-d8c72793f6b8"),
-                            HallId = new Guid("06affbc0-99d0-462f-8bfe-eff3f83b3b65"),
+                            Id = new Guid("111a425c-6060-4e9d-bebd-29dace17fa7c"),
+                            HallId = new Guid("faadb9ef-010a-4f77-97db-63c0c45fc0c7"),
                             Name = "A3"
                         },
                         new
                         {
-                            Id = new Guid("1243ff05-03ab-4417-a085-bb90cc8534e7"),
-                            HallId = new Guid("06affbc0-99d0-462f-8bfe-eff3f83b3b65"),
+                            Id = new Guid("cc62875a-633c-4458-b8be-546e0af3a0d8"),
+                            HallId = new Guid("faadb9ef-010a-4f77-97db-63c0c45fc0c7"),
                             Name = "A4"
                         },
                         new
                         {
-                            Id = new Guid("1151189b-74df-4077-b663-4b64f841b9e9"),
-                            HallId = new Guid("06affbc0-99d0-462f-8bfe-eff3f83b3b65"),
+                            Id = new Guid("51f5e703-6466-41c4-aa8c-a726d954599b"),
+                            HallId = new Guid("faadb9ef-010a-4f77-97db-63c0c45fc0c7"),
                             Name = "A5"
                         },
                         new
                         {
-                            Id = new Guid("7677b393-f5f4-4f9c-93dc-86f2bd9be123"),
-                            HallId = new Guid("06affbc0-99d0-462f-8bfe-eff3f83b3b65"),
+                            Id = new Guid("4bfd7990-02e1-421f-973d-f0991bf455fc"),
+                            HallId = new Guid("faadb9ef-010a-4f77-97db-63c0c45fc0c7"),
                             Name = "B1"
                         },
                         new
                         {
-                            Id = new Guid("5e44225c-88a6-460f-b8b4-a4307277cd14"),
-                            HallId = new Guid("06affbc0-99d0-462f-8bfe-eff3f83b3b65"),
+                            Id = new Guid("09cc5a53-99cb-4fab-aa66-aa99442ce0c7"),
+                            HallId = new Guid("faadb9ef-010a-4f77-97db-63c0c45fc0c7"),
                             Name = "B2"
                         },
                         new
                         {
-                            Id = new Guid("d52bb2d8-7061-473b-bd03-a136d9d611b0"),
-                            HallId = new Guid("06affbc0-99d0-462f-8bfe-eff3f83b3b65"),
+                            Id = new Guid("6284f539-c05c-40bf-b847-60a1a3102f80"),
+                            HallId = new Guid("faadb9ef-010a-4f77-97db-63c0c45fc0c7"),
                             Name = "B3"
                         },
                         new
                         {
-                            Id = new Guid("4e498c91-bdde-43f8-92d0-2010c66ed57e"),
-                            HallId = new Guid("06affbc0-99d0-462f-8bfe-eff3f83b3b65"),
+                            Id = new Guid("41422869-fb1f-48c2-9dfe-47b35247ea79"),
+                            HallId = new Guid("faadb9ef-010a-4f77-97db-63c0c45fc0c7"),
                             Name = "B4"
                         },
                         new
                         {
-                            Id = new Guid("4c1f12bd-7129-44ed-bbd0-db7832f17998"),
-                            HallId = new Guid("06affbc0-99d0-462f-8bfe-eff3f83b3b65"),
+                            Id = new Guid("56e6bed9-092c-4c56-8f18-8d0356c861f5"),
+                            HallId = new Guid("faadb9ef-010a-4f77-97db-63c0c45fc0c7"),
                             Name = "B5"
                         },
                         new
                         {
-                            Id = new Guid("0bc822ed-e372-4b93-81e1-7528311f5dac"),
-                            HallId = new Guid("06affbc0-99d0-462f-8bfe-eff3f83b3b65"),
+                            Id = new Guid("6133faa1-d3d7-44fd-8369-f13d8eac5117"),
+                            HallId = new Guid("faadb9ef-010a-4f77-97db-63c0c45fc0c7"),
                             Name = "C1"
                         },
                         new
                         {
-                            Id = new Guid("c62d5945-6a71-4cc0-8fa5-98135cf94953"),
-                            HallId = new Guid("06affbc0-99d0-462f-8bfe-eff3f83b3b65"),
+                            Id = new Guid("9c4d0ad6-35b4-41f4-acca-0927ac1e1810"),
+                            HallId = new Guid("faadb9ef-010a-4f77-97db-63c0c45fc0c7"),
                             Name = "C2"
                         },
                         new
                         {
-                            Id = new Guid("63bc451d-b3df-44e5-a23c-519719d95bc4"),
-                            HallId = new Guid("06affbc0-99d0-462f-8bfe-eff3f83b3b65"),
+                            Id = new Guid("a5796d3f-a199-49d0-bcc3-28ec320c1500"),
+                            HallId = new Guid("faadb9ef-010a-4f77-97db-63c0c45fc0c7"),
                             Name = "C3"
                         },
                         new
                         {
-                            Id = new Guid("931e8929-d8d4-4779-9d07-9f052219c542"),
-                            HallId = new Guid("06affbc0-99d0-462f-8bfe-eff3f83b3b65"),
+                            Id = new Guid("a4aeb02b-cc2e-4353-942d-832286d0a777"),
+                            HallId = new Guid("faadb9ef-010a-4f77-97db-63c0c45fc0c7"),
                             Name = "C4"
                         },
                         new
                         {
-                            Id = new Guid("23ac5b32-5b7e-4243-ac8d-e52270f715e8"),
-                            HallId = new Guid("06affbc0-99d0-462f-8bfe-eff3f83b3b65"),
+                            Id = new Guid("508b1ce8-a4c7-45d2-af35-a2d62846693e"),
+                            HallId = new Guid("faadb9ef-010a-4f77-97db-63c0c45fc0c7"),
                             Name = "C5"
                         },
                         new
                         {
-                            Id = new Guid("2fc0ffdc-94c7-4474-a00b-7e02b67d60a1"),
-                            HallId = new Guid("06affbc0-99d0-462f-8bfe-eff3f83b3b65"),
+                            Id = new Guid("912fd2a5-510e-4320-a766-aa42271ccd59"),
+                            HallId = new Guid("faadb9ef-010a-4f77-97db-63c0c45fc0c7"),
                             Name = "D1"
                         },
                         new
                         {
-                            Id = new Guid("6125bbc1-e5d0-4d95-9b39-9a5ee8a85254"),
-                            HallId = new Guid("06affbc0-99d0-462f-8bfe-eff3f83b3b65"),
+                            Id = new Guid("b13a6617-fa9b-4c17-89c9-a3f78563dd70"),
+                            HallId = new Guid("faadb9ef-010a-4f77-97db-63c0c45fc0c7"),
                             Name = "D2"
                         },
                         new
                         {
-                            Id = new Guid("5944e7cf-1769-4e9f-8c66-35de31ddc061"),
-                            HallId = new Guid("06affbc0-99d0-462f-8bfe-eff3f83b3b65"),
+                            Id = new Guid("330ac1a4-49cb-4ef7-8246-6fda3d57a149"),
+                            HallId = new Guid("faadb9ef-010a-4f77-97db-63c0c45fc0c7"),
                             Name = "D3"
                         },
                         new
                         {
-                            Id = new Guid("b5c33f59-f935-44d9-b5e9-081dde9e1472"),
-                            HallId = new Guid("06affbc0-99d0-462f-8bfe-eff3f83b3b65"),
+                            Id = new Guid("f12cd66d-0d14-4ae1-bc3c-54b1e77bdf66"),
+                            HallId = new Guid("faadb9ef-010a-4f77-97db-63c0c45fc0c7"),
                             Name = "D4"
                         });
                 });
@@ -1741,288 +1387,6 @@ namespace eCinema.Migrations
                     b.HasIndex("SeatId");
 
                     b.ToTable("SeatReservations");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("71c53478-9025-4254-90f4-b28f53984225"),
-                            IsTaken = true,
-                            ReservationId = new Guid("c9f7a3ff-609c-4734-a518-afd89694ca9c"),
-                            SeatId = new Guid("c1e3dff1-060d-44b6-8149-8d24a88d447b")
-                        },
-                        new
-                        {
-                            Id = new Guid("515be2bd-818e-4592-81ed-996e2e17e84a"),
-                            IsTaken = true,
-                            ReservationId = new Guid("56b7d7ac-3ac9-4ddc-9e49-cba765a4a685"),
-                            SeatId = new Guid("13d62216-129d-4c6a-99b2-3b2fdd926b26")
-                        },
-                        new
-                        {
-                            Id = new Guid("e48d7c22-efff-441a-91cb-93dc930e7b70"),
-                            IsTaken = true,
-                            ReservationId = new Guid("91a76bb0-a1a6-4c0e-877d-e258c83c787d"),
-                            SeatId = new Guid("90f61062-39c4-473e-8b48-786511ece2e3")
-                        },
-                        new
-                        {
-                            Id = new Guid("00391b04-8c9f-49c7-85a2-4ffcc130b154"),
-                            IsTaken = true,
-                            ReservationId = new Guid("decf01fc-e9df-4e1c-b0e1-0b48e0ff21a5"),
-                            SeatId = new Guid("6bf31821-8567-4fb6-b8bb-6018b9393ea8")
-                        },
-                        new
-                        {
-                            Id = new Guid("33d93b9f-e06b-439f-b6f6-ecc2dab4cfc2"),
-                            IsTaken = true,
-                            ReservationId = new Guid("c8a58bfb-e679-4b6e-b65d-df90b63b7349"),
-                            SeatId = new Guid("129316ca-7682-4dda-986e-fe985dd70318")
-                        },
-                        new
-                        {
-                            Id = new Guid("8867d3b1-5a51-493c-97b2-751eeedb1f85"),
-                            IsTaken = true,
-                            ReservationId = new Guid("0472f8af-3d1e-4689-944e-103d69c40676"),
-                            SeatId = new Guid("3b04ccd5-2e08-447e-9f3c-2efa5bc1586a")
-                        },
-                        new
-                        {
-                            Id = new Guid("dba56938-0152-4089-b32b-f64d5ab48983"),
-                            IsTaken = true,
-                            ReservationId = new Guid("153b5cf1-ba37-4694-9f1d-24487a0ec171"),
-                            SeatId = new Guid("6f4f8871-d7f5-469a-9264-3fa277147431")
-                        },
-                        new
-                        {
-                            Id = new Guid("3655d592-e763-4a35-92eb-76c68fe0faa3"),
-                            IsTaken = true,
-                            ReservationId = new Guid("28d69fe3-5a66-41f7-81e7-d3da2ea5d89b"),
-                            SeatId = new Guid("a9db198a-2d9f-4dd2-9bc5-3340349293f1")
-                        },
-                        new
-                        {
-                            Id = new Guid("a94e566e-4967-4fee-b48a-b03488af4332"),
-                            IsTaken = true,
-                            ReservationId = new Guid("39245cb8-b6a2-4faa-8f2d-573ddc57797e"),
-                            SeatId = new Guid("3fb193ed-e06a-4e5d-8e66-58475d4e8067")
-                        },
-                        new
-                        {
-                            Id = new Guid("bf39e6e9-bfe2-4748-86f6-fef9f2501673"),
-                            IsTaken = true,
-                            ReservationId = new Guid("2d88d26a-01ce-4a77-901a-f2ea36a1574e"),
-                            SeatId = new Guid("aa9bc61b-3c88-4227-a007-119b16efe49f")
-                        },
-                        new
-                        {
-                            Id = new Guid("6d190378-9f73-478d-95b8-ea00de5981cd"),
-                            IsTaken = true,
-                            ReservationId = new Guid("28f10f74-4f05-4d7d-b8ae-849d8b007784"),
-                            SeatId = new Guid("51200ff3-cf21-425c-8234-13ce6621e0c2")
-                        },
-                        new
-                        {
-                            Id = new Guid("ab374941-8c67-4777-932e-237c9be60f75"),
-                            IsTaken = true,
-                            ReservationId = new Guid("e408085c-0276-4b8a-92df-6fd745ec9cfe"),
-                            SeatId = new Guid("1231efee-ead5-4ca0-854d-eb9e782ae4a7")
-                        },
-                        new
-                        {
-                            Id = new Guid("ac70525d-efd9-4126-a425-2b3b6d49f662"),
-                            IsTaken = true,
-                            ReservationId = new Guid("dd7724e6-555e-434d-ae85-dcdb5d2453a9"),
-                            SeatId = new Guid("ff005a89-b1c5-456c-9533-92fe39a0647f")
-                        },
-                        new
-                        {
-                            Id = new Guid("ec70a98a-44ef-4d55-bb85-29605833c147"),
-                            IsTaken = true,
-                            ReservationId = new Guid("afec0163-0585-4abc-993a-e2969c9b0816"),
-                            SeatId = new Guid("761329fe-fbbe-4dd6-8873-207da55800c1")
-                        },
-                        new
-                        {
-                            Id = new Guid("33784045-41f2-456d-ad53-40084c52f7a4"),
-                            IsTaken = true,
-                            ReservationId = new Guid("9020f4ea-d0e1-417e-a83f-3ee69fbb05c5"),
-                            SeatId = new Guid("bad803c7-0344-47e0-944f-c506adb9c2f0")
-                        },
-                        new
-                        {
-                            Id = new Guid("7a9442fa-c093-447d-bc29-2e6f506e0f71"),
-                            IsTaken = true,
-                            ReservationId = new Guid("3e68795e-913a-4886-aa96-476153330595"),
-                            SeatId = new Guid("9284f5ce-c49f-486c-864c-e9dc14b66927")
-                        },
-                        new
-                        {
-                            Id = new Guid("fb88e20c-5874-4615-a2e6-aac49065e0ce"),
-                            IsTaken = true,
-                            ReservationId = new Guid("0a31898a-8a4e-44dc-abe8-d1f10a7bd0ee"),
-                            SeatId = new Guid("cf108f8a-53a0-4d94-aad6-ce10e7d4d6db")
-                        },
-                        new
-                        {
-                            Id = new Guid("285f6aee-2783-4356-b707-6faff6f9ff01"),
-                            IsTaken = true,
-                            ReservationId = new Guid("808729a6-e89d-4989-b1e5-79db259fdecc"),
-                            SeatId = new Guid("f32f38c0-1495-4af4-9222-1f5ecad8fac7")
-                        },
-                        new
-                        {
-                            Id = new Guid("04b74e4c-ed51-4b0d-ab23-16c982d64726"),
-                            IsTaken = true,
-                            ReservationId = new Guid("baa7233a-2375-41ba-a3f0-88202143ef72"),
-                            SeatId = new Guid("ab077300-41ae-4387-9f7c-a7f1d0b58bb0")
-                        },
-                        new
-                        {
-                            Id = new Guid("87af95aa-3ea3-40ab-9c14-9e93eba3c57f"),
-                            IsTaken = true,
-                            ReservationId = new Guid("6425153c-79da-4dd0-b55f-ce1d8a5c55a1"),
-                            SeatId = new Guid("ceb66cf9-38e1-49e0-8ede-543644aa65c4")
-                        },
-                        new
-                        {
-                            Id = new Guid("90ff67c4-dd92-43ef-aeaa-e9c453e83eef"),
-                            IsTaken = true,
-                            ReservationId = new Guid("a7091efe-e7d0-46eb-af09-70bc115c2c7b"),
-                            SeatId = new Guid("97c41c53-0e79-47a7-9029-eaeeaec461c6")
-                        },
-                        new
-                        {
-                            Id = new Guid("69102d51-7ea9-4587-967e-0a5bf4e2a45d"),
-                            IsTaken = true,
-                            ReservationId = new Guid("781fd6ad-025c-4cc9-b96c-3673901ac00d"),
-                            SeatId = new Guid("6803248a-3da5-40ed-b522-455c2e16ed77")
-                        },
-                        new
-                        {
-                            Id = new Guid("084ed456-2bf0-42c7-89f2-24892afc2825"),
-                            IsTaken = true,
-                            ReservationId = new Guid("c9f7a3ff-609c-4734-a518-afd89694ca9c"),
-                            SeatId = new Guid("be27deb7-4934-46fe-a701-0a6fc77cb888")
-                        },
-                        new
-                        {
-                            Id = new Guid("1b1c8542-1185-453f-9bd7-5b575d99d6e9"),
-                            IsTaken = true,
-                            ReservationId = new Guid("56b7d7ac-3ac9-4ddc-9e49-cba765a4a685"),
-                            SeatId = new Guid("19f8fa6e-73ca-433a-97c5-0fd568df7942")
-                        },
-                        new
-                        {
-                            Id = new Guid("da25cb6d-f521-4f04-a87b-e37cbb223b67"),
-                            IsTaken = true,
-                            ReservationId = new Guid("91a76bb0-a1a6-4c0e-877d-e258c83c787d"),
-                            SeatId = new Guid("6bb1601e-8026-4bd9-80fc-c83283837172")
-                        },
-                        new
-                        {
-                            Id = new Guid("610d5676-77a5-461e-85af-4c1f5f38bd7e"),
-                            IsTaken = true,
-                            ReservationId = new Guid("decf01fc-e9df-4e1c-b0e1-0b48e0ff21a5"),
-                            SeatId = new Guid("504fadf6-4920-418e-994e-c4856a049479")
-                        },
-                        new
-                        {
-                            Id = new Guid("e7e591e3-f9d7-45b1-b362-60405dba6834"),
-                            IsTaken = true,
-                            ReservationId = new Guid("c8a58bfb-e679-4b6e-b65d-df90b63b7349"),
-                            SeatId = new Guid("66e0d1ed-d0a8-4e47-93e3-6bed26637853")
-                        },
-                        new
-                        {
-                            Id = new Guid("80fddb8c-1d58-4621-bbce-6ddc91a0d784"),
-                            IsTaken = true,
-                            ReservationId = new Guid("0472f8af-3d1e-4689-944e-103d69c40676"),
-                            SeatId = new Guid("1101ef5c-da0f-445f-a7ba-5644348fa32e")
-                        },
-                        new
-                        {
-                            Id = new Guid("434dcf0d-855f-4d57-8cd1-487a86fbc12f"),
-                            IsTaken = true,
-                            ReservationId = new Guid("153b5cf1-ba37-4694-9f1d-24487a0ec171"),
-                            SeatId = new Guid("ebbbea43-d9f5-4017-afc9-fdbba04eb198")
-                        },
-                        new
-                        {
-                            Id = new Guid("25219ff4-a11f-4001-bbec-ff7223fee1f9"),
-                            IsTaken = true,
-                            ReservationId = new Guid("28d69fe3-5a66-41f7-81e7-d3da2ea5d89b"),
-                            SeatId = new Guid("2b942f27-6aba-43c6-aa8e-3a584e0aa0b8")
-                        },
-                        new
-                        {
-                            Id = new Guid("d958a079-e0f8-49ab-95f0-4bb0fd8c7cd8"),
-                            IsTaken = true,
-                            ReservationId = new Guid("39245cb8-b6a2-4faa-8f2d-573ddc57797e"),
-                            SeatId = new Guid("0e42d274-d5ed-48c7-b289-a53a452891f1")
-                        },
-                        new
-                        {
-                            Id = new Guid("d0f4a924-c740-49c8-93e0-ea15663a240e"),
-                            IsTaken = true,
-                            ReservationId = new Guid("2d88d26a-01ce-4a77-901a-f2ea36a1574e"),
-                            SeatId = new Guid("9d01aff3-dc4c-458f-a817-efbb55b68a00")
-                        },
-                        new
-                        {
-                            Id = new Guid("2799ac11-49b8-47df-963e-7338c450d2a5"),
-                            IsTaken = true,
-                            ReservationId = new Guid("28f10f74-4f05-4d7d-b8ae-849d8b007784"),
-                            SeatId = new Guid("0605f7da-8247-4113-9590-7560f86685e4")
-                        },
-                        new
-                        {
-                            Id = new Guid("7fd1b843-6884-4d3e-bb1c-76c550713ba6"),
-                            IsTaken = true,
-                            ReservationId = new Guid("e408085c-0276-4b8a-92df-6fd745ec9cfe"),
-                            SeatId = new Guid("929ce42d-1f74-43e4-8df8-12c5db460dbf")
-                        },
-                        new
-                        {
-                            Id = new Guid("111ee25d-a5b5-484c-8f0e-6696670357cd"),
-                            IsTaken = true,
-                            ReservationId = new Guid("dd7724e6-555e-434d-ae85-dcdb5d2453a9"),
-                            SeatId = new Guid("57f61308-341a-4e0b-bba0-0a2439ce3407")
-                        },
-                        new
-                        {
-                            Id = new Guid("9da4d7b8-f340-4983-83d3-a04476e3ef72"),
-                            IsTaken = true,
-                            ReservationId = new Guid("afec0163-0585-4abc-993a-e2969c9b0816"),
-                            SeatId = new Guid("67c2b171-74da-491e-a44e-a22285230da2")
-                        },
-                        new
-                        {
-                            Id = new Guid("4ea6dfc4-a355-49d6-b6e3-dd5b306e132b"),
-                            IsTaken = true,
-                            ReservationId = new Guid("9020f4ea-d0e1-417e-a83f-3ee69fbb05c5"),
-                            SeatId = new Guid("34f7332d-c95c-414f-9c11-144c03bf18d6")
-                        },
-                        new
-                        {
-                            Id = new Guid("6acfc949-4a47-4a90-bd86-d203079abb48"),
-                            IsTaken = true,
-                            ReservationId = new Guid("3e68795e-913a-4886-aa96-476153330595"),
-                            SeatId = new Guid("84e2bd1c-a254-476c-adbb-5bbe297707a1")
-                        },
-                        new
-                        {
-                            Id = new Guid("6a0b9714-f652-47d3-84e4-b4afc3df499a"),
-                            IsTaken = true,
-                            ReservationId = new Guid("0a31898a-8a4e-44dc-abe8-d1f10a7bd0ee"),
-                            SeatId = new Guid("ac00e276-2370-409f-b4d9-a1a9803a9e80")
-                        },
-                        new
-                        {
-                            Id = new Guid("b72ed6e2-0ae7-4493-b7fd-ef0c0e8f50b0"),
-                            IsTaken = true,
-                            ReservationId = new Guid("808729a6-e89d-4989-b1e5-79db259fdecc"),
-                            SeatId = new Guid("3a38dc58-2ec1-4e04-b211-21cc444b4987")
-                        });
                 });
 
             modelBuilder.Entity("eCinema.Services.Database.User", b =>
@@ -2070,24 +1434,24 @@ namespace eCinema.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("81a879bd-9797-4927-bab8-1d208fec7414"),
+                            Id = new Guid("3efeba8b-69f6-4c60-a769-aa2f95149c6e"),
                             Email = "admin@gmail.com",
                             FirstName = "Admin",
                             LastName = "Admin",
-                            LozinkaHash = "wNIP/TnMOq45jQ42uZJmR9BcJPk=",
-                            LozinkaSalt = "SLj4M+JtxftRAaRbyJC6Hw==",
-                            RoleId = new Guid("6a2409c1-c6e9-4bc9-8912-3ba5a972e865"),
+                            LozinkaHash = "XDChap4ID8equ/GLtT/0JsZ7hlY=",
+                            LozinkaSalt = "RQ9CTzlaGVYrOK0VfOSK0w==",
+                            RoleId = new Guid("af5d78c7-d21c-4edd-bebf-b9046d356302"),
                             Username = "admin"
                         },
                         new
                         {
-                            Id = new Guid("bde9401e-3fc1-4feb-889a-268fd93d5373"),
+                            Id = new Guid("53b49c9f-49a2-4afb-82e8-8428316f1b55"),
                             Email = "user@gmail.com",
                             FirstName = "User",
                             LastName = "User",
-                            LozinkaHash = "0FHxoA1/6eu2yoKhBFSMOj657Oc=",
-                            LozinkaSalt = "6lCuzHQvrj+ktvqCa6jFqA==",
-                            RoleId = new Guid("6a2409c1-c6e9-4bc9-8912-3ba5a972e865"),
+                            LozinkaHash = "s6Ve8jorvFise8iGvqni0jozwco=",
+                            LozinkaSalt = "Rrx43hURAJ/DVUjg/9SLQA==",
+                            RoleId = new Guid("af5d78c7-d21c-4edd-bebf-b9046d356302"),
                             Username = "user"
                         });
                 });
