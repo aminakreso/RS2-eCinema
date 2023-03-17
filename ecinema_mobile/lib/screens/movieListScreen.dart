@@ -42,11 +42,32 @@ class _MovieListScreenState extends State<MovieListScreen> {
   @override
   Widget build(BuildContext context) {
     return MasterScreenWidget(
-        child: ListView.builder(
-      itemCount: data?.length,
-      itemBuilder: (BuildContext context, int index) {
-        return _buildMovieCard(data![index]);
-      },
+        child: Column(
+      children: [
+        Container(
+          height: 50,
+          child: TextField(
+              controller: _searchController,
+              decoration: const InputDecoration(
+                  labelText: "Name",
+                  hintStyle:
+                      TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
+              onSubmitted: (value) async {
+                var tmpData = await _movieProvider?.get({'Name': value});
+                setState(() {
+                  data = tmpData!;
+                });
+              }),
+        ),
+        Expanded(
+          child: ListView.builder(
+            itemCount: data?.length,
+            itemBuilder: (BuildContext context, int index) {
+              return _buildMovieCard(data![index]);
+            },
+          ),
+        ),
+      ],
     ));
   }
 
