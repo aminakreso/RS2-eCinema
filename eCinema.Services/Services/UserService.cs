@@ -95,17 +95,17 @@ namespace eCinema.Services.Services
             return query;
         }
 
-            public async Task<UserDto> Login(string username, string password)
+            public async Task<UserDto?> Login(string username, string password)
             {
             var entity = await _cinemaContext.Users.Include(x => x.Role).FirstOrDefaultAsync(x => x.Username == username);
 
             if (entity is null)
-                throw new Exception("User doesn't exists!");
+                return null;
 
             var hash = GenerateHash(entity.LozinkaSalt!, password);
             
             if(hash != entity.LozinkaHash)
-                throw new Exception("User doesn't exists!");
+                return null;
 
             return _mapper.Map<UserDto>(entity);
         }

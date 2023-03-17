@@ -29,6 +29,11 @@ public class BasicAuthenticationHandler : AuthenticationHandler<AuthenticationSc
         var password = credentials[1];
 
         var user = await _userService.Login(username, password);
+        
+        if (user == null)
+        {
+            return AuthenticateResult.Fail("Incorrect username or password");
+        }
 
         var claims = new List<Claim>()
         {

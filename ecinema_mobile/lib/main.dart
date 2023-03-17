@@ -176,7 +176,21 @@ class MovieList extends StatelessWidget {
                                     Navigator.pushNamed(context,
                                         NotificationListScreen.routeName);
                                   } catch (e) {
-                                    errorDialog(context, e);
+                                    showDialog(
+                                        context: context,
+                                        builder: (BuildContext context) =>
+                                            AlertDialog(
+                                              title: Text("Error"),
+                                              content: Text(
+                                                  "Invalid username or password"),
+                                              actions: [
+                                                TextButton(
+                                                  child: Text("Ok"),
+                                                  onPressed: () =>
+                                                      Navigator.pop(context),
+                                                )
+                                              ],
+                                            ));
                                   }
                                 }
                               },
