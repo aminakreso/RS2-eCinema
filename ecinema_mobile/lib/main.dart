@@ -1,4 +1,5 @@
 import 'package:ecinema_mobile/providers/movieProvider.dart';
+import 'package:ecinema_mobile/providers/notificationProvider.dart';
 import 'package:ecinema_mobile/providers/paymentProvider.dart';
 import 'package:ecinema_mobile/providers/projectionProvider.dart';
 import 'package:ecinema_mobile/providers/reservationProvider.dart';
@@ -21,6 +22,7 @@ import 'package:ecinema_mobile/.env';
 
 import 'models/payment.dart';
 import 'models/user.dart';
+import 'screens/notificationListScreen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -37,6 +39,7 @@ Future<void> main() async {
       ChangeNotifierProvider(create: (_) => SeatReservationProvider()),
       ChangeNotifierProvider(create: (_) => HallProvider()),
       ChangeNotifierProvider(create: (_) => PaymentProvider()),
+      ChangeNotifierProvider(create: (_) => NotificationProvider()),
     ],
     child: MaterialApp(
         debugShowCheckedModeBanner: true,
@@ -90,6 +93,9 @@ Future<void> main() async {
                 builder: ((context) => UserRegistrationScreen()));
           } else if (settings.name == MyProfileScreen.routeName) {
             return MaterialPageRoute(builder: ((context) => MyProfileScreen()));
+          } else if (settings.name == NotificationListScreen.routeName) {
+            return MaterialPageRoute(
+                builder: ((context) => NotificationListScreen()));
           }
 
           var uri = Uri.parse(settings.name!);
@@ -167,8 +173,8 @@ class MovieList extends StatelessWidget {
                                             Authorization.username)
                                         .id;
 
-                                    Navigator.pushNamed(
-                                        context, MovieListScreen.routeName);
+                                    Navigator.pushNamed(context,
+                                        NotificationListScreen.routeName);
                                   } catch (e) {
                                     errorDialog(context, e);
                                   }

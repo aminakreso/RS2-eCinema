@@ -626,6 +626,48 @@ namespace eCinema.Services.Database
                 
             );
          
+         var listNotificationId = new List<Guid>();
+         for (int i = 0; i < 3; i++)
+         {
+             listNotificationId.Add(Guid.NewGuid());
+         }
+
+         modelBuilder.Entity<Notification>().HasData(
+             new Notification
+             {
+                 Id = listNotificationId[0],
+                 Title = "Neradni dan povodom Dana nezavisnosti BiH.",
+                 Description = "Sretan Dana nezavisnosti BiH. ",
+                 Date = new DateTime(2023, 2, 28),
+                 AuthorId = adminId,
+                 NotificationType = "Neradni dan",
+                 Picture = Images.NotificationImageList[0],
+                 IsActive = true
+             },
+             new Notification
+             {
+                 Id = listNotificationId[1],
+                 Title = "Neradni dan povodom Praznika Rada.",
+                 Description = "Sretan 1. maj praznik rada. ",
+                 Date = new DateTime(2023, 4, 30),
+                 AuthorId = adminId,
+                 NotificationType = "Neradni dan",
+                 Picture = Images.NotificationImageList[1],
+                 IsActive = true
+             },
+             new Notification
+             {
+                 Id = listNotificationId[2],
+                 Title = "Novi film u ponudi.",
+                 Description = "Novi film stiže u eCinema kina. ",
+                 Date = DateTime.Now,
+                 AuthorId = adminId,
+                 NotificationType = "Ponuda",
+                 Picture = Images.ImageList[2],
+                 IsActive = true
+             }
+         );
+         
          var listReservationId = new List<Guid>();
             var listReservation = new List<Reservation>();
             var listSeatReservation = new List<SeatxrefReservation>();
