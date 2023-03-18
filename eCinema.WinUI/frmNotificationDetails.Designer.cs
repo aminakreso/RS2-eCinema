@@ -37,7 +37,12 @@
             this.txtContent = new System.Windows.Forms.RichTextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label4 = new System.Windows.Forms.Label();
+            this.pbSlika = new System.Windows.Forms.PictureBox();
+            this.btnAddPicture = new System.Windows.Forms.Button();
+            this.ofdPicture = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSlika)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -61,7 +66,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(57, 134);
+            this.label3.Location = new System.Drawing.Point(57, 331);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 20);
             this.label3.TabIndex = 2;
@@ -85,7 +90,7 @@
             // 
             // txtContent
             // 
-            this.txtContent.Location = new System.Drawing.Point(57, 171);
+            this.txtContent.Location = new System.Drawing.Point(57, 364);
             this.txtContent.Name = "txtContent";
             this.txtContent.Size = new System.Drawing.Size(274, 135);
             this.txtContent.TabIndex = 5;
@@ -94,7 +99,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(237, 327);
+            this.btnSave.Location = new System.Drawing.Point(237, 517);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(94, 29);
             this.btnSave.TabIndex = 6;
@@ -106,11 +111,46 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(57, 126);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(40, 20);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Slika";
+            // 
+            // pbSlika
+            // 
+            this.pbSlika.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pbSlika.Location = new System.Drawing.Point(57, 149);
+            this.pbSlika.Name = "pbSlika";
+            this.pbSlika.Size = new System.Drawing.Size(274, 135);
+            this.pbSlika.TabIndex = 8;
+            this.pbSlika.TabStop = false;
+            // 
+            // btnAddPicture
+            // 
+            this.btnAddPicture.Location = new System.Drawing.Point(237, 302);
+            this.btnAddPicture.Name = "btnAddPicture";
+            this.btnAddPicture.Size = new System.Drawing.Size(94, 29);
+            this.btnAddPicture.TabIndex = 9;
+            this.btnAddPicture.Text = "Dodaj sliku";
+            this.btnAddPicture.UseVisualStyleBackColor = true;
+            this.btnAddPicture.Click += new System.EventHandler(this.btnAddPicture_Click);
+            // 
+            // ofdPicture
+            // 
+            this.ofdPicture.FileName = "openFileDialog1";
+            // 
             // frmNotificationDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(401, 430);
+            this.ClientSize = new System.Drawing.Size(453, 558);
+            this.Controls.Add(this.btnAddPicture);
+            this.Controls.Add(this.pbSlika);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtContent);
             this.Controls.Add(this.txtTitle);
@@ -122,6 +162,7 @@
             this.Text = "frmNotificationDetails";
             this.Load += new System.EventHandler(this.frmNotificationDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSlika)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -137,5 +178,9 @@
         private RichTextBox txtContent;
         private Button btnSave;
         private ErrorProvider errorProvider;
+        private Button btnAddPicture;
+        private PictureBox pbSlika;
+        private Label label4;
+        private OpenFileDialog ofdPicture;
     }
 }

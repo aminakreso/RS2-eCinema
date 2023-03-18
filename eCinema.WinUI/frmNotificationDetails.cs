@@ -1,6 +1,7 @@
 ﻿using eCinema.Model.Constants;
 using eCinema.Model.Dtos;
 using eCinema.Model.Requests;
+using eCinema.WinUI.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,6 +32,8 @@ namespace eCinema.WinUI
                 txtTitle.Text = _model.Title;
                 txtContent.Text = _model.Description;
                 cmbNotificationType.Text = _model.NotificationType;
+                if (_model.Picture != null)
+                    pbSlika.Image = ImageHelper.FromByteToImage(_model.Picture);
             }
             await LoadTypes();
         }
@@ -53,8 +56,12 @@ namespace eCinema.WinUI
                     {
                         Title = txtTitle.Text,
                         Description = txtContent.Text,
-                        NotificationType = cmbNotificationType.Text
+                        NotificationType = cmbNotificationType.Text,
+                        //UserId = APIService.Id
+
                     };
+                    if (pbSlika.Image != null)
+                        insert.Picture = ImageHelper.FromImageToBase64(pbSlika.Image);
 
                     await _notificationService.Post<NotificationDto>(insert);
                     MessageBox.Show("Notification added.");
@@ -68,6 +75,9 @@ namespace eCinema.WinUI
                         Description = txtContent.Text,
                         NotificationType = cmbNotificationType.Text,
                     };
+
+                    if (pbSlika.Image != null)
+                        update.Picture = ImageHelper.FromImageToBase64(pbSlika.Image);
 
                     _model = await _notificationService.Put<NotificationDto>(_model.Id, update);
                     MessageBox.Show("Notification edited.");
@@ -85,6 +95,14 @@ namespace eCinema.WinUI
         private void txtContent_Validating(object sender, CancelEventArgs e)
         {
             ValidationHelper.ValidateRichTextBox(txtContent, e, "Content", errorProvider);
+        }
+
+        private void btnAddPicture_Click(object sender, EventArgs e)
+        {
+            if (ofdPicture.ShowDialog() == DialogResult.OK)
+            {
+                pbSlika.Image = Image.FromFile(ofdPicture.FileName);
+            }
         }
     }
 }

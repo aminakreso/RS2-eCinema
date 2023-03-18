@@ -8,6 +8,8 @@
 
         public string? NotificationType { get; set; }
 
-        //public string? Picture { get; set; }
+        public string? Picture { get; set; }
+
+        public Guid UserId { get; set; }
     }
 }
