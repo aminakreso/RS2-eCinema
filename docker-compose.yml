@@ -20,7 +20,7 @@ services:
     build:
       context: .
     environment:
-      - ConnectionStrings:DefaultConnection=Server=ecinema-sql,1433;Database=eCinema;User=sa;Password=QWElkj132!;ConnectRetryCount=0
+      - ConnectionStrings:DefaultConnection=Server=ecinema-sql,1433;Database=eCinema;User=sa;Password=QWElkj132!;ConnectRetryCount=0;TrustServerCertificate=True;
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
       - 5192:5192
