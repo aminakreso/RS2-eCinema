@@ -1,13 +1,14 @@
 ﻿using eCinema.Model.Extensions;
 using Flurl.Http;
 using Flurl;
+using eCinema.WinUI.Properties;
 
 namespace eCinema.WinUI;
 
 public class APIService
 {
     private readonly string _resource;
-    private readonly string _endpoint = "https://localhost:7122/api/";
+    private readonly string _endpoint = Settings.Default.ApiURL;
 
     public APIService(string resource)
     {
