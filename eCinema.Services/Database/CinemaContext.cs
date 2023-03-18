@@ -279,7 +279,7 @@ namespace eCinema.Services.Database
                 movie10
             );
             var listProjectionId = new List<Guid>();
-            for (int i = 0; i < 25; i++)
+            for (int i = 0; i < 20; i++)
             {
                 listProjectionId.Add(Guid.NewGuid());
             }
@@ -323,7 +323,7 @@ namespace eCinema.Services.Database
             
             modelBuilder.Entity<Seat>().HasData(loadAllList);
             
-         modelBuilder.Entity<Projection>().HasData(
+            modelBuilder.Entity<Projection>().HasData(
                 new Projection
                 {
                     Id = listProjectionId[0],
@@ -370,19 +370,6 @@ namespace eCinema.Services.Database
                     EndTime = DateTime.Now.AddHours(2),
                     HallId = listHallId[1],
                     MovieId = listMovieId[1],
-                    PriceId = listPriceId[0],
-                    ProjectionType = "Late",
-                    StateMachine = "Draft",
-                    Status = "Active",
-                    IsActive = true,
-                },
-                new Projection
-                {
-                    Id = listProjectionId[4],
-                    StartTime = DateTime.Now.AddDays(1),
-                    EndTime = DateTime.Now.AddHours(26),
-                    HallId = listHallId[1],
-                    MovieId = listMovieId[9],
                     PriceId = listPriceId[0],
                     ProjectionType = "Late",
                     StateMachine = "Draft",
@@ -453,276 +440,9 @@ namespace eCinema.Services.Database
                     StateMachine = "Draft",
                     Status = "Active",
                     IsActive = true,
-                },
-                new Projection
-                {
-                    Id = listProjectionId[10],
-                    StartTime = DateTime.Now.AddHours(3),
-                    EndTime = DateTime.Now.AddHours(5),
-                    HallId = listHallId[4],
-                    MovieId = listMovieId[3],
-                    PriceId = listPriceId[2],
-                    ProjectionType = "Late",
-                    StateMachine = "Draft",
-                    Status = "Active",
-                    IsActive = true,
-                },
-                new Projection
-                {
-                    Id = listProjectionId[11],
-                    StartTime = DateTime.Now,
-                    EndTime = DateTime.Now.AddHours(2),
-                    HallId = listHallId[4],
-                    MovieId = listMovieId[3],
-                    PriceId = listPriceId[0],
-                    ProjectionType = "Late",
-                    StateMachine = "Draft",
-                    Status = "Active",
-                    IsActive = true,
-                },
-                new Projection
-                {
-                    Id = listProjectionId[12],
-                    StartTime = DateTime.Now.AddHours(13),
-                    EndTime = DateTime.Now.AddHours(15),
-                    HallId = listHallId[4],
-                    MovieId = listMovieId[4],
-                    PriceId = listPriceId[1],
-                    ProjectionType = "Late",
-                    StateMachine = "Draft",
-                    Status = "Active",
-                    IsActive = true,
-                },
-                new Projection
-                {
-                    Id = listProjectionId[13],
-                    StartTime = DateTime.Now.AddHours(10),
-                    EndTime = DateTime.Now.AddHours(2),
-                    HallId = listHallId[4],
-                    MovieId = listMovieId[4],
-                    PriceId = listPriceId[0],
-                    ProjectionType = "Late",
-                    StateMachine = "Draft",
-                    Status = "Active",
-                    IsActive = true,
-                },
-                new Projection
-                {
-                    Id = listProjectionId[14],
-                    StartTime = DateTime.Now.AddHours(3),
-                    EndTime = DateTime.Now.AddHours(5),
-                    HallId = listHallId[4],
-                    MovieId = listMovieId[4],
-                    PriceId = listPriceId[1],
-                    ProjectionType = "Late",
-                    StateMachine = "Draft",
-                    Status = "Active",
-                    IsActive = true,
-                },
-                new Projection
-                {
-                    Id = listProjectionId[15],
-                    StartTime = DateTime.Now.AddHours(10),
-                    EndTime = DateTime.Now.AddHours(12),
-                    HallId = listHallId[3],
-                    MovieId = listMovieId[5],
-                    PriceId = listPriceId[0],
-                    ProjectionType = "Late",
-                    StateMachine = "Draft",
-                    Status = "Active",
-                    IsActive = true,
-                },
-                new Projection
-                {
-                    Id = listProjectionId[16],
-                    StartTime = DateTime.Now.AddHours(3),
-                    EndTime = DateTime.Now.AddHours(5),
-                    HallId = listHallId[3],
-                    MovieId = listMovieId[5],
-                    PriceId = listPriceId[1],
-                    ProjectionType = "Late",
-                    StateMachine = "Draft",
-                    Status = "Active",
-                    IsActive = true,
-                },
-                new Projection
-                {
-                    Id = listProjectionId[17],
-                    StartTime = DateTime.Now.AddHours(10),
-                    EndTime = DateTime.Now.AddHours(12),
-                    HallId = listHallId[2],
-                    MovieId = listMovieId[6],
-                    PriceId = listPriceId[0],
-                    ProjectionType = "Late",
-                    StateMachine = "Draft",
-                    Status = "Active",
-                    IsActive = true,
-                },
-                new Projection
-                {
-                    Id = listProjectionId[18],
-                    StartTime = DateTime.Now.AddHours(3),
-                    EndTime = DateTime.Now.AddHours(5),
-                    HallId = listHallId[2],
-                    MovieId = listMovieId[6],
-                    PriceId = listPriceId[1],
-                    ProjectionType = "Late",
-                    StateMachine = "Draft",
-                    Status = "Active",
-                    IsActive = true,
-                },
-                new Projection
-                {
-                    Id = listProjectionId[19],
-                    StartTime = DateTime.Now.AddHours(10),
-                    EndTime = DateTime.Now.AddHours(12),
-                    HallId = listHallId[1],
-                    MovieId = listMovieId[7],
-                    PriceId = listPriceId[0],
-                    ProjectionType = "Late",
-                    StateMachine = "Draft",
-                    Status = "Active",
-                    IsActive = true,
-                },
-                new Projection
-                {
-                    Id = listProjectionId[20],
-                    StartTime = DateTime.Now.AddHours(3),
-                    EndTime = DateTime.Now.AddHours(5),
-                    HallId = listHallId[0],
-                    MovieId = listMovieId[8],
-                    PriceId = listPriceId[1],
-                    ProjectionType = "Late",
-                    StateMachine = "Draft",
-                    Status = "Active",
-                    IsActive = true,
-                },
-                new Projection
-                {
-                    Id = listProjectionId[21],
-                    StartTime = DateTime.Now.AddHours(10),
-                    EndTime = DateTime.Now.AddHours(12),
-                    HallId = listHallId[0],
-                    MovieId = listMovieId[8],
-                    PriceId = listPriceId[0],
-                    ProjectionType = "Late",
-                    StateMachine = "Draft",
-                    Status = "Active",
-                    IsActive = true,
-                },
-                new Projection
-                {
-                    Id = listProjectionId[22],
-                    StartTime = DateTime.Now.AddHours(3),
-                    EndTime = DateTime.Now.AddHours(5),
-                    HallId = listHallId[1],
-                    MovieId = listMovieId[7],
-                    PriceId = listPriceId[1],
-                    ProjectionType = "Late",
-                    StateMachine = "Draft",
-                    Status = "Active",
-                    IsActive = true,
                 }
                 
             );
-         
-         var listNotificationId = new List<Guid>();
-         for (int i = 0; i < 3; i++)
-         {
-             listNotificationId.Add(Guid.NewGuid());
-         }
-
-         modelBuilder.Entity<Notification>().HasData(
-             new Notification
-             {
-                 Id = listNotificationId[0],
-                 Title = "Neradni dan povodom Dana nezavisnosti BiH.",
-                 Description = "Sretan Dana nezavisnosti BiH. ",
-                 Date = new DateTime(2023, 2, 28),
-                 AuthorId = adminId,
-                 NotificationType = "Neradni dan",
-                 Picture = Images.NotificationImageList[0],
-                 IsActive = true
-             },
-             new Notification
-             {
-                 Id = listNotificationId[1],
-                 Title = "Neradni dan povodom Praznika Rada.",
-                 Description = "Sretan 1. maj praznik rada. ",
-                 Date = new DateTime(2023, 4, 30),
-                 AuthorId = adminId,
-                 NotificationType = "Neradni dan",
-                 Picture = Images.NotificationImageList[1],
-                 IsActive = true
-             },
-             new Notification
-             {
-                 Id = listNotificationId[2],
-                 Title = "Novi film u ponudi.",
-                 Description = "Novi film stiže u eCinema kina. ",
-                 Date = DateTime.Now,
-                 AuthorId = adminId,
-                 NotificationType = "Ponuda",
-                 Picture = Images.ImageList[2],
-                 IsActive = true
-             }
-         );
-         
-         var listReservationId = new List<Guid>();
-            var listReservation = new List<Reservation>();
-            var listSeatReservation = new List<SeatxrefReservation>();
-            var listPayment= new List<Payment>();
-            var listSeatReservationId = new List<Guid>();
-            var listPaymentId = new List<Guid>();
-            
-            Guid registeredUserId = Guid.Empty; 
-            
-            for (int i = 0; i < 22; i++)
-            {
-                listReservationId.Add(Guid.NewGuid());
-                //listPaymentId.Add(Guid.NewGuid());
-                registeredUserId = i % 2 == 0 ? userId : adminId;
-                listReservation.Add(new Reservation
-                {
-                    Id = listReservationId[i],
-                    UserId = registeredUserId,
-                    ProjectionId = listProjectionId[i],
-                    IsActive = true,
-                    DateTime = DateTime.Now,
-                });
-            }
-            
-            for (int i = 0; i < 40; i++)
-            {
-                listSeatReservationId.Add(Guid.NewGuid());
-                listSeatReservation.Add(new SeatxrefReservation
-                {
-                    Id = listSeatReservationId[i],
-                    SeatId = loadAllList[i].Id ,
-                    ReservationId = i <22 ? listReservationId[i] : listReservationId[i-22],
-                    IsTaken = true
-                });
-            }
-            
-            for (int i = 0; i < 22; i++)
-            {
-                //listReservationId.Add(Guid.NewGuid());
-                listPaymentId.Add(Guid.NewGuid());
-                registeredUserId = i % 2 == 0 ? userId : adminId;
-                listPayment.Add(new Payment
-                {
-                    Id = listPaymentId[i],
-                    StripePaymentId = "stripe payment id",
-                    Created = DateTime.Now,
-                    Amount = i % 2 == 0 ? 24 : 18,
-                    ReservationId = listReservationId[i],
-                });
-            }
-            
-            modelBuilder.Entity<Reservation>().HasData(listReservation);
-            modelBuilder.Entity<SeatxrefReservation>().HasData(listSeatReservation);
-            modelBuilder.Entity<Payment>().HasData(listPayment);
-            
             
         }
     }
