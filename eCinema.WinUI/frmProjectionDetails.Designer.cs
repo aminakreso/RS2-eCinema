@@ -39,9 +39,10 @@
             this.cmbPrice = new System.Windows.Forms.ComboBox();
             this.dtpProjectionDateTime = new System.Windows.Forms.DateTimePicker();
             this.btnSave = new System.Windows.Forms.Button();
-            this.cbIsActive = new System.Windows.Forms.CheckBox();
             this.btnActivate = new System.Windows.Forms.Button();
             this.btnHide = new System.Windows.Forms.Button();
+            this.dtpEndTime = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -56,7 +57,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(55, 111);
+            this.label2.Location = new System.Drawing.Point(316, 174);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(99, 20);
             this.label2.TabIndex = 1;
@@ -65,7 +66,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(55, 175);
+            this.label3.Location = new System.Drawing.Point(55, 111);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(116, 20);
             this.label3.TabIndex = 2;
@@ -74,7 +75,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(286, 111);
+            this.label4.Location = new System.Drawing.Point(316, 111);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(50, 20);
             this.label4.TabIndex = 3;
@@ -83,7 +84,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(291, 47);
+            this.label5.Location = new System.Drawing.Point(316, 47);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(37, 20);
             this.label5.TabIndex = 4;
@@ -100,7 +101,7 @@
             // cmbProjectionType
             // 
             this.cmbProjectionType.FormattingEnabled = true;
-            this.cmbProjectionType.Location = new System.Drawing.Point(55, 134);
+            this.cmbProjectionType.Location = new System.Drawing.Point(316, 197);
             this.cmbProjectionType.Name = "cmbProjectionType";
             this.cmbProjectionType.Size = new System.Drawing.Size(151, 28);
             this.cmbProjectionType.TabIndex = 7;
@@ -108,7 +109,7 @@
             // cmbHall
             // 
             this.cmbHall.FormattingEnabled = true;
-            this.cmbHall.Location = new System.Drawing.Point(283, 70);
+            this.cmbHall.Location = new System.Drawing.Point(316, 70);
             this.cmbHall.Name = "cmbHall";
             this.cmbHall.Size = new System.Drawing.Size(151, 28);
             this.cmbHall.TabIndex = 9;
@@ -116,16 +117,16 @@
             // cmbPrice
             // 
             this.cmbPrice.FormattingEnabled = true;
-            this.cmbPrice.Location = new System.Drawing.Point(283, 134);
+            this.cmbPrice.Location = new System.Drawing.Point(316, 134);
             this.cmbPrice.Name = "cmbPrice";
             this.cmbPrice.Size = new System.Drawing.Size(151, 28);
             this.cmbPrice.TabIndex = 11;
             // 
             // dtpProjectionDateTime
             // 
-            this.dtpProjectionDateTime.Location = new System.Drawing.Point(55, 198);
+            this.dtpProjectionDateTime.Location = new System.Drawing.Point(55, 135);
             this.dtpProjectionDateTime.Name = "dtpProjectionDateTime";
-            this.dtpProjectionDateTime.Size = new System.Drawing.Size(248, 27);
+            this.dtpProjectionDateTime.Size = new System.Drawing.Size(245, 27);
             this.dtpProjectionDateTime.TabIndex = 12;
             // 
             // btnSave
@@ -137,16 +138,6 @@
             this.btnSave.Text = "Spasi";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // cbIsActive
-            // 
-            this.cbIsActive.AutoSize = true;
-            this.cbIsActive.Location = new System.Drawing.Point(354, 198);
-            this.cbIsActive.Name = "cbIsActive";
-            this.cbIsActive.Size = new System.Drawing.Size(80, 24);
-            this.cbIsActive.TabIndex = 14;
-            this.cbIsActive.Text = "Aktivan";
-            this.cbIsActive.UseVisualStyleBackColor = true;
             // 
             // btnActivate
             // 
@@ -168,14 +159,31 @@
             this.btnHide.UseVisualStyleBackColor = true;
             this.btnHide.Click += new System.EventHandler(this.btnHide_ClickAsync);
             // 
+            // dtpEndTime
+            // 
+            this.dtpEndTime.Location = new System.Drawing.Point(55, 198);
+            this.dtpEndTime.Name = "dtpEndTime";
+            this.dtpEndTime.Size = new System.Drawing.Size(250, 27);
+            this.dtpEndTime.TabIndex = 17;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(55, 174);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(124, 20);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Vrijeme završetka";
+            // 
             // frmProjectionDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(497, 297);
+            this.ClientSize = new System.Drawing.Size(547, 329);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.dtpEndTime);
             this.Controls.Add(this.btnHide);
             this.Controls.Add(this.btnActivate);
-            this.Controls.Add(this.cbIsActive);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.dtpProjectionDateTime);
             this.Controls.Add(this.cmbPrice);
@@ -208,8 +216,9 @@
         private ComboBox cmbPrice;
         private DateTimePicker dtpProjectionDateTime;
         private Button btnSave;
-        private CheckBox cbIsActive;
         private Button btnActivate;
         private Button btnHide;
+        private DateTimePicker dtpEndTime;
+        private Label label6;
     }
 }

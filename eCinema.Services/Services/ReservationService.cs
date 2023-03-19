@@ -101,7 +101,10 @@ namespace eCinema.Services.Services
 
             if (search.UserId != Guid.Empty && search.UserId is not null)
                 filteredQuery = filteredQuery.Where(x => x.UserId! == search.UserId);
-            
+
+            if (search.ProjectionId != Guid.Empty && search.ProjectionId is not null)
+                filteredQuery = filteredQuery.Where(x => x.ProjectionId! == search.ProjectionId);
+
             if (search.DateTime is not null)
                 filteredQuery = filteredQuery.Where(x => x.DateTime.Value.Date == search.DateTime.Value.Date);
 

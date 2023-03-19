@@ -7,6 +7,7 @@ public class ReservationSearchObject : BaseSearchObject
     public string? Name { get; set; }
     
     public Guid? UserId { get; set; }
+    public Guid? ProjectionId { get; set; }
     public string? User { get; set; }
     
     public bool? IncludeUsers { get; set; }

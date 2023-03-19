@@ -33,7 +33,13 @@ namespace eCinema.WinUI
             await LoadPrices();
             await LoadTypes();
 
-            if(_model is not null)
+            dtpProjectionDateTime.Format = DateTimePickerFormat.Custom;
+            dtpProjectionDateTime.CustomFormat = "MM/dd/yyyy hh:mm:ss";
+
+            dtpEndTime.Format = DateTimePickerFormat.Custom;
+            dtpEndTime.CustomFormat = "MM/dd/yyyy hh:mm:ss";
+
+            if (_model is not null)
             {
                 cmbHall.SelectedValue = _model.HallId;
                 cmbMovieName.SelectedValue = _model.MovieId;
@@ -111,7 +117,7 @@ namespace eCinema.WinUI
         {
             var prices = await _priceService.Get<List<PriceDto>>();
             cmbPrice.DataSource = prices;
-            cmbPrice.DisplayMember = "Name";
+            cmbPrice.DisplayMember = "Value";
             cmbPrice.ValueMember = "Id";
         }
         private async Task LoadTypes()
@@ -124,6 +130,7 @@ namespace eCinema.WinUI
             var upsert = new ProjectionUpsertRequest()
             {
                 StartTime = dtpProjectionDateTime.Value,
+                EndTime = dtpEndTime.Value,
                 ProjectionType = cmbProjectionType.Text,
                 HallId = (Guid)cmbHall?.SelectedValue,
                 PriceId = (Guid)cmbPrice?.SelectedValue,
