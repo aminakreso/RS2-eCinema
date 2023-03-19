@@ -1,4 +1,5 @@
 import 'package:ecinema_mobile/screens/myProfileScreen.dart';
+import 'package:ecinema_mobile/screens/notificationListScreen.dart';
 import 'package:flutter/material.dart';
 
 import '../screens/movieListScreen.dart';
@@ -22,7 +23,7 @@ class _MasterScreenWidgetState extends State<MasterScreenWidget> {
     });
 
     if (_selectedIndex == 0) {
-      Navigator.pushNamed(context, MovieListScreen.routeName);
+      Navigator.pushNamed(context, NotificationListScreen.routeName);
     } else if (_selectedIndex == 1) {
       Navigator.pushNamed(context, ReservationListScreen.routeName);
     } else if (_selectedIndex == 2) {
@@ -33,7 +34,15 @@ class _MasterScreenWidgetState extends State<MasterScreenWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Padding(
+          padding: const EdgeInsets.only(left: 20.0),
+          child: Text(
+            "eCinema",
+            style: Theme.of(context).textTheme.headline6,
+          ),
+        ),
+      ),
       drawer: eCinemaDrawer(),
       body: SafeArea(
         child: widget.child!,

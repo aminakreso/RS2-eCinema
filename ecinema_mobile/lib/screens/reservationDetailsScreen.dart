@@ -1,16 +1,15 @@
 import 'dart:convert';
 import 'package:ecinema_mobile/models/projection.dart';
 import 'package:ecinema_mobile/models/seatxrefReservation.dart';
-import 'package:ecinema_mobile/providers/movieProvider.dart';
+import 'package:ecinema_mobile/providers/baseProvider.dart';
 import 'package:ecinema_mobile/providers/projectionProvider.dart';
 import 'package:ecinema_mobile/providers/reservationProvider.dart';
 import 'package:ecinema_mobile/providers/seatReservationProvider.dart';
 import 'package:ecinema_mobile/requests/paymentUpsertRequest.dart';
+import 'package:ecinema_mobile/wigdets/headerWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:provider/provider.dart';
-import '../models/movie.dart';
-import '../models/seat.dart';
 import '../providers/paymentProvider.dart';
 import '../requests/reservationUpsertRequest.dart';
 import '../utils/util.dart';
@@ -20,7 +19,6 @@ import 'loadingScreen.dart';
 import 'package:http/http.dart' as http;
 
 import 'movieDetailsScreen.dart';
-import 'seatSelectionScreen.dart';
 
 class ReservationDetailsScreen extends StatefulWidget {
   static const String routeName = "/reservation_details";
@@ -117,38 +115,45 @@ class _ReservationDetailsScreenState extends State<ReservationDetailsScreen> {
           child: Container(
             margin: EdgeInsets.only(top: 30),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                HeaderWidget(title: "Detalji rezervacije"),
                 MovieCardLine(
-                  label: "Movie: ",
+                  label: "Film ",
                   text: '${projection?.movie?.name}',
                   font: 18,
                   padding: 8,
+                  white: true,
                 ),
                 MovieCardLine(
-                    label: "Date: ",
-                    text: getDate(projection?.startTime!),
-                    font: 18,
-                    padding: 8),
+                  label: "Datum projekcije ",
+                  text: getDate(projection?.startTime!),
+                  font: 18,
+                  padding: 8,
+                  white: true,
+                ),
                 MovieCardLine(
-                  label: "Time ",
+                  label: "Vrijeme projekcije ",
                   text: getTime(projection?.startTime!),
                   font: 18,
                   padding: 8,
+                  white: true,
                 ),
                 MovieCardLine(
-                  label: "Hall: ",
+                  label: "Sala ",
                   text: '${projection?.hall?.name}',
                   font: 18,
                   padding: 8,
+                  white: true,
                 ),
                 MovieCardLine(
-                  label: "Number of reserved seats: ",
+                  label: "Broj rezerviranih sjedista: ",
                   text: '${reservationInsertRequest?.seats?.length}',
                   font: 18,
                   padding: 8,
+                  white: true,
                 ),
-                SizedBox(height: 10),
+                SizedBox(height: 20),
                 Expanded(
                   child: GridView.count(
                       crossAxisCount: 1,
@@ -159,20 +164,21 @@ class _ReservationDetailsScreenState extends State<ReservationDetailsScreen> {
                           (index) {
                         return Container(
                           decoration: BoxDecoration(
-                              color: Colors.grey,
+                              color: Colors.grey[700],
                               borderRadius: BorderRadius.circular(10.0)),
                           child: Center(
                             child: Text(
                               "${projection?.projectionType}  - Sjedalo ${reservationInsertRequest!.seats![index].name}", // da pise ime
-                              style: TextStyle(color: Colors.black),
+                              style: Theme.of(context).textTheme.headline6,
                             ),
                           ),
                         );
                       })),
                 ),
                 if (id == null)
-                  Center(
-                    child: ElevatedButton(
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: 10),
+                    child: TextButton(
                       onPressed: () async {
                         double toPay = calculateToPay();
                         paymentIntentData = await createPaymentIntent(
@@ -202,9 +208,8 @@ class _ReservationDetailsScreenState extends State<ReservationDetailsScreen> {
 
                         await InsertPayment();
 
-                        //Navigator.popAndPushNamed(context);
-                        Navigator.popAndPushNamed(context,
-                            "${MovieDetailsScreen.routeName}/${projection?.movie?.id}");
+                        Navigator.of(context).pushNamedAndRemoveUntil(
+                            '/movie', (Route<dynamic> route) => false);
                       },
                       child: Text('Submit'),
                     ),

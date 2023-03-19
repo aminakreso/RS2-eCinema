@@ -188,7 +188,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                   ),
                   Text(
                     x.name ?? "",
-                    style: Theme.of(context).textTheme.bodyText1,
+                    style: Theme.of(context).textTheme.bodyText2,
                   ),
                 ],
               ),

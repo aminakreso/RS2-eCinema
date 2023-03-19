@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:ecinema_mobile/wigdets/headerWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -44,12 +45,14 @@ class _MovieListScreenState extends State<MovieListScreen> {
     return MasterScreenWidget(
         child: Column(
       children: [
+        HeaderWidget(title: "Filmovi"),
         Container(
+          margin: EdgeInsets.all(8),
           height: 50,
           child: TextField(
               controller: _searchController,
               decoration: const InputDecoration(
-                  labelText: "Name",
+                  labelText: "Naziv",
                   hintStyle:
                       TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
               onSubmitted: (value) async {

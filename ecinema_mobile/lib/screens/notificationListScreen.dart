@@ -6,6 +6,7 @@ import '../providers/notificationProvider.dart';
 import '../utils/util.dart';
 import '../wigdets/master_screen.dart';
 import '../wigdets/movieCardLine.dart';
+import '../wigdets/headerWidget.dart';
 import 'movieListScreen.dart';
 
 class NotificationListScreen extends StatefulWidget {
@@ -40,7 +41,9 @@ class _NotificationListScreenState extends State<NotificationListScreen> {
   Widget build(BuildContext context) {
     return MasterScreenWidget(
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
+          HeaderWidget(title: "Novosti"),
           Container(
             height: 500,
             child: ListView.builder(

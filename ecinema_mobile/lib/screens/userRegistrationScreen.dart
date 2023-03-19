@@ -47,11 +47,11 @@ class _UserRegistrationScreenState extends State<UserRegistrationScreen> {
         children: [
           LogoTextWidget(login: false),
           TextInputWidget(
-            labelText: "First name:",
+            labelText: "First name",
             controller: _firstNameController,
           ),
           TextInputWidget(
-            labelText: "Last name:",
+            labelText: "Last name",
             controller: _lastnameController,
           ),
           TextInputWidget(
@@ -122,7 +122,7 @@ class _UserRegistrationScreenState extends State<UserRegistrationScreen> {
                 }
               }
             },
-            child: Text('Save'),
+            child: Text('Sačuvaj'),
           )
         ],
       ))),

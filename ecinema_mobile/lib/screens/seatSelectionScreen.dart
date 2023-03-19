@@ -114,15 +114,15 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
           Stack(children: [
             Container(
               height: 200,
-              width: screenWidth,
+              width: screenWidth * 0.7,
               child: imageFromBase64String(_projection!.movie!.picture!),
             ),
             Positioned(
               left: 10,
-              top: 100,
+              bottom: 10,
               child: Text(
                 _projection?.movie?.name ?? "",
-                style: Theme.of(context).textTheme.headline1,
+                style: Theme.of(context).textTheme.headline3,
               ),
             )
           ]),

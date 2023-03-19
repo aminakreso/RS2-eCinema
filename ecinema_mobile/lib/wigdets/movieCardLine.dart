@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 
 class MovieCardLine extends StatelessWidget {
-  const MovieCardLine(
-      {Key? key,
-      required this.label,
-      required this.text,
-      this.font = 14,
-      this.padding = 0})
-      : super(key: key);
+  const MovieCardLine({
+    Key? key,
+    required this.label,
+    required this.text,
+    this.font = 14,
+    this.padding = 0,
+    this.white = false,
+  }) : super(key: key);
 
   final String label;
   final String? text;
   final double? font;
   final double? padding;
+  final bool? white;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +32,7 @@ class MovieCardLine extends StatelessWidget {
             TextSpan(
               text: '$text' ?? "",
               style: TextStyle(
-                  color: Colors.black,
+                  color: white == true ? Colors.white : Colors.black,
                   fontSize: font,
                   fontWeight: FontWeight.normal),
             ),

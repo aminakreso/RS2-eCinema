@@ -55,7 +55,7 @@ class _ReservationListScreenState extends State<ReservationListScreen> {
           HeaderWidget(title: "Reservations"),
           if (data!.isEmpty)
             Text("No available reservation yet",
-                style: Theme.of(context).textTheme.headline3),
+                style: Theme.of(context).textTheme.headline6),
           Expanded(
             child: ListView.builder(
               itemCount: data?.length,
