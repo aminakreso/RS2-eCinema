@@ -52,6 +52,8 @@
             // 
             // dgvPrices
             // 
+            this.dgvPrices.AllowUserToAddRows = false;
+            this.dgvPrices.AllowUserToDeleteRows = false;
             this.dgvPrices.AutoGenerateColumns = false;
             this.dgvPrices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPrices.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -60,6 +62,7 @@
             this.dgvPrices.DataSource = this.priceDtoBindingSource;
             this.dgvPrices.Location = new System.Drawing.Point(71, 99);
             this.dgvPrices.Name = "dgvPrices";
+            this.dgvPrices.ReadOnly = true;
             this.dgvPrices.RowHeadersWidth = 51;
             this.dgvPrices.RowTemplate.Height = 29;
             this.dgvPrices.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -73,6 +76,7 @@
             this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
             this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             this.nameDataGridViewTextBoxColumn.Width = 125;
             // 
             // valueDataGridViewTextBoxColumn
@@ -81,6 +85,7 @@
             this.valueDataGridViewTextBoxColumn.HeaderText = "Value";
             this.valueDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.valueDataGridViewTextBoxColumn.Name = "valueDataGridViewTextBoxColumn";
+            this.valueDataGridViewTextBoxColumn.ReadOnly = true;
             this.valueDataGridViewTextBoxColumn.Width = 125;
             // 
             // priceDtoBindingSource

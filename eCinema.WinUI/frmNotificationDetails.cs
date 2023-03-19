@@ -61,7 +61,7 @@ namespace eCinema.WinUI
                         Title = txtTitle.Text,
                         Description = txtContent.Text,
                         NotificationType = cmbNotificationType.Text,
-                        UserId = user.Id
+                        AuthorId = user.Id
 
                     };
                     if (pbSlika.Image != null)
