@@ -156,6 +156,7 @@
             this.btnActivate.TabIndex = 15;
             this.btnActivate.Text = "Activate";
             this.btnActivate.UseVisualStyleBackColor = true;
+            this.btnActivate.Click += new System.EventHandler(this.btnActivate_Click);
             // 
             // btnHide
             // 
@@ -165,6 +166,7 @@
             this.btnHide.TabIndex = 16;
             this.btnHide.Text = "Hide";
             this.btnHide.UseVisualStyleBackColor = true;
+            this.btnHide.Click += new System.EventHandler(this.btnHide_ClickAsync);
             // 
             // frmProjectionDetails
             // 

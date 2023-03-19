@@ -1,6 +1,7 @@
 ﻿using eCinema.Model.Constants;
 using eCinema.Model.Dtos;
 using eCinema.Model.Requests;
+using eCinema.Model.SearchObjects;
 using eCinema.WinUI.Helpers;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace eCinema.WinUI
     public partial class frmNotificationDetails : Form
     {
         private APIService _notificationService = new APIService("Notification");
+        private APIService _userService = new APIService("User");
         public frmNotificationDetails(NotificationDto model = null)
         {
             InitializeComponent();
@@ -52,12 +54,14 @@ namespace eCinema.WinUI
             {
                 if (_model is null)
                 {
+                    var users = await _userService.Get<List<UserDto>>();
+                    var user =  users.FirstOrDefault(x=> x.Username == APIService.Username);
                     var insert = new NotificationInsertRequest()
                     {
                         Title = txtTitle.Text,
                         Description = txtContent.Text,
                         NotificationType = cmbNotificationType.Text,
-                        //UserId = APIService.Id
+                        UserId = user.Id
 
                     };
                     if (pbSlika.Image != null)

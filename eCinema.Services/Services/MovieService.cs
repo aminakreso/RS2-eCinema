@@ -4,6 +4,7 @@ using eCinema.Model.Dtos;
 using eCinema.Model.Requests;
 using eCinema.Model.SearchObjects;
 using eCinema.Services.Database;
+using eCinema.Services.Helpers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -36,6 +37,19 @@ namespace eCinema.Services.Services
             return filteredQuery;
 
         }
+
+        public override void BeforeInsert(MovieUpsertRequest insert, Movie entity)
+        {
+            if (insert.Picture == null)
+                entity.Picture = Images.DefaultImage;
+        }
+
+        public override void BeforeUpdate(Movie entity)
+        {
+            if (entity.Picture == null)
+                entity.Picture = Images.DefaultImage;
+        }
+
         static object isLocked = new object();
         static MLContext mlContext = null;
         static ITransformer model = null;

@@ -97,8 +97,8 @@ namespace eCinema.Services.Services
             if (!string.IsNullOrWhiteSpace(search.Name))
                 filteredQuery = filteredQuery.Include(x => x.Movie).Where(x => x.Movie.Name.ToLower().Contains(search.Name.ToLower()));
 
-            if (!string.IsNullOrWhiteSpace(search.Status) && search.Status != "Svi")
-                filteredQuery = filteredQuery.Where(x => x.Status!.ToLower().Contains(search.Status.ToLower()));
+            if (!string.IsNullOrWhiteSpace(search.StateMachine) && search.StateMachine != "Svi")
+                filteredQuery = filteredQuery.Where(x => x.StateMachine!.ToLower().Contains(search.StateMachine.ToLower()));
 
             if (search.HallId != Guid.Empty && search.HallId is not null)
                 filteredQuery = filteredQuery.Where(x => x.HallId! == search.HallId);

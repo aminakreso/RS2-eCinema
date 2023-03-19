@@ -143,5 +143,37 @@ namespace eCinema.WinUI
                 this.Close();
             }
         }
+
+        private async void btnActivate_Click(object sender, EventArgs e)
+        {
+            var upsert = new ProjectionUpsertRequest()
+            {
+                StartTime = dtpProjectionDateTime.Value,
+                ProjectionType = cmbProjectionType.Text,
+                HallId = (Guid)cmbHall?.SelectedValue,
+                PriceId = (Guid)cmbPrice?.SelectedValue,
+                MovieId = (Guid?)cmbMovieName?.SelectedValue,
+            };
+
+            await _projectionService.Activate<ProjectionDto>(_model.Id, upsert);
+            MessageBox.Show("Projection activated.");
+            this.Close();
+        }
+
+        private async void btnHide_ClickAsync(object sender, EventArgs e)
+        {
+            var upsert = new ProjectionUpsertRequest()
+            {
+                StartTime = dtpProjectionDateTime.Value,
+                ProjectionType = cmbProjectionType.Text,
+                HallId = (Guid)cmbHall?.SelectedValue,
+                PriceId = (Guid)cmbPrice?.SelectedValue,
+                MovieId = (Guid?)cmbMovieName?.SelectedValue,
+            };
+
+            await _projectionService.Hide<ProjectionDto>(_model.Id, upsert);
+            MessageBox.Show("Projection hidden.");
+            this.Close();
+        }
     }
 }

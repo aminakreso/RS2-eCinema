@@ -8,7 +8,7 @@
 
         public string? Name { get; set; }
 
-        public string? Status { get; set; }
+        public string? StateMachine { get; set; }
 
         public bool? IncludeMovies { get; set; }
 

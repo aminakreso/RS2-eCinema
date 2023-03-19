@@ -74,7 +74,7 @@ namespace eCinema.WinUI
 
             if (cmbStatus.Text != "Svi")
             {
-                searchObject.Status = cmbStatus.SelectedValue.ToString();
+                searchObject.StateMachine = cmbStatus.SelectedValue.ToString();
             }
 
             var list = await _projectionService.Get<List<ProjectionDto>>(searchObject);
@@ -98,10 +98,14 @@ namespace eCinema.WinUI
             cmbHall.DataSource = halls;
             cmbHall.DisplayMember = "Name";
             cmbHall.ValueMember = "Id";
-        }  
+        }
         private async Task LoadStatus()
         {
-            cmbStatus.DataSource = ProjectionStatus.ListOfStatuses;
+            var projections = await _projectionService.Get<List<ProjectionDto>>();
+            projections = projections.DistinctBy(x => x.StateMachine).ToList();
+            cmbStatus.DataSource = projections;
+            cmbStatus.DisplayMember = "StateMachine";
+            cmbStatus.ValueMember = "StateMachine";
         }
 
         private void dgvProjection_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
