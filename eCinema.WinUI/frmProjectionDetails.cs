@@ -44,7 +44,6 @@ namespace eCinema.WinUI
                 cmbHall.SelectedValue = _model.HallId;
                 cmbMovieName.SelectedValue = _model.MovieId;
                 cmbPrice.SelectedValue = _model.PriceId;
-                cmbProjectionType.Text = _model?.ProjectionType;
                 //dtpProjectionDateTime.Value = _model.DateTime.GetValueOrDefault(DateTime.Now);
             }
             LoadButtons();

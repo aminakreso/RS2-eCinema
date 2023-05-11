@@ -26,21 +26,27 @@ namespace eCinema.WinUI
 
         private async void btnShow_Click(object sender, EventArgs e)
         {
+            await LoadData();
+        }
+
+        private async Task LoadData()
+        {
             var searchObject = new UserSearchObject();
-            searchObject.Name= txtName.Text;
-            searchObject.Role= cmbRoles.Text;
+            searchObject.Name = txtName.Text;
+            searchObject.Role = cmbRoles.Text;
             searchObject.IncludeRoles = true;
 
             switch (cmbIsActive.Text)
             {
                 case "Aktivni": searchObject.IsActive = true; break;
                 case "Neaktivni": searchObject.IsActive = false; break;
-                default: searchObject.IsActive = null;
+                default:
+                    searchObject.IsActive = null;
                     break;
             }
 
             var list = await _userService.Get<List<UserDto>>(searchObject);
-            dgvUsers.DataSource=list;
+            dgvUsers.DataSource = list;
         }
 
         private async void frmUsers_Load(object sender, EventArgs e)
@@ -65,12 +71,14 @@ namespace eCinema.WinUI
             cmbIsActive.DataSource = list;
         }
 
-        private void dgvUsers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private async void dgvUsers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             var user = dgvUsers.SelectedRows[0].DataBoundItem as UserDto;
 
             var frmUserDetails = new frmUserDetails(user);
             frmUserDetails.ShowDialog();
+            await LoadData();
+
         }
 
         private void dgvUsers_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

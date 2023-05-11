@@ -19,12 +19,8 @@
     
         public Price Price { get; set; }
 
-        public string? ProjectionType { get; set; }
-
         public string? StateMachine { get; set; }
 
-        public string? Status { get; set; }
-        
         public bool? IsActive { get; set; }
         
         public ICollection<Reservation>? Reservations { get; set; }

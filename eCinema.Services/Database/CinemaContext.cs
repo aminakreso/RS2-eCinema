@@ -34,11 +34,11 @@ namespace eCinema.Services.Database
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer(
-                    "Data Source=localhost;Initial Catalog=eCinema;Trusted_Connection=true;MultipleActiveResultSets=true;");
-            }
+            //if (!optionsBuilder.IsConfigured)
+            //{
+            //    optionsBuilder.UseSqlServer(
+            //        "Data Source=localhost;Initial Catalog=eCinema;Trusted_Connection=true;MultipleActiveResultSets=true;");
+            //}
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -332,9 +332,7 @@ namespace eCinema.Services.Database
                     HallId = listHallId[0],
                     MovieId = listMovieId[0],
                     PriceId = listPriceId[0],
-                    ProjectionType = "Late",
                     StateMachine = "Active",
-                    Status = "Active",
                     IsActive = true,
                 },
                 new Projection
@@ -345,9 +343,7 @@ namespace eCinema.Services.Database
                     HallId = listHallId[0],
                     MovieId = listMovieId[0],
                     PriceId = listPriceId[0],
-                    ProjectionType = "Late",
                     StateMachine = "Active",
-                    Status = "Active",
                     IsActive = true,
                 },
             new Projection
@@ -358,9 +354,7 @@ namespace eCinema.Services.Database
                     HallId = listHallId[0],
                     MovieId = listMovieId[0],
                     PriceId = listPriceId[0],
-                    ProjectionType = "Late",
                     StateMachine = "Active",
-                    Status = "Active",
                     IsActive = true,
                 },
                 new Projection
@@ -371,9 +365,7 @@ namespace eCinema.Services.Database
                     HallId = listHallId[1],
                     MovieId = listMovieId[1],
                     PriceId = listPriceId[0],
-                    ProjectionType = "Late",
                     StateMachine = "Active",
-                    Status = "Active",
                     IsActive = true,
                 },
                 new Projection
@@ -384,9 +376,7 @@ namespace eCinema.Services.Database
                     HallId = listHallId[1],
                     MovieId = listMovieId[9],
                     PriceId = listPriceId[0],
-                    ProjectionType = "Late",
                     StateMachine = "Active",
-                    Status = "Active",
                     IsActive = true,
                 },
                 new Projection
@@ -397,9 +387,7 @@ namespace eCinema.Services.Database
                     HallId = listHallId[1],
                     MovieId = listMovieId[1],
                     PriceId = listPriceId[1],
-                    ProjectionType = "Late",
                     StateMachine = "Active",
-                    Status = "Active",
                     IsActive = true,
                 },
                 new Projection
@@ -410,9 +398,7 @@ namespace eCinema.Services.Database
                     HallId = listHallId[2],
                     MovieId = listMovieId[2],
                     PriceId = listPriceId[0],
-                    ProjectionType = "Late",
                     StateMachine = "Active",
-                    Status = "Active",
                     IsActive = true,
                 },
                 new Projection
@@ -423,9 +409,7 @@ namespace eCinema.Services.Database
                     HallId = listHallId[2],
                     MovieId = listMovieId[2],
                     PriceId = listPriceId[1],
-                    ProjectionType = "Late",
                     StateMachine = "Active",
-                    Status = "Active",
                     IsActive = true,
                 },
                 new Projection
@@ -436,9 +420,7 @@ namespace eCinema.Services.Database
                     HallId = listHallId[3],
                     MovieId = listMovieId[3],
                     PriceId = listPriceId[0],
-                    ProjectionType = "Late",
                     StateMachine = "Active",
-                    Status = "Active",
                     IsActive = true,
                 },
                 new Projection
@@ -449,9 +431,7 @@ namespace eCinema.Services.Database
                     HallId = listHallId[3],
                     MovieId = listMovieId[3],
                     PriceId = listPriceId[1],
-                    ProjectionType = "Late",
                     StateMachine = "Active",
-                    Status = "Active",
                     IsActive = true,
                 },
                 new Projection
@@ -462,9 +442,7 @@ namespace eCinema.Services.Database
                     HallId = listHallId[4],
                     MovieId = listMovieId[3],
                     PriceId = listPriceId[2],
-                    ProjectionType = "Late",
                     StateMachine = "Active",
-                    Status = "Active",
                     IsActive = true,
                 },
                 new Projection
@@ -475,9 +453,7 @@ namespace eCinema.Services.Database
                     HallId = listHallId[4],
                     MovieId = listMovieId[3],
                     PriceId = listPriceId[0],
-                    ProjectionType = "Late",
                     StateMachine = "Active",
-                    Status = "Active",
                     IsActive = true,
                 },
                 new Projection
@@ -488,9 +464,7 @@ namespace eCinema.Services.Database
                     HallId = listHallId[4],
                     MovieId = listMovieId[4],
                     PriceId = listPriceId[1],
-                    ProjectionType = "Late",
                     StateMachine = "Active",
-                    Status = "Active",
                     IsActive = true,
                 },
                 new Projection
@@ -501,9 +475,7 @@ namespace eCinema.Services.Database
                     HallId = listHallId[4],
                     MovieId = listMovieId[4],
                     PriceId = listPriceId[0],
-                    ProjectionType = "Late",
                     StateMachine = "Active",
-                    Status = "Active",
                     IsActive = true,
                 },
                 new Projection
@@ -514,9 +486,7 @@ namespace eCinema.Services.Database
                     HallId = listHallId[4],
                     MovieId = listMovieId[4],
                     PriceId = listPriceId[1],
-                    ProjectionType = "Late",
                     StateMachine = "Active",
-                    Status = "Active",
                     IsActive = true,
                 },
                 new Projection
@@ -527,9 +497,7 @@ namespace eCinema.Services.Database
                     HallId = listHallId[3],
                     MovieId = listMovieId[5],
                     PriceId = listPriceId[0],
-                    ProjectionType = "Late",
                     StateMachine = "Active",
-                    Status = "Active",
                     IsActive = true,
                 },
                 new Projection
@@ -540,9 +508,7 @@ namespace eCinema.Services.Database
                     HallId = listHallId[3],
                     MovieId = listMovieId[5],
                     PriceId = listPriceId[1],
-                    ProjectionType = "Late",
                     StateMachine = "Active",
-                    Status = "Active",
                     IsActive = true,
                 },
                 new Projection
@@ -553,9 +519,7 @@ namespace eCinema.Services.Database
                     HallId = listHallId[2],
                     MovieId = listMovieId[6],
                     PriceId = listPriceId[0],
-                    ProjectionType = "Late",
                     StateMachine = "Active",
-                    Status = "Active",
                     IsActive = true,
                 },
                 new Projection
@@ -566,9 +530,7 @@ namespace eCinema.Services.Database
                     HallId = listHallId[2],
                     MovieId = listMovieId[6],
                     PriceId = listPriceId[1],
-                    ProjectionType = "Late",
                     StateMachine = "Active",
-                    Status = "Active",
                     IsActive = true,
                 },
                 new Projection
@@ -579,9 +541,7 @@ namespace eCinema.Services.Database
                     HallId = listHallId[1],
                     MovieId = listMovieId[7],
                     PriceId = listPriceId[0],
-                    ProjectionType = "Late",
                     StateMachine = "Active",
-                    Status = "Active",
                     IsActive = true,
                 },
                 new Projection
@@ -592,9 +552,7 @@ namespace eCinema.Services.Database
                     HallId = listHallId[0],
                     MovieId = listMovieId[8],
                     PriceId = listPriceId[1],
-                    ProjectionType = "Late",
                     StateMachine = "Active",
-                    Status = "Active",
                     IsActive = true,
                 },
                 new Projection
@@ -605,9 +563,7 @@ namespace eCinema.Services.Database
                     HallId = listHallId[0],
                     MovieId = listMovieId[8],
                     PriceId = listPriceId[0],
-                    ProjectionType = "Late",
                     StateMachine = "Active",
-                    Status = "Active",
                     IsActive = true,
                 },
                 new Projection
@@ -618,9 +574,7 @@ namespace eCinema.Services.Database
                     HallId = listHallId[1],
                     MovieId = listMovieId[7],
                     PriceId = listPriceId[1],
-                    ProjectionType = "Late",
                     StateMachine = "Active",
-                    Status = "Active",
                     IsActive = true,
                 }
                 

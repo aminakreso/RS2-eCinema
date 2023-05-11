@@ -22,12 +22,7 @@
         public PriceDto Price { get; set; }
         public string? PriceName => Price?.Name;
 
-
-        public string? ProjectionType { get; set; }
-        
         public string? StateMachine { get; set; }
-
-        public string? Status { get; set; }
 
         public bool? IsActive { get; set; }
 
