@@ -26,6 +26,7 @@ namespace eCinema.WinUI
         }
 
         private NotificationDto _model = null;
+        private bool isPressed = false;
 
         private async void frmNotificationDetails_Load(object sender, EventArgs e)
         {
@@ -79,8 +80,9 @@ namespace eCinema.WinUI
                         Description = txtContent.Text,
                         NotificationType = cmbNotificationType.Text,
                     };
-
-                    if (pbSlika.Image != null)
+                    if (!isPressed)
+                        update.Picture = _model.Picture;
+                    if (pbSlika.Image != null && isPressed)
                         update.Picture = ImageHelper.FromImageToBase64(pbSlika.Image);
 
                     _model = await _notificationService.Put<NotificationDto>(_model.Id, update);
@@ -106,6 +108,7 @@ namespace eCinema.WinUI
             if (ofdPicture.ShowDialog() == DialogResult.OK)
             {
                 pbSlika.Image = Image.FromFile(ofdPicture.FileName);
+                isPressed = true;
             }
         }
     }

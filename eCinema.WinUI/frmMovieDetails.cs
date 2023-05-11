@@ -23,7 +23,7 @@ namespace eCinema.WinUI
         }
 
         private MovieDto _model = null;
-
+        private bool isPressed = false;
         private async void frmMovieDetails_Load(object sender, EventArgs e)
         {
             if (_model is not null)
@@ -58,8 +58,9 @@ namespace eCinema.WinUI
                     ReleaseYear = Convert.ToInt32(txtReleaseYear?.Text)
 
                 };
-
-                if (pbPicture.Image != null)
+                if (!isPressed)
+                    upsert.Picture = _model.Picture;
+                if (pbPicture.Image != null && isPressed)
                     upsert.Picture = ImageHelper.FromImageToBase64(pbPicture.Image);
 
                 if (_model is null)
@@ -82,6 +83,7 @@ namespace eCinema.WinUI
             if (ofdPicture.ShowDialog() == DialogResult.OK)
             {
                 pbPicture.Image = Image.FromFile(ofdPicture.FileName);
+                isPressed = true;
             }
         }
 

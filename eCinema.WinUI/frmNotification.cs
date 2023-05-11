@@ -42,7 +42,6 @@ namespace eCinema.WinUI
         {
             var notifications = await _notificationService.Get<List<NotificationDto>>();
             notifications = notifications.DistinctBy(x => x.NotificationType).ToList();
-            //var notificationsType = notifications.Select(x => x.NotificationType).Distinct().ToList();
             cmbNotificationType.DataSource = notifications;
             cmbNotificationType.DisplayMember = "NotificationType";
             cmbNotificationType.ValueMember = "Id";
@@ -58,10 +57,16 @@ namespace eCinema.WinUI
 
         private async void btnShow_Click(object sender, EventArgs e)
         {
+            await LoadData();
+
+        }
+
+        private async Task LoadData()
+        {
             var searchObject = new NotificationSearchObject();
             searchObject.Title = txtTitle.Text;
 
-            if(cmbAuthor.SelectedItem is not null)
+            if (cmbAuthor.SelectedItem is not null)
             {
                 searchObject.AuthorId = (Guid)cmbAuthor.SelectedValue;
             }
@@ -75,15 +80,16 @@ namespace eCinema.WinUI
 
             var list = await _notificationService.Get<List<NotificationDto>>(searchObject);
             dgvNotifications.DataSource = list;
-
         }
 
-        private void dgvNotifications_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private async void dgvNotifications_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             var notification = dgvNotifications.SelectedRows[0].DataBoundItem as NotificationDto;
 
             var frmNotificationDetails = new frmNotificationDetails(notification);
             frmNotificationDetails.ShowDialog();
+            await LoadData();
+
         }
 
         private void dgvNotifications_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

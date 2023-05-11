@@ -38,6 +38,11 @@ namespace eCinema.WinUI
 
         private async void btnShow_Click(object sender, EventArgs e)
         {
+            await LoadData();
+        }
+
+        private async Task LoadData()
+        {
             var searchObject = new MovieSearchObject();
             searchObject.Name = txtName.Text;
             searchObject.Director = txtDirector.Text;
@@ -47,12 +52,14 @@ namespace eCinema.WinUI
             dgvMovies.DataSource = list;
         }
 
-        private void dgvUsers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private async void dgvUsers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             var movie = dgvMovies.SelectedRows[0].DataBoundItem as MovieDto;
 
             var frmMovieDetails = new frmMovieDetails(movie);
             frmMovieDetails.ShowDialog();
+            await LoadData();
+
         }
 
         private void dgvMovies_CellContentClick(object sender, DataGridViewCellEventArgs e)
