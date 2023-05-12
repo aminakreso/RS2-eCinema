@@ -28,6 +28,7 @@ namespace eCinema.WinUI
             await LoadGenres();
             cmbGenre.SelectedItem = null;
             cmbGenre.SelectedText = "Svi";
+            loadingPictureBox.Hide();
         }
 
         private async Task LoadGenres()
@@ -43,6 +44,9 @@ namespace eCinema.WinUI
 
         private async Task LoadData()
         {
+            loadingPictureBox.Show();
+            loadingPictureBox.Update();
+
             var searchObject = new MovieSearchObject();
             searchObject.Name = txtName.Text;
             searchObject.Director = txtDirector.Text;
@@ -50,6 +54,8 @@ namespace eCinema.WinUI
 
             var list = await _movieService.Get<List<MovieDto>>(searchObject);
             dgvMovies.DataSource = list;
+
+            loadingPictureBox.Hide();
         }
 
         private async void dgvUsers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

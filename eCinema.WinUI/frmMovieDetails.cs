@@ -58,7 +58,7 @@ namespace eCinema.WinUI
                     ReleaseYear = Convert.ToInt32(txtReleaseYear?.Text)
 
                 };
-                if (!isPressed)
+                if (!isPressed && _model!=null)
                     upsert.Picture = _model.Picture;
                 if (pbPicture.Image != null && isPressed)
                     upsert.Picture = ImageHelper.FromImageToBase64(pbPicture.Image);

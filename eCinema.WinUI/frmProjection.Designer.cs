@@ -48,7 +48,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.movieIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.resultLabel = new System.Windows.Forms.Label();
             this.loadingPictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectionDtoBindingSource)).BeginInit();
@@ -219,15 +218,6 @@
             this.movieIdDataGridViewTextBoxColumn.Name = "movieIdDataGridViewTextBoxColumn";
             this.movieIdDataGridViewTextBoxColumn.Width = 125;
             // 
-            // resultLabel
-            // 
-            this.resultLabel.AutoSize = true;
-            this.resultLabel.Location = new System.Drawing.Point(339, 7);
-            this.resultLabel.Name = "resultLabel";
-            this.resultLabel.Size = new System.Drawing.Size(50, 20);
-            this.resultLabel.TabIndex = 28;
-            this.resultLabel.Text = "label6";
-            // 
             // loadingPictureBox
             // 
             this.loadingPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("loadingPictureBox.Image")));
@@ -244,7 +234,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.loadingPictureBox);
-            this.Controls.Add(this.resultLabel);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dtpDate);
@@ -289,7 +278,6 @@
         private DataGridViewTextBoxColumn projectionTypeDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn stateMachineDataGridViewTextBoxColumn;
         private BindingSource projectionDtoBindingSource;
-        private Label resultLabel;
         private PictureBox loadingPictureBox;
     }
 }

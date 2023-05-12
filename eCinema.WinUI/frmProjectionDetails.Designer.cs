@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProjectionDetails));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,7 +46,9 @@
             this.dtpEndTime = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.loadingPictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loadingPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -186,11 +189,22 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // loadingPictureBox
+            // 
+            this.loadingPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("loadingPictureBox.Image")));
+            this.loadingPictureBox.Location = new System.Drawing.Point(55, 12);
+            this.loadingPictureBox.Name = "loadingPictureBox";
+            this.loadingPictureBox.Size = new System.Drawing.Size(435, 287);
+            this.loadingPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.loadingPictureBox.TabIndex = 19;
+            this.loadingPictureBox.TabStop = false;
+            // 
             // frmProjectionDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(547, 329);
+            this.Controls.Add(this.loadingPictureBox);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dtpEndTime);
             this.Controls.Add(this.btnHide);
@@ -210,6 +224,7 @@
             this.Text = "frmProjectionDetails";
             this.Load += new System.EventHandler(this.frmProjectionDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loadingPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -233,5 +248,6 @@
         private DateTimePicker dtpEndTime;
         private Label label6;
         private ErrorProvider errorProvider;
+        private PictureBox loadingPictureBox;
     }
 }

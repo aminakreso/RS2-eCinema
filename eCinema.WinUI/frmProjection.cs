@@ -19,17 +19,12 @@ namespace eCinema.WinUI
         private APIService _projectionService = new APIService("Projection");
         private APIService _movieService = new APIService("Movie");
         private APIService _hallService = new APIService("Hall");
-        //BackgroundWorker _backgroundWorker = new BackgroundWorker();
-
 
         public frmProjection()
         {
             InitializeComponent();
             dgvProjection.AutoGenerateColumns = false;
             loadingPictureBox.Hide();
-
-            //backgroundWorker1.WorkerReportsProgress = true;
-            //backgroundWorker1.WorkerSupportsCancellation = false;
         }
 
 
@@ -93,13 +88,7 @@ namespace eCinema.WinUI
                 searchObject.StateMachine = cmbStatus.SelectedValue.ToString();
             }
 
-            //MessageBox.Show("Loading...");
-
             var list = await _projectionService.Get<List<ProjectionDto>>(searchObject);
-
-
-
-            //this.Close();
 
             dgvProjection.DataSource = list;
 
@@ -140,7 +129,7 @@ namespace eCinema.WinUI
 
             var frmProjectionDetails = new frmProjectionDetails(projection);
             frmProjectionDetails.ShowDialog();
-            //await LoadData();
+            await LoadData(sender, e);
         }
     }
 }

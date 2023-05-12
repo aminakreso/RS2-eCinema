@@ -24,10 +24,15 @@ namespace eCinema.WinUI
         {
             InitializeComponent();
             _model = model;
+            loadingPictureBox.Hide();
+
         }
 
         private async void frmProjectionDetails_Load(object sender, EventArgs e)
         {
+            loadingPictureBox.Show();
+            loadingPictureBox.Update();
+
             await LoadHalls();
             await LoadMovies();
             await LoadPrices();
@@ -44,9 +49,9 @@ namespace eCinema.WinUI
                 cmbHall.SelectedValue = _model.HallId;
                 cmbMovieName.SelectedValue = _model.MovieId;
                 cmbPrice.SelectedValue = _model.PriceId;
-                //dtpProjectionDateTime.Value = _model.DateTime.GetValueOrDefault(DateTime.Now);
             }
             LoadButtons();
+            loadingPictureBox.Hide();
         }
 
         private void LoadButtons()
@@ -73,7 +78,7 @@ namespace eCinema.WinUI
                 cmbProjectionType.Enabled = false;
                 dtpProjectionDateTime.Enabled = false;
             }
-            //za soft delete neki x na vrhu??
+
             if (_model?.StateMachine == StateMachineConstants.HiddenState)
             {
                 btnHide.Visible = false;

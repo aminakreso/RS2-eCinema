@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMovies));
             this.btnShow = new System.Windows.Forms.Button();
             this.cmbGenre = new System.Windows.Forms.ComboBox();
             this.txtName = new System.Windows.Forms.TextBox();
@@ -43,8 +44,10 @@
             this.isActiveDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.movieDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtDirector = new System.Windows.Forms.TextBox();
+            this.loadingPictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMovies)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.movieDtoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loadingPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // btnShow
@@ -181,11 +184,22 @@
             this.txtDirector.Size = new System.Drawing.Size(119, 27);
             this.txtDirector.TabIndex = 16;
             // 
+            // loadingPictureBox
+            // 
+            this.loadingPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("loadingPictureBox.Image")));
+            this.loadingPictureBox.Location = new System.Drawing.Point(290, 180);
+            this.loadingPictureBox.Name = "loadingPictureBox";
+            this.loadingPictureBox.Size = new System.Drawing.Size(125, 116);
+            this.loadingPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.loadingPictureBox.TabIndex = 31;
+            this.loadingPictureBox.TabStop = false;
+            // 
             // frmMovies
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.loadingPictureBox);
             this.Controls.Add(this.txtDirector);
             this.Controls.Add(this.dgvMovies);
             this.Controls.Add(this.btnShow);
@@ -199,6 +213,7 @@
             this.Load += new System.EventHandler(this.frmMovies_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMovies)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.movieDtoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loadingPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -220,5 +235,6 @@
         private DataGridViewTextBoxColumn genresDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn durationDataGridViewTextBoxColumn;
         private DataGridViewCheckBoxColumn isActiveDataGridViewTextBoxColumn;
+        private PictureBox loadingPictureBox;
     }
 }

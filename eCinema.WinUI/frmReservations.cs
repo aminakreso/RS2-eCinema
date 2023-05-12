@@ -26,6 +26,7 @@ namespace eCinema.WinUI
         {
             InitializeComponent();
             dgvReservations.AutoGenerateColumns = false;
+            loadingPictureBox.Hide();
         }
 
         private void frmReservations_Load(object sender, EventArgs e)
@@ -35,6 +36,9 @@ namespace eCinema.WinUI
 
         private async void btnShow_Click(object sender, EventArgs e)
         {
+            loadingPictureBox.Show();
+            loadingPictureBox.Update();
+
             var searchObject = new ReservationSearchObject
             {
                 Name = txtMovie.Text,
@@ -48,7 +52,11 @@ namespace eCinema.WinUI
             };
 
             var list = await _reservationService.Get<List<ReservationDto>>(searchObject);
+            loadingPictureBox.Hide();
+
             dgvReservations.DataSource = list;
+
+
         }
 
         private void dgvReservations_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -88,6 +96,9 @@ namespace eCinema.WinUI
 
         private async void btnReport_Click(object sender, EventArgs e)
         {
+            loadingPictureBox.Show();
+            loadingPictureBox.Update();
+
             var searchObject = new ReservationSearchObject
             {
                 IncludeUsers = true,
@@ -133,14 +144,20 @@ namespace eCinema.WinUI
             doc.Add(title);
             doc.Add(table);
             doc.Add(para);
+            loadingPictureBox.Hide();
+
             // close the document
             doc.Close();
+
             MessageBox.Show("Report generated on desktop.");
             this.Close();
         }
 
         private async void btnProjectionsReport_Click(object sender, EventArgs e)
         {
+            loadingPictureBox.Show();
+            loadingPictureBox.Update();
+
             var projectionSearchObject = new ProjectionSearchObject { IncludeMovies = true, IncludePrices = true };
             List<ProjectionDto> data = await _projectionService.Get<List<ProjectionDto>>(projectionSearchObject);
             List<ReservationDto> reservations = new List<ReservationDto>();
@@ -190,6 +207,9 @@ namespace eCinema.WinUI
             doc.Add(table);
             doc.Add(para);
             doc.Add(ukupniPrihod);
+
+            loadingPictureBox.Hide();
+
             // close the document
             doc.Close();
             MessageBox.Show("Report generated on desktop.");
