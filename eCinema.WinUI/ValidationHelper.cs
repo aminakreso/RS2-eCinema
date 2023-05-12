@@ -45,5 +45,22 @@ namespace eCinema.WinUI
             }
 
         }
+
+        public static void ValidateComboBox(ComboBox comboBox, CancelEventArgs e, string name, ErrorProvider errorProvider)
+        {
+            if (string.IsNullOrWhiteSpace(comboBox.Text))
+            {
+                e.Cancel = true;
+                comboBox.Focus();
+
+                errorProvider.SetError(comboBox, name + " should not be left blank!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(comboBox, "");
+            }
+
+        }
     }
 }

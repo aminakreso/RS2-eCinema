@@ -1,6 +1,7 @@
 ﻿using eCinema.Model.Dtos;
 using eCinema.Model.Requests;
 using eCinema.Model.SearchObjects;
+using eCinema.WinUI.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

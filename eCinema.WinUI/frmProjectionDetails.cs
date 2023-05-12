@@ -47,7 +47,6 @@ namespace eCinema.WinUI
                 //dtpProjectionDateTime.Value = _model.DateTime.GetValueOrDefault(DateTime.Now);
             }
             LoadButtons();
-
         }
 
         private void LoadButtons()
@@ -126,28 +125,32 @@ namespace eCinema.WinUI
 
         private async void btnSave_Click(object sender, EventArgs e)
         {
-            var upsert = new ProjectionUpsertRequest()
+            if (ValidateChildren())
             {
-                StartTime = dtpProjectionDateTime.Value,
-                EndTime = dtpEndTime.Value,
-                ProjectionType = cmbProjectionType.Text,
-                HallId = (Guid)cmbHall?.SelectedValue,
-                PriceId = (Guid)cmbPrice?.SelectedValue,
-                MovieId = (Guid?)cmbMovieName?.SelectedValue,
-            };
+                var upsert = new ProjectionUpsertRequest()
+                {
+                    StartTime = dtpProjectionDateTime.Value,
+                    EndTime = dtpEndTime.Value,
+                    ProjectionType = cmbProjectionType.Text,
+                    HallId = (Guid)cmbHall?.SelectedValue,
+                    PriceId = (Guid)cmbPrice?.SelectedValue,
+                    MovieId = (Guid?)cmbMovieName?.SelectedValue,
+                };
 
-            if (_model is null)
-            {
-                await _projectionService.Post<ProjectionDto>(upsert);
-                MessageBox.Show("Projection added.");
-                this.Close();
+                if (_model is null)
+                {
+                    await _projectionService.Post<ProjectionDto>(upsert);
+                    MessageBox.Show("Projection added.");
+                    this.Close();
+                }
+                else
+                {
+                    _model = await _projectionService.Put<ProjectionDto>(_model.Id, upsert);
+                    MessageBox.Show("Projection edited.");
+                    this.Close();
+                }
             }
-            else
-            {
-                _model = await _projectionService.Put<ProjectionDto>(_model.Id, upsert);
-                MessageBox.Show("Projection edited.");
-                this.Close();
-            }
+            
         }
 
         private async void btnActivate_Click(object sender, EventArgs e)
@@ -180,6 +183,28 @@ namespace eCinema.WinUI
             await _projectionService.Hide<ProjectionDto>(_model.Id, upsert);
             MessageBox.Show("Projection hidden.");
             this.Close();
+        }
+
+        private void cmbMovieName_Validating(object sender, CancelEventArgs e)
+        {
+            ValidationHelper.ValidateComboBox(cmbMovieName, e, "Movie name", errorProvider);
+        }
+
+        private void cmbHall_Validating(object sender, CancelEventArgs e)
+        {
+            ValidationHelper.ValidateComboBox(cmbHall, e, "Hall name", errorProvider);
+
+        }
+
+        private void cmbPrice_Validating(object sender, CancelEventArgs e)
+        {
+            ValidationHelper.ValidateComboBox(cmbPrice, e, "Price name", errorProvider);
+
+        }
+
+        private void cmbProjectionType_Validating(object sender, CancelEventArgs e)
+        {
+            ValidationHelper.ValidateComboBox(cmbProjectionType, e, "Projection type", errorProvider);
         }
     }
 }

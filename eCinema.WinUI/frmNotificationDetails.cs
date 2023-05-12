@@ -111,5 +111,11 @@ namespace eCinema.WinUI
                 isPressed = true;
             }
         }
+
+        private void cmbNotificationType_Validating(object sender, CancelEventArgs e)
+        {
+            ValidationHelper.ValidateComboBox(cmbNotificationType, e, "Notification type", errorProvider);
+
+        }
     }
 }

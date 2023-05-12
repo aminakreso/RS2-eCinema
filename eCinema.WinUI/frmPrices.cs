@@ -26,6 +26,11 @@ namespace eCinema.WinUI
 
         private async void btnShow_Click(object sender, EventArgs e)
         {
+            await LoadData();
+        }
+
+        private async Task LoadData()
+        {
             var searchObject = new PriceSearchObject();
             searchObject.Name = txtName.Text;
 
@@ -33,12 +38,13 @@ namespace eCinema.WinUI
             dgvPrices.DataSource = list;
         }
 
-        private void dgvPrices_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private async void dgvPrices_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             var price = dgvPrices.SelectedRows[0].DataBoundItem as PriceDto;
 
             var frmPriceDetails = new frmPriceDetails(price);
             frmPriceDetails.ShowDialog();
+            await LoadData();
         }
     }
 }

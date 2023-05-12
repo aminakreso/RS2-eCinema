@@ -149,7 +149,7 @@
             this.cmbRole.Name = "cmbRole";
             this.cmbRole.Size = new System.Drawing.Size(151, 28);
             this.cmbRole.TabIndex = 17;
-            this.cmbRole.SelectedIndexChanged += new System.EventHandler(this.cmbRole_SelectedIndexChanged);
+            this.cmbRole.Validating += new System.ComponentModel.CancelEventHandler(this.cmbRole_Validating);
             // 
             // btnSave
             // 
@@ -199,6 +199,7 @@
             // 
             this.txtPasswordConfirm.Location = new System.Drawing.Point(24, 202);
             this.txtPasswordConfirm.Name = "txtPasswordConfirm";
+            this.txtPasswordConfirm.PasswordChar = '*';
             this.txtPasswordConfirm.Size = new System.Drawing.Size(125, 27);
             this.txtPasswordConfirm.TabIndex = 24;
             this.txtPasswordConfirm.Validating += new System.ComponentModel.CancelEventHandler(this.txtPasswordConfirm_Validating);
@@ -216,6 +217,7 @@
             // 
             this.txtUserPassword.Location = new System.Drawing.Point(24, 149);
             this.txtUserPassword.Name = "txtUserPassword";
+            this.txtUserPassword.PasswordChar = '*';
             this.txtUserPassword.Size = new System.Drawing.Size(125, 27);
             this.txtUserPassword.TabIndex = 22;
             this.txtUserPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtUserPassword_Validating);

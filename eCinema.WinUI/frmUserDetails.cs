@@ -108,11 +108,6 @@ namespace eCinema.WinUI
             }
         }
 
-        private void cmbRole_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void txtFirstName_Validating(object sender, CancelEventArgs e)
         {
             ValidationHelper.Validate(txtFirstName, e, "First name", errorProvider);
@@ -143,6 +138,11 @@ namespace eCinema.WinUI
         {
             if (_model is null)
                 ValidationHelper.Validate(txtPasswordConfirm, e, "Phone number", errorProvider);
+        }
+
+        private void cmbRole_Validating(object sender, CancelEventArgs e)
+        {
+            ValidationHelper.ValidateComboBox(cmbRole, e, "Role number", errorProvider);
         }
     }
 }

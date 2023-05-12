@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProjection));
             this.dgvProjection = new System.Windows.Forms.DataGridView();
             this.startTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hallNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.movieNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.projectionTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stateMachineDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.projectionDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnShow = new System.Windows.Forms.Button();
@@ -48,8 +48,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.movieIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resultLabel = new System.Windows.Forms.Label();
+            this.loadingPictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectionDtoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loadingPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvProjection
@@ -63,7 +66,6 @@
             this.hallNameDataGridViewTextBoxColumn,
             this.movieNameDataGridViewTextBoxColumn,
             this.priceNameDataGridViewTextBoxColumn,
-            this.projectionTypeDataGridViewTextBoxColumn,
             this.stateMachineDataGridViewTextBoxColumn});
             this.dgvProjection.DataSource = this.projectionDtoBindingSource;
             this.dgvProjection.Location = new System.Drawing.Point(57, 103);
@@ -112,15 +114,6 @@
             this.priceNameDataGridViewTextBoxColumn.Name = "priceNameDataGridViewTextBoxColumn";
             this.priceNameDataGridViewTextBoxColumn.ReadOnly = true;
             this.priceNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // projectionTypeDataGridViewTextBoxColumn
-            // 
-            this.projectionTypeDataGridViewTextBoxColumn.DataPropertyName = "ProjectionType";
-            this.projectionTypeDataGridViewTextBoxColumn.HeaderText = "Tip";
-            this.projectionTypeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.projectionTypeDataGridViewTextBoxColumn.Name = "projectionTypeDataGridViewTextBoxColumn";
-            this.projectionTypeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.projectionTypeDataGridViewTextBoxColumn.Width = 125;
             // 
             // stateMachineDataGridViewTextBoxColumn
             // 
@@ -226,11 +219,32 @@
             this.movieIdDataGridViewTextBoxColumn.Name = "movieIdDataGridViewTextBoxColumn";
             this.movieIdDataGridViewTextBoxColumn.Width = 125;
             // 
+            // resultLabel
+            // 
+            this.resultLabel.AutoSize = true;
+            this.resultLabel.Location = new System.Drawing.Point(339, 7);
+            this.resultLabel.Name = "resultLabel";
+            this.resultLabel.Size = new System.Drawing.Size(50, 20);
+            this.resultLabel.TabIndex = 28;
+            this.resultLabel.Text = "label6";
+            // 
+            // loadingPictureBox
+            // 
+            this.loadingPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("loadingPictureBox.Image")));
+            this.loadingPictureBox.Location = new System.Drawing.Point(305, 174);
+            this.loadingPictureBox.Name = "loadingPictureBox";
+            this.loadingPictureBox.Size = new System.Drawing.Size(125, 116);
+            this.loadingPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.loadingPictureBox.TabIndex = 29;
+            this.loadingPictureBox.TabStop = false;
+            // 
             // frmProjection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.loadingPictureBox);
+            this.Controls.Add(this.resultLabel);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dtpDate);
@@ -247,6 +261,7 @@
             this.Load += new System.EventHandler(this.frmProjection_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjection)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectionDtoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loadingPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -274,5 +289,7 @@
         private DataGridViewTextBoxColumn projectionTypeDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn stateMachineDataGridViewTextBoxColumn;
         private BindingSource projectionDtoBindingSource;
+        private Label resultLabel;
+        private PictureBox loadingPictureBox;
     }
 }

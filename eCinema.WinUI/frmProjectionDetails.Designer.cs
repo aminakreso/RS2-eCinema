@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -43,6 +44,8 @@
             this.btnHide = new System.Windows.Forms.Button();
             this.dtpEndTime = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -97,6 +100,7 @@
             this.cmbMovieName.Name = "cmbMovieName";
             this.cmbMovieName.Size = new System.Drawing.Size(151, 28);
             this.cmbMovieName.TabIndex = 6;
+            this.cmbMovieName.Validating += new System.ComponentModel.CancelEventHandler(this.cmbMovieName_Validating);
             // 
             // cmbProjectionType
             // 
@@ -105,6 +109,7 @@
             this.cmbProjectionType.Name = "cmbProjectionType";
             this.cmbProjectionType.Size = new System.Drawing.Size(151, 28);
             this.cmbProjectionType.TabIndex = 7;
+            this.cmbProjectionType.Validating += new System.ComponentModel.CancelEventHandler(this.cmbProjectionType_Validating);
             // 
             // cmbHall
             // 
@@ -113,6 +118,7 @@
             this.cmbHall.Name = "cmbHall";
             this.cmbHall.Size = new System.Drawing.Size(151, 28);
             this.cmbHall.TabIndex = 9;
+            this.cmbHall.Validating += new System.ComponentModel.CancelEventHandler(this.cmbHall_Validating);
             // 
             // cmbPrice
             // 
@@ -121,6 +127,7 @@
             this.cmbPrice.Name = "cmbPrice";
             this.cmbPrice.Size = new System.Drawing.Size(151, 28);
             this.cmbPrice.TabIndex = 11;
+            this.cmbPrice.Validating += new System.ComponentModel.CancelEventHandler(this.cmbPrice_Validating);
             // 
             // dtpProjectionDateTime
             // 
@@ -175,6 +182,10 @@
             this.label6.TabIndex = 18;
             this.label6.Text = "Vrijeme završetka";
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // frmProjectionDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -198,6 +209,7 @@
             this.Name = "frmProjectionDetails";
             this.Text = "frmProjectionDetails";
             this.Load += new System.EventHandler(this.frmProjectionDetails_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -220,5 +232,6 @@
         private Button btnHide;
         private DateTimePicker dtpEndTime;
         private Label label6;
+        private ErrorProvider errorProvider;
     }
 }

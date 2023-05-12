@@ -1,6 +1,7 @@
 ﻿using eCinema.Model.Constants;
 using eCinema.Model.Dtos;
 using eCinema.Model.SearchObjects;
+using eCinema.WinUI.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,12 +19,19 @@ namespace eCinema.WinUI
         private APIService _projectionService = new APIService("Projection");
         private APIService _movieService = new APIService("Movie");
         private APIService _hallService = new APIService("Hall");
+        //BackgroundWorker _backgroundWorker = new BackgroundWorker();
+
 
         public frmProjection()
         {
             InitializeComponent();
             dgvProjection.AutoGenerateColumns = false;
+            loadingPictureBox.Hide();
+
+            //backgroundWorker1.WorkerReportsProgress = true;
+            //backgroundWorker1.WorkerSupportsCancellation = false;
         }
+
 
         private void dgvProjection_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
@@ -54,6 +62,14 @@ namespace eCinema.WinUI
 
         private async void btnShow_Click(object sender, EventArgs e)
         {
+            await LoadData(sender,e);
+        }
+
+        private async Task LoadData(object sender, EventArgs e)
+        {
+            loadingPictureBox.Show();
+            loadingPictureBox.Update();
+            
             var searchObject = new ProjectionSearchObject
             {
                 StartDate = dtpDate.Value,
@@ -77,8 +93,18 @@ namespace eCinema.WinUI
                 searchObject.StateMachine = cmbStatus.SelectedValue.ToString();
             }
 
+            //MessageBox.Show("Loading...");
+
             var list = await _projectionService.Get<List<ProjectionDto>>(searchObject);
+
+
+
+            //this.Close();
+
             dgvProjection.DataSource = list;
+
+            loadingPictureBox.Hide();
+
         }
 
         private async void frmProjection_Load(object sender, EventArgs e)
@@ -108,12 +134,13 @@ namespace eCinema.WinUI
             cmbStatus.ValueMember = "StateMachine";
         }
 
-        private void dgvProjection_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private async void dgvProjection_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             var projection = dgvProjection.SelectedRows[0].DataBoundItem as ProjectionDto;
 
             var frmProjectionDetails = new frmProjectionDetails(projection);
             frmProjectionDetails.ShowDialog();
+            //await LoadData();
         }
     }
 }

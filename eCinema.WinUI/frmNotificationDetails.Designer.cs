@@ -79,6 +79,7 @@
             this.cmbNotificationType.Name = "cmbNotificationType";
             this.cmbNotificationType.Size = new System.Drawing.Size(102, 28);
             this.cmbNotificationType.TabIndex = 3;
+            this.cmbNotificationType.Validating += new System.ComponentModel.CancelEventHandler(this.cmbNotificationType_Validating);
             // 
             // txtTitle
             // 
