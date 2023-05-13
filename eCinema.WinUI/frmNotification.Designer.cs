@@ -43,7 +43,7 @@
             this.authorIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.notificationTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Aktivna = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Izbriši = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNotifications)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.notificationDtoBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -62,7 +62,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(229, 44);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 20);
+            this.label2.Size = new System.Drawing.Size(54, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Author";
             // 
@@ -110,9 +110,9 @@
             this.authorIdDataGridViewTextBoxColumn,
             this.notificationTypeDataGridViewTextBoxColumn,
             this.Description,
-            this.Aktivna});
+            this.Izbriši});
             this.dgvNotifications.DataSource = this.notificationDtoBindingSource;
-            this.dgvNotifications.Location = new System.Drawing.Point(31, 92);
+            this.dgvNotifications.Location = new System.Drawing.Point(31, 93);
             this.dgvNotifications.Name = "dgvNotifications";
             this.dgvNotifications.ReadOnly = true;
             this.dgvNotifications.RowHeadersWidth = 51;
@@ -120,6 +120,7 @@
             this.dgvNotifications.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvNotifications.Size = new System.Drawing.Size(687, 305);
             this.dgvNotifications.TabIndex = 6;
+            this.dgvNotifications.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNotifications_CellContentClick);
             this.dgvNotifications.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNotifications_CellContentDoubleClick);
             this.dgvNotifications.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvNotifications_CellFormatting);
             // 
@@ -181,16 +182,15 @@
             this.Description.ReadOnly = true;
             this.Description.Width = 125;
             // 
-            // Aktivna
+            // Izbriši
             // 
-            this.Aktivna.DataPropertyName = "IsActive";
-            this.Aktivna.HeaderText = "Aktivna";
-            this.Aktivna.MinimumWidth = 6;
-            this.Aktivna.Name = "Aktivna";
-            this.Aktivna.ReadOnly = true;
-            this.Aktivna.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Aktivna.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Aktivna.Width = 125;
+            this.Izbriši.HeaderText = "Izbriši";
+            this.Izbriši.MinimumWidth = 6;
+            this.Izbriši.Name = "Izbriši";
+            this.Izbriši.ReadOnly = true;
+            this.Izbriši.Text = "Izbriši";
+            this.Izbriši.ToolTipText = "Izbriši";
+            this.Izbriši.Width = 125;
             // 
             // frmNotification
             // 
@@ -231,6 +231,6 @@
         private DataGridViewTextBoxColumn authorIdDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn notificationTypeDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn Description;
-        private DataGridViewCheckBoxColumn Aktivna;
+        private DataGridViewButtonColumn Izbriši;
     }
 }

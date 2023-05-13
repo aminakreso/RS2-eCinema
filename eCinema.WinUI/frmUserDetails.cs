@@ -70,6 +70,18 @@ namespace eCinema.WinUI
             {
                 var roleId = (Guid)cmbRole.SelectedValue;
 
+                var users = await _userService.Get<List<UserDto>>(null);
+                if (users.Any(x => x.Username.Equals(txtUsernamee.Text) && _model?.Id != x.Id)){
+                    txtUsernamee.Focus();
+                    errorProvider.SetError(txtUsernamee, "User already exists!");
+                    return;
+                }
+                else
+                {
+                    errorProvider.SetError(txtUsernamee, "");
+                    errorProvider.Clear();
+                }
+
                 if (_model is null)
                 {
                     var insert = new UserInsertRequest

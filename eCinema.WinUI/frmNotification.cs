@@ -79,6 +79,7 @@ namespace eCinema.WinUI
             searchObject.IncludeUsers = true;
 
             var list = await _notificationService.Get<List<NotificationDto>>(searchObject);
+            list = list.Where(x => x.IsActive == true).ToList();
             dgvNotifications.DataSource = list;
         }
 
@@ -108,6 +109,23 @@ namespace eCinema.WinUI
 
                 }
             }
+        }
+
+        private async void dgvNotifications_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                e.RowIndex >= 0)
+            {
+                var notification = (NotificationDto)(this.dgvNotifications.Rows[e.RowIndex]
+                   .DataBoundItem);
+
+                await _notificationService.Delete<NotificationDto>(notification.Id);
+            }
+
+            await LoadData();
+
         }
     }
 }

@@ -66,6 +66,7 @@ namespace eCinema.WinUI
             else
             {
                 MessageBox.Show("There are no more pages!");
+                _selectedPage--;
             }
         }
 

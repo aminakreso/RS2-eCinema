@@ -72,6 +72,9 @@ namespace eCinema.Services.Services
             if (!string.IsNullOrWhiteSpace(search.Name))
                 filteredQuery = query.Where(x=> x.FirstName.ToLower().Contains(search.Name.ToLower()) || 
                     x.LastName.ToLower().Contains(search.Name.ToLower()));
+            if (!string.IsNullOrWhiteSpace(search.Username))
+                filteredQuery = query.Where(x => x.Username.Equals(search.Username));
+
             if (!string.IsNullOrWhiteSpace(search.Role) && search.Role != "Svi")
             {
                 filteredQuery = filteredQuery.Include(x=> x.Role).Where(x=> x.Role.Name == search.Role);
@@ -114,6 +117,10 @@ namespace eCinema.Services.Services
             public async Task<UserDto> Register(RegistrationRequest registration)
             {
                 var userRole = await _cinemaContext.Roles.FirstOrDefaultAsync(x => x.Name == "User");
+            if (await _cinemaContext.Users.AnyAsync(x=> x.Username.Equals(registration.Username))){
+                throw new Exception("User already exists!");
+                //return new UserDto();
+            }
                 var user = new User
                 {
                     FirstName = registration.FirstName,

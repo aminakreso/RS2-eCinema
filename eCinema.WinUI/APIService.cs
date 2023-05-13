@@ -61,6 +61,6 @@ public class APIService
 
     public async Task<T> Delete<T>(Guid id)
     {
-        return await $"{_endpoint}{_resource}/{id}".WithBasicAuth(Username, Password).PutJsonAsync(id).ReceiveJson<T>();
+        return await $"{_endpoint}{_resource}/{id}/delete".WithBasicAuth(Username, Password).PutJsonAsync(id).ReceiveJson<T>();
     }
 }

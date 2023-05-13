@@ -1,4 +1,6 @@
-﻿using System;
+﻿using eCinema.Model.Dtos;
+using eCinema.Model.SearchObjects;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,10 +30,21 @@ namespace eCinema.WinUI
 
                 try
                 {
-                    await _userService.Get<dynamic>();
-
-                    mdiMain frm = new mdiMain();
-                    frm.Show();
+                    var searchObject = new UserSearchObject
+                    {
+                        Username = APIService.Username,
+                        IncludeRoles = true
+                    };
+                    var user = await _userService.Get<List<UserDto>>(searchObject);
+                    if (user[0].Role.Name == "Admin")
+                    {
+                        mdiMain frm = new mdiMain();
+                        frm.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid username or password!");
+                    }
                 }
                 catch
                 {
