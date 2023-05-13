@@ -20,6 +20,9 @@ namespace eCinema.WinUI
         private APIService _movieService = new APIService("Movie");
         private APIService _hallService = new APIService("Hall");
 
+        private int _selectedPage;
+        private const int _pageSize = 5;
+
         public frmProjection()
         {
             InitializeComponent();
@@ -57,10 +60,10 @@ namespace eCinema.WinUI
 
         private async void btnShow_Click(object sender, EventArgs e)
         {
-            await LoadData(sender,e);
+            await LoadData();
         }
 
-        private async Task LoadData(object sender, EventArgs e)
+        private async Task LoadData()
         {
             loadingPictureBox.Show();
             loadingPictureBox.Update();
@@ -70,7 +73,9 @@ namespace eCinema.WinUI
                 StartDate = dtpDate.Value,
                 IncludeHalls = true,
                 IncludeMovies = true,
-                IncludePrices = true
+                IncludePrices = true,
+                PageSize = _pageSize,
+                Page = _selectedPage,
             };
 
             if (!string.IsNullOrEmpty(txtName.Text))
@@ -90,9 +95,16 @@ namespace eCinema.WinUI
 
             var list = await _projectionService.Get<List<ProjectionDto>>(searchObject);
 
-            dgvProjection.DataSource = list;
-
             loadingPictureBox.Hide();
+
+            if (list.Any())
+            {
+                dgvProjection.DataSource = list;
+            }
+            else
+            {
+                MessageBox.Show("There are no more pages!");
+            }
 
         }
 
@@ -129,7 +141,24 @@ namespace eCinema.WinUI
 
             var frmProjectionDetails = new frmProjectionDetails(projection);
             frmProjectionDetails.ShowDialog();
-            await LoadData(sender, e);
+            await LoadData();
+        }
+
+        private async void btnPrevious_Click(object sender, EventArgs e)
+        {
+            if (_selectedPage == 0)
+            {
+                MessageBox.Show("There are no previous pages!");
+                return;
+            }
+            _selectedPage--;
+            await LoadData();
+        }
+
+        private async void btnNext_Click(object sender, EventArgs e)
+        {
+            _selectedPage++;
+            await LoadData();
         }
     }
 }

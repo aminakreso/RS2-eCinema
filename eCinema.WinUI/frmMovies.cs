@@ -16,11 +16,15 @@ namespace eCinema.WinUI
     public partial class frmMovies : Form
     {
         private APIService _movieService = new APIService("Movie");
+        private int _totalPage;
+        private int _selectedPage;
+        private const int _pageSize = 5;
 
         public frmMovies()
         {
             InitializeComponent();
             dgvMovies.AutoGenerateColumns = false;
+            _selectedPage = 0;
         }
 
         private async void frmMovies_Load(object sender, EventArgs e)
@@ -51,11 +55,21 @@ namespace eCinema.WinUI
             searchObject.Name = txtName.Text;
             searchObject.Director = txtDirector.Text;
             searchObject.Genres = cmbGenre.Text;
+            searchObject.PageSize = _pageSize;
+            searchObject.Page = _selectedPage;
 
             var list = await _movieService.Get<List<MovieDto>>(searchObject);
-            dgvMovies.DataSource = list;
 
             loadingPictureBox.Hide();
+
+            if (list.Any())
+            {
+                dgvMovies.DataSource = list;
+            }
+            else
+            {
+                MessageBox.Show("There are no more pages!");
+            }
         }
 
         private async void dgvUsers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -71,6 +85,23 @@ namespace eCinema.WinUI
         private void dgvMovies_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private async void btnPrevious_Click(object sender, EventArgs e)
+        {
+            if(_selectedPage == 0)
+            {
+                MessageBox.Show("There are no previous pages!");
+                return;
+            }
+            _selectedPage--;
+            await LoadData();
+        }
+
+        private async void btnNext_Click(object sender, EventArgs e)
+        {
+            _selectedPage++;
+            await LoadData();
         }
     }
 }

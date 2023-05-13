@@ -22,8 +22,8 @@ namespace eCinema.Services.Services
             if (search is not null)
             {
                 entity = AddFilter(entity, search);
-                if(search.Page.HasValue && search.PageSize.HasValue)
-                    entity = entity.Take(search.PageSize.Value).Skip(search.Page.Value * search.PageSize.Value);
+                if (search.Page.HasValue && search.PageSize.HasValue)
+                    entity = entity.Skip(search.Page.Value * search.PageSize.Value).Take(search.PageSize.Value);
                 entity = AddInclude(entity, search);
             }
             

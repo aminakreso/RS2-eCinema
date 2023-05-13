@@ -49,6 +49,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.movieIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.loadingPictureBox = new System.Windows.Forms.PictureBox();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.btnPrevious = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectionDtoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loadingPictureBox)).BeginInit();
@@ -228,11 +230,33 @@
             this.loadingPictureBox.TabIndex = 29;
             this.loadingPictureBox.TabStop = false;
             // 
+            // btnNext
+            // 
+            this.btnNext.Location = new System.Drawing.Point(384, 421);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(56, 29);
+            this.btnNext.TabIndex = 35;
+            this.btnNext.Text = ">>";
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // btnPrevious
+            // 
+            this.btnPrevious.Location = new System.Drawing.Point(311, 421);
+            this.btnPrevious.Name = "btnPrevious";
+            this.btnPrevious.Size = new System.Drawing.Size(56, 29);
+            this.btnPrevious.TabIndex = 34;
+            this.btnPrevious.Text = "<<";
+            this.btnPrevious.UseVisualStyleBackColor = true;
+            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
+            // 
             // frmProjection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnNext);
+            this.Controls.Add(this.btnPrevious);
             this.Controls.Add(this.loadingPictureBox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -279,5 +303,7 @@
         private DataGridViewTextBoxColumn stateMachineDataGridViewTextBoxColumn;
         private BindingSource projectionDtoBindingSource;
         private PictureBox loadingPictureBox;
+        private Button btnNext;
+        private Button btnPrevious;
     }
 }

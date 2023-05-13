@@ -21,20 +21,24 @@ namespace eCinema.WinUI
     {
         private APIService _reservationService = new APIService("Reservation");
         private APIService _projectionService = new APIService("Projection");
+        private int _selectedPage;
+        private const int _pageSize = 5;
 
         public frmReservations()
         {
             InitializeComponent();
+            _selectedPage = 0;
             dgvReservations.AutoGenerateColumns = false;
             loadingPictureBox.Hide();
         }
 
-        private void frmReservations_Load(object sender, EventArgs e)
+        private async void btnShow_Click(object sender, EventArgs e)
         {
-         
+            await LoadData();
+
         }
 
-        private async void btnShow_Click(object sender, EventArgs e)
+        private async Task LoadData()
         {
             loadingPictureBox.Show();
             loadingPictureBox.Update();
@@ -48,15 +52,21 @@ namespace eCinema.WinUI
                 IncludeProjection = true,
                 IncludeMovies = true,
                 IncludePayments = true,
-                IncludePrices = true
+                IncludePrices = true,
+                PageSize = _pageSize,
+                Page = _selectedPage,
             };
 
             var list = await _reservationService.Get<List<ReservationDto>>(searchObject);
             loadingPictureBox.Hide();
-
-            dgvReservations.DataSource = list;
-
-
+            if (list.Any())
+            {
+                dgvReservations.DataSource = list;
+            }
+            else
+            {
+                MessageBox.Show("There are no more pages!");
+            }
         }
 
         private void dgvReservations_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -214,6 +224,23 @@ namespace eCinema.WinUI
             doc.Close();
             MessageBox.Show("Report generated on desktop.");
             this.Close();
+        }
+
+        private async void btnPrevious_Click(object sender, EventArgs e)
+        {
+            if (_selectedPage == 0)
+            {
+                MessageBox.Show("There are no previous pages!");
+                return;
+            }
+            _selectedPage--;
+            await LoadData();
+        }
+
+        private async void btnNext_Click(object sender, EventArgs e)
+        {
+            _selectedPage++;
+            await LoadData();
         }
     }
 }

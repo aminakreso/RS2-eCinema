@@ -45,6 +45,8 @@
             this.movieDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtDirector = new System.Windows.Forms.TextBox();
             this.loadingPictureBox = new System.Windows.Forms.PictureBox();
+            this.btnPrevious = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMovies)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.movieDtoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loadingPictureBox)).BeginInit();
@@ -121,7 +123,7 @@
             this.dgvMovies.RowHeadersWidth = 51;
             this.dgvMovies.RowTemplate.Height = 29;
             this.dgvMovies.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMovies.Size = new System.Drawing.Size(687, 312);
+            this.dgvMovies.Size = new System.Drawing.Size(687, 242);
             this.dgvMovies.TabIndex = 15;
             this.dgvMovies.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMovies_CellContentClick);
             this.dgvMovies.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsers_CellDoubleClick);
@@ -187,18 +189,40 @@
             // loadingPictureBox
             // 
             this.loadingPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("loadingPictureBox.Image")));
-            this.loadingPictureBox.Location = new System.Drawing.Point(290, 180);
+            this.loadingPictureBox.Location = new System.Drawing.Point(320, 182);
             this.loadingPictureBox.Name = "loadingPictureBox";
             this.loadingPictureBox.Size = new System.Drawing.Size(125, 116);
             this.loadingPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.loadingPictureBox.TabIndex = 31;
             this.loadingPictureBox.TabStop = false;
             // 
+            // btnPrevious
+            // 
+            this.btnPrevious.Location = new System.Drawing.Point(320, 372);
+            this.btnPrevious.Name = "btnPrevious";
+            this.btnPrevious.Size = new System.Drawing.Size(56, 29);
+            this.btnPrevious.TabIndex = 32;
+            this.btnPrevious.Text = "<<";
+            this.btnPrevious.UseVisualStyleBackColor = true;
+            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
+            // 
+            // btnNext
+            // 
+            this.btnNext.Location = new System.Drawing.Point(393, 372);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(56, 29);
+            this.btnNext.TabIndex = 33;
+            this.btnNext.Text = ">>";
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
             // frmMovies
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnNext);
+            this.Controls.Add(this.btnPrevious);
             this.Controls.Add(this.loadingPictureBox);
             this.Controls.Add(this.txtDirector);
             this.Controls.Add(this.dgvMovies);
@@ -236,5 +260,7 @@
         private DataGridViewTextBoxColumn durationDataGridViewTextBoxColumn;
         private DataGridViewCheckBoxColumn isActiveDataGridViewTextBoxColumn;
         private PictureBox loadingPictureBox;
+        private Button btnPrevious;
+        private Button btnNext;
     }
 }
