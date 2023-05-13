@@ -46,6 +46,18 @@ namespace eCinema.WinUI
         {
             if (ValidateChildren())
             {
+                if(pbPicture.Image != null)
+                {
+                    errorProvider.SetError(pbPicture, "");
+                    errorProvider.Clear();
+                }
+                else
+                {
+                    pbPicture.Focus();
+                    errorProvider.SetError(pbPicture, "You must upload movie image!");
+                    return;
+
+                }
                 var upsert = new MovieUpsertRequest()
                 {
                     Name = txtName.Text,
@@ -60,7 +72,7 @@ namespace eCinema.WinUI
                 };
                 if (!isPressed && _model!=null)
                     upsert.Picture = _model.Picture;
-                if (pbPicture.Image != null && isPressed)
+                else 
                     upsert.Picture = ImageHelper.FromImageToBase64(pbPicture.Image);
 
                 if (_model is null)
@@ -116,7 +128,6 @@ namespace eCinema.WinUI
 
         }
 
-        //Rich text
         private void txtGenres_Validating(object sender, CancelEventArgs e)
         {
             ValidationHelper.ValidateRichTextBox(txtGenres, e, "Genres", errorProvider);

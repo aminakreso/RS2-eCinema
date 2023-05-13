@@ -83,7 +83,10 @@ namespace eCinema.WinUI
                     if (!isPressed)
                         update.Picture = _model.Picture;
                     if (pbSlika.Image != null && isPressed)
+                    {
                         update.Picture = ImageHelper.FromImageToBase64(pbSlika.Image);
+
+                    }        
 
                     _model = await _notificationService.Put<NotificationDto>(_model.Id, update);
                     MessageBox.Show("Notification edited.");
@@ -117,5 +120,6 @@ namespace eCinema.WinUI
             ValidationHelper.ValidateComboBox(cmbNotificationType, e, "Notification type", errorProvider);
 
         }
+
     }
 }

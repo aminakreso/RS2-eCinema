@@ -23,14 +23,18 @@ namespace eCinema.Services.Services
 
         public override async Task<IEnumerable<MovieDto>> GetAll(MovieSearchObject? search = null)
         {
-            var list =  await base.GetAll(search);
-            var returnList = new List<MovieDto>();
-            foreach (var movie in list)
+            if (search?.HasProjection is true && search.IsActive is true)
             {
-                if (await _cinemaContext.Projections.AnyAsync(x => x.MovieId == movie.Id))
-                    returnList.Add(movie);
+                var list = await base.GetAll(search);
+                var returnList = new List<MovieDto>();
+                foreach (var movie in list)
+                {
+                    if (await _cinemaContext.Projections.AnyAsync(x => x.MovieId == movie.Id && movie.IsActive == true))
+                        returnList.Add(movie);
+                }
+                return returnList;
             }
-            return returnList;
+            return await base.GetAll(search);
         }
 
         public override IQueryable<Movie> AddFilter(IQueryable<Movie> query, MovieSearchObject search)
