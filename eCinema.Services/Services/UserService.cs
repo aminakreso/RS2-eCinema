@@ -102,7 +102,7 @@ namespace eCinema.Services.Services
             {
             var entity = await _cinemaContext.Users.Include(x => x.Role).FirstOrDefaultAsync(x => x.Username == username);
 
-            if (entity is null)
+            if (entity is null || entity.IsActive == false)
                 return null;
 
             var hash = GenerateHash(entity.LozinkaSalt!, password);

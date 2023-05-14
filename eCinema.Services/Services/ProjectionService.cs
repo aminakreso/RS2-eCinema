@@ -73,12 +73,19 @@ namespace eCinema.Services.Services
         {
             var projection = await _cinemaContext.Projections.FindAsync(id);
 
-            var state = _baseState.CreateState(projection?.StateMachine ?? throw new InvalidOperationException());
-            state.CurrentEntity = projection;
+            if (await _cinemaContext.Reservations.Select(x => x.ProjectionId).AnyAsync(y => y == id) == false)
+            {
+                var state = _baseState.CreateState(projection?.StateMachine ?? throw new InvalidOperationException());
+                state.CurrentEntity = projection;
 
-            await state.Hide();
+                await state.Hide();
 
-            return await GetById(id);
+                return await GetById(id);
+            }
+            else
+            {
+                throw new Exception("This projection has active reservations!");
+            }
         }
 
         

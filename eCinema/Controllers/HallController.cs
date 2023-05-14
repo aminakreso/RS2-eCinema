@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace eCinema.Controllers
 {
-    [AllowAnonymous]
     public class HallController : BaseController<HallDto, BaseSearchObject>
     {
         public HallController(IHallService service) : base(service)

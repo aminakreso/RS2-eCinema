@@ -26,6 +26,7 @@ namespace eCinema.WinUI
         public frmProjection()
         {
             InitializeComponent();
+            _selectedPage = 0;
             dgvProjection.AutoGenerateColumns = false;
             loadingPictureBox.Hide();
         }
@@ -52,7 +53,7 @@ namespace eCinema.WinUI
 
                     if (projection.Price is not null && e.ColumnIndex == 3)
                     {
-                        e.Value = projection.Price.Name;
+                        e.Value = projection.Price.Value;
                     }
                 }
             }
@@ -97,14 +98,16 @@ namespace eCinema.WinUI
 
             loadingPictureBox.Hide();
 
-            if (list.Any())
+            if (list.Any() || _selectedPage == 0)
             {
                 dgvProjection.DataSource = list;
             }
+            //else if (_selectedPage == 0) { }
             else
             {
-                _selectedPage--;
-                MessageBox.Show("There are no more pages!");
+               _selectedPage--;
+               MessageBox.Show("There are no more pages!");
+               
             }
 
         }

@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace eCinema.Controllers
 {
-    [AllowAnonymous]
     public class SeatReservationController : BaseController<SeatxrefReservationDto, SeatReservationSearchObject>
     {
         public SeatReservationController(ISeatReservationService service) : base(service)

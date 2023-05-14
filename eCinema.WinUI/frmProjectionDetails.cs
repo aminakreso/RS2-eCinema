@@ -49,6 +49,8 @@ namespace eCinema.WinUI
                 cmbHall.SelectedValue = _model.HallId;
                 cmbMovieName.SelectedValue = _model.MovieId;
                 cmbPrice.SelectedValue = _model.PriceId;
+                dtpProjectionDateTime.Value = _model.StartTime.Value;
+                dtpEndTime.Value = _model.EndTime.Value;
             }
             LoadButtons();
             loadingPictureBox.Hide();
@@ -185,8 +187,15 @@ namespace eCinema.WinUI
                 MovieId = (Guid?)cmbMovieName?.SelectedValue,
             };
 
-            await _projectionService.Hide<ProjectionDto>(_model.Id, upsert);
-            MessageBox.Show("Projection hidden.");
+            try
+            {
+                await _projectionService.Hide<ProjectionDto>(_model.Id, upsert);
+                MessageBox.Show("Projection hidden.");
+            }
+            catch
+            {
+                MessageBox.Show("This projection has active reservations!");
+            }
             this.Close();
         }
 
@@ -210,6 +219,18 @@ namespace eCinema.WinUI
         private void cmbProjectionType_Validating(object sender, CancelEventArgs e)
         {
             ValidationHelper.ValidateComboBox(cmbProjectionType, e, "Projection type", errorProvider);
+        }
+
+        private void dtpProjectionDateTime_Validating(object sender, CancelEventArgs e)
+        {
+            ValidationHelper.ValidateDateTime(dtpProjectionDateTime, e, "Start date", errorProvider, true, dtpEndTime);
+
+        }
+
+        private void dtpEndTime_Validating(object sender, CancelEventArgs e)
+        {
+            ValidationHelper.ValidateDateTime(dtpEndTime, e, "End date", errorProvider, false, dtpProjectionDateTime);
+
         }
     }
 }

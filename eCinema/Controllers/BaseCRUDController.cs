@@ -1,9 +1,11 @@
 ﻿using eCinema.Model.SearchObjects;
 using eCinema.Services.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace eCinema.Controllers
 {
+    [Authorize]
     public class BaseCRUDController<T, TSearch, TInsert, TUpdate> : BaseController<T, TSearch>
         where T : class where TSearch : BaseSearchObject where TInsert : class where TUpdate : class
     {

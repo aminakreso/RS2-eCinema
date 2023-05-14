@@ -15,19 +15,21 @@ namespace eCinema.Controllers
         {
             _projectionService = projectionService;
         }
-        
+        [Authorize("Admin")]
         [HttpPut("{id}/AllowedActions")]
         public async Task<List<string>> AllowedActions(Guid id)
         {
             return await _projectionService.AllowedActions(id);
         }
-        
+
+        //[Authorize("Admin")]
         [HttpPut("{id}/Activate")]
         public async Task<ProjectionDto> Activate(Guid id)
         {
             return await _projectionService.Activate(id);
         }
-        
+
+        //[Authorize("Admin")]
         [HttpPut("{id}/Hide")]
         public async Task<ProjectionDto> Hide(Guid id)
         {

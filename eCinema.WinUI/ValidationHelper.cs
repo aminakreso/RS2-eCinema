@@ -62,5 +62,36 @@ namespace eCinema.WinUI
             }
 
         }
+
+        public static void ValidateDateTime(DateTimePicker dateTime, CancelEventArgs e, string name, ErrorProvider errorProvider, bool lessThan, DateTimePicker compareDate)
+        {
+            if (dateTime.Value < DateTime.Now)
+            {
+                e.Cancel = true;
+                dateTime.Focus();
+
+                errorProvider.SetError(dateTime, name + " can't be in the past!");
+            }
+            else if (lessThan && dateTime.Value>= compareDate.Value)
+            {
+                e.Cancel = true;
+                dateTime.Focus();
+
+                errorProvider.SetError(dateTime, name + $" must be before {compareDate.Value}");
+            }
+            else if (!lessThan && dateTime.Value <= compareDate.Value)
+            {
+                e.Cancel = true;
+                dateTime.Focus();
+
+                errorProvider.SetError(dateTime, name + $" must be after {compareDate.Value}");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(dateTime, "");
+            }
+
+        }
     }
 }

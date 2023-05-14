@@ -88,13 +88,15 @@ namespace eCinema.Services.Database
                 {
                     Id = adminId, FirstName = "Admin", LastName = "Admin", Email = "admin@gmail.com",
                     Username = "admin", LozinkaSalt = saltAdmin, LozinkaHash = UserService.GenerateHash(saltAdmin, "admin"),
-                    RoleId = adminRoleId
+                    RoleId = adminRoleId,
+                    IsActive = true,
                 },
                 new User
                 {
                     Id = userId, FirstName = "User", LastName = "User", Email = "user@gmail.com",
                     Username = "user", LozinkaSalt = saltUser, LozinkaHash = UserService.GenerateHash(saltUser, "user"),
-                    RoleId = adminRoleId
+                    RoleId = adminRoleId,
+                    IsActive = true,
                 }
             );
 

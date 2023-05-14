@@ -138,6 +138,7 @@
             this.dtpProjectionDateTime.Name = "dtpProjectionDateTime";
             this.dtpProjectionDateTime.Size = new System.Drawing.Size(245, 27);
             this.dtpProjectionDateTime.TabIndex = 12;
+            this.dtpProjectionDateTime.Validating += new System.ComponentModel.CancelEventHandler(this.dtpProjectionDateTime_Validating);
             // 
             // btnSave
             // 
@@ -175,6 +176,7 @@
             this.dtpEndTime.Name = "dtpEndTime";
             this.dtpEndTime.Size = new System.Drawing.Size(250, 27);
             this.dtpEndTime.TabIndex = 17;
+            this.dtpEndTime.Validating += new System.ComponentModel.CancelEventHandler(this.dtpEndTime_Validating);
             // 
             // label6
             // 

@@ -29,6 +29,12 @@ namespace eCinema.WinUI
             if (_model is not null)
             {
                 LoadAccessInfo();
+                var role = _model.Role?.Name;
+
+                if(role == "Admin")
+                {
+                    SetAdminReadOnly();
+                }
                 txtFirstName.Text = _model.FirstName;
                 txtLastName.Text = _model.LastName;
                 txtEmail.Text = _model.Email;
@@ -39,7 +45,18 @@ namespace eCinema.WinUI
             }
         }
 
-        private void LoadAccessInfo()
+        private void SetAdminReadOnly()
+        {
+            txtFirstName.ReadOnly = true;
+            txtLastName.ReadOnly = true;
+            txtEmail.ReadOnly = true;
+            txtPhoneNumber.ReadOnly = true;
+            btnSave.Visible = false;
+            //cmbRole.CanSelect = false;
+            //cbIsActive.CanSelect = false;
+        }
+
+            private void LoadAccessInfo()
         {
             if(_model is not null)
             {
