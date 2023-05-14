@@ -46,5 +46,28 @@ namespace eCinema.WinUI
             frmPriceDetails.ShowDialog();
             await LoadData();
         }
+
+        private async void dgvPrices_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                var senderGrid = (DataGridView)sender;
+
+                if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                    e.RowIndex >= 0)
+                {
+                    var price = (PriceDto)(this.dgvPrices.Rows[e.RowIndex]
+                       .DataBoundItem);
+
+                    await _priceService.Delete<PriceDto>(price.Id);
+                }
+
+                await LoadData();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

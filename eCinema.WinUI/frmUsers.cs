@@ -47,7 +47,8 @@ namespace eCinema.WinUI
             }
 
             var list = await _userService.Get<List<UserDto>>(searchObject);
-            dgvUsers.DataSource = list;
+            //list = list.OrderBy(x => x.IsActive).ToList();
+            dgvUsers.DataSource = list.OrderByDescending(x=> x.IsActive).ToList();
         }
 
         private async void frmUsers_Load(object sender, EventArgs e)

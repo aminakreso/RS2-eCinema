@@ -66,6 +66,20 @@ namespace eCinema.Services.Services
                 entity.Picture = Images.DefaultImage;
         }
 
+        public async override Task<MovieDto> Delete(Guid id)
+        {
+            var movie = await _cinemaContext.Movies.FindAsync(id);
+
+            if (await _cinemaContext.Projections.AnyAsync(x => x.MovieId == id) == false)
+            {
+                return await base.Delete(id);
+            }
+            else
+            {
+                throw new Exception("This movie has active projections!");
+            }
+        }
+
         static object isLocked = new object();
         static MLContext mlContext = null;
         static ITransformer model = null;

@@ -3,6 +3,7 @@ using eCinema.Model.Dtos;
 using eCinema.Model.Requests;
 using eCinema.Model.SearchObjects;
 using eCinema.Services.Database;
+using Microsoft.EntityFrameworkCore;
 
 namespace eCinema.Services.Services
 {
@@ -21,6 +22,21 @@ namespace eCinema.Services.Services
                 filteredQuery = filteredQuery.Where(x => x.Name!.ToLower().Contains(search.Name.ToLower()));
 
             return filteredQuery;
+
+        }
+
+        public async override Task<PriceDto> Delete(Guid id)
+        {
+            var price = await _cinemaContext.Prices.FindAsync(id);
+
+            if (await _cinemaContext.Projections.AnyAsync(x => x.PriceId == id) == false)
+            {
+                return await base.Delete(id);
+            }
+            else
+            {
+                throw new Exception("This price has active projections!");
+            }
 
         }
 

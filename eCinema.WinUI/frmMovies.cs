@@ -55,6 +55,7 @@ namespace eCinema.WinUI
             searchObject.Name = txtName.Text;
             searchObject.Director = txtDirector.Text;
             searchObject.Genres = cmbGenre.Text;
+            searchObject.IsActive = true;
             searchObject.PageSize = _pageSize;
             searchObject.Page = _selectedPage;
 
@@ -83,9 +84,26 @@ namespace eCinema.WinUI
 
         }
 
-        private void dgvMovies_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private async void dgvMovies_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            var senderGrid = (DataGridView)sender;
+            try
+            {
+                if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                    e.RowIndex >= 0)
+                {
+                    var movie = (MovieDto)(this.dgvMovies.Rows[e.RowIndex]
+                       .DataBoundItem);
 
+                    await _movieService.Delete<MovieDto>(movie.Id);
+                }
+
+                await LoadData();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private async void btnPrevious_Click(object sender, EventArgs e)

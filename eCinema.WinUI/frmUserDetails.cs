@@ -52,8 +52,8 @@ namespace eCinema.WinUI
             txtEmail.ReadOnly = true;
             txtPhoneNumber.ReadOnly = true;
             btnSave.Visible = false;
-            //cmbRole.CanSelect = false;
-            //cbIsActive.CanSelect = false;
+            cmbRole.Enabled = false;
+            cbIsActive.Enabled = false;
         }
 
             private void LoadAccessInfo()

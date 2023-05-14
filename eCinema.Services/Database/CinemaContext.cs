@@ -95,7 +95,7 @@ namespace eCinema.Services.Database
                 {
                     Id = userId, FirstName = "User", LastName = "User", Email = "user@gmail.com",
                     Username = "user", LozinkaSalt = saltUser, LozinkaHash = UserService.GenerateHash(saltUser, "user"),
-                    RoleId = adminRoleId,
+                    RoleId = userRoleId,
                     IsActive = true,
                 }
             );
