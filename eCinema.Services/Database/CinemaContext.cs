@@ -70,9 +70,9 @@ namespace eCinema.Services.Database
             );
 
             modelBuilder.Entity<Price>().HasData(
-                new Price { Id = listPriceId[0], Name = "Dnevna projekcija", Value = 6 },
-                new Price { Id = listPriceId[1], Name = "Vecernja projekcija", Value = 7 },
-                new Price { Id = listPriceId[2], Name = "Vikend projekcija", Value = 8 }
+                new Price { Id = listPriceId[0], Name = "Dnevna projekcija", Value = 6 , IsActive=true},
+                new Price { Id = listPriceId[1], Name = "Vecernja projekcija", Value = 7 , IsActive = true },
+                new Price { Id = listPriceId[2], Name = "Vikend projekcija", Value = 8 , IsActive = true }
             );
 
             modelBuilder.Entity<Role>().HasData(

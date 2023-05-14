@@ -102,7 +102,7 @@ namespace eCinema.WinUI
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("There are active projections for selected movie!");
             }
         }
 

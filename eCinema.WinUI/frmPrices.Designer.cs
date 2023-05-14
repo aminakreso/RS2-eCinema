@@ -118,6 +118,7 @@
             this.Izbriši.Name = "Izbriši";
             this.Izbriši.ReadOnly = true;
             this.Izbriši.Text = "Izbriši";
+            this.Izbriši.UseColumnTextForButtonValue = true;
             this.Izbriši.Width = 125;
             // 
             // frmPrices

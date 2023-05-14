@@ -21,6 +21,11 @@ namespace eCinema.Services.Services
             if (!string.IsNullOrWhiteSpace(search.Name))
                 filteredQuery = filteredQuery.Where(x => x.Name!.ToLower().Contains(search.Name.ToLower()));
 
+            if (search?.IsActive is not null)
+            {
+                filteredQuery = filteredQuery.Where(x => x.IsActive == search.IsActive);
+            }
+
             return filteredQuery;
 
         }

@@ -50,6 +50,11 @@ namespace eCinema.Services.Services
             if (!string.IsNullOrWhiteSpace(search.Genres) && search.Genres!="Svi")
                 filteredQuery = filteredQuery.Where(x => x.Genres!.ToLower().Contains(search.Genres.ToLower()));
 
+            if (search?.IsActive is not null)
+            {
+                filteredQuery = filteredQuery.Where(x => x.IsActive == search.IsActive);
+            }
+
             return filteredQuery;
 
         }

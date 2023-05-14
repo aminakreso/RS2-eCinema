@@ -36,7 +36,6 @@ namespace eCinema.WinUI
                 txtDescription.Text = _model.Description;
                 txtCountry.Text = _model.Country;
                 txtActors.Text = _model.Actors;
-                cbIsActive.Checked = _model.IsActive.GetValueOrDefault(false);
                 if(_model.Picture != null)
                     pbPicture.Image = ImageHelper.FromByteToImage(_model.Picture);
             }

@@ -33,6 +33,7 @@ namespace eCinema.WinUI
         {
             var searchObject = new PriceSearchObject();
             searchObject.Name = txtName.Text;
+            searchObject.IsActive = true;
 
             var list = await _priceService.Get<List<PriceDto>>(searchObject);
             dgvPrices.DataSource = list;
@@ -66,7 +67,8 @@ namespace eCinema.WinUI
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("There are active projections for selected price!");
+
             }
         }
     }

@@ -207,7 +207,7 @@
             // 
             // isActiveDataGridViewTextBoxColumn
             // 
-            this.isActiveDataGridViewTextBoxColumn.HeaderText = "";
+            this.isActiveDataGridViewTextBoxColumn.HeaderText = "Izbriši";
             this.isActiveDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.isActiveDataGridViewTextBoxColumn.Name = "isActiveDataGridViewTextBoxColumn";
             this.isActiveDataGridViewTextBoxColumn.ReadOnly = true;
@@ -215,6 +215,7 @@
             this.isActiveDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.isActiveDataGridViewTextBoxColumn.Text = "Izbriši";
             this.isActiveDataGridViewTextBoxColumn.ToolTipText = "Izbriši";
+            this.isActiveDataGridViewTextBoxColumn.UseColumnTextForButtonValue = true;
             this.isActiveDataGridViewTextBoxColumn.Width = 125;
             // 
             // frmMovies

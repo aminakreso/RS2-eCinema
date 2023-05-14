@@ -45,7 +45,6 @@
             this.txtGenres = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.cbIsActive = new System.Windows.Forms.CheckBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.pbPicture = new System.Windows.Forms.PictureBox();
             this.ofdPicture = new System.Windows.Forms.OpenFileDialog();
@@ -195,16 +194,6 @@
             this.label5.TabIndex = 31;
             this.label5.Text = "Glumci";
             // 
-            // cbIsActive
-            // 
-            this.cbIsActive.AutoSize = true;
-            this.cbIsActive.Location = new System.Drawing.Point(99, 392);
-            this.cbIsActive.Name = "cbIsActive";
-            this.cbIsActive.Size = new System.Drawing.Size(80, 24);
-            this.cbIsActive.TabIndex = 32;
-            this.cbIsActive.Text = "Aktivan";
-            this.cbIsActive.UseVisualStyleBackColor = true;
-            // 
             // btnSave
             // 
             this.btnSave.Location = new System.Drawing.Point(304, 392);
@@ -260,7 +249,6 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.pbPicture);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.cbIsActive);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtGenres);
@@ -305,7 +293,6 @@
         private RichTextBox txtGenres;
         private Label label4;
         private Label label5;
-        private CheckBox cbIsActive;
         private Button btnSave;
         private PictureBox pbPicture;
         private OpenFileDialog ofdPicture;
