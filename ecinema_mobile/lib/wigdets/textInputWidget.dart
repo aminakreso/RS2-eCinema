@@ -1,14 +1,19 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 
 class TextInputWidget extends StatelessWidget {
-  const TextInputWidget({
-    Key? key,
-    required this.controller,
-    required this.labelText,
-  }) : super(key: key);
+  const TextInputWidget(
+      {Key? key,
+      required this.controller,
+      required this.labelText,
+      required this.minLength,
+      required this.isEmail})
+      : super(key: key);
 
   final TextEditingController controller;
   final String? labelText;
+  final int minLength;
+  final bool isEmail;
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +28,10 @@ class TextInputWidget extends StatelessWidget {
             validator: (value) {
               if (value!.isEmpty) {
                 return '$labelText must not be empty!';
+              } else if (minLength > 0 && value.length < minLength) {
+                return '$labelText must have at least $minLength characters!';
+              } else if (isEmail && !EmailValidator.validate(value)) {
+                return '$labelText must have correct format';
               }
               return null;
             },

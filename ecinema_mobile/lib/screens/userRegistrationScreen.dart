@@ -49,30 +49,44 @@ class _UserRegistrationScreenState extends State<UserRegistrationScreen> {
           TextInputWidget(
             labelText: "First name",
             controller: _firstNameController,
+            minLength: 6,
+            isEmail: false,
           ),
           TextInputWidget(
             labelText: "Last name",
             controller: _lastnameController,
+            minLength: 6,
+            isEmail: false,
           ),
           TextInputWidget(
             labelText: "E-mail",
             controller: _emailController,
+            minLength: 7,
+            isEmail: true,
           ),
           TextInputWidget(
             labelText: "Phone number",
             controller: _phoneController,
+            minLength: 9,
+            isEmail: false,
           ),
           TextInputWidget(
             labelText: "Username",
             controller: _usernameController,
+            minLength: 6,
+            isEmail: false,
           ),
           TextInputWidget(
             labelText: "Password",
             controller: _passwordController,
+            minLength: 6,
+            isEmail: false,
           ),
           TextInputWidget(
             labelText: "Confirm password",
             controller: _confirmPasswordController,
+            minLength: 6,
+            isEmail: false,
           ),
           TextButton(
             onPressed: () async {

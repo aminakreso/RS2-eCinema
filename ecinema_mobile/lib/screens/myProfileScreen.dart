@@ -2,6 +2,7 @@ import 'package:ecinema_mobile/providers/userProvider.dart';
 import 'package:ecinema_mobile/screens/movieListScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:email_validator/email_validator.dart';
 
 import '../models/user.dart';
 import '../requests/userUpdateRequest.dart';
@@ -68,19 +69,19 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text("Ime ", style: Theme.of(context).textTheme.bodyText2),
-                    setProfileInput(_firstNameController, "First name"),
+                    setProfileInput(_firstNameController, "First name", 2),
                     Text("Prezime ",
                         style: Theme.of(context).textTheme.bodyText2),
-                    setProfileInput(_lastnameController, "Last name"),
+                    setProfileInput(_lastnameController, "Last name", 2),
                     Text("Email ",
                         style: Theme.of(context).textTheme.bodyText2),
-                    setProfileInput(_emailController, "Email"),
+                    setProfileInput(_emailController, "Email", 7, true),
                     Text("Broj telefona ",
                         style: Theme.of(context).textTheme.bodyText2),
-                    setProfileInput(_phoneController, "Phone number"),
+                    setProfileInput(_phoneController, "Phone number", 9),
                     Text("Korisničko ime ",
                         style: Theme.of(context).textTheme.bodyText2),
-                    setProfileInput(_usernameController, "Username"),
+                    setProfileInput(_usernameController, "Username", 4),
                   ],
                 ),
               ),
@@ -110,8 +111,8 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
     );
   }
 
-  Container setProfileInput(
-      TextEditingController controller, String labelText) {
+  Container setProfileInput(TextEditingController controller, String labelText,
+      [int minLenght = 0, bool isEmail = false]) {
     return Container(
         margin: EdgeInsets.all(8),
         decoration: BoxDecoration(
@@ -122,6 +123,10 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
           validator: (value) {
             if (value!.isEmpty) {
               return '$labelText must not be empty!';
+            } else if (minLenght > 0 && value.length < minLenght) {
+              return '$labelText must have at least $minLenght characters!';
+            } else if (isEmail && !EmailValidator.validate(value)) {
+              return '$labelText must have correct format';
             }
             return null;
           },
