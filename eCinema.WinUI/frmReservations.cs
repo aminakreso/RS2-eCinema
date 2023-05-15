@@ -1,19 +1,12 @@
 ﻿using eCinema.Model.Dtos;
 using eCinema.Model.SearchObjects;
+using eCinema.WinUI.Reports;
 using iText.Kernel.Font;
 using iText.Kernel.Pdf;
 using iText.Layout;
 using iText.Layout.Element;
 using iText.Layout.Properties;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace eCinema.WinUI
 {
@@ -121,6 +114,9 @@ namespace eCinema.WinUI
 
             List<ReservationDto> data = await _reservationService.Get<List<ReservationDto>>(searchObject);
 
+            frmReport1 frmReport1 = new frmReport1(data);
+            frmReport1.ShowDialog();
+
             PdfDocument pdfDoc = new PdfDocument(new PdfWriter(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\rezervacije.pdf"));
 
             Document doc = new Document(pdfDoc);
@@ -182,6 +178,8 @@ namespace eCinema.WinUI
             }
             PdfDocument pdfDoc = new PdfDocument(new PdfWriter(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\ukupanPrihod.pdf"));
 
+            frmReport2 frmReport2 = new frmReport2(data, reservations);
+            frmReport2.ShowDialog();
             // create a new document instance
             Document doc = new Document(pdfDoc);
 
@@ -189,7 +187,7 @@ namespace eCinema.WinUI
             Table table = new Table(4);
 
             // add header row with column names
-            table.AddHeaderCell("Naziv Nekretnine");
+            table.AddHeaderCell("Naziv projekcije");
             table.AddHeaderCell("Cijena");
             table.AddHeaderCell("Br. Korisnika");
             table.AddHeaderCell("Ukupan prihod");

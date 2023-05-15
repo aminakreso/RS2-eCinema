@@ -9,9 +9,21 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <None Remove="Reports\Report1.rdlc" />
+      <None Remove="Reports\Report2.rdlc" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Include="Reports\Report1.rdlc" />
+      <EmbeddedResource Include="Reports\Report2.rdlc" />
+    </ItemGroup>
+
+    <ItemGroup>
       <PackageReference Include="Flurl" Version="3.0.6" />
       <PackageReference Include="Flurl.Http" Version="3.2.4" />
       <PackageReference Include="itext7" Version="7.2.5" />
+      <PackageReference Include="ReportViewerCore.NETCore" Version="15.1.17" />
+      <PackageReference Include="ReportViewerCore.WinForms" Version="15.1.17" />
       <PackageReference Include="Stripe.net" Version="40.14.0" />
     </ItemGroup>
 
@@ -25,12 +37,21 @@
         <AutoGen>True</AutoGen>
         <DependentUpon>Settings.settings</DependentUpon>
       </Compile>
+      <Compile Update="report1ds.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>report1ds.xsd</DependentUpon>
+      </Compile>
     </ItemGroup>
 
     <ItemGroup>
       <None Update="Properties\Settings.settings">
         <Generator>SettingsSingleFileGenerator</Generator>
         <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      </None>
+      <None Update="report1ds.xsd">
+        <Generator>MSDataSetGenerator</Generator>
+        <LastGenOutput>report1ds.Designer.cs</LastGenOutput>
       </None>
     </ItemGroup>
 

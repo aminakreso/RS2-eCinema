@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="report1ds" targetNamespace="http://tempuri.org/report1ds.xsd" xmlns:mstns="http://tempuri.org/report1ds.xsd" xmlns="http://tempuri.org/report1ds.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="report1ds" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="report1ds" msprop:Generator_DataSetName="report1ds">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Rezervacije" msprop:Generator_RowEvHandlerName="RezervacijeRowChangeEventHandler" msprop:Generator_RowDeletedName="RezervacijeRowDeleted" msprop:Generator_RowDeletingName="RezervacijeRowDeleting" msprop:Generator_RowEvArgName="RezervacijeRowChangeEvent" msprop:Generator_TablePropName="Rezervacije" msprop:Generator_RowChangedName="RezervacijeRowChanged" msprop:Generator_RowChangingName="RezervacijeRowChanging" msprop:Generator_TableClassName="RezervacijeDataTable" msprop:Generator_RowClassName="RezervacijeRow" msprop:Generator_TableVarName="tableRezervacije" msprop:Generator_UserTableName="Rezervacije">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Korisnik" msprop:Generator_ColumnPropNameInRow="Korisnik" msprop:Generator_ColumnPropNameInTable="KorisnikColumn" msprop:Generator_ColumnVarNameInTable="columnKorisnik" msprop:Generator_UserColumnName="Korisnik" type="xs:string" minOccurs="0" />
+              <xs:element name="PocetakProjekcije" msprop:Generator_ColumnPropNameInRow="PocetakProjekcije" msprop:Generator_ColumnPropNameInTable="PocetakProjekcijeColumn" msprop:Generator_ColumnVarNameInTable="columnPocetakProjekcije" msprop:Generator_UserColumnName="PocetakProjekcije" type="xs:string" minOccurs="0" />
+              <xs:element name="Film" msprop:Generator_ColumnPropNameInRow="Film" msprop:Generator_ColumnPropNameInTable="FilmColumn" msprop:Generator_ColumnVarNameInTable="columnFilm" msprop:Generator_UserColumnName="Film" type="xs:string" minOccurs="0" />
+              <xs:element name="TipProjekcije" msprop:Generator_ColumnPropNameInRow="TipProjekcije" msprop:Generator_ColumnPropNameInTable="TipProjekcijeColumn" msprop:Generator_ColumnVarNameInTable="columnTipProjekcije" msprop:Generator_UserColumnName="TipProjekcije" type="xs:string" minOccurs="0" />
+              <xs:element name="Iznos" msprop:Generator_ColumnPropNameInRow="Iznos" msprop:Generator_ColumnPropNameInTable="IznosColumn" msprop:Generator_ColumnVarNameInTable="columnIznos" msprop:Generator_UserColumnName="Iznos" type="xs:string" minOccurs="0" />
+              <xs:element name="DatumRezervacije" msprop:Generator_ColumnPropNameInRow="DatumRezervacije" msprop:Generator_ColumnPropNameInTable="DatumRezervacijeColumn" msprop:Generator_ColumnVarNameInTable="columnDatumRezervacije" msprop:Generator_UserColumnName="DatumRezervacije" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Projekcije" msprop:Generator_RowEvHandlerName="ProjekcijeRowChangeEventHandler" msprop:Generator_RowDeletedName="ProjekcijeRowDeleted" msprop:Generator_RowDeletingName="ProjekcijeRowDeleting" msprop:Generator_RowEvArgName="ProjekcijeRowChangeEvent" msprop:Generator_TablePropName="Projekcije" msprop:Generator_RowChangedName="ProjekcijeRowChanged" msprop:Generator_RowChangingName="ProjekcijeRowChanging" msprop:Generator_TableClassName="ProjekcijeDataTable" msprop:Generator_RowClassName="ProjekcijeRow" msprop:Generator_TableVarName="tableProjekcije" msprop:Generator_UserTableName="Projekcije">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NazivProjekcije" msprop:Generator_ColumnPropNameInRow="NazivProjekcije" msprop:Generator_ColumnPropNameInTable="NazivProjekcijeColumn" msprop:Generator_ColumnVarNameInTable="columnNazivProjekcije" msprop:Generator_UserColumnName="NazivProjekcije" type="xs:string" minOccurs="0" />
+              <xs:element name="Cijena" msprop:Generator_ColumnPropNameInRow="Cijena" msprop:Generator_ColumnPropNameInTable="CijenaColumn" msprop:Generator_ColumnVarNameInTable="columnCijena" msprop:Generator_UserColumnName="Cijena" type="xs:string" minOccurs="0" />
+              <xs:element name="BrKorisnika" msprop:Generator_ColumnPropNameInRow="BrKorisnika" msprop:Generator_ColumnPropNameInTable="BrKorisnikaColumn" msprop:Generator_ColumnVarNameInTable="columnBrKorisnika" msprop:Generator_UserColumnName="BrKorisnika" type="xs:string" minOccurs="0" />
+              <xs:element name="UkupanPrihod" msprop:Generator_ColumnPropNameInRow="UkupanPrihod" msprop:Generator_ColumnPropNameInTable="UkupanPrihodColumn" msprop:Generator_ColumnVarNameInTable="columnUkupanPrihod" msprop:Generator_UserColumnName="UkupanPrihod" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
