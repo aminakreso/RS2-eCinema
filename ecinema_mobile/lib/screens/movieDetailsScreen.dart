@@ -51,7 +51,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
   }
 
   Future loadProjections(String? name) async {
-    var searchRequest = {'Name': name};
+    var searchRequest = {'Name': name, 'StateMachine': 'Active'};
     var movieProjection = await _projectionProvider?.get(searchRequest);
     setState(() {
       this.movieProjection = movieProjection;

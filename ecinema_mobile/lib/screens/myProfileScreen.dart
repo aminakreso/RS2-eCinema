@@ -58,50 +58,53 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
     return Form(
       key: _formKey,
       child: MasterScreenWidget(
-        child: Column(
-          children: [
-            HeaderWidget(title: "Moj Profil"),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text("Ime ", style: Theme.of(context).textTheme.bodyText2),
-                  setProfileInput(_firstNameController, "First name"),
-                  Text("Prezime ",
-                      style: Theme.of(context).textTheme.bodyText2),
-                  setProfileInput(_lastnameController, "Last name"),
-                  Text("Email ", style: Theme.of(context).textTheme.bodyText2),
-                  setProfileInput(_emailController, "Email"),
-                  Text("Broj telefona ",
-                      style: Theme.of(context).textTheme.bodyText2),
-                  setProfileInput(_phoneController, "Phone number"),
-                  Text("Korisničko ime ",
-                      style: Theme.of(context).textTheme.bodyText2),
-                  setProfileInput(_usernameController, "Username"),
-                ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              HeaderWidget(title: "Moj Profil"),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Ime ", style: Theme.of(context).textTheme.bodyText2),
+                    setProfileInput(_firstNameController, "First name"),
+                    Text("Prezime ",
+                        style: Theme.of(context).textTheme.bodyText2),
+                    setProfileInput(_lastnameController, "Last name"),
+                    Text("Email ",
+                        style: Theme.of(context).textTheme.bodyText2),
+                    setProfileInput(_emailController, "Email"),
+                    Text("Broj telefona ",
+                        style: Theme.of(context).textTheme.bodyText2),
+                    setProfileInput(_phoneController, "Phone number"),
+                    Text("Korisničko ime ",
+                        style: Theme.of(context).textTheme.bodyText2),
+                    setProfileInput(_usernameController, "Username"),
+                  ],
+                ),
               ),
-            ),
-            TextButton(
-              onPressed: () async {
-                if (_formKey.currentState!.validate()) {
-                  try {
-                    userUpdateRequest.firstName = _firstNameController.text;
-                    userUpdateRequest.lastName = _lastnameController.text;
-                    userUpdateRequest.email = _emailController.text;
-                    userUpdateRequest.phoneNumber = _phoneController.text;
-                    userUpdateRequest.username = _usernameController.text;
+              TextButton(
+                onPressed: () async {
+                  if (_formKey.currentState!.validate()) {
+                    try {
+                      userUpdateRequest.firstName = _firstNameController.text;
+                      userUpdateRequest.lastName = _lastnameController.text;
+                      userUpdateRequest.email = _emailController.text;
+                      userUpdateRequest.phoneNumber = _phoneController.text;
+                      userUpdateRequest.username = _usernameController.text;
 
-                    await _userProvider?.update(user!.id, userUpdateRequest);
-                    Navigator.pushNamed(context, MovieListScreen.routeName);
-                  } catch (e) {
-                    errorDialog(context, e);
+                      await _userProvider?.update(user!.id, userUpdateRequest);
+                      Navigator.pushNamed(context, MovieListScreen.routeName);
+                    } catch (e) {
+                      errorDialog(context, e);
+                    }
                   }
-                }
-              },
-              child: Text('Sačuvaj'),
-            )
-          ],
+                },
+                child: Text('Sačuvaj'),
+              )
+            ],
+          ),
         ),
       ),
     );

@@ -34,7 +34,8 @@ class _MovieListScreenState extends State<MovieListScreen> {
   }
 
   Future loadData() async {
-    var tmpData = await _movieProvider?.get(null);
+    var tmpData =
+        await _movieProvider?.get({'IsActive': true, 'HasProjection': true});
     setState(() {
       data = tmpData!;
     });

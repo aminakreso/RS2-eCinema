@@ -13,6 +13,7 @@ User _$UserFromJson(Map<String, dynamic> json) => User(
       json['email'] as String?,
       json['phoneNumber'] as String?,
       json['username'] as String?,
+      json['isActive'] as bool?,
     );
 
 Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
@@ -22,4 +23,5 @@ Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
       'email': instance.email,
       'phoneNumber': instance.phoneNumber,
       'username': instance.username,
+      'isActive': instance.isActive,
     };

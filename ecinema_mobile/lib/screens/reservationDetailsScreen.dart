@@ -83,8 +83,8 @@ class _ReservationDetailsScreenState extends State<ReservationDetailsScreen> {
 
   Future loadSeats() async {
     if (id == null) return;
-    List<SeatxrefReservation>? temp = await _seatReservationProvider
-        ?.get({'ReservationId': id, 'IncludeSeats': true});
+    List<SeatxrefReservation>? temp = await _seatReservationProvider?.get(
+        {'ReservationId': id, 'IncludeSeats': true, 'IncludePrices': true});
     if (temp != null) {
       setState(() {
         reservationInsertRequest?.seats =
@@ -168,7 +168,7 @@ class _ReservationDetailsScreenState extends State<ReservationDetailsScreen> {
                               borderRadius: BorderRadius.circular(10.0)),
                           child: Center(
                             child: Text(
-                              "${projection?.projectionType}  - Sjedalo ${reservationInsertRequest!.seats![index].name}", // da pise ime
+                              "${projection?.price?.name}  - Sjedalo ${reservationInsertRequest!.seats![index].name}", // da pise ime
                               style: Theme.of(context).textTheme.headline6,
                             ),
                           ),
