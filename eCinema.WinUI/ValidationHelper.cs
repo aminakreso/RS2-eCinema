@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace eCinema.WinUI
 {
     public static class ValidationHelper
     {
-        public static void  Validate(TextBox textBox, CancelEventArgs e, string name, ErrorProvider errorProvider, bool number = false)
+        public static void  Validate(TextBox textBox, CancelEventArgs e, string name, ErrorProvider errorProvider, bool number = false, int minLenght=0)
         {
             if (string.IsNullOrWhiteSpace(textBox.Text) || (number && !int.TryParse(textBox.Text, out int result)))
             {
@@ -21,12 +22,57 @@ namespace eCinema.WinUI
                 else
                     errorProvider.SetError(textBox, name + " should not be left blank!");
             }
+            else if(minLenght>0 && textBox.Text.Length < minLenght)
+            {
+                e.Cancel = true;
+                textBox.Focus();
+                errorProvider.SetError(textBox, name + $" must be at least {minLenght} characters long !");
+            }
             else
             {
                 e.Cancel = false;
                 errorProvider.SetError(textBox, "");
             }
 
+        }
+
+        public static void ValidateEmail(TextBox textBox, CancelEventArgs e, string name, ErrorProvider errorProvider)
+        {
+            if (!isEmail(textBox.Text))
+            {
+                e.Cancel = true;
+                textBox.Focus();
+
+                errorProvider.SetError(textBox, name + " is not in valid format");
+
+            }
+     
+        }
+
+        public static void ValidatePhoneNumber(TextBox textBox, CancelEventArgs e, string name, ErrorProvider errorProvider)
+        {
+            if (!isPhoneNumber(textBox.Text))
+            {
+                e.Cancel = true;
+                textBox.Focus();
+
+                errorProvider.SetError(textBox, name + " is not in valid format");
+
+            }
+
+        }
+
+        private static bool isEmail(string email)
+        {
+            string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            bool isValidEmail = Regex.IsMatch(email, pattern);
+            return isValidEmail;
+        }
+
+        private static bool isPhoneNumber(string text)
+        {
+            Regex regex = new Regex(@"^\d{3}\s\d{3}\s\d{3,4}$");
+            return regex.IsMatch(text);
         }
 
         public static void ValidateRichTextBox(RichTextBox textBox, CancelEventArgs e, string name, ErrorProvider errorProvider)

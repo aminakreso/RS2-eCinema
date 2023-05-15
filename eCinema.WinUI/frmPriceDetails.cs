@@ -39,13 +39,14 @@ namespace eCinema.WinUI
                 {
                     await _priceService.Post<PriceDto>(upsert);
                     MessageBox.Show("Price added.");
-                    this.Close();
+                    saveDataAndLoadForm();
                 }
                 else
                 {
                     _model = await _priceService.Put<PriceDto>(_model.Id, upsert);
                     MessageBox.Show("Price edited.");
-                    this.Close();
+                    saveDataAndLoadForm();
+
                 }
             }
         }
@@ -59,9 +60,16 @@ namespace eCinema.WinUI
             }
         }
 
+        private void saveDataAndLoadForm()
+        {
+            this.Close();
+            frmPrices frmPrices = new frmPrices();
+            frmPrices.ShowDialog();
+        }
+
         private void txtName_Validating(object sender, CancelEventArgs e)
         {
-            ValidationHelper.Validate(txtName, e, "Name", errorProvider);
+            ValidationHelper.Validate(txtName, e, "Name", errorProvider, false, 3);
 
         }
 

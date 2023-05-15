@@ -139,39 +139,41 @@ namespace eCinema.WinUI
 
         private void txtFirstName_Validating(object sender, CancelEventArgs e)
         {
-            ValidationHelper.Validate(txtFirstName, e, "First name", errorProvider);
+            ValidationHelper.Validate(txtFirstName, e, "First name", errorProvider, false, 2);
         }
 
         private void txtLastName_Validating(object sender, CancelEventArgs e)
         {
-            ValidationHelper.Validate(txtLastName, e, "Last name", errorProvider);
+            ValidationHelper.Validate(txtLastName, e, "Last name", errorProvider, false, 2);
         }
 
         private void txtEmail_Validating(object sender, CancelEventArgs e)
         {
             ValidationHelper.Validate(txtEmail, e, "Email", errorProvider);
+            ValidationHelper.ValidateEmail(txtEmail, e, "Email", errorProvider);
         }
 
         private void txtPhoneNumber_Validating(object sender, CancelEventArgs e)
         {
             ValidationHelper.Validate(txtPhoneNumber, e, "Phone number", errorProvider);
+            ValidationHelper.ValidatePhoneNumber(txtPhoneNumber, e, "Phone number", errorProvider);
         }
 
         private void txtUserPassword_Validating(object sender, CancelEventArgs e)
         {
             if(_model is null)
-                ValidationHelper.Validate(txtUserPassword, e, "Phone number", errorProvider);
+                ValidationHelper.Validate(txtUserPassword, e, "Password", errorProvider, false, 4);
         }
 
         private void txtPasswordConfirm_Validating(object sender, CancelEventArgs e)
         {
             if (_model is null)
-                ValidationHelper.Validate(txtPasswordConfirm, e, "Phone number", errorProvider);
+                ValidationHelper.Validate(txtPasswordConfirm, e, "Confirm password number", errorProvider, false, 4);
         }
 
         private void cmbRole_Validating(object sender, CancelEventArgs e)
         {
-            ValidationHelper.ValidateComboBox(cmbRole, e, "Role number", errorProvider);
+            ValidationHelper.ValidateComboBox(cmbRole, e, "Role", errorProvider);
         }
     }
 }
