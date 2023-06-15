@@ -261,7 +261,8 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.cbIsActive);
             this.Name = "frmUserDetails";
-            this.Text = "frmUserDetails";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Detalji korisnik";
             this.Load += new System.EventHandler(this.frmUserDetails_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -78,7 +78,12 @@ namespace eCinema.WinUI
                 {
                     await _movieService.Post<MovieDto>(upsert);
                     MessageBox.Show("Movie added.");
+                    var frmMovies = new frmMovies();
+                    frmMovies.MdiParent = this.MdiParent;
+                    frmMovies.StartPosition = FormStartPosition.CenterScreen;
+                    frmMovies.WindowState = FormWindowState.Maximized;
                     this.Close();
+                    frmMovies.Show();
                 }
                 else
                 {

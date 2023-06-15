@@ -116,7 +116,12 @@ namespace eCinema.WinUI
 
                     var user = await _userService.Post<UserDto>(insert);
                     MessageBox.Show("User added.");
+                    var frmUsers = new frmUsers();
+                    frmUsers.MdiParent = this.MdiParent;
+                    frmUsers.StartPosition = FormStartPosition.CenterScreen;
+                    frmUsers.WindowState = FormWindowState.Maximized;
                     this.Close();
+                    frmUsers.Show();
                 }
                 else
                 {

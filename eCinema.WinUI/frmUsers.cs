@@ -57,7 +57,6 @@ namespace eCinema.WinUI
             await LoadIsActive();
             cmbRoles.SelectedItem = null;
             cmbRoles.SelectedText = "Svi";
-           
         }
 
         public async Task LoadRoles()

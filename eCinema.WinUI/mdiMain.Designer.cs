@@ -197,7 +197,7 @@
             // rezervacijeToolStripMenuItem1
             // 
             this.rezervacijeToolStripMenuItem1.Name = "rezervacijeToolStripMenuItem1";
-            this.rezervacijeToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.rezervacijeToolStripMenuItem1.Size = new System.Drawing.Size(167, 26);
             this.rezervacijeToolStripMenuItem1.Text = "Rezervacije";
             this.rezervacijeToolStripMenuItem1.Click += new System.EventHandler(this.rezervacijeToolStripMenuItem1_Click);
             // 
@@ -230,7 +230,8 @@
             this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "mdiMain";
-            this.Text = "mdiMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "eCinema";
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.statusStrip.ResumeLayout(false);

@@ -148,7 +148,12 @@ namespace eCinema.WinUI
                 {
                     await _projectionService.Post<ProjectionDto>(upsert);
                     MessageBox.Show("Projection added.");
+                    var frmProjection = new frmProjection();
+                    frmProjection.MdiParent = this.MdiParent;
+                    frmProjection.StartPosition = FormStartPosition.CenterScreen;
+                    frmProjection.WindowState = FormWindowState.Maximized;
                     this.Close();
+                    frmProjection.Show();
                 }
                 else
                 {

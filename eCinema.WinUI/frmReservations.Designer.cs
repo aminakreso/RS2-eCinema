@@ -258,7 +258,8 @@
             this.Controls.Add(this.Film);
             this.Controls.Add(this.dgvReservations);
             this.Name = "frmReservations";
-            this.Text = "frmReservations";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Rezervacije";
             ((System.ComponentModel.ISupportInitialize)(this.dgvReservations)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reservationDtoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loadingPictureBox)).EndInit();

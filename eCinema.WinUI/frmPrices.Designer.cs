@@ -31,12 +31,12 @@
             this.components = new System.ComponentModel.Container();
             this.btnShow = new System.Windows.Forms.Button();
             this.dgvPrices = new System.Windows.Forms.DataGridView();
-            this.priceDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Izbriši = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.priceDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrices)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.priceDtoBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -73,26 +73,6 @@
             this.dgvPrices.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPrices_CellContentClick);
             this.dgvPrices.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPrices_CellDoubleClick);
             // 
-            // priceDtoBindingSource
-            // 
-            this.priceDtoBindingSource.DataSource = typeof(eCinema.Model.Dtos.PriceDto);
-            // 
-            // txtName
-            // 
-            this.txtName.Location = new System.Drawing.Point(191, 47);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(125, 27);
-            this.txtName.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(109, 54);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 20);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Naziv";
-            // 
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
@@ -121,6 +101,26 @@
             this.Izbriši.UseColumnTextForButtonValue = true;
             this.Izbriši.Width = 125;
             // 
+            // priceDtoBindingSource
+            // 
+            this.priceDtoBindingSource.DataSource = typeof(eCinema.Model.Dtos.PriceDto);
+            // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(191, 47);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(125, 27);
+            this.txtName.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(109, 54);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 20);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Naziv";
+            // 
             // frmPrices
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -131,7 +131,8 @@
             this.Controls.Add(this.dgvPrices);
             this.Controls.Add(this.btnShow);
             this.Name = "frmPrices";
-            this.Text = "frmPrices";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Cijene";
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrices)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.priceDtoBindingSource)).EndInit();
             this.ResumeLayout(false);

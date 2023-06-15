@@ -39,7 +39,12 @@ namespace eCinema.WinUI
                 {
                     await _priceService.Post<PriceDto>(upsert);
                     MessageBox.Show("Price added.");
-                    saveDataAndLoadForm();
+                    var frmPrices = new frmPrices();
+                    frmPrices.MdiParent = this.MdiParent;
+                    frmPrices.StartPosition = FormStartPosition.CenterScreen;
+                    frmPrices.WindowState = FormWindowState.Maximized;
+                    this.Close();
+                    frmPrices.Show();
                 }
                 else
                 {

@@ -266,7 +266,8 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label6);
             this.Name = "frmMovieDetails";
-            this.Text = "MovieDetails";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Detalji filma";
             this.Load += new System.EventHandler(this.frmMovieDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();

@@ -36,14 +36,14 @@
             this.cmbAuthor = new System.Windows.Forms.ComboBox();
             this.cmbNotificationType = new System.Windows.Forms.ComboBox();
             this.dgvNotifications = new System.Windows.Forms.DataGridView();
-            this.notificationDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnShow = new System.Windows.Forms.Button();
             this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.authorIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.notificationTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Izbriši = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.notificationDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnShow = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNotifications)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.notificationDtoBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -124,20 +124,6 @@
             this.dgvNotifications.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNotifications_CellContentDoubleClick);
             this.dgvNotifications.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvNotifications_CellFormatting);
             // 
-            // notificationDtoBindingSource
-            // 
-            this.notificationDtoBindingSource.DataSource = typeof(eCinema.Model.Dtos.NotificationDto);
-            // 
-            // btnShow
-            // 
-            this.btnShow.Location = new System.Drawing.Point(601, 42);
-            this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(117, 27);
-            this.btnShow.TabIndex = 7;
-            this.btnShow.Text = "Prikaži";
-            this.btnShow.UseVisualStyleBackColor = true;
-            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
-            // 
             // titleDataGridViewTextBoxColumn
             // 
             this.titleDataGridViewTextBoxColumn.DataPropertyName = "Title";
@@ -192,6 +178,20 @@
             this.Izbriši.ToolTipText = "Izbriši";
             this.Izbriši.Width = 125;
             // 
+            // notificationDtoBindingSource
+            // 
+            this.notificationDtoBindingSource.DataSource = typeof(eCinema.Model.Dtos.NotificationDto);
+            // 
+            // btnShow
+            // 
+            this.btnShow.Location = new System.Drawing.Point(601, 42);
+            this.btnShow.Name = "btnShow";
+            this.btnShow.Size = new System.Drawing.Size(117, 27);
+            this.btnShow.TabIndex = 7;
+            this.btnShow.Text = "Prikaži";
+            this.btnShow.UseVisualStyleBackColor = true;
+            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
+            // 
             // frmNotification
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -206,7 +206,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "frmNotification";
-            this.Text = "frmNotification";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Notifikacije";
             this.Load += new System.EventHandler(this.frmNotification_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvNotifications)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.notificationDtoBindingSource)).EndInit();

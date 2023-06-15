@@ -63,7 +63,7 @@ namespace eCinema.WinUI
 
             loadingPictureBox.Hide();
 
-            if (list.Any())
+            if (list.Any() || _selectedPage == 0)
             {
                 dgvMovies.DataSource = list;
             }

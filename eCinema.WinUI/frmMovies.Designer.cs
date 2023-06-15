@@ -37,16 +37,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvMovies = new System.Windows.Forms.DataGridView();
-            this.movieDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.txtDirector = new System.Windows.Forms.TextBox();
-            this.loadingPictureBox = new System.Windows.Forms.PictureBox();
-            this.btnPrevious = new System.Windows.Forms.Button();
-            this.btnNext = new System.Windows.Forms.Button();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.directorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.genresDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.durationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isActiveDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.movieDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.txtDirector = new System.Windows.Forms.TextBox();
+            this.loadingPictureBox = new System.Windows.Forms.PictureBox();
+            this.btnPrevious = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMovies)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.movieDtoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loadingPictureBox)).BeginInit();
@@ -128,47 +128,6 @@
             this.dgvMovies.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMovies_CellContentClick);
             this.dgvMovies.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsers_CellDoubleClick);
             // 
-            // movieDtoBindingSource
-            // 
-            this.movieDtoBindingSource.DataSource = typeof(eCinema.Model.Dtos.MovieDto);
-            // 
-            // txtDirector
-            // 
-            this.txtDirector.Location = new System.Drawing.Point(296, 43);
-            this.txtDirector.Name = "txtDirector";
-            this.txtDirector.Size = new System.Drawing.Size(119, 27);
-            this.txtDirector.TabIndex = 16;
-            // 
-            // loadingPictureBox
-            // 
-            this.loadingPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("loadingPictureBox.Image")));
-            this.loadingPictureBox.Location = new System.Drawing.Point(320, 182);
-            this.loadingPictureBox.Name = "loadingPictureBox";
-            this.loadingPictureBox.Size = new System.Drawing.Size(125, 116);
-            this.loadingPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.loadingPictureBox.TabIndex = 31;
-            this.loadingPictureBox.TabStop = false;
-            // 
-            // btnPrevious
-            // 
-            this.btnPrevious.Location = new System.Drawing.Point(320, 372);
-            this.btnPrevious.Name = "btnPrevious";
-            this.btnPrevious.Size = new System.Drawing.Size(56, 29);
-            this.btnPrevious.TabIndex = 32;
-            this.btnPrevious.Text = "<<";
-            this.btnPrevious.UseVisualStyleBackColor = true;
-            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
-            // 
-            // btnNext
-            // 
-            this.btnNext.Location = new System.Drawing.Point(393, 372);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(56, 29);
-            this.btnNext.TabIndex = 33;
-            this.btnNext.Text = ">>";
-            this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-            // 
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
@@ -218,6 +177,47 @@
             this.isActiveDataGridViewTextBoxColumn.UseColumnTextForButtonValue = true;
             this.isActiveDataGridViewTextBoxColumn.Width = 125;
             // 
+            // movieDtoBindingSource
+            // 
+            this.movieDtoBindingSource.DataSource = typeof(eCinema.Model.Dtos.MovieDto);
+            // 
+            // txtDirector
+            // 
+            this.txtDirector.Location = new System.Drawing.Point(296, 43);
+            this.txtDirector.Name = "txtDirector";
+            this.txtDirector.Size = new System.Drawing.Size(119, 27);
+            this.txtDirector.TabIndex = 16;
+            // 
+            // loadingPictureBox
+            // 
+            this.loadingPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("loadingPictureBox.Image")));
+            this.loadingPictureBox.Location = new System.Drawing.Point(320, 182);
+            this.loadingPictureBox.Name = "loadingPictureBox";
+            this.loadingPictureBox.Size = new System.Drawing.Size(125, 116);
+            this.loadingPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.loadingPictureBox.TabIndex = 31;
+            this.loadingPictureBox.TabStop = false;
+            // 
+            // btnPrevious
+            // 
+            this.btnPrevious.Location = new System.Drawing.Point(320, 372);
+            this.btnPrevious.Name = "btnPrevious";
+            this.btnPrevious.Size = new System.Drawing.Size(56, 29);
+            this.btnPrevious.TabIndex = 32;
+            this.btnPrevious.Text = "<<";
+            this.btnPrevious.UseVisualStyleBackColor = true;
+            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
+            // 
+            // btnNext
+            // 
+            this.btnNext.Location = new System.Drawing.Point(393, 372);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(56, 29);
+            this.btnNext.TabIndex = 33;
+            this.btnNext.Text = ">>";
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
             // frmMovies
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -235,7 +235,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "frmMovies";
-            this.Text = "frmMovies";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Filmovi";
             this.Load += new System.EventHandler(this.frmMovies_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMovies)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.movieDtoBindingSource)).EndInit();

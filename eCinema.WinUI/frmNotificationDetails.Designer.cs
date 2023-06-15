@@ -160,7 +160,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "frmNotificationDetails";
-            this.Text = "frmNotificationDetails";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Detalji notifikacije";
             this.Load += new System.EventHandler(this.frmNotificationDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSlika)).EndInit();

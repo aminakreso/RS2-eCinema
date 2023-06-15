@@ -70,7 +70,12 @@ namespace eCinema.WinUI
 
                     await _notificationService.Post<NotificationDto>(insert);
                     MessageBox.Show("Notification added.");
+                    var frmNotification = new frmNotification();
+                    frmNotification.MdiParent = this.MdiParent;
+                    frmNotification.StartPosition = FormStartPosition.CenterScreen;
+                    frmNotification.WindowState = FormWindowState.Maximized;
                     this.Close();
+                    frmNotification.Show();
                 }
                 else
                 {

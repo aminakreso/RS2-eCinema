@@ -105,11 +105,15 @@ namespace eCinema.WinUI
 
         private void adToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            frmUsers obj = (frmUsers)Application.OpenForms["frmUsers"];
+            if (obj!=null)
+                obj.Close();
             var childForm = new frmUserDetails();
             childForm.MdiParent = this;
             childForm.Text = "Window " + childFormNumber++;
             childForm.WindowState = FormWindowState.Maximized;
             childForm.Show();
+           
         }
 
         private void obavijestiToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -123,6 +127,9 @@ namespace eCinema.WinUI
 
         private void dodajObavijestToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            frmNotification obj = (frmNotification)Application.OpenForms["frmNotification"];
+            if (obj != null)
+                obj.Close();
             var childForm = new frmNotificationDetails();
             childForm.MdiParent = this;
             childForm.Text = "Window " + childFormNumber++;
@@ -141,6 +148,9 @@ namespace eCinema.WinUI
 
         private void dodajFilmToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            frmMovies obj = (frmMovies)Application.OpenForms["frmMovies"];
+            if (obj != null)
+                obj.Close();
             var childForm = new frmMovieDetails();
             childForm.MdiParent = this;
             childForm.Text = "Window " + childFormNumber++;
@@ -159,6 +169,9 @@ namespace eCinema.WinUI
 
         private void dodajProjekcijuToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            frmProjection obj = (frmProjection)Application.OpenForms["frmProjection"];
+            if (obj != null)
+                obj.Close();
             var childForm = new frmProjectionDetails();
             childForm.MdiParent = this;
             childForm.Text = "Window " + childFormNumber++;
@@ -177,6 +190,9 @@ namespace eCinema.WinUI
 
         private void dodajCijenuToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            frmPrices obj = (frmPrices)Application.OpenForms["frmPrices"];
+            if (obj != null)
+                obj.Close();
             var childForm = new frmPriceDetails();
             childForm.MdiParent = this;
             childForm.Text = "Window " + childFormNumber++;
