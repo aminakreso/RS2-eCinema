@@ -79,6 +79,7 @@ namespace eCinema.WinUI
                 cmbPrice.Enabled = false;
                 cmbProjectionType.Enabled = false;
                 dtpProjectionDateTime.Enabled = false;
+                dtpEndTime.Enabled = false;
             }
 
             if (_model?.StateMachine == StateMachineConstants.HiddenState)

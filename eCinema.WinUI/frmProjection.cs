@@ -125,16 +125,27 @@ namespace eCinema.WinUI
 
         private async Task LoadHalls()
         {
+            var list = new List<HallDto>
+            {
+                new HallDto { Name = "Svi" }
+            };
             var halls = await _hallService.Get<List<HallDto>>();
-            cmbHall.DataSource = halls;
+            list.AddRange(halls);
+            cmbHall.DataSource = list;
             cmbHall.DisplayMember = "Name";
             cmbHall.ValueMember = "Id";
         }
         private async Task LoadStatus()
         {
+            var list = new List<ProjectionDto>
+            {
+                new ProjectionDto { StateMachine = "Svi" }
+            };
             var projections = await _projectionService.Get<List<ProjectionDto>>();
             projections = projections.DistinctBy(x => x.StateMachine).ToList();
-            cmbStatus.DataSource = projections;
+            list.AddRange(projections);
+
+            cmbStatus.DataSource = list;
             cmbStatus.DisplayMember = "StateMachine";
             cmbStatus.ValueMember = "StateMachine";
         }

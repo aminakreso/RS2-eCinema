@@ -61,8 +61,13 @@ namespace eCinema.WinUI
 
         public async Task LoadRoles()
         {
-            var roles = await _roleService.Get<List<RoleDto>>();
-            cmbRoles.DataSource = roles;
+            var list = new List<RoleDto>
+            {
+                new RoleDto { Name = "Svi" }
+            };
+            var roles = await _roleService.Get<List<RoleDto>>(); ;
+            list.AddRange(roles);
+            cmbRoles.DataSource = list;
             cmbRoles.DisplayMember = "Name";
         }
 

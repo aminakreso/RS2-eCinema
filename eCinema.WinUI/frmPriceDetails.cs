@@ -50,7 +50,7 @@ namespace eCinema.WinUI
                 {
                     _model = await _priceService.Put<PriceDto>(_model.Id, upsert);
                     MessageBox.Show("Price edited.");
-                    saveDataAndLoadForm();
+                    this.Close();
 
                 }
             }
@@ -63,13 +63,6 @@ namespace eCinema.WinUI
                 txtName.Text = _model.Name;
                 txtPrice.Text = _model.Value.ToString();
             }
-        }
-
-        private void saveDataAndLoadForm()
-        {
-            this.Close();
-            frmPrices frmPrices = new frmPrices();
-            frmPrices.ShowDialog();
         }
 
         private void txtName_Validating(object sender, CancelEventArgs e)

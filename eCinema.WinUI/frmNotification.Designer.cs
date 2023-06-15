@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNotification));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,8 +45,10 @@
             this.Izbriši = new System.Windows.Forms.DataGridViewButtonColumn();
             this.notificationDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnShow = new System.Windows.Forms.Button();
+            this.loadingPictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNotifications)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.notificationDtoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loadingPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -176,6 +179,7 @@
             this.Izbriši.ReadOnly = true;
             this.Izbriši.Text = "Izbriši";
             this.Izbriši.ToolTipText = "Izbriši";
+            this.Izbriši.UseColumnTextForButtonValue = true;
             this.Izbriši.Width = 125;
             // 
             // notificationDtoBindingSource
@@ -192,11 +196,22 @@
             this.btnShow.UseVisualStyleBackColor = true;
             this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
             // 
+            // loadingPictureBox
+            // 
+            this.loadingPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("loadingPictureBox.Image")));
+            this.loadingPictureBox.Location = new System.Drawing.Point(285, 160);
+            this.loadingPictureBox.Name = "loadingPictureBox";
+            this.loadingPictureBox.Size = new System.Drawing.Size(125, 116);
+            this.loadingPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.loadingPictureBox.TabIndex = 32;
+            this.loadingPictureBox.TabStop = false;
+            // 
             // frmNotification
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(752, 396);
+            this.Controls.Add(this.loadingPictureBox);
             this.Controls.Add(this.btnShow);
             this.Controls.Add(this.dgvNotifications);
             this.Controls.Add(this.cmbNotificationType);
@@ -211,6 +226,7 @@
             this.Load += new System.EventHandler(this.frmNotification_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvNotifications)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.notificationDtoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loadingPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -233,5 +249,6 @@
         private DataGridViewTextBoxColumn notificationTypeDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn Description;
         private DataGridViewButtonColumn Izbriši;
+        private PictureBox loadingPictureBox;
     }
 }

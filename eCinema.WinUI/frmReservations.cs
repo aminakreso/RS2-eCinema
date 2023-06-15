@@ -52,7 +52,7 @@ namespace eCinema.WinUI
 
             var list = await _reservationService.Get<List<ReservationDto>>(searchObject);
             loadingPictureBox.Hide();
-            if (list.Any())
+            if (list.Any() || _selectedPage == 0)
             {
                 dgvReservations.DataSource = list;
             }

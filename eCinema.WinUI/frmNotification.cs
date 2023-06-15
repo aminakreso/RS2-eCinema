@@ -35,6 +35,7 @@ namespace eCinema.WinUI
             cmbAuthor.SelectedText = "Svi";
             cmbNotificationType.SelectedItem = null;
             cmbNotificationType.SelectedText = "Svi";
+            loadingPictureBox.Hide();
 
         }
 
@@ -49,8 +50,13 @@ namespace eCinema.WinUI
 
         private async Task LoadUsers()
         {
+            var list = new List<UserDto>
+            {
+                new UserDto { FirstName = "Svi" }
+            };
             var users = await _userService.Get<List<UserDto>>();
-            cmbAuthor.DataSource = users;
+            list.AddRange(users);
+            cmbAuthor.DataSource = list;
             cmbAuthor.DisplayMember = "FullName";
             cmbAuthor.ValueMember = "Id";
         }
@@ -63,6 +69,9 @@ namespace eCinema.WinUI
 
         private async Task LoadData()
         {
+            loadingPictureBox.Show();
+            loadingPictureBox.Update();
+
             var searchObject = new NotificationSearchObject();
             searchObject.Title = txtTitle.Text;
 
@@ -78,7 +87,10 @@ namespace eCinema.WinUI
             searchObject.NotificationType = cmbNotificationType.Text;
             searchObject.IncludeUsers = true;
 
+            
             var list = await _notificationService.Get<List<NotificationDto>>(searchObject);
+            loadingPictureBox.Hide();
+
             list = list.Where(x => x.IsActive == true).ToList();
             dgvNotifications.DataSource = list;
         }
