@@ -102,7 +102,7 @@ namespace eCinema.WinUI
 
                 if (user is not null)
                 {
-                    if (user.Role is not null && e.ColumnIndex == 5)
+                    if (user.Role is not null && e.ColumnIndex == 3)
                     {
                         e.Value = user.Role.Name;
                     }

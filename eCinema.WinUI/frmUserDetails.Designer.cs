@@ -266,10 +266,10 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label8.Location = new System.Drawing.Point(25, 336);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(167, 12);
+            this.label8.Size = new System.Drawing.Size(244, 19);
             this.label8.TabIndex = 22;
             this.label8.Text = "*broj telefona u formatu: 061 111 111";
             // 

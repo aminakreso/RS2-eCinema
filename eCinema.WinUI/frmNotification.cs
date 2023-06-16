@@ -41,11 +41,15 @@ namespace eCinema.WinUI
 
         private async Task LoadTypes()
         {
-            var notifications = await _notificationService.Get<List<NotificationDto>>();
-            notifications = notifications.DistinctBy(x => x.NotificationType).ToList();
-            cmbNotificationType.DataSource = notifications;
-            cmbNotificationType.DisplayMember = "NotificationType";
-            cmbNotificationType.ValueMember = "Id";
+            var list = new List<string>
+            {
+                "Svi" 
+            };
+            var typesList = NotificationTypes.ListOfNotificationTypes;
+            list.AddRange(typesList.ToList());
+            cmbNotificationType.DataSource = list;
+            //cmbNotificationType.DisplayMember = "NotificationType";
+            //cmbNotificationType.ValueMember = "Id";
         }
 
         private async Task LoadUsers()
