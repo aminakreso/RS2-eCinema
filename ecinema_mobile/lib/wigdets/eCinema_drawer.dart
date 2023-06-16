@@ -10,35 +10,37 @@ class eCinemaDrawer extends StatelessWidget {
   eCinemaDrawer({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Drawer(
-      child: ListView(
-        padding: EdgeInsets.all(10),
-        children: [
-          ListTile(
-            title: Text('Home'),
-            onTap: () {
-              Navigator.pushNamed(context, NotificationListScreen.routeName);
-            },
-          ),
-          ListTile(
-            title: Text('Filmovi'),
-            onTap: () {
-              Navigator.pushNamed(context, MovieListScreen.routeName);
-            },
-          ),
-          ListTile(
-            title: Text('Rezervacije'),
-            onTap: () {
-              Navigator.pushNamed(context, ReservationListScreen.routeName);
-            },
-          ),
-          ListTile(
-            title: Text('Profil'),
-            onTap: () {
-              Navigator.pushNamed(context, MyProfileScreen.routeName);
-            },
-          ),
-        ],
+    return SafeArea(
+      child: Drawer(
+        child: ListView(
+          padding: EdgeInsets.all(10),
+          children: [
+            ListTile(
+              title: Text('Home'),
+              onTap: () {
+                Navigator.pushNamed(context, NotificationListScreen.routeName);
+              },
+            ),
+            ListTile(
+              title: Text('Filmovi'),
+              onTap: () {
+                Navigator.pushNamed(context, MovieListScreen.routeName);
+              },
+            ),
+            ListTile(
+              title: Text('Rezervacije'),
+              onTap: () {
+                Navigator.pushNamed(context, ReservationListScreen.routeName);
+              },
+            ),
+            ListTile(
+              title: Text('Profil'),
+              onTap: () {
+                Navigator.pushNamed(context, MyProfileScreen.routeName);
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

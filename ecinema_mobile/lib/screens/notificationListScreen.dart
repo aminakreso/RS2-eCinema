@@ -45,7 +45,7 @@ class _NotificationListScreenState extends State<NotificationListScreen> {
         children: [
           HeaderWidget(title: "Novosti"),
           Container(
-            height: 500,
+            height: 400,
             child: ListView.builder(
               itemCount: data.length,
               itemBuilder: (BuildContext context, int index) {
