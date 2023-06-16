@@ -168,25 +168,39 @@ namespace eCinema.WinUI
 
         private async void btnActivate_Click(object sender, EventArgs e)
         {
-            var upsert = new ProjectionUpsertRequest()
+            if (ValidateChildren())
             {
-                StartTime = dtpProjectionDateTime.Value,
-                ProjectionType = cmbProjectionType.Text,
-                HallId = (Guid)cmbHall?.SelectedValue,
-                PriceId = (Guid)cmbPrice?.SelectedValue,
-                MovieId = (Guid?)cmbMovieName?.SelectedValue,
-            };
+                loadingPictureBox.Show();
+                loadingPictureBox.Update();
 
-            await _projectionService.Activate<ProjectionDto>(_model.Id, upsert);
-            MessageBox.Show("Projection activated.");
-            this.Close();
+                var upsert = new ProjectionUpsertRequest()
+                {
+                    StartTime = dtpProjectionDateTime.Value,
+                    EndTime = dtpEndTime.Value,
+                    ProjectionType = cmbProjectionType.Text,
+                    HallId = (Guid)cmbHall?.SelectedValue,
+                    PriceId = (Guid)cmbPrice?.SelectedValue,
+                    MovieId = (Guid?)cmbMovieName?.SelectedValue,
+                };
+
+                await _projectionService.Put<ProjectionDto>(_model.Id, upsert);
+                await _projectionService.Activate<ProjectionDto>(_model.Id, upsert);
+                loadingPictureBox.Hide();
+
+                MessageBox.Show("Projection activated.");
+                this.Close();
+            }
         }
 
         private async void btnHide_ClickAsync(object sender, EventArgs e)
         {
+            loadingPictureBox.Show();
+            loadingPictureBox.Update();
+
             var upsert = new ProjectionUpsertRequest()
             {
                 StartTime = dtpProjectionDateTime.Value,
+                EndTime = dtpEndTime.Value,
                 ProjectionType = cmbProjectionType.Text,
                 HallId = (Guid)cmbHall?.SelectedValue,
                 PriceId = (Guid)cmbPrice?.SelectedValue,
@@ -196,6 +210,8 @@ namespace eCinema.WinUI
             try
             {
                 await _projectionService.Hide<ProjectionDto>(_model.Id, upsert);
+                loadingPictureBox.Hide();
+
                 MessageBox.Show("Projection hidden.");
             }
             catch
