@@ -35,12 +35,13 @@
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.err = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.err)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(143, 173);
+            this.btnLogin.Location = new System.Drawing.Point(140, 173);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(94, 29);
             this.btnLogin.TabIndex = 0;
@@ -51,7 +52,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 33);
+            this.label1.Location = new System.Drawing.Point(25, 55);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(106, 20);
             this.label1.TabIndex = 1;
@@ -60,7 +61,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(27, 108);
+            this.label2.Location = new System.Drawing.Point(25, 110);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 20);
             this.label2.TabIndex = 2;
@@ -68,7 +69,7 @@
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(28, 67);
+            this.txtUsername.Location = new System.Drawing.Point(25, 80);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(209, 27);
             this.txtUsername.TabIndex = 3;
@@ -76,7 +77,7 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(28, 131);
+            this.txtPassword.Location = new System.Drawing.Point(25, 135);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(209, 27);
@@ -87,11 +88,22 @@
             // 
             this.err.ContainerControl = this;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label10.Location = new System.Drawing.Point(25, 15);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(61, 28);
+            this.label10.TabIndex = 39;
+            this.label10.Text = "Login";
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(266, 214);
+            this.ClientSize = new System.Drawing.Size(250, 212);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.label2);
@@ -114,5 +126,6 @@
         private TextBox txtUsername;
         private TextBox txtPassword;
         private ErrorProvider err;
+        private Label label10;
     }
 }
