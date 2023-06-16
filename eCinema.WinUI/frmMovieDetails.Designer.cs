@@ -42,7 +42,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.RichTextBox();
             this.txtActors = new System.Windows.Forms.RichTextBox();
-            this.txtGenres = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
@@ -51,6 +50,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.btnAddPicture = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.clbGenres = new System.Windows.Forms.CheckedListBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
@@ -167,15 +167,6 @@
             this.txtActors.Text = "";
             this.txtActors.Validating += new System.ComponentModel.CancelEventHandler(this.txtActors_Validating);
             // 
-            // txtGenres
-            // 
-            this.txtGenres.Location = new System.Drawing.Point(245, 72);
-            this.txtGenres.Name = "txtGenres";
-            this.txtGenres.Size = new System.Drawing.Size(212, 52);
-            this.txtGenres.TabIndex = 29;
-            this.txtGenres.Text = "";
-            this.txtGenres.Validating += new System.ComponentModel.CancelEventHandler(this.txtGenres_Validating);
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -240,19 +231,36 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // clbGenres
+            // 
+            this.clbGenres.FormattingEnabled = true;
+            this.clbGenres.Items.AddRange(new object[] {
+            "Akcija",
+            "Avantura",
+            "Sportska drama",
+            "Romantična komedija",
+            "Drama",
+            "Koncertni film",
+            "Komedija",
+            "Fantazija"});
+            this.clbGenres.Location = new System.Drawing.Point(245, 74);
+            this.clbGenres.Name = "clbGenres";
+            this.clbGenres.Size = new System.Drawing.Size(183, 48);
+            this.clbGenres.TabIndex = 37;
+            // 
             // frmMovieDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.clbGenres);
             this.Controls.Add(this.btnAddPicture);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.pbPicture);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtGenres);
             this.Controls.Add(this.txtActors);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.txtCountry);
@@ -292,7 +300,6 @@
         private Label label3;
         private RichTextBox txtDescription;
         private RichTextBox txtActors;
-        private RichTextBox txtGenres;
         private Label label4;
         private Label label5;
         private Button btnSave;
@@ -301,5 +308,6 @@
         private Label label7;
         private Button btnAddPicture;
         private ErrorProvider errorProvider;
+        private CheckedListBox clbGenres;
     }
 }

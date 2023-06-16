@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using eCinema.WinUI.Helpers;
+using eCinema.Model.Constants;
 
 namespace eCinema.WinUI
 {
@@ -29,7 +30,14 @@ namespace eCinema.WinUI
             if (_model is not null)
             {
                 txtName.Text = _model.Name;
-                txtGenres.Text = _model.Genres;
+                
+                for (int count = 0; count < clbGenres.Items.Count; count++)
+                {
+                    if (_model.Genres.Contains(clbGenres.Items[count].ToString()))
+                    {
+                        clbGenres.SetItemChecked(count, true);
+                    }
+                }
                 txtReleaseYear.Text = _model.ReleaseYear.ToString();
                 txtDuration.Text = _model.Duration.ToString();
                 txtDirector.Text = _model.Director;
@@ -57,6 +65,12 @@ namespace eCinema.WinUI
                     return;
 
                 }
+                var genreList = "";
+                foreach (var genre in Genres.ListOfGenres)
+                {
+                    if (clbGenres.CheckedItems.Contains(genre))
+                        genreList += genre + ", ";
+                }
                 var upsert = new MovieUpsertRequest()
                 {
                     Name = txtName.Text,
@@ -64,7 +78,7 @@ namespace eCinema.WinUI
                     Actors = txtActors.Text,
                     Director = txtDirector.Text,
                     Country = txtDirector.Text,
-                    Genres = txtGenres.Text,
+                    Genres = genreList,
                     Duration = Convert.ToInt32(txtDuration?.Text),
                     ReleaseYear = Convert.ToInt32(txtReleaseYear?.Text)
 
@@ -134,7 +148,7 @@ namespace eCinema.WinUI
 
         private void txtGenres_Validating(object sender, CancelEventArgs e)
         {
-            ValidationHelper.ValidateRichTextBox(txtGenres, e, "Genres", errorProvider);
+            //ValidationHelper.ValidateRichTextBox(txtGenres, e, "Genres", errorProvider);
 
         }
 
