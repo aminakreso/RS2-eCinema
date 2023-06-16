@@ -43,14 +43,13 @@
             this.txtMovie = new System.Windows.Forms.TextBox();
             this.txtUser = new System.Windows.Forms.TextBox();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
-            this.btnShow = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnReport = new System.Windows.Forms.Button();
-            this.btnProjectionsReport = new System.Windows.Forms.Button();
             this.loadingPictureBox = new System.Windows.Forms.PictureBox();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnPrevious = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnShow = new System.Windows.Forms.Button();
+            this.btnIzvjestaj = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReservations)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reservationDtoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loadingPictureBox)).BeginInit();
@@ -166,16 +165,6 @@
             this.dtpDate.Size = new System.Drawing.Size(243, 27);
             this.dtpDate.TabIndex = 5;
             // 
-            // btnShow
-            // 
-            this.btnShow.Location = new System.Drawing.Point(695, 55);
-            this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(94, 29);
-            this.btnShow.TabIndex = 6;
-            this.btnShow.Text = "Prikazi";
-            this.btnShow.UseVisualStyleBackColor = true;
-            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -184,26 +173,6 @@
             this.label3.Size = new System.Drawing.Size(54, 20);
             this.label3.TabIndex = 7;
             this.label3.Text = "Datum";
-            // 
-            // btnReport
-            // 
-            this.btnReport.Location = new System.Drawing.Point(640, 405);
-            this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(149, 29);
-            this.btnReport.TabIndex = 8;
-            this.btnReport.Text = "Izvještaj rezervacija";
-            this.btnReport.UseVisualStyleBackColor = true;
-            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
-            // 
-            // btnProjectionsReport
-            // 
-            this.btnProjectionsReport.Location = new System.Drawing.Point(492, 405);
-            this.btnProjectionsReport.Name = "btnProjectionsReport";
-            this.btnProjectionsReport.Size = new System.Drawing.Size(142, 29);
-            this.btnProjectionsReport.TabIndex = 9;
-            this.btnProjectionsReport.Text = "Projekcije prihodi";
-            this.btnProjectionsReport.UseVisualStyleBackColor = true;
-            this.btnProjectionsReport.Click += new System.EventHandler(this.btnProjectionsReport_Click);
             // 
             // loadingPictureBox
             // 
@@ -245,17 +214,36 @@
             this.label1.TabIndex = 36;
             this.label1.Text = "Lista rezervacija";
             // 
+            // btnShow
+            // 
+            this.btnShow.Location = new System.Drawing.Point(695, 55);
+            this.btnShow.Name = "btnShow";
+            this.btnShow.Size = new System.Drawing.Size(94, 29);
+            this.btnShow.TabIndex = 6;
+            this.btnShow.Text = "Prikazi";
+            this.btnShow.UseVisualStyleBackColor = true;
+            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
+            // 
+            // btnIzvjestaj
+            // 
+            this.btnIzvjestaj.Location = new System.Drawing.Point(695, 405);
+            this.btnIzvjestaj.Name = "btnIzvjestaj";
+            this.btnIzvjestaj.Size = new System.Drawing.Size(94, 29);
+            this.btnIzvjestaj.TabIndex = 37;
+            this.btnIzvjestaj.Text = "Izvjestaj";
+            this.btnIzvjestaj.UseVisualStyleBackColor = true;
+            this.btnIzvjestaj.Click += new System.EventHandler(this.btnIzvjestaj_Click);
+            // 
             // frmReservations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnIzvjestaj);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnPrevious);
             this.Controls.Add(this.loadingPictureBox);
-            this.Controls.Add(this.btnProjectionsReport);
-            this.Controls.Add(this.btnReport);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnShow);
             this.Controls.Add(this.dtpDate);
@@ -267,6 +255,7 @@
             this.Name = "frmReservations";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Rezervacije";
+            this.Load += new System.EventHandler(this.frmReservations_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReservations)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reservationDtoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loadingPictureBox)).EndInit();
@@ -283,11 +272,8 @@
         private TextBox txtMovie;
         private TextBox txtUser;
         private DateTimePicker dtpDate;
-        private Button btnShow;
         private Label label3;
         private BindingSource reservationDtoBindingSource;
-        private Button btnReport;
-        private Button btnProjectionsReport;
         private DataGridViewTextBoxColumn userIdDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn projectionIdDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn projectionDataGridViewTextBoxColumn;
@@ -298,5 +284,7 @@
         private Button btnNext;
         private Button btnPrevious;
         private Label label1;
+        private Button btnShow;
+        private Button btnIzvjestaj;
     }
 }

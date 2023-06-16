@@ -7,106 +7,42 @@ using iText.Layout;
 using iText.Layout.Element;
 using iText.Layout.Properties;
 using System.Data;
-
 namespace eCinema.WinUI
 {
-    public partial class frmReservations : Form
+    public partial class frmReportOptions : Form
     {
         private APIService _reservationService = new APIService("Reservation");
         private APIService _projectionService = new APIService("Projection");
-        private int _selectedPage;
-        private const int _pageSize = 10;
+        private APIService _movieService = new APIService("Movie");
 
-        public frmReservations()
+        public frmReportOptions()
         {
             InitializeComponent();
-            _selectedPage = 0;
-            dgvReservations.AutoGenerateColumns = false;
-            loadingPictureBox.Hide();
         }
 
-        private async void btnShow_Click(object sender, EventArgs e)
+        private async void btnProjectionsReport_Click(object sender, EventArgs e)
         {
-            await LoadData();
-
-        }
-
-        private async Task LoadData()
-        {
-            btnShow.Enabled = false;
-
-            loadingPictureBox.Show();
-            loadingPictureBox.Update();
-
-            var searchObject = new ReservationSearchObject
+            var projectionSearchObject = new ProjectionSearchObject { IncludeMovies = true, IncludePrices = true };
+            List<ProjectionDto> data = await _projectionService.Get<List<ProjectionDto>>(projectionSearchObject);
+            List<ReservationDto> reservations = new List<ReservationDto>();
+            foreach (ProjectionDto item in data)
             {
-                Name = txtMovie.Text,
-                User = txtUser.Text,
-                DateTime = dtpDate.Value,
-                IncludeUsers = true,
-                IncludeProjection = true,
-                IncludeMovies = true,
-                IncludePayments = true,
-                IncludePrices = true,
-                PageSize = _pageSize,
-                Page = _selectedPage,
-            };
-
-            var list = await _reservationService.Get<List<ReservationDto>>(searchObject);
-            loadingPictureBox.Hide();
-            btnShow.Enabled = true;
-
-
-            if (list.Any() || _selectedPage == 0)
-            {
-                dgvReservations.DataSource = list;
+                ReservationSearchObject reservation = new ReservationSearchObject();
+                reservation.ProjectionId = item.Id;
+                reservation.IncludePayments = true;
+                List<ReservationDto> temp = await _reservationService.Get<List<ReservationDto>>(reservation);
+                reservations.AddRange(temp);
             }
-            else
-            {
-                MessageBox.Show("There are no more pages!");
-                _selectedPage--;
-            }
-        }
 
-        private void dgvReservations_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                var reservation = (ReservationDto)(this.dgvReservations.Rows[e.RowIndex]
-                    .DataBoundItem);
-
-                if (reservation is not null)
-                {
-                    if (reservation.User is not null && e.ColumnIndex == 0)
-                    {
-                        e.Value = $"{reservation.User.FirstName} {reservation.User.LastName}";
-                    }
-
-                    if (reservation.Projection is not null && e.ColumnIndex == 1)
-                    {
-                        e.Value = reservation.Projection.StartTime.ToString();
-                    }
-
-                    if (reservation.Projection?.Movie is not null && e.ColumnIndex == 2)
-                    {
-                        e.Value = reservation.Projection.Movie.Name;
-                    }
-                    if (reservation.Projection?.Price is not null && e.ColumnIndex == 3)
-                    {
-                        e.Value = reservation.Projection.Price.Value;
-                    }
-                    if (reservation.Payment is not null && e.ColumnIndex == 4)
-                    {
-                        e.Value = reservation.Payment.Amount;
-                    }
-                }
-            }
+            frmReport2 frmReport2 = new frmReport2(data, reservations);
+            frmReport2.ShowDialog();
+           
+            //MessageBox.Show("Report generated on desktop.");
+            //this.Close();
         }
 
         private async void btnReport_Click(object sender, EventArgs e)
         {
-            loadingPictureBox.Show();
-            loadingPictureBox.Update();
 
             var searchObject = new ReservationSearchObject
             {
@@ -121,6 +57,24 @@ namespace eCinema.WinUI
 
             frmReport1 frmReport1 = new frmReport1(data);
             frmReport1.ShowDialog();
+
+           
+            //MessageBox.Show("Report generated on desktop.");
+            //this.Close();
+        }
+
+        private async void btnRezervacijePDF_Click(object sender, EventArgs e)
+        {
+            var searchObject = new ReservationSearchObject
+            {
+                IncludeUsers = true,
+                IncludeProjection = true,
+                IncludeMovies = true,
+                IncludePayments = true,
+                IncludePrices = true
+            };
+
+            List<ReservationDto> data = await _reservationService.Get<List<ReservationDto>>(searchObject);
 
             PdfDocument pdfDoc = new PdfDocument(new PdfWriter(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\rezervacije.pdf"));
 
@@ -156,7 +110,6 @@ namespace eCinema.WinUI
             doc.Add(title);
             doc.Add(table);
             doc.Add(para);
-            loadingPictureBox.Hide();
 
             // close the document
             doc.Close();
@@ -165,11 +118,8 @@ namespace eCinema.WinUI
             this.Close();
         }
 
-        private async void btnProjectionsReport_Click(object sender, EventArgs e)
+        private async void btnProjekcijePDF_Click(object sender, EventArgs e)
         {
-            loadingPictureBox.Show();
-            loadingPictureBox.Update();
-
             var projectionSearchObject = new ProjectionSearchObject { IncludeMovies = true, IncludePrices = true };
             List<ProjectionDto> data = await _projectionService.Get<List<ProjectionDto>>(projectionSearchObject);
             List<ReservationDto> reservations = new List<ReservationDto>();
@@ -183,8 +133,6 @@ namespace eCinema.WinUI
             }
             PdfDocument pdfDoc = new PdfDocument(new PdfWriter(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\ukupanPrihod.pdf"));
 
-            frmReport2 frmReport2 = new frmReport2(data, reservations);
-            frmReport2.ShowDialog();
             // create a new document instance
             Document doc = new Document(pdfDoc);
 
@@ -222,7 +170,6 @@ namespace eCinema.WinUI
             doc.Add(para);
             doc.Add(ukupniPrihod);
 
-            loadingPictureBox.Hide();
 
             // close the document
             doc.Close();
@@ -230,32 +177,41 @@ namespace eCinema.WinUI
             this.Close();
         }
 
-        private async void btnPrevious_Click(object sender, EventArgs e)
+        private async void frmReportOptions_Load(object sender, EventArgs e)
         {
-            if (_selectedPage == 0)
+            await LoadMovies();
+        }
+
+        private async Task LoadMovies()
+        {
+            var list = new List<MovieDto>
             {
-                MessageBox.Show("There are no previous pages!");
-                return;
-            }
-            _selectedPage--;
-            await LoadData();
+                new MovieDto { Name = "Svi" }
+            };
+            var movies = await _movieService.Get<List<MovieDto>>();
+            list.AddRange(movies);
+            cmbMovies.DataSource = list;
+            cmbMovies.DisplayMember = "Name";
+            cmbMovies.ValueMember = "Id";
         }
 
-        private async void btnNext_Click(object sender, EventArgs e)
+        private async void btnReportFilter_Click(object sender, EventArgs e)
         {
-            _selectedPage++;
-            await LoadData();
-        }
+            var searchObject = new ReservationSearchObject
+            {
+                IncludeUsers = true,
+                IncludeProjection = true,
+                IncludeMovies = true,
+                IncludePayments = true,
+                IncludePrices = true
+            };
 
-        private void frmReservations_Load(object sender, EventArgs e)
-        {
+            List<ReservationDto> data = await _reservationService.Get<List<ReservationDto>>(searchObject);
 
-        }
+            data = data.Where(x => x.Projection.StartTime.Value >= dtpProjectionStart.Value && x.Projection.StartTime.Value <= dtpProjectionEnd.Value).ToList();
+            frmReport1 frmReport1 = new frmReport1(data);
+            frmReport1.ShowDialog();
 
-        private void btnIzvjestaj_Click(object sender, EventArgs e)
-        {
-            frmReportOptions frmReportOptions = new frmReportOptions();
-            frmReportOptions.Show();
         }
     }
 }
