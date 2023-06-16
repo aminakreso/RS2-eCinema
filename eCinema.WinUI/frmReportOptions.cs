@@ -179,6 +179,7 @@ namespace eCinema.WinUI
 
         private async void frmReportOptions_Load(object sender, EventArgs e)
         {
+            btnReportFilter.Enabled = false;
             await LoadMovies();
         }
 
@@ -193,6 +194,7 @@ namespace eCinema.WinUI
             cmbMovies.DataSource = list;
             cmbMovies.DisplayMember = "Name";
             cmbMovies.ValueMember = "Id";
+            btnReportFilter.Enabled = true;
         }
 
         private async void btnReportFilter_Click(object sender, EventArgs e)
