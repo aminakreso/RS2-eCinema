@@ -37,13 +37,14 @@
             this.priceDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrices)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.priceDtoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnShow
             // 
-            this.btnShow.Location = new System.Drawing.Point(388, 45);
+            this.btnShow.Location = new System.Drawing.Point(307, 55);
             this.btnShow.Name = "btnShow";
             this.btnShow.Size = new System.Drawing.Size(94, 29);
             this.btnShow.TabIndex = 0;
@@ -56,19 +57,20 @@
             this.dgvPrices.AllowUserToAddRows = false;
             this.dgvPrices.AllowUserToDeleteRows = false;
             this.dgvPrices.AutoGenerateColumns = false;
+            this.dgvPrices.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPrices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPrices.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nameDataGridViewTextBoxColumn,
             this.valueDataGridViewTextBoxColumn,
             this.Izbriši});
             this.dgvPrices.DataSource = this.priceDtoBindingSource;
-            this.dgvPrices.Location = new System.Drawing.Point(109, 98);
+            this.dgvPrices.Location = new System.Drawing.Point(25, 90);
             this.dgvPrices.Name = "dgvPrices";
             this.dgvPrices.ReadOnly = true;
             this.dgvPrices.RowHeadersWidth = 51;
             this.dgvPrices.RowTemplate.Height = 29;
             this.dgvPrices.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPrices.Size = new System.Drawing.Size(373, 188);
+            this.dgvPrices.Size = new System.Drawing.Size(376, 188);
             this.dgvPrices.TabIndex = 1;
             this.dgvPrices.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPrices_CellContentClick);
             this.dgvPrices.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPrices_CellDoubleClick);
@@ -80,7 +82,6 @@
             this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nameDataGridViewTextBoxColumn.Width = 125;
             // 
             // valueDataGridViewTextBoxColumn
             // 
@@ -89,7 +90,6 @@
             this.valueDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.valueDataGridViewTextBoxColumn.Name = "valueDataGridViewTextBoxColumn";
             this.valueDataGridViewTextBoxColumn.ReadOnly = true;
-            this.valueDataGridViewTextBoxColumn.Width = 125;
             // 
             // Izbriši
             // 
@@ -99,7 +99,6 @@
             this.Izbriši.ReadOnly = true;
             this.Izbriši.Text = "Izbriši";
             this.Izbriši.UseColumnTextForButtonValue = true;
-            this.Izbriši.Width = 125;
             // 
             // priceDtoBindingSource
             // 
@@ -107,7 +106,7 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(191, 47);
+            this.txtName.Location = new System.Drawing.Point(77, 55);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(125, 27);
             this.txtName.TabIndex = 2;
@@ -115,17 +114,28 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(109, 54);
+            this.label1.Location = new System.Drawing.Point(25, 60);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 20);
             this.label1.TabIndex = 3;
             this.label1.Text = "Naziv";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(25, 15);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(106, 28);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Lista cijena";
+            // 
             // frmPrices
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(412, 301);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.dgvPrices);
@@ -150,5 +160,6 @@
         private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn valueDataGridViewTextBoxColumn;
         private DataGridViewButtonColumn Izbriši;
+        private Label label2;
     }
 }

@@ -47,6 +47,7 @@
             this.loadingPictureBox = new System.Windows.Forms.PictureBox();
             this.btnPrevious = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMovies)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.movieDtoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loadingPictureBox)).BeginInit();
@@ -54,9 +55,9 @@
             // 
             // btnShow
             // 
-            this.btnShow.Location = new System.Drawing.Point(607, 43);
+            this.btnShow.Location = new System.Drawing.Point(618, 55);
             this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(117, 27);
+            this.btnShow.Size = new System.Drawing.Size(94, 29);
             this.btnShow.TabIndex = 14;
             this.btnShow.Text = "Prikaži";
             this.btnShow.UseVisualStyleBackColor = true;
@@ -65,14 +66,14 @@
             // cmbGenre
             // 
             this.cmbGenre.FormattingEnabled = true;
-            this.cmbGenre.Location = new System.Drawing.Point(475, 42);
+            this.cmbGenre.Location = new System.Drawing.Point(457, 55);
             this.cmbGenre.Name = "cmbGenre";
             this.cmbGenre.Size = new System.Drawing.Size(98, 28);
             this.cmbGenre.TabIndex = 13;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(93, 43);
+            this.txtName.Location = new System.Drawing.Point(77, 55);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(142, 27);
             this.txtName.TabIndex = 11;
@@ -80,7 +81,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(430, 46);
+            this.label3.Location = new System.Drawing.Point(412, 60);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(39, 20);
             this.label3.TabIndex = 10;
@@ -89,7 +90,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(235, 45);
+            this.label2.Location = new System.Drawing.Point(225, 60);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 20);
             this.label2.TabIndex = 9;
@@ -98,7 +99,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(37, 45);
+            this.label1.Location = new System.Drawing.Point(25, 60);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 20);
             this.label1.TabIndex = 8;
@@ -109,6 +110,7 @@
             this.dgvMovies.AllowUserToAddRows = false;
             this.dgvMovies.AllowUserToDeleteRows = false;
             this.dgvMovies.AutoGenerateColumns = false;
+            this.dgvMovies.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvMovies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMovies.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nameDataGridViewTextBoxColumn,
@@ -117,7 +119,7 @@
             this.durationDataGridViewTextBoxColumn,
             this.isActiveDataGridViewTextBoxColumn});
             this.dgvMovies.DataSource = this.movieDtoBindingSource;
-            this.dgvMovies.Location = new System.Drawing.Point(37, 110);
+            this.dgvMovies.Location = new System.Drawing.Point(25, 90);
             this.dgvMovies.Name = "dgvMovies";
             this.dgvMovies.ReadOnly = true;
             this.dgvMovies.RowHeadersWidth = 51;
@@ -135,7 +137,6 @@
             this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nameDataGridViewTextBoxColumn.Width = 125;
             // 
             // directorDataGridViewTextBoxColumn
             // 
@@ -144,7 +145,6 @@
             this.directorDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.directorDataGridViewTextBoxColumn.Name = "directorDataGridViewTextBoxColumn";
             this.directorDataGridViewTextBoxColumn.ReadOnly = true;
-            this.directorDataGridViewTextBoxColumn.Width = 125;
             // 
             // genresDataGridViewTextBoxColumn
             // 
@@ -153,7 +153,6 @@
             this.genresDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.genresDataGridViewTextBoxColumn.Name = "genresDataGridViewTextBoxColumn";
             this.genresDataGridViewTextBoxColumn.ReadOnly = true;
-            this.genresDataGridViewTextBoxColumn.Width = 125;
             // 
             // durationDataGridViewTextBoxColumn
             // 
@@ -162,7 +161,6 @@
             this.durationDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.durationDataGridViewTextBoxColumn.Name = "durationDataGridViewTextBoxColumn";
             this.durationDataGridViewTextBoxColumn.ReadOnly = true;
-            this.durationDataGridViewTextBoxColumn.Width = 125;
             // 
             // isActiveDataGridViewTextBoxColumn
             // 
@@ -175,7 +173,6 @@
             this.isActiveDataGridViewTextBoxColumn.Text = "Izbriši";
             this.isActiveDataGridViewTextBoxColumn.ToolTipText = "Izbriši";
             this.isActiveDataGridViewTextBoxColumn.UseColumnTextForButtonValue = true;
-            this.isActiveDataGridViewTextBoxColumn.Width = 125;
             // 
             // movieDtoBindingSource
             // 
@@ -183,7 +180,7 @@
             // 
             // txtDirector
             // 
-            this.txtDirector.Location = new System.Drawing.Point(296, 43);
+            this.txtDirector.Location = new System.Drawing.Point(287, 55);
             this.txtDirector.Name = "txtDirector";
             this.txtDirector.Size = new System.Drawing.Size(119, 27);
             this.txtDirector.TabIndex = 16;
@@ -191,7 +188,7 @@
             // loadingPictureBox
             // 
             this.loadingPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("loadingPictureBox.Image")));
-            this.loadingPictureBox.Location = new System.Drawing.Point(320, 182);
+            this.loadingPictureBox.Location = new System.Drawing.Point(320, 158);
             this.loadingPictureBox.Name = "loadingPictureBox";
             this.loadingPictureBox.Size = new System.Drawing.Size(125, 116);
             this.loadingPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -200,7 +197,7 @@
             // 
             // btnPrevious
             // 
-            this.btnPrevious.Location = new System.Drawing.Point(320, 372);
+            this.btnPrevious.Location = new System.Drawing.Point(320, 338);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(56, 29);
             this.btnPrevious.TabIndex = 32;
@@ -210,7 +207,7 @@
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(393, 372);
+            this.btnNext.Location = new System.Drawing.Point(382, 338);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(56, 29);
             this.btnNext.TabIndex = 33;
@@ -218,11 +215,22 @@
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(25, 15);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(121, 28);
+            this.label4.TabIndex = 34;
+            this.label4.Text = "Lista filmova";
+            // 
             // frmMovies
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(733, 380);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnPrevious);
             this.Controls.Add(this.loadingPictureBox);
@@ -265,5 +273,6 @@
         private DataGridViewTextBoxColumn genresDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn durationDataGridViewTextBoxColumn;
         private DataGridViewButtonColumn isActiveDataGridViewTextBoxColumn;
+        private Label label4;
     }
 }

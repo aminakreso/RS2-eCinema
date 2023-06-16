@@ -50,6 +50,7 @@
             this.loadingPictureBox = new System.Windows.Forms.PictureBox();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnPrevious = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReservations)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reservationDtoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loadingPictureBox)).BeginInit();
@@ -60,6 +61,7 @@
             this.dgvReservations.AllowUserToAddRows = false;
             this.dgvReservations.AllowUserToDeleteRows = false;
             this.dgvReservations.AutoGenerateColumns = false;
+            this.dgvReservations.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvReservations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReservations.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.userIdDataGridViewTextBoxColumn,
@@ -69,7 +71,7 @@
             this.Tickets,
             this.dateTimeDataGridViewTextBoxColumn});
             this.dgvReservations.DataSource = this.reservationDtoBindingSource;
-            this.dgvReservations.Location = new System.Drawing.Point(12, 79);
+            this.dgvReservations.Location = new System.Drawing.Point(25, 90);
             this.dgvReservations.Name = "dgvReservations";
             this.dgvReservations.ReadOnly = true;
             this.dgvReservations.RowHeadersWidth = 51;
@@ -84,7 +86,6 @@
             this.userIdDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.userIdDataGridViewTextBoxColumn.Name = "userIdDataGridViewTextBoxColumn";
             this.userIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.userIdDataGridViewTextBoxColumn.Width = 125;
             // 
             // projectionIdDataGridViewTextBoxColumn
             // 
@@ -92,7 +93,6 @@
             this.projectionIdDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.projectionIdDataGridViewTextBoxColumn.Name = "projectionIdDataGridViewTextBoxColumn";
             this.projectionIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.projectionIdDataGridViewTextBoxColumn.Width = 125;
             // 
             // projectionDataGridViewTextBoxColumn
             // 
@@ -100,7 +100,6 @@
             this.projectionDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.projectionDataGridViewTextBoxColumn.Name = "projectionDataGridViewTextBoxColumn";
             this.projectionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.projectionDataGridViewTextBoxColumn.Width = 125;
             // 
             // Price
             // 
@@ -108,7 +107,6 @@
             this.Price.MinimumWidth = 6;
             this.Price.Name = "Price";
             this.Price.ReadOnly = true;
-            this.Price.Width = 125;
             // 
             // Tickets
             // 
@@ -116,7 +114,6 @@
             this.Tickets.MinimumWidth = 6;
             this.Tickets.Name = "Tickets";
             this.Tickets.ReadOnly = true;
-            this.Tickets.Width = 125;
             // 
             // dateTimeDataGridViewTextBoxColumn
             // 
@@ -125,7 +122,6 @@
             this.dateTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.dateTimeDataGridViewTextBoxColumn.Name = "dateTimeDataGridViewTextBoxColumn";
             this.dateTimeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dateTimeDataGridViewTextBoxColumn.Width = 125;
             // 
             // reservationDtoBindingSource
             // 
@@ -134,7 +130,7 @@
             // Film
             // 
             this.Film.AutoSize = true;
-            this.Film.Location = new System.Drawing.Point(12, 45);
+            this.Film.Location = new System.Drawing.Point(25, 60);
             this.Film.Name = "Film";
             this.Film.Size = new System.Drawing.Size(37, 20);
             this.Film.TabIndex = 1;
@@ -143,7 +139,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(199, 47);
+            this.label2.Location = new System.Drawing.Point(200, 60);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 20);
             this.label2.TabIndex = 2;
@@ -151,28 +147,28 @@
             // 
             // txtMovie
             // 
-            this.txtMovie.Location = new System.Drawing.Point(68, 44);
+            this.txtMovie.Location = new System.Drawing.Point(68, 55);
             this.txtMovie.Name = "txtMovie";
-            this.txtMovie.Size = new System.Drawing.Size(115, 27);
+            this.txtMovie.Size = new System.Drawing.Size(126, 27);
             this.txtMovie.TabIndex = 3;
             // 
             // txtUser
             // 
-            this.txtUser.Location = new System.Drawing.Point(266, 42);
+            this.txtUser.Location = new System.Drawing.Point(267, 55);
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(107, 27);
             this.txtUser.TabIndex = 4;
             // 
             // dtpDate
             // 
-            this.dtpDate.Location = new System.Drawing.Point(433, 43);
+            this.dtpDate.Location = new System.Drawing.Point(440, 55);
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Size = new System.Drawing.Size(243, 27);
             this.dtpDate.TabIndex = 5;
             // 
             // btnShow
             // 
-            this.btnShow.Location = new System.Drawing.Point(682, 42);
+            this.btnShow.Location = new System.Drawing.Point(695, 55);
             this.btnShow.Name = "btnShow";
             this.btnShow.Size = new System.Drawing.Size(94, 29);
             this.btnShow.TabIndex = 6;
@@ -183,7 +179,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(377, 48);
+            this.label3.Location = new System.Drawing.Point(380, 60);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 20);
             this.label3.TabIndex = 7;
@@ -191,7 +187,7 @@
             // 
             // btnReport
             // 
-            this.btnReport.Location = new System.Drawing.Point(627, 409);
+            this.btnReport.Location = new System.Drawing.Point(640, 405);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(149, 29);
             this.btnReport.TabIndex = 8;
@@ -201,7 +197,7 @@
             // 
             // btnProjectionsReport
             // 
-            this.btnProjectionsReport.Location = new System.Drawing.Point(479, 409);
+            this.btnProjectionsReport.Location = new System.Drawing.Point(492, 405);
             this.btnProjectionsReport.Name = "btnProjectionsReport";
             this.btnProjectionsReport.Size = new System.Drawing.Size(142, 29);
             this.btnProjectionsReport.TabIndex = 9;
@@ -212,7 +208,7 @@
             // loadingPictureBox
             // 
             this.loadingPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("loadingPictureBox.Image")));
-            this.loadingPictureBox.Location = new System.Drawing.Point(306, 172);
+            this.loadingPictureBox.Location = new System.Drawing.Point(332, 182);
             this.loadingPictureBox.Name = "loadingPictureBox";
             this.loadingPictureBox.Size = new System.Drawing.Size(125, 116);
             this.loadingPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -221,7 +217,7 @@
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(379, 409);
+            this.btnNext.Location = new System.Drawing.Point(401, 405);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(56, 29);
             this.btnNext.TabIndex = 35;
@@ -231,7 +227,7 @@
             // 
             // btnPrevious
             // 
-            this.btnPrevious.Location = new System.Drawing.Point(306, 409);
+            this.btnPrevious.Location = new System.Drawing.Point(339, 405);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(56, 29);
             this.btnPrevious.TabIndex = 34;
@@ -239,11 +235,22 @@
             this.btnPrevious.UseVisualStyleBackColor = true;
             this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(25, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(148, 28);
+            this.label1.TabIndex = 36;
+            this.label1.Text = "Lista rezervacija";
+            // 
             // frmReservations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnPrevious);
             this.Controls.Add(this.loadingPictureBox);
@@ -290,5 +297,6 @@
         private PictureBox loadingPictureBox;
         private Button btnNext;
         private Button btnPrevious;
+        private Label label1;
     }
 }

@@ -31,6 +31,11 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProjection));
             this.dgvProjection = new System.Windows.Forms.DataGridView();
+            this.movieNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.startTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hallNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stateMachineDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.projectionDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnShow = new System.Windows.Forms.Button();
             this.cmbStatus = new System.Windows.Forms.ComboBox();
@@ -46,11 +51,7 @@
             this.loadingPictureBox = new System.Windows.Forms.PictureBox();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnPrevious = new System.Windows.Forms.Button();
-            this.movieNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.startTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hallNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stateMachineDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectionDtoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loadingPictureBox)).BeginInit();
@@ -61,6 +62,7 @@
             this.dgvProjection.AllowUserToAddRows = false;
             this.dgvProjection.AllowUserToDeleteRows = false;
             this.dgvProjection.AutoGenerateColumns = false;
+            this.dgvProjection.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvProjection.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProjection.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.movieNameDataGridViewTextBoxColumn,
@@ -69,16 +71,56 @@
             this.priceNameDataGridViewTextBoxColumn,
             this.stateMachineDataGridViewTextBoxColumn});
             this.dgvProjection.DataSource = this.projectionDtoBindingSource;
-            this.dgvProjection.Location = new System.Drawing.Point(57, 103);
+            this.dgvProjection.Location = new System.Drawing.Point(25, 90);
             this.dgvProjection.Name = "dgvProjection";
             this.dgvProjection.ReadOnly = true;
             this.dgvProjection.RowHeadersWidth = 51;
             this.dgvProjection.RowTemplate.Height = 29;
             this.dgvProjection.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProjection.Size = new System.Drawing.Size(687, 312);
+            this.dgvProjection.Size = new System.Drawing.Size(825, 312);
             this.dgvProjection.TabIndex = 23;
             this.dgvProjection.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProjection_CellContentDoubleClick);
             this.dgvProjection.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvProjection_CellFormatting);
+            // 
+            // movieNameDataGridViewTextBoxColumn
+            // 
+            this.movieNameDataGridViewTextBoxColumn.DataPropertyName = "MovieName";
+            this.movieNameDataGridViewTextBoxColumn.HeaderText = "Film";
+            this.movieNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.movieNameDataGridViewTextBoxColumn.Name = "movieNameDataGridViewTextBoxColumn";
+            this.movieNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // startTimeDataGridViewTextBoxColumn
+            // 
+            this.startTimeDataGridViewTextBoxColumn.DataPropertyName = "StartTime";
+            this.startTimeDataGridViewTextBoxColumn.HeaderText = "Početak projekcije";
+            this.startTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.startTimeDataGridViewTextBoxColumn.Name = "startTimeDataGridViewTextBoxColumn";
+            this.startTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // hallNameDataGridViewTextBoxColumn
+            // 
+            this.hallNameDataGridViewTextBoxColumn.DataPropertyName = "HallName";
+            this.hallNameDataGridViewTextBoxColumn.HeaderText = "Sala";
+            this.hallNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.hallNameDataGridViewTextBoxColumn.Name = "hallNameDataGridViewTextBoxColumn";
+            this.hallNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // priceNameDataGridViewTextBoxColumn
+            // 
+            this.priceNameDataGridViewTextBoxColumn.DataPropertyName = "PriceName";
+            this.priceNameDataGridViewTextBoxColumn.HeaderText = "Cijena";
+            this.priceNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.priceNameDataGridViewTextBoxColumn.Name = "priceNameDataGridViewTextBoxColumn";
+            this.priceNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // stateMachineDataGridViewTextBoxColumn
+            // 
+            this.stateMachineDataGridViewTextBoxColumn.DataPropertyName = "StateMachine";
+            this.stateMachineDataGridViewTextBoxColumn.HeaderText = "Status";
+            this.stateMachineDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.stateMachineDataGridViewTextBoxColumn.Name = "stateMachineDataGridViewTextBoxColumn";
+            this.stateMachineDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // projectionDtoBindingSource
             // 
@@ -86,9 +128,9 @@
             // 
             // btnShow
             // 
-            this.btnShow.Location = new System.Drawing.Point(627, 55);
+            this.btnShow.Location = new System.Drawing.Point(756, 55);
             this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(117, 27);
+            this.btnShow.Size = new System.Drawing.Size(94, 29);
             this.btnShow.TabIndex = 22;
             this.btnShow.Text = "Prikaži";
             this.btnShow.UseVisualStyleBackColor = true;
@@ -97,14 +139,14 @@
             // cmbStatus
             // 
             this.cmbStatus.FormattingEnabled = true;
-            this.cmbStatus.Location = new System.Drawing.Point(523, 56);
+            this.cmbStatus.Location = new System.Drawing.Point(652, 55);
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(98, 28);
             this.cmbStatus.TabIndex = 21;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(57, 58);
+            this.txtName.Location = new System.Drawing.Point(77, 55);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(136, 27);
             this.txtName.TabIndex = 20;
@@ -112,7 +154,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(542, 33);
+            this.label3.Location = new System.Drawing.Point(597, 60);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 20);
             this.label3.TabIndex = 19;
@@ -121,7 +163,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(219, 34);
+            this.label2.Location = new System.Drawing.Point(219, 60);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 20);
             this.label2.TabIndex = 18;
@@ -130,7 +172,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(57, 35);
+            this.label1.Location = new System.Drawing.Point(25, 60);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 20);
             this.label1.TabIndex = 17;
@@ -139,14 +181,14 @@
             // cmbHall
             // 
             this.cmbHall.FormattingEnabled = true;
-            this.cmbHall.Location = new System.Drawing.Point(214, 57);
+            this.cmbHall.Location = new System.Drawing.Point(262, 55);
             this.cmbHall.Name = "cmbHall";
             this.cmbHall.Size = new System.Drawing.Size(61, 28);
             this.cmbHall.TabIndex = 24;
             // 
             // dtpDate
             // 
-            this.dtpDate.Location = new System.Drawing.Point(296, 58);
+            this.dtpDate.Location = new System.Drawing.Point(384, 55);
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Size = new System.Drawing.Size(207, 27);
             this.dtpDate.TabIndex = 25;
@@ -162,11 +204,11 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(310, 32);
+            this.label5.Location = new System.Drawing.Point(329, 60);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(118, 20);
+            this.label5.Size = new System.Drawing.Size(54, 20);
             this.label5.TabIndex = 27;
-            this.label5.Text = "DatumProjekcije";
+            this.label5.Text = "Datum";
             // 
             // movieIdDataGridViewTextBoxColumn
             // 
@@ -178,7 +220,7 @@
             // loadingPictureBox
             // 
             this.loadingPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("loadingPictureBox.Image")));
-            this.loadingPictureBox.Location = new System.Drawing.Point(305, 174);
+            this.loadingPictureBox.Location = new System.Drawing.Point(397, 194);
             this.loadingPictureBox.Name = "loadingPictureBox";
             this.loadingPictureBox.Size = new System.Drawing.Size(125, 116);
             this.loadingPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -187,7 +229,7 @@
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(384, 421);
+            this.btnNext.Location = new System.Drawing.Point(459, 408);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(56, 29);
             this.btnNext.TabIndex = 35;
@@ -197,7 +239,7 @@
             // 
             // btnPrevious
             // 
-            this.btnPrevious.Location = new System.Drawing.Point(311, 421);
+            this.btnPrevious.Location = new System.Drawing.Point(397, 408);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(56, 29);
             this.btnPrevious.TabIndex = 34;
@@ -205,56 +247,22 @@
             this.btnPrevious.UseVisualStyleBackColor = true;
             this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
             // 
-            // movieNameDataGridViewTextBoxColumn
+            // label6
             // 
-            this.movieNameDataGridViewTextBoxColumn.DataPropertyName = "MovieName";
-            this.movieNameDataGridViewTextBoxColumn.HeaderText = "Film";
-            this.movieNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.movieNameDataGridViewTextBoxColumn.Name = "movieNameDataGridViewTextBoxColumn";
-            this.movieNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.movieNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // startTimeDataGridViewTextBoxColumn
-            // 
-            this.startTimeDataGridViewTextBoxColumn.DataPropertyName = "StartTime";
-            this.startTimeDataGridViewTextBoxColumn.HeaderText = "Početak projekcije";
-            this.startTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.startTimeDataGridViewTextBoxColumn.Name = "startTimeDataGridViewTextBoxColumn";
-            this.startTimeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.startTimeDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // hallNameDataGridViewTextBoxColumn
-            // 
-            this.hallNameDataGridViewTextBoxColumn.DataPropertyName = "HallName";
-            this.hallNameDataGridViewTextBoxColumn.HeaderText = "Sala";
-            this.hallNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.hallNameDataGridViewTextBoxColumn.Name = "hallNameDataGridViewTextBoxColumn";
-            this.hallNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.hallNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // priceNameDataGridViewTextBoxColumn
-            // 
-            this.priceNameDataGridViewTextBoxColumn.DataPropertyName = "PriceName";
-            this.priceNameDataGridViewTextBoxColumn.HeaderText = "Cijena";
-            this.priceNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.priceNameDataGridViewTextBoxColumn.Name = "priceNameDataGridViewTextBoxColumn";
-            this.priceNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.priceNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // stateMachineDataGridViewTextBoxColumn
-            // 
-            this.stateMachineDataGridViewTextBoxColumn.DataPropertyName = "StateMachine";
-            this.stateMachineDataGridViewTextBoxColumn.HeaderText = "Status";
-            this.stateMachineDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.stateMachineDataGridViewTextBoxColumn.Name = "stateMachineDataGridViewTextBoxColumn";
-            this.stateMachineDataGridViewTextBoxColumn.ReadOnly = true;
-            this.stateMachineDataGridViewTextBoxColumn.Width = 125;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(25, 15);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(141, 28);
+            this.label6.TabIndex = 36;
+            this.label6.Text = "Lista projekcija";
             // 
             // frmProjection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(863, 444);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnPrevious);
             this.Controls.Add(this.loadingPictureBox);
@@ -306,5 +314,6 @@
         private DataGridViewTextBoxColumn hallNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn priceNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn stateMachineDataGridViewTextBoxColumn;
+        private Label label6;
     }
 }

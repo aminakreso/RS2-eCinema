@@ -32,6 +32,9 @@ namespace eCinema.WinUI
 
         private async Task LoadData()
         {
+            loadingPictureBox.Show();
+            loadingPictureBox.Update();
+
             var searchObject = new UserSearchObject();
             searchObject.Name = txtName.Text;
             searchObject.Role = cmbRoles.Text;
@@ -47,6 +50,8 @@ namespace eCinema.WinUI
             }
 
             var list = await _userService.Get<List<UserDto>>(searchObject);
+            loadingPictureBox.Hide();
+
             //list = list.OrderBy(x => x.IsActive).ToList();
             dgvUsers.DataSource = list.OrderByDescending(x=> x.IsActive).ToList();
         }
@@ -57,6 +62,7 @@ namespace eCinema.WinUI
             await LoadIsActive();
             cmbRoles.SelectedItem = null;
             cmbRoles.SelectedText = "Svi";
+            loadingPictureBox.Hide();
         }
 
         public async Task LoadRoles()
@@ -102,6 +108,11 @@ namespace eCinema.WinUI
                     }
                 }
             }
+        }
+
+        private void cmbIsActive_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

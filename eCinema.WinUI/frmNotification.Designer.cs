@@ -46,6 +46,7 @@
             this.notificationDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnShow = new System.Windows.Forms.Button();
             this.loadingPictureBox = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNotifications)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.notificationDtoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loadingPictureBox)).BeginInit();
@@ -54,7 +55,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(31, 44);
+            this.label1.Location = new System.Drawing.Point(25, 60);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 20);
             this.label1.TabIndex = 0;
@@ -63,7 +64,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(229, 44);
+            this.label2.Location = new System.Drawing.Point(208, 60);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 20);
             this.label2.TabIndex = 1;
@@ -72,7 +73,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(404, 45);
+            this.label3.Location = new System.Drawing.Point(377, 60);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(30, 20);
             this.label3.TabIndex = 2;
@@ -80,7 +81,7 @@
             // 
             // txtTitle
             // 
-            this.txtTitle.Location = new System.Drawing.Point(87, 42);
+            this.txtTitle.Location = new System.Drawing.Point(77, 55);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(125, 27);
             this.txtTitle.TabIndex = 3;
@@ -88,7 +89,7 @@
             // cmbAuthor
             // 
             this.cmbAuthor.FormattingEnabled = true;
-            this.cmbAuthor.Location = new System.Drawing.Point(285, 42);
+            this.cmbAuthor.Location = new System.Drawing.Point(268, 55);
             this.cmbAuthor.Name = "cmbAuthor";
             this.cmbAuthor.Size = new System.Drawing.Size(103, 28);
             this.cmbAuthor.TabIndex = 4;
@@ -96,7 +97,7 @@
             // cmbNotificationType
             // 
             this.cmbNotificationType.FormattingEnabled = true;
-            this.cmbNotificationType.Location = new System.Drawing.Point(469, 42);
+            this.cmbNotificationType.Location = new System.Drawing.Point(413, 55);
             this.cmbNotificationType.Name = "cmbNotificationType";
             this.cmbNotificationType.Size = new System.Drawing.Size(98, 28);
             this.cmbNotificationType.TabIndex = 5;
@@ -106,6 +107,7 @@
             this.dgvNotifications.AllowUserToAddRows = false;
             this.dgvNotifications.AllowUserToDeleteRows = false;
             this.dgvNotifications.AutoGenerateColumns = false;
+            this.dgvNotifications.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvNotifications.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNotifications.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.titleDataGridViewTextBoxColumn,
@@ -115,7 +117,7 @@
             this.Description,
             this.Izbriši});
             this.dgvNotifications.DataSource = this.notificationDtoBindingSource;
-            this.dgvNotifications.Location = new System.Drawing.Point(31, 93);
+            this.dgvNotifications.Location = new System.Drawing.Point(25, 90);
             this.dgvNotifications.Name = "dgvNotifications";
             this.dgvNotifications.ReadOnly = true;
             this.dgvNotifications.RowHeadersWidth = 51;
@@ -134,7 +136,6 @@
             this.titleDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
             this.titleDataGridViewTextBoxColumn.ReadOnly = true;
-            this.titleDataGridViewTextBoxColumn.Width = 125;
             // 
             // dateDataGridViewTextBoxColumn
             // 
@@ -143,7 +144,6 @@
             this.dateDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
             this.dateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dateDataGridViewTextBoxColumn.Width = 125;
             // 
             // authorIdDataGridViewTextBoxColumn
             // 
@@ -151,7 +151,6 @@
             this.authorIdDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.authorIdDataGridViewTextBoxColumn.Name = "authorIdDataGridViewTextBoxColumn";
             this.authorIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.authorIdDataGridViewTextBoxColumn.Width = 125;
             // 
             // notificationTypeDataGridViewTextBoxColumn
             // 
@@ -160,7 +159,6 @@
             this.notificationTypeDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.notificationTypeDataGridViewTextBoxColumn.Name = "notificationTypeDataGridViewTextBoxColumn";
             this.notificationTypeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.notificationTypeDataGridViewTextBoxColumn.Width = 125;
             // 
             // Description
             // 
@@ -169,7 +167,6 @@
             this.Description.MinimumWidth = 6;
             this.Description.Name = "Description";
             this.Description.ReadOnly = true;
-            this.Description.Width = 125;
             // 
             // Izbriši
             // 
@@ -180,7 +177,6 @@
             this.Izbriši.Text = "Izbriši";
             this.Izbriši.ToolTipText = "Izbriši";
             this.Izbriši.UseColumnTextForButtonValue = true;
-            this.Izbriši.Width = 125;
             // 
             // notificationDtoBindingSource
             // 
@@ -188,9 +184,9 @@
             // 
             // btnShow
             // 
-            this.btnShow.Location = new System.Drawing.Point(601, 42);
+            this.btnShow.Location = new System.Drawing.Point(618, 55);
             this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(117, 27);
+            this.btnShow.Size = new System.Drawing.Size(94, 29);
             this.btnShow.TabIndex = 7;
             this.btnShow.Text = "Prikaži";
             this.btnShow.UseVisualStyleBackColor = true;
@@ -199,18 +195,29 @@
             // loadingPictureBox
             // 
             this.loadingPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("loadingPictureBox.Image")));
-            this.loadingPictureBox.Location = new System.Drawing.Point(285, 160);
+            this.loadingPictureBox.Location = new System.Drawing.Point(299, 176);
             this.loadingPictureBox.Name = "loadingPictureBox";
             this.loadingPictureBox.Size = new System.Drawing.Size(125, 116);
             this.loadingPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.loadingPictureBox.TabIndex = 32;
             this.loadingPictureBox.TabStop = false;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(25, 15);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(151, 28);
+            this.label4.TabIndex = 33;
+            this.label4.Text = "Lista notifikacija";
+            // 
             // frmNotification
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(752, 396);
+            this.ClientSize = new System.Drawing.Size(724, 405);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.loadingPictureBox);
             this.Controls.Add(this.btnShow);
             this.Controls.Add(this.dgvNotifications);
@@ -250,5 +257,6 @@
         private DataGridViewTextBoxColumn Description;
         private DataGridViewButtonColumn Izbriši;
         private PictureBox loadingPictureBox;
+        private Label label4;
     }
 }
