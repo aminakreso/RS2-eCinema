@@ -18,7 +18,7 @@ namespace eCinema.WinUI
         private APIService _movieService = new APIService("Movie");
         private int _totalPage;
         private int _selectedPage;
-        private const int _pageSize = 5;
+        private const int _pageSize = 10;
 
         public frmMovies()
         {
@@ -48,6 +48,8 @@ namespace eCinema.WinUI
 
         private async Task LoadData()
         {
+            btnShow.Enabled = false;
+
             loadingPictureBox.Show();
             loadingPictureBox.Update();
 
@@ -62,6 +64,7 @@ namespace eCinema.WinUI
             var list = await _movieService.Get<List<MovieDto>>(searchObject);
 
             loadingPictureBox.Hide();
+            btnShow.Enabled = true;
 
             if (list.Any() || _selectedPage == 0)
             {

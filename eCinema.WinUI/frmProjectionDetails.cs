@@ -36,7 +36,6 @@ namespace eCinema.WinUI
             await LoadHalls();
             await LoadMovies();
             await LoadPrices();
-            await LoadTypes();
 
             dtpProjectionDateTime.Format = DateTimePickerFormat.Custom;
             dtpProjectionDateTime.CustomFormat = "MM/dd/yyyy hh:mm:ss";
@@ -77,7 +76,7 @@ namespace eCinema.WinUI
                 cmbHall.Enabled = false;
                 cmbMovieName.Enabled = false;
                 cmbPrice.Enabled = false;
-                cmbProjectionType.Enabled = false;
+                //cmbProjectionType.Enabled = false;
                 dtpProjectionDateTime.Enabled = false;
                 dtpEndTime.Enabled = false;
             }
@@ -95,7 +94,7 @@ namespace eCinema.WinUI
                 cmbHall.Enabled = false;
                 cmbMovieName.Enabled = false;
                 cmbPrice.Enabled = false;
-                cmbProjectionType.Enabled = false;
+                //cmbProjectionType.Enabled = false;
                 dtpProjectionDateTime.Enabled = false;
             }
 
@@ -123,12 +122,8 @@ namespace eCinema.WinUI
         {
             var prices = await _priceService.Get<List<PriceDto>>();
             cmbPrice.DataSource = prices;
-            cmbPrice.DisplayMember = "Value";
+            cmbPrice.DisplayMember = "Name";
             cmbPrice.ValueMember = "Id";
-        }
-        private async Task LoadTypes()
-        {
-            cmbProjectionType.DataSource = ProjectionTypes.ListTypes;
         }
 
         private async void btnSave_Click(object sender, EventArgs e)
@@ -139,7 +134,6 @@ namespace eCinema.WinUI
                 {
                     StartTime = dtpProjectionDateTime.Value,
                     EndTime = dtpEndTime.Value,
-                    ProjectionType = cmbProjectionType.Text,
                     HallId = (Guid)cmbHall?.SelectedValue,
                     PriceId = (Guid)cmbPrice?.SelectedValue,
                     MovieId = (Guid?)cmbMovieName?.SelectedValue,
@@ -177,7 +171,6 @@ namespace eCinema.WinUI
                 {
                     StartTime = dtpProjectionDateTime.Value,
                     EndTime = dtpEndTime.Value,
-                    ProjectionType = cmbProjectionType.Text,
                     HallId = (Guid)cmbHall?.SelectedValue,
                     PriceId = (Guid)cmbPrice?.SelectedValue,
                     MovieId = (Guid?)cmbMovieName?.SelectedValue,
@@ -201,7 +194,6 @@ namespace eCinema.WinUI
             {
                 StartTime = dtpProjectionDateTime.Value,
                 EndTime = dtpEndTime.Value,
-                ProjectionType = cmbProjectionType.Text,
                 HallId = (Guid)cmbHall?.SelectedValue,
                 PriceId = (Guid)cmbPrice?.SelectedValue,
                 MovieId = (Guid?)cmbMovieName?.SelectedValue,
@@ -236,11 +228,6 @@ namespace eCinema.WinUI
         {
             ValidationHelper.ValidateComboBox(cmbPrice, e, "Price name", errorProvider);
 
-        }
-
-        private void cmbProjectionType_Validating(object sender, CancelEventArgs e)
-        {
-            ValidationHelper.ValidateComboBox(cmbProjectionType, e, "Projection type", errorProvider);
         }
 
         private void dtpProjectionDateTime_Validating(object sender, CancelEventArgs e)

@@ -73,13 +73,15 @@ namespace eCinema.WinUI
 
         private async Task LoadData()
         {
+            btnShow.Enabled = false;
+
             loadingPictureBox.Show();
             loadingPictureBox.Update();
 
             var searchObject = new NotificationSearchObject();
             searchObject.Title = txtTitle.Text;
 
-            if (cmbAuthor.SelectedItem is not null)
+            if (cmbAuthor.SelectedItem is not null && !string.IsNullOrWhiteSpace(cmbAuthor.Text))
             {
                 searchObject.AuthorId = (Guid)cmbAuthor.SelectedValue;
             }
@@ -94,6 +96,7 @@ namespace eCinema.WinUI
             
             var list = await _notificationService.Get<List<NotificationDto>>(searchObject);
             loadingPictureBox.Hide();
+            btnShow.Enabled = true;
 
             list = list.Where(x => x.IsActive == true).ToList();
             dgvNotifications.DataSource = list;

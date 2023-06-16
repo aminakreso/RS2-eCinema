@@ -31,12 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProjectionDetails));
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cmbMovieName = new System.Windows.Forms.ComboBox();
-            this.cmbProjectionType = new System.Windows.Forms.ComboBox();
             this.cmbHall = new System.Windows.Forms.ComboBox();
             this.cmbPrice = new System.Windows.Forms.ComboBox();
             this.dtpProjectionDateTime = new System.Windows.Forms.DateTimePicker();
@@ -60,15 +58,6 @@
             this.label1.Size = new System.Drawing.Size(37, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Film";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(302, 189);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 20);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Tip projekcije";
             // 
             // label3
             // 
@@ -105,15 +94,6 @@
             this.cmbMovieName.Size = new System.Drawing.Size(151, 28);
             this.cmbMovieName.TabIndex = 6;
             this.cmbMovieName.Validating += new System.ComponentModel.CancelEventHandler(this.cmbMovieName_Validating);
-            // 
-            // cmbProjectionType
-            // 
-            this.cmbProjectionType.FormattingEnabled = true;
-            this.cmbProjectionType.Location = new System.Drawing.Point(302, 212);
-            this.cmbProjectionType.Name = "cmbProjectionType";
-            this.cmbProjectionType.Size = new System.Drawing.Size(151, 28);
-            this.cmbProjectionType.TabIndex = 7;
-            this.cmbProjectionType.Validating += new System.ComponentModel.CancelEventHandler(this.cmbProjectionType_Validating);
             // 
             // cmbHall
             // 
@@ -195,9 +175,9 @@
             // loadingPictureBox
             // 
             this.loadingPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("loadingPictureBox.Image")));
-            this.loadingPictureBox.Location = new System.Drawing.Point(30, 15);
+            this.loadingPictureBox.Location = new System.Drawing.Point(25, 16);
             this.loadingPictureBox.Name = "loadingPictureBox";
-            this.loadingPictureBox.Size = new System.Drawing.Size(428, 291);
+            this.loadingPictureBox.Size = new System.Drawing.Size(428, 290);
             this.loadingPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.loadingPictureBox.TabIndex = 19;
             this.loadingPictureBox.TabStop = false;
@@ -228,12 +208,10 @@
             this.Controls.Add(this.dtpProjectionDateTime);
             this.Controls.Add(this.cmbPrice);
             this.Controls.Add(this.cmbHall);
-            this.Controls.Add(this.cmbProjectionType);
             this.Controls.Add(this.cmbMovieName);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "frmProjectionDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -249,12 +227,10 @@
         #endregion
 
         private Label label1;
-        private Label label2;
         private Label label3;
         private Label label4;
         private Label label5;
         private ComboBox cmbMovieName;
-        private ComboBox cmbProjectionType;
         private ComboBox cmbHall;
         private ComboBox cmbPrice;
         private DateTimePicker dtpProjectionDateTime;

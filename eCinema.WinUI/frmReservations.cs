@@ -15,7 +15,7 @@ namespace eCinema.WinUI
         private APIService _reservationService = new APIService("Reservation");
         private APIService _projectionService = new APIService("Projection");
         private int _selectedPage;
-        private const int _pageSize = 5;
+        private const int _pageSize = 10;
 
         public frmReservations()
         {
@@ -33,6 +33,8 @@ namespace eCinema.WinUI
 
         private async Task LoadData()
         {
+            btnShow.Enabled = false;
+
             loadingPictureBox.Show();
             loadingPictureBox.Update();
 
@@ -52,6 +54,9 @@ namespace eCinema.WinUI
 
             var list = await _reservationService.Get<List<ReservationDto>>(searchObject);
             loadingPictureBox.Hide();
+            btnShow.Enabled = true;
+
+
             if (list.Any() || _selectedPage == 0)
             {
                 dgvReservations.DataSource = list;

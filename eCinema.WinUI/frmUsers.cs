@@ -32,6 +32,8 @@ namespace eCinema.WinUI
 
         private async Task LoadData()
         {
+            btnShow.Enabled = false;
+
             loadingPictureBox.Show();
             loadingPictureBox.Update();
 
@@ -51,6 +53,7 @@ namespace eCinema.WinUI
 
             var list = await _userService.Get<List<UserDto>>(searchObject);
             loadingPictureBox.Hide();
+            btnShow.Enabled = true;
 
             //list = list.OrderBy(x => x.IsActive).ToList();
             dgvUsers.DataSource = list.OrderByDescending(x=> x.IsActive).ToList();

@@ -21,7 +21,7 @@ namespace eCinema.WinUI
         private APIService _hallService = new APIService("Hall");
 
         private int _selectedPage;
-        private const int _pageSize = 5;
+        private const int _pageSize = 10;
 
         public frmProjection()
         {
@@ -66,6 +66,8 @@ namespace eCinema.WinUI
 
         private async Task LoadData()
         {
+            btnShow.Enabled = false;
+
             loadingPictureBox.Show();
             loadingPictureBox.Update();
             
@@ -84,12 +86,12 @@ namespace eCinema.WinUI
                 searchObject.Name = txtName.Text;
             }
 
-            if (cmbHall.Text != "Svi")
+            if (cmbHall.Text != "Svi"  && !string.IsNullOrWhiteSpace(cmbHall.Text))
             {
                 searchObject.HallId = (Guid)cmbHall.SelectedValue;
             }
 
-            if (cmbStatus.Text != "Svi")
+            if (cmbStatus.Text != "Svi" && !string.IsNullOrWhiteSpace(cmbStatus.Text))
             {
                 searchObject.StateMachine = cmbStatus.SelectedValue.ToString();
             }
@@ -97,6 +99,7 @@ namespace eCinema.WinUI
             var list = await _projectionService.Get<List<ProjectionDto>>(searchObject);
 
             loadingPictureBox.Hide();
+            btnShow.Enabled = true;
 
             if (list.Any() || _selectedPage == 0)
             {

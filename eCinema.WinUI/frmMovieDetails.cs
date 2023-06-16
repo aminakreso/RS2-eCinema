@@ -33,7 +33,7 @@ namespace eCinema.WinUI
                 
                 for (int count = 0; count < clbGenres.Items.Count; count++)
                 {
-                    if (_model.Genres.Contains(clbGenres.Items[count].ToString()))
+                    if (_model.Genres.Contains(clbGenres.Items[count].ToString().ToLower()))
                     {
                         clbGenres.SetItemChecked(count, true);
                     }

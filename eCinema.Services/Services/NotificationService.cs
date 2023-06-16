@@ -18,14 +18,14 @@ namespace eCinema.Services.Services
         {
             var filteredQuery = query;
             if (!string.IsNullOrWhiteSpace(search.Title))
-                filteredQuery = query.Where(x => x.Title != null && x.Title.ToLower().Contains(search.Title.ToLower()));
+                filteredQuery = filteredQuery.Where(x => x.Title != null && x.Title.ToLower().Contains(search.Title.ToLower()));
             if (search.AuthorId != Guid.Empty)
             {
-                filteredQuery = query.Where(x => x.AuthorId == search.AuthorId);
+                filteredQuery = filteredQuery.Where(x => x.AuthorId == search.AuthorId);
 
             }
             if (!string.IsNullOrWhiteSpace(search.NotificationType) && search.NotificationType!="Svi")
-                filteredQuery = query.Where(x => x.NotificationType != null && x.NotificationType.ToLower().Contains(search.NotificationType.ToLower()));
+                filteredQuery = filteredQuery.Where(x => x.NotificationType != null && x.NotificationType.ToLower().Contains(search.NotificationType.ToLower()));
 
             return filteredQuery;
 
