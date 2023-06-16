@@ -47,6 +47,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.loadingPictureBox = new System.Windows.Forms.PictureBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loadingPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -54,7 +55,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(55, 47);
+            this.label1.Location = new System.Drawing.Point(25, 55);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(37, 20);
             this.label1.TabIndex = 0;
@@ -63,7 +64,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(316, 174);
+            this.label2.Location = new System.Drawing.Point(302, 189);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(99, 20);
             this.label2.TabIndex = 1;
@@ -72,7 +73,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(55, 111);
+            this.label3.Location = new System.Drawing.Point(30, 121);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(116, 20);
             this.label3.TabIndex = 2;
@@ -81,7 +82,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(316, 111);
+            this.label4.Location = new System.Drawing.Point(302, 121);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(50, 20);
             this.label4.TabIndex = 3;
@@ -90,7 +91,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(316, 47);
+            this.label5.Location = new System.Drawing.Point(302, 55);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(37, 20);
             this.label5.TabIndex = 4;
@@ -99,7 +100,7 @@
             // cmbMovieName
             // 
             this.cmbMovieName.FormattingEnabled = true;
-            this.cmbMovieName.Location = new System.Drawing.Point(55, 70);
+            this.cmbMovieName.Location = new System.Drawing.Point(30, 80);
             this.cmbMovieName.Name = "cmbMovieName";
             this.cmbMovieName.Size = new System.Drawing.Size(151, 28);
             this.cmbMovieName.TabIndex = 6;
@@ -108,7 +109,7 @@
             // cmbProjectionType
             // 
             this.cmbProjectionType.FormattingEnabled = true;
-            this.cmbProjectionType.Location = new System.Drawing.Point(316, 197);
+            this.cmbProjectionType.Location = new System.Drawing.Point(302, 212);
             this.cmbProjectionType.Name = "cmbProjectionType";
             this.cmbProjectionType.Size = new System.Drawing.Size(151, 28);
             this.cmbProjectionType.TabIndex = 7;
@@ -117,7 +118,7 @@
             // cmbHall
             // 
             this.cmbHall.FormattingEnabled = true;
-            this.cmbHall.Location = new System.Drawing.Point(316, 70);
+            this.cmbHall.Location = new System.Drawing.Point(302, 80);
             this.cmbHall.Name = "cmbHall";
             this.cmbHall.Size = new System.Drawing.Size(151, 28);
             this.cmbHall.TabIndex = 9;
@@ -126,7 +127,7 @@
             // cmbPrice
             // 
             this.cmbPrice.FormattingEnabled = true;
-            this.cmbPrice.Location = new System.Drawing.Point(316, 134);
+            this.cmbPrice.Location = new System.Drawing.Point(302, 143);
             this.cmbPrice.Name = "cmbPrice";
             this.cmbPrice.Size = new System.Drawing.Size(151, 28);
             this.cmbPrice.TabIndex = 11;
@@ -134,7 +135,7 @@
             // 
             // dtpProjectionDateTime
             // 
-            this.dtpProjectionDateTime.Location = new System.Drawing.Point(55, 135);
+            this.dtpProjectionDateTime.Location = new System.Drawing.Point(30, 144);
             this.dtpProjectionDateTime.Name = "dtpProjectionDateTime";
             this.dtpProjectionDateTime.Size = new System.Drawing.Size(245, 27);
             this.dtpProjectionDateTime.TabIndex = 12;
@@ -142,7 +143,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(340, 242);
+            this.btnSave.Location = new System.Drawing.Point(359, 266);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(94, 29);
             this.btnSave.TabIndex = 13;
@@ -152,9 +153,9 @@
             // 
             // btnActivate
             // 
-            this.btnActivate.Location = new System.Drawing.Point(55, 242);
+            this.btnActivate.Location = new System.Drawing.Point(30, 266);
             this.btnActivate.Name = "btnActivate";
-            this.btnActivate.Size = new System.Drawing.Size(72, 29);
+            this.btnActivate.Size = new System.Drawing.Size(94, 29);
             this.btnActivate.TabIndex = 15;
             this.btnActivate.Text = "Activate";
             this.btnActivate.UseVisualStyleBackColor = true;
@@ -162,9 +163,9 @@
             // 
             // btnHide
             // 
-            this.btnHide.Location = new System.Drawing.Point(134, 242);
+            this.btnHide.Location = new System.Drawing.Point(130, 266);
             this.btnHide.Name = "btnHide";
-            this.btnHide.Size = new System.Drawing.Size(72, 29);
+            this.btnHide.Size = new System.Drawing.Size(94, 29);
             this.btnHide.TabIndex = 16;
             this.btnHide.Text = "Hide";
             this.btnHide.UseVisualStyleBackColor = true;
@@ -172,7 +173,7 @@
             // 
             // dtpEndTime
             // 
-            this.dtpEndTime.Location = new System.Drawing.Point(55, 198);
+            this.dtpEndTime.Location = new System.Drawing.Point(30, 212);
             this.dtpEndTime.Name = "dtpEndTime";
             this.dtpEndTime.Size = new System.Drawing.Size(250, 27);
             this.dtpEndTime.TabIndex = 17;
@@ -181,7 +182,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(55, 174);
+            this.label6.Location = new System.Drawing.Point(30, 189);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(124, 20);
             this.label6.TabIndex = 18;
@@ -194,19 +195,30 @@
             // loadingPictureBox
             // 
             this.loadingPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("loadingPictureBox.Image")));
-            this.loadingPictureBox.Location = new System.Drawing.Point(55, 12);
+            this.loadingPictureBox.Location = new System.Drawing.Point(30, 15);
             this.loadingPictureBox.Name = "loadingPictureBox";
-            this.loadingPictureBox.Size = new System.Drawing.Size(435, 287);
+            this.loadingPictureBox.Size = new System.Drawing.Size(428, 291);
             this.loadingPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.loadingPictureBox.TabIndex = 19;
             this.loadingPictureBox.TabStop = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(25, 15);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(156, 28);
+            this.label7.TabIndex = 22;
+            this.label7.Text = "Dodaj projekciju";
             // 
             // frmProjectionDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
-            this.ClientSize = new System.Drawing.Size(547, 329);
+            this.ClientSize = new System.Drawing.Size(479, 318);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.loadingPictureBox);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dtpEndTime);
@@ -253,5 +265,6 @@
         private Label label6;
         private ErrorProvider errorProvider;
         private PictureBox loadingPictureBox;
+        private Label label7;
     }
 }

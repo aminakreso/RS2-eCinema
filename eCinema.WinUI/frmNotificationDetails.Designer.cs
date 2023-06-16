@@ -41,6 +41,7 @@
             this.pbSlika = new System.Windows.Forms.PictureBox();
             this.btnAddPicture = new System.Windows.Forms.Button();
             this.ofdPicture = new System.Windows.Forms.OpenFileDialog();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSlika)).BeginInit();
             this.SuspendLayout();
@@ -48,7 +49,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(57, 48);
+            this.label1.Location = new System.Drawing.Point(25, 55);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 20);
             this.label1.TabIndex = 0;
@@ -57,7 +58,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(247, 47);
+            this.label2.Location = new System.Drawing.Point(190, 55);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(30, 20);
             this.label2.TabIndex = 1;
@@ -66,7 +67,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(57, 331);
+            this.label3.Location = new System.Drawing.Point(25, 310);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 20);
             this.label3.TabIndex = 2;
@@ -75,7 +76,7 @@
             // cmbNotificationType
             // 
             this.cmbNotificationType.FormattingEnabled = true;
-            this.cmbNotificationType.Location = new System.Drawing.Point(229, 70);
+            this.cmbNotificationType.Location = new System.Drawing.Point(190, 80);
             this.cmbNotificationType.Name = "cmbNotificationType";
             this.cmbNotificationType.Size = new System.Drawing.Size(102, 28);
             this.cmbNotificationType.TabIndex = 3;
@@ -83,7 +84,7 @@
             // 
             // txtTitle
             // 
-            this.txtTitle.Location = new System.Drawing.Point(57, 71);
+            this.txtTitle.Location = new System.Drawing.Point(25, 80);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(125, 27);
             this.txtTitle.TabIndex = 4;
@@ -91,7 +92,7 @@
             // 
             // txtContent
             // 
-            this.txtContent.Location = new System.Drawing.Point(57, 364);
+            this.txtContent.Location = new System.Drawing.Point(25, 335);
             this.txtContent.Name = "txtContent";
             this.txtContent.Size = new System.Drawing.Size(274, 135);
             this.txtContent.TabIndex = 5;
@@ -100,7 +101,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(237, 517);
+            this.btnSave.Location = new System.Drawing.Point(205, 476);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(94, 29);
             this.btnSave.TabIndex = 6;
@@ -115,7 +116,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(57, 126);
+            this.label4.Location = new System.Drawing.Point(25, 115);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 20);
             this.label4.TabIndex = 7;
@@ -124,15 +125,15 @@
             // pbSlika
             // 
             this.pbSlika.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pbSlika.Location = new System.Drawing.Point(57, 149);
+            this.pbSlika.Location = new System.Drawing.Point(25, 140);
             this.pbSlika.Name = "pbSlika";
-            this.pbSlika.Size = new System.Drawing.Size(274, 135);
+            this.pbSlika.Size = new System.Drawing.Size(267, 135);
             this.pbSlika.TabIndex = 8;
             this.pbSlika.TabStop = false;
             // 
             // btnAddPicture
             // 
-            this.btnAddPicture.Location = new System.Drawing.Point(237, 302);
+            this.btnAddPicture.Location = new System.Drawing.Point(198, 281);
             this.btnAddPicture.Name = "btnAddPicture";
             this.btnAddPicture.Size = new System.Drawing.Size(94, 29);
             this.btnAddPicture.TabIndex = 9;
@@ -144,12 +145,23 @@
             // 
             this.ofdPicture.FileName = "openFileDialog1";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(25, 15);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(166, 28);
+            this.label7.TabIndex = 24;
+            this.label7.Text = "Dodaj notifikaciju";
+            // 
             // frmNotificationDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
-            this.ClientSize = new System.Drawing.Size(453, 558);
+            this.ClientSize = new System.Drawing.Size(332, 516);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.btnAddPicture);
             this.Controls.Add(this.pbSlika);
             this.Controls.Add(this.label4);
@@ -185,5 +197,6 @@
         private PictureBox pbSlika;
         private Label label4;
         private OpenFileDialog ofdPicture;
+        private Label label7;
     }
 }

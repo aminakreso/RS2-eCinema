@@ -35,13 +35,14 @@
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 11);
+            this.label1.Location = new System.Drawing.Point(25, 55);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 20);
             this.label1.TabIndex = 0;
@@ -50,7 +51,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(30, 72);
+            this.label2.Location = new System.Drawing.Point(25, 110);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 20);
             this.label2.TabIndex = 1;
@@ -58,7 +59,7 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(30, 32);
+            this.txtName.Location = new System.Drawing.Point(25, 80);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(125, 27);
             this.txtName.TabIndex = 2;
@@ -66,7 +67,7 @@
             // 
             // txtPrice
             // 
-            this.txtPrice.Location = new System.Drawing.Point(30, 95);
+            this.txtPrice.Location = new System.Drawing.Point(25, 135);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(125, 27);
             this.txtPrice.TabIndex = 3;
@@ -74,7 +75,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(153, 150);
+            this.btnSave.Location = new System.Drawing.Point(56, 181);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(94, 29);
             this.btnSave.TabIndex = 4;
@@ -86,12 +87,23 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(25, 15);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(121, 28);
+            this.label7.TabIndex = 23;
+            this.label7.Text = "Dodaj cijenu";
+            // 
             // frmPriceDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
-            this.ClientSize = new System.Drawing.Size(272, 196);
+            this.ClientSize = new System.Drawing.Size(191, 219);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtPrice);
             this.Controls.Add(this.txtName);
@@ -115,5 +127,6 @@
         private TextBox txtPrice;
         private Button btnSave;
         private ErrorProvider errorProvider;
+        private Label label7;
     }
 }
