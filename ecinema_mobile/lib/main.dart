@@ -26,9 +26,6 @@ import 'screens/notificationListScreen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Stripe.publishableKey = stripePublishableKey;
-  Stripe.merchantIdentifier = 'any string works';
-  await Stripe.instance.applySettings();
 
   runApp(MultiProvider(
     providers: [

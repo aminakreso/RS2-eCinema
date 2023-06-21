@@ -16,6 +16,7 @@ import '../utils/util.dart';
 import '../wigdets/master_screen.dart';
 import '../wigdets/movieCardLine.dart';
 import 'loadingScreen.dart';
+import 'package:ecinema_mobile/.env';
 import 'package:http/http.dart' as http;
 
 import 'movieDetailsScreen.dart';
@@ -24,20 +25,31 @@ class ReservationDetailsScreen extends StatefulWidget {
   static const String routeName = "/reservation_details";
   late ReservationUpsertRequest? reservationInsertRequest;
   late String? id;
-  //late Projection projection;
+  String? stripe_sk;
+  late String stripe_pk;
 
-  ReservationDetailsScreen({this.reservationInsertRequest, this.id, super.key});
+  ReservationDetailsScreen(
+      {this.reservationInsertRequest, this.id, super.key}) {
+    stripe_pk = const String.fromEnvironment("stripePublishableKey",
+        defaultValue: stripePublishableKey);
+
+    stripe_sk = const String.fromEnvironment("stripeSecretKey",
+        defaultValue: stripeSecretKey);
+
+    print("secret $stripe_pk");
+  }
 
   @override
   _ReservationDetailsScreenState createState() =>
-      _ReservationDetailsScreenState(reservationInsertRequest, id);
+      _ReservationDetailsScreenState(reservationInsertRequest, id, stripe_sk);
 }
 
 class _ReservationDetailsScreenState extends State<ReservationDetailsScreen> {
-  _ReservationDetailsScreenState(reservationInsertRequest, id);
+  _ReservationDetailsScreenState(reservationInsertRequest, id, stripe_sk);
   Map<String, dynamic>? paymentIntentData;
   ReservationUpsertRequest? reservationInsertRequest =
       ReservationUpsertRequest();
+  String? stripe_sk = null;
   String? id = null;
   Projection? projection = null;
 
@@ -60,6 +72,11 @@ class _ReservationDetailsScreenState extends State<ReservationDetailsScreen> {
   }
 
   Future loadData() async {
+    Stripe.publishableKey = widget.stripe_pk;
+    Stripe.merchantIdentifier = 'any string works';
+    await Stripe.instance.applySettings();
+
+    stripe_sk = widget.stripe_sk;
     if (widget.reservationInsertRequest != null) {
       reservationInsertRequest = widget.reservationInsertRequest!;
       loadProjection();
@@ -182,7 +199,9 @@ class _ReservationDetailsScreenState extends State<ReservationDetailsScreen> {
                       onPressed: () async {
                         double toPay = calculateToPay();
                         paymentIntentData = await createPaymentIntent(
-                            (calculateToPay() * 100).round().toString(), 'bam');
+                            (calculateToPay() * 100).round().toString(),
+                            'bam',
+                            stripe_sk);
                         await Stripe.instance
                             .initPaymentSheet(
                                 paymentSheetParameters:
@@ -241,7 +260,7 @@ class _ReservationDetailsScreenState extends State<ReservationDetailsScreen> {
   }
 }
 
-createPaymentIntent(String amount, String currency) async {
+createPaymentIntent(String amount, String currency, String? stripe_sk) async {
   try {
     Map<String, dynamic> body = {
       'amount': amount,
@@ -253,8 +272,7 @@ createPaymentIntent(String amount, String currency) async {
         Uri.parse('https://api.stripe.com/v1/payment_intents'),
         body: body,
         headers: {
-          'Authorization':
-              'Bearer sk_test_51MeoKkJ60Z5ZRZNFXDlMDAW8hUmorXllZZrovtIewlbbIX9W79JHSj4OSjMEuyGvlTujSektfOkzmhFHaf8DA0S500Mfaldrf9',
+          'Authorization': 'Bearer $stripe_sk',
           'Content-Type': 'application/x-www-form-urlencoded'
         });
     return jsonDecode(response.body);
