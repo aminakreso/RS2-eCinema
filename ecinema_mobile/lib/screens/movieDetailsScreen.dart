@@ -105,32 +105,31 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                         Text(movie!.name!,
                             style: Theme.of(context).textTheme.headline6),
                         MovieCardLine(
-                          label: 'Duration',
+                          label: 'Trajanje',
                           text: movie!.duration.toString(),
                           padding: 2,
                         ),
                         MovieCardLine(
-                          label: 'Actors',
+                          label: 'Glumci',
                           text: movie!.actors,
                           padding: 2,
                         ),
                         MovieCardLine(
-                          label: 'Director',
+                          label: 'Režiser',
                           text: movie!.director,
                           padding: 2,
                         ),
                         MovieCardLine(
-                          label: 'Genres',
+                          label: 'Trajanje',
                           text: movie!.genres,
                           padding: 2,
                         ),
                         MovieCardLine(
-                          label: 'Country',
+                          label: 'Država',
                           text: movie!.country,
                           padding: 2,
                         ),
-                        MovieCardLine(
-                            label: 'Description', text: movie!.description),
+                        MovieCardLine(label: 'Opis', text: movie!.description),
                       ],
                     ),
                   )

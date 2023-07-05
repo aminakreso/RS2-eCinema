@@ -42,7 +42,7 @@ class LogoTextWidget extends StatelessWidget {
         if (login)
           LoginText()
         else
-          Text("Registration", style: Theme.of(context).textTheme.headline2),
+          Text("Registracija", style: Theme.of(context).textTheme.headline2),
         SizedBox(
           height: 50,
         ),

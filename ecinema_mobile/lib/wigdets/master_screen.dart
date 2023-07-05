@@ -60,11 +60,11 @@ class _MasterScreenWidgetState extends State<MasterScreenWidget> {
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.movie),
-          label: 'Reservations',
+          label: 'Rezervacije',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.person),
-          label: 'Profile',
+          label: 'Moj profil',
         ),
       ],
       selectedItemColor: Colors.red[800],

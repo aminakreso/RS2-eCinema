@@ -122,11 +122,11 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
         child: TextFormField(
           validator: (value) {
             if (value!.isEmpty) {
-              return '$labelText must not be empty!';
+              return '$labelText ne smije biti prazno!';
             } else if (minLenght > 0 && value.length < minLenght) {
-              return '$labelText must have at least $minLenght characters!';
+              return '$labelText mora imat minimalno $minLenght karaktera!';
             } else if (isEmail && !EmailValidator.validate(value)) {
-              return '$labelText must have correct format';
+              return '$labelText mora biti u tačnom formatu';
             }
             return null;
           },

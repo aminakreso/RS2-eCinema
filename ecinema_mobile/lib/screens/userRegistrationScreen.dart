@@ -47,13 +47,13 @@ class _UserRegistrationScreenState extends State<UserRegistrationScreen> {
         children: [
           LogoTextWidget(login: false),
           TextInputWidget(
-            labelText: "First name",
+            labelText: "Ime",
             controller: _firstNameController,
             minLength: 6,
             isEmail: false,
           ),
           TextInputWidget(
-            labelText: "Last name",
+            labelText: "Prezime",
             controller: _lastnameController,
             minLength: 6,
             isEmail: false,
@@ -65,25 +65,25 @@ class _UserRegistrationScreenState extends State<UserRegistrationScreen> {
             isEmail: true,
           ),
           TextInputWidget(
-            labelText: "Phone number",
+            labelText: "Broj telefona",
             controller: _phoneController,
             minLength: 9,
             isEmail: false,
           ),
           TextInputWidget(
-            labelText: "Username",
+            labelText: "Korisničko ime",
             controller: _usernameController,
             minLength: 6,
             isEmail: false,
           ),
           TextInputWidget(
-            labelText: "Password",
+            labelText: "Lozinka",
             controller: _passwordController,
             minLength: 6,
             isEmail: false,
           ),
           TextInputWidget(
-            labelText: "Confirm password",
+            labelText: "Potvrdi lozinku",
             controller: _confirmPasswordController,
             minLength: 6,
             isEmail: false,
@@ -107,10 +107,10 @@ class _UserRegistrationScreenState extends State<UserRegistrationScreen> {
                     showDialog(
                         context: context,
                         builder: (BuildContext context) => AlertDialog(
-                              title: Text("User registration successful!"),
+                              title: Text("Uspješna registracija!"),
                               content: Text(
                                   style: Theme.of(context).textTheme.bodyText1,
-                                  "Successfully registered user ${registeredUser.firstName}"),
+                                  "Registriran korisnik ${registeredUser.firstName}"),
                               actions: [
                                 TextButton(
                                     onPressed: () => Navigator.popAndPushNamed(

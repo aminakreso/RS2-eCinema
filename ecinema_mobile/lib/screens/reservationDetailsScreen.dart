@@ -224,7 +224,7 @@ class _ReservationDetailsScreenState extends State<ReservationDetailsScreen> {
                         Navigator.of(context).pushNamedAndRemoveUntil(
                             '/movie', (Route<dynamic> route) => false);
                       },
-                      child: Text('Submit'),
+                      child: Text('Potvrdi'),
                     ),
                   )
               ],

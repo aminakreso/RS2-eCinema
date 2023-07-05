@@ -27,11 +27,11 @@ class TextInputWidget extends StatelessWidget {
         child: TextFormField(
             validator: (value) {
               if (value!.isEmpty) {
-                return '$labelText must not be empty!';
+                return '$labelText ne smije biti prazno!';
               } else if (minLength > 0 && value.length < minLength) {
-                return '$labelText must have at least $minLength characters!';
+                return '$labelText mora imat minimalno $minLength karaktera!';
               } else if (isEmail && !EmailValidator.validate(value)) {
-                return '$labelText must have correct format';
+                return '$labelText mora biti u tačnom formatu!';
               }
               return null;
             },

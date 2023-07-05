@@ -141,13 +141,13 @@ class MovieList extends StatelessWidget {
                   children: [
                     TextInputWidget(
                       controller: _usernameController,
-                      labelText: 'Username',
+                      labelText: 'Korisničko ime',
                       minLength: 4,
                       isEmail: false,
                     ),
                     TextInputWidget(
                       controller: _passwordController,
-                      labelText: 'Password',
+                      labelText: 'Lozinka',
                       minLength: 4,
                       isEmail: false,
                     ),
@@ -183,7 +183,7 @@ class MovieList extends StatelessWidget {
                                             AlertDialog(
                                               title: Text("Error"),
                                               content: Text(
-                                                  "Invalid username or password"),
+                                                  "Pogrešno korisničko ime ili lozinka"),
                                               actions: [
                                                 TextButton(
                                                   child: Text("Ok"),
@@ -207,7 +207,7 @@ class MovieList extends StatelessWidget {
                                     errorDialog(context, e);
                                   }
                                 },
-                                child: Text("Register")))
+                                child: Text("Registracija")))
                       ],
                     )
                   ],

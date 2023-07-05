@@ -52,9 +52,9 @@ class _ReservationListScreenState extends State<ReservationListScreen> {
     return MasterScreenWidget(
       child: Column(
         children: [
-          HeaderWidget(title: "Reservations"),
+          HeaderWidget(title: "Rezervacije"),
           if (data!.isEmpty)
-            Text("No available reservation yet",
+            Text("Trenutno nema dostupnih rezervacija.",
                 style: Theme.of(context).textTheme.headline6),
           Expanded(
             child: ListView.builder(
@@ -100,20 +100,20 @@ class _ReservationListScreenState extends State<ReservationListScreen> {
                     height: 10,
                   ),
                   MovieCardLine(
-                      label: "Director :",
+                      label: "Režiser :",
                       text: "${x.projection?.movie?.director ?? "Movie name"}",
                       font: 14),
                   MovieCardLine(
-                      label: "Genres :",
+                      label: "Žanrovi :",
                       text: "${x.projection?.movie?.genres ?? "Movie genres"}",
                       font: 14),
                   MovieCardLine(
-                      label: "Projection date :",
+                      label: "Datum projekcije :",
                       text:
                           "${getDate(x.projection?.startTime) ?? "Projection date"}",
                       font: 14),
                   MovieCardLine(
-                      label: "Projection time :",
+                      label: "Vrijeme projekcije :",
                       text:
                           "${getTime(x.projection?.startTime) ?? "Projection start time"}",
                       font: 14),

@@ -138,28 +138,65 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
                     children: [
                       Container(
                         padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          "${getDate(_projection?.startTime)}",
-                          style: TextStyle(color: Colors.black, fontSize: 16),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Text(
+                              "*za odabir sjedišta duže držite ikonicu*",
+                              style:
+                                  TextStyle(color: Colors.black, fontSize: 8),
+                            ),
+                            Text(
+                              "${getDate(_projection?.startTime)} ${getTime(_projection?.startTime)}",
+                              style:
+                                  TextStyle(color: Colors.black, fontSize: 16),
+                            ),
+                          ],
                         ),
                       ),
                       Container(
                           margin: EdgeInsets.fromLTRB(0, 10, 10, 0),
                           padding: EdgeInsets.all(5),
-                          color: Colors.red[900],
-                          child: Text(
-                            "${getTime(_projection?.startTime)}",
-                            style: TextStyle(color: Colors.white, fontSize: 16),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                children: [
+                                  Icon(Icons.square, color: Colors.grey),
+                                  Text(
+                                    " - slobodno",
+                                    style: TextStyle(color: Colors.black),
+                                  )
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Icon(Icons.square, color: Colors.amber),
+                                  Text(" - odabrano",
+                                      style: TextStyle(color: Colors.black))
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Icon(Icons.square, color: Colors.red),
+                                  Text(" - zauzeto",
+                                      style: TextStyle(color: Colors.black))
+                                ],
+                              )
+                            ],
                           )),
                     ],
                   ),
                   Center(
-                    child: Text(
-                      "Pick seats:",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold),
+                    child: Container(
+                      margin: EdgeInsets.only(bottom: 10),
+                      child: Text(
+                        "Odaberi sjedišta:",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ),
                   Expanded(
@@ -224,12 +261,15 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
             );
           }
         },
-        child: Text("Confirm reservation"),
+        child: Text(
+          "Potvrdi rezervaciju",
+          style: TextStyle(fontSize: 18),
+        ),
       );
     }
     return Center(
         child: Text(
-      "There is no available seats!",
+      "Nažalost nema slobodnih mjesta!",
       style: Theme.of(context).textTheme.headline2,
     ));
   }
