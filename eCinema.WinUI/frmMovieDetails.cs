@@ -162,5 +162,17 @@ namespace eCinema.WinUI
         {
             ValidationHelper.ValidateRichTextBox(txtDescription, e, "Description", errorProvider);
         }
+
+        private void clbGenres_Validating(object sender, CancelEventArgs e)
+        {
+            if (clbGenres.CheckedItems.Count == 0)
+            {
+                e.Cancel = true;
+                clbGenres.Focus();
+
+                errorProvider.SetError(clbGenres, " Film mora imati bar jedan žanr!");
+
+            }
+        }
     }
 }

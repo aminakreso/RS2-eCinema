@@ -115,7 +115,7 @@ namespace eCinema.WinUI
             doc.Close();
 
             MessageBox.Show("Report generated on desktop.");
-            this.Close();
+            //this.Close();
         }
 
         private async void btnProjekcijePDF_Click(object sender, EventArgs e)
@@ -174,7 +174,7 @@ namespace eCinema.WinUI
             // close the document
             doc.Close();
             MessageBox.Show("Report generated on desktop.");
-            this.Close();
+            //this.Close();
         }
 
         private async void frmReportOptions_Load(object sender, EventArgs e)

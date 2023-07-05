@@ -239,6 +239,7 @@
             this.txtUsernamee.Name = "txtUsernamee";
             this.txtUsernamee.Size = new System.Drawing.Size(125, 27);
             this.txtUsernamee.TabIndex = 20;
+            this.txtUsernamee.Validating += new System.ComponentModel.CancelEventHandler(this.txtUsernamee_Validating);
             // 
             // label7
             // 

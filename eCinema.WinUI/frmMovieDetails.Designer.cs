@@ -202,6 +202,7 @@
             this.pbPicture.Location = new System.Drawing.Point(452, 59);
             this.pbPicture.Name = "pbPicture";
             this.pbPicture.Size = new System.Drawing.Size(216, 274);
+            this.pbPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbPicture.TabIndex = 34;
             this.pbPicture.TabStop = false;
             // 
@@ -248,6 +249,7 @@
             this.clbGenres.Name = "clbGenres";
             this.clbGenres.Size = new System.Drawing.Size(212, 70);
             this.clbGenres.TabIndex = 37;
+            this.clbGenres.Validating += new System.ComponentModel.CancelEventHandler(this.clbGenres_Validating);
             // 
             // label10
             // 

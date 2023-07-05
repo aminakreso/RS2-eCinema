@@ -58,7 +58,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(190, 55);
+            this.label2.Location = new System.Drawing.Point(290, 54);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(30, 20);
             this.label2.TabIndex = 1;
@@ -76,9 +76,9 @@
             // cmbNotificationType
             // 
             this.cmbNotificationType.FormattingEnabled = true;
-            this.cmbNotificationType.Location = new System.Drawing.Point(190, 80);
+            this.cmbNotificationType.Location = new System.Drawing.Point(290, 79);
             this.cmbNotificationType.Name = "cmbNotificationType";
-            this.cmbNotificationType.Size = new System.Drawing.Size(102, 28);
+            this.cmbNotificationType.Size = new System.Drawing.Size(128, 28);
             this.cmbNotificationType.TabIndex = 3;
             this.cmbNotificationType.Validating += new System.ComponentModel.CancelEventHandler(this.cmbNotificationType_Validating);
             // 
@@ -86,7 +86,7 @@
             // 
             this.txtTitle.Location = new System.Drawing.Point(25, 80);
             this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(125, 27);
+            this.txtTitle.Size = new System.Drawing.Size(238, 27);
             this.txtTitle.TabIndex = 4;
             this.txtTitle.Validating += new System.ComponentModel.CancelEventHandler(this.txtTitle_Validating);
             // 
@@ -94,14 +94,14 @@
             // 
             this.txtContent.Location = new System.Drawing.Point(25, 335);
             this.txtContent.Name = "txtContent";
-            this.txtContent.Size = new System.Drawing.Size(274, 135);
+            this.txtContent.Size = new System.Drawing.Size(393, 135);
             this.txtContent.TabIndex = 5;
             this.txtContent.Text = "";
             this.txtContent.Validating += new System.ComponentModel.CancelEventHandler(this.txtContent_Validating);
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(205, 476);
+            this.btnSave.Location = new System.Drawing.Point(331, 476);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(94, 29);
             this.btnSave.TabIndex = 6;
@@ -124,16 +124,18 @@
             // 
             // pbSlika
             // 
+            this.pbSlika.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbSlika.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pbSlika.Location = new System.Drawing.Point(25, 140);
             this.pbSlika.Name = "pbSlika";
-            this.pbSlika.Size = new System.Drawing.Size(267, 135);
+            this.pbSlika.Size = new System.Drawing.Size(393, 144);
+            this.pbSlika.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbSlika.TabIndex = 8;
             this.pbSlika.TabStop = false;
             // 
             // btnAddPicture
             // 
-            this.btnAddPicture.Location = new System.Drawing.Point(198, 281);
+            this.btnAddPicture.Location = new System.Drawing.Point(324, 290);
             this.btnAddPicture.Name = "btnAddPicture";
             this.btnAddPicture.Size = new System.Drawing.Size(94, 29);
             this.btnAddPicture.TabIndex = 9;
@@ -160,7 +162,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
-            this.ClientSize = new System.Drawing.Size(332, 516);
+            this.ClientSize = new System.Drawing.Size(448, 516);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnAddPicture);
             this.Controls.Add(this.pbSlika);

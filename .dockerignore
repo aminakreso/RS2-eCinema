@@ -10,7 +10,6 @@
 **/.vscode
 **/ecinema_mobile
 **/ecinema_mobile/build
-**/.idea/.idea.eCinema/.idea
 **/*.*proj.user
 **/*.dbmdl
 **/*.jfm

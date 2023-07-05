@@ -59,7 +59,7 @@ namespace eCinema.WinUI
                 new UserDto { FirstName = "Svi" }
             };
             var users = await _userService.Get<List<UserDto>>();
-            list.AddRange(users);
+            list.AddRange(users.Where(x=> x.UserRole == "Admin").ToList());
             cmbAuthor.DataSource = list;
             cmbAuthor.DisplayMember = "FullName";
             cmbAuthor.ValueMember = "Id";

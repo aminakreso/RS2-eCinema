@@ -167,18 +167,24 @@ namespace eCinema.WinUI
         private void txtUserPassword_Validating(object sender, CancelEventArgs e)
         {
             if(_model is null)
-                ValidationHelper.Validate(txtUserPassword, e, "Password", errorProvider, false, 4);
+                ValidationHelper.Validate(txtUserPassword, e, "Password", errorProvider, false, 6);
         }
 
         private void txtPasswordConfirm_Validating(object sender, CancelEventArgs e)
         {
             if (_model is null)
-                ValidationHelper.Validate(txtPasswordConfirm, e, "Confirm password number", errorProvider, false, 4);
+                ValidationHelper.Validate(txtPasswordConfirm, e, "Confirm password number", errorProvider, false, 6);
         }
 
         private void cmbRole_Validating(object sender, CancelEventArgs e)
         {
             ValidationHelper.ValidateComboBox(cmbRole, e, "Role", errorProvider);
+        }
+
+        private void txtUsernamee_Validating(object sender, CancelEventArgs e)
+        {
+            if (_model is null)
+                ValidationHelper.Validate(txtUsernamee, e, "Username", errorProvider, false, 6);
         }
     }
 }
