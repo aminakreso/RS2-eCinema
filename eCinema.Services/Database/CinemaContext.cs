@@ -54,7 +54,7 @@ namespace eCinema.Services.Database
             {
                 listHallId.Add(Guid.NewGuid());
             }
-            
+
             var listPriceId = new List<Guid>();
             for (int i = 0; i < 5; i++)
             {
@@ -70,9 +70,9 @@ namespace eCinema.Services.Database
             );
 
             modelBuilder.Entity<Price>().HasData(
-                new Price { Id = listPriceId[0], Name = "Dnevna projekcija", Value = 6 , IsActive=true},
-                new Price { Id = listPriceId[1], Name = "Vecernja projekcija", Value = 7 , IsActive = true },
-                new Price { Id = listPriceId[2], Name = "Vikend projekcija", Value = 8 , IsActive = true }
+                new Price { Id = listPriceId[0], Name = "Dnevna projekcija", Value = 6, IsActive = true },
+                new Price { Id = listPriceId[1], Name = "Vecernja projekcija", Value = 7, IsActive = true },
+                new Price { Id = listPriceId[2], Name = "Vikend projekcija", Value = 8, IsActive = true }
             );
 
             modelBuilder.Entity<Role>().HasData(
@@ -105,7 +105,7 @@ namespace eCinema.Services.Database
             {
                 listMovieId.Add(Guid.NewGuid());
             }
-            
+
             var movie1 = new Movie
             {
                 Id = listMovieId[0],
@@ -120,7 +120,7 @@ namespace eCinema.Services.Database
                 Country = "SAD",
                 Actors = "Zachary Levi, Helen Mirren, Lucy Liu",
                 Director = "David F. Sandberg ",
-                Picture = Images.ImageList[0], 
+                Picture = Images.ImageList[0],
                 Genres = "akcija, avantura",
                 IsActive = true,
             };
@@ -137,7 +137,7 @@ namespace eCinema.Services.Database
                 Country = "SAD",
                 Actors = "Keanu Reeves, Donnie Yen, Bill Skarsgard, Laurence Fishburne",
                 Director = "Chad Stahelski",
-                Picture = Images.ImageList[1], 
+                Picture = Images.ImageList[1],
                 Genres = "akcija",
                 IsActive = true,
             };
@@ -153,7 +153,7 @@ namespace eCinema.Services.Database
                 Country = "SAD",
                 Actors = "Metallica",
                 Director = "Tim Saccenti ",
-                Picture = Images.ImageList[2], 
+                Picture = Images.ImageList[2],
                 Genres = "koncertni film",
                 IsActive = true,
             };
@@ -168,11 +168,11 @@ namespace eCinema.Services.Database
                 Country = "SAD",
                 Actors = "Michael B. Jordan, Jonathan Majors, Tessa Thompson",
                 Director = "Michael B. Jordan",
-                Picture = Images.ImageList[3], 
+                Picture = Images.ImageList[3],
                 Genres = "sportska drama",
                 IsActive = true,
             };
-            
+
             var movie5 = new Movie
             {
                 Id = listMovieId[4],
@@ -185,11 +185,11 @@ namespace eCinema.Services.Database
                 Country = "SAD",
                 Actors = "Emma Roberts, Luke Bracey, Richard Gere, Diane Keaton, William H. Macy, Susan Sarandon",
                 Director = "Michael Jacobs ",
-                Picture = Images.ImageList[4], 
+                Picture = Images.ImageList[4],
                 Genres = "romantična komedija",
                 IsActive = true,
             };
-            
+
             var movie6 = new Movie
             {
                 Id = listMovieId[5],
@@ -202,38 +202,38 @@ namespace eCinema.Services.Database
                 Country = "Velika Britanija, Irska ",
                 Actors = "Colin Farrell, Brendan Gleeson, Kerry Condon, Barry Keoghan",
                 Director = "Martin McDonagh ",
-                Picture = Images.ImageList[5], 
+                Picture = Images.ImageList[5],
                 Genres = "komedija, drama",
                 IsActive = true,
             };
-            
+
             var movie7 = new Movie
             {
                 Id = listMovieId[6],
                 Name = "TOP GUN: MAVERICK",
-                Description =" Nakon više od 30 godina služenja u mornarici, kao jedan od najboljih pilota, Pete “Maverick” Mitchell (Tom Cruise) je tamo gdje i treba da bude. Ne preza da probije barijere kao hrabar test pilot i izbjegava da prihvati unapređenje koje bi ga zauvijek spustilo na zemlju. Kada je počeo da podučava vod mladih pilota koji su na obuci za specijalne misije, kakve ni jedan živi pilot nikada još nije vidio, Maverick sreće poručnika Bradleya Bradshawa čiji je nadimak “Rooster”, sina Maverickovog pokojnog prijatelja i oficira za presretanje radara, poručnika Nicka Bradshawa, zvanog “Gus”.",
+                Description = " Nakon više od 30 godina služenja u mornarici, kao jedan od najboljih pilota, Pete “Maverick” Mitchell (Tom Cruise) je tamo gdje i treba da bude. Ne preza da probije barijere kao hrabar test pilot i izbjegava da prihvati unapređenje koje bi ga zauvijek spustilo na zemlju. Kada je počeo da podučava vod mladih pilota koji su na obuci za specijalne misije, kakve ni jedan živi pilot nikada još nije vidio, Maverick sreće poručnika Bradleya Bradshawa čiji je nadimak “Rooster”, sina Maverickovog pokojnog prijatelja i oficira za presretanje radara, poručnika Nicka Bradshawa, zvanog “Gus”.",
                 Duration = 131,
                 ReleaseYear = 2022,
                 Country = "SAD",
                 Actors = "Tom Cruise, Miles Teller, Jennifer Connelly, Jon Hamm, Glen Powell",
                 Director = "Joseph Kosinski ",
-                Picture = Images.ImageList[6], 
+                Picture = Images.ImageList[6],
                 Genres = "akcija, avantura",
                 IsActive = true,
             };
-            
+
             var movie8 = new Movie
             {
                 Id = listMovieId[7],
                 Name = "BLACK PANTHER: WAKANDA ZAUVIJEK",
-                Description ="Pripremite se za povratak u Wakandu! Nastavak filma Black Panther iz 2018. godine koji je oduševio kritičare i publiku diljem svijeta. Uz to, film je osvojio i tri Oscara, za najbolju originalnu glazbu, najbolji dizajn kostima i najbolju scenografiju." +
+                Description = "Pripremite se za povratak u Wakandu! Nastavak filma Black Panther iz 2018. godine koji je oduševio kritičare i publiku diljem svijeta. Uz to, film je osvojio i tri Oscara, za najbolju originalnu glazbu, najbolji dizajn kostima i najbolju scenografiju." +
                              "Wakanda se mora zaštititi od svjetskih sila koje interveniraju nakon smrti kralja T’Challe. Dok Wakanđani nastoje prihvatiti gubitak voljenog vođe, heroji se moraju udružiti te uz pomoć Nakiae i Everetta Rossa iskovati novi plan za kraljevstvo Wakande.",
                 Duration = 161,
                 ReleaseYear = 2022,
                 Country = "SAD",
                 Actors = "Martin Freeman, Letitia Wright, Angela Bassett, Lupita Nyong’o, Danai Gurira",
                 Director = "Ryan Coogler",
-                Picture = Images.ImageList[7], 
+                Picture = Images.ImageList[7],
                 Genres = "akcija, avantura",
                 IsActive = true,
             };
@@ -241,14 +241,14 @@ namespace eCinema.Services.Database
             {
                 Id = listMovieId[8],
                 Name = "FABELMANOVI",
-                Description ="Višestruko nagrađivani Steven Spielberg, jedan od najznačajnijih reditelja u povijesti kinematografije, nakon ekranizacija svih mogućih priča, od fantastičnih avantura do ozbiljnih ratnih filmova, napokon je snimio film o sebi." +
+                Description = "Višestruko nagrađivani Steven Spielberg, jedan od najznačajnijih reditelja u povijesti kinematografije, nakon ekranizacija svih mogućih priča, od fantastičnih avantura do ozbiljnih ratnih filmova, napokon je snimio film o sebi." +
                              "U novoj uzbudljivoj filmskoj priči Spielberg donosi intimni pogled u svoje djetinjstvo u polu-autobiografskom filmu koji prati osjetljive godine mladića koji će otkriti potresnu porodičnu tajnu što će ga potaknuti da uroni u svijet filmova koji će mu pomoći da spozna istinu o sebi i drugima.",
                 Duration = 151,
                 ReleaseYear = 2022,
                 Country = "SAD",
                 Actors = "Michelle Williams, Gabriel LaBelle, Paul Dano",
                 Director = "Steven Spielberg",
-                Picture = Images.ImageList[8], 
+                Picture = Images.ImageList[8],
                 Genres = "drama",
                 IsActive = true,
             };
@@ -256,18 +256,18 @@ namespace eCinema.Services.Database
             {
                 Id = listMovieId[9],
                 Name = "KIT",
-                Description ="Priča govori o povučenom učitelju engleskog, ozbiljno pretilom, koji se bori sa zdravstvenim problemima te se pokušava ponovno povezati sa svojom otuđenom sedamnaestogodišnjom kćeri. Nju i njezinu majku ostavio je prije mnogo godina, zbog veze s muškarcem." +
+                Description = "Priča govori o povučenom učitelju engleskog, ozbiljno pretilom, koji se bori sa zdravstvenim problemima te se pokušava ponovno povezati sa svojom otuđenom sedamnaestogodišnjom kćeri. Nju i njezinu majku ostavio je prije mnogo godina, zbog veze s muškarcem." +
                              "Na ovogodišnjem Venecijanskom filmskom festivalu film je dobio sve pohvale, kako kritike, tako i publike koja ga je nagradila višeminutnim ovacijama..",
                 Duration = 117,
                 ReleaseYear = 2022,
                 Country = "SAD",
                 Actors = "Brendan Fraser, Sadie Sink, Hong Chau",
                 Director = "Darren Aronofsky",
-                Picture = Images.ImageList[9], 
+                Picture = Images.ImageList[9],
                 Genres = "drama",
                 IsActive = true,
             };
-            
+
             modelBuilder.Entity<Movie>().HasData(
                 movie1,
                 movie2,
@@ -295,13 +295,13 @@ namespace eCinema.Services.Database
                 {
                     switch (i)
                     {
-                        case <=5 : name = "A" + i;
+                        case <= 5: name = "A" + i;
                             break;
-                        case <= 10 : name = "B" + (i - 5);
+                        case <= 10: name = "B" + (i - 5);
                             break;
-                        case <= 15 : name = "C" + (i - 10);
+                        case <= 15: name = "C" + (i - 10);
                             break;
-                        case <= 20 : name = "D" + (i - 15);
+                        case <= 20: name = "D" + (i - 15);
                             break;
                     }
 
@@ -322,15 +322,16 @@ namespace eCinema.Services.Database
             loadAllList.AddRange(LoadSeatInHall(listHallId[2]));
             loadAllList.AddRange(LoadSeatInHall(listHallId[3]));
             loadAllList.AddRange(LoadSeatInHall(listHallId[4]));
-            
+
             modelBuilder.Entity<Seat>().HasData(loadAllList);
-            
-         modelBuilder.Entity<Projection>().HasData(
+
+            var listProjection = new List<Projection>() {
+
                 new Projection
                 {
                     Id = listProjectionId[0],
-                    StartTime = DateTime.Now,
-                    EndTime = DateTime.Now.AddHours(2),
+                    StartTime = DateTime.Now.AddDays(7),
+                    EndTime = DateTime.Now.AddDays(7).AddHours(2),
                     HallId = listHallId[0],
                     MovieId = listMovieId[0],
                     PriceId = listPriceId[0],
@@ -395,8 +396,8 @@ namespace eCinema.Services.Database
                 new Projection
                 {
                     Id = listProjectionId[6],
-                    StartTime = DateTime.Now.AddDays(2),
-                    EndTime = DateTime.Now.AddDays(2).AddHours(2),
+                    StartTime = DateTime.Now.AddDays(6),
+                    EndTime = DateTime.Now.AddDays(6).AddHours(2),
                     HallId = listHallId[2],
                     MovieId = listMovieId[2],
                     PriceId = listPriceId[0],
@@ -527,8 +528,8 @@ namespace eCinema.Services.Database
                 new Projection
                 {
                     Id = listProjectionId[18],
-                    StartTime = DateTime.Now.AddDays(6).AddHours(3),
-                    EndTime = DateTime.Now.AddDays(6).AddHours(5),
+                    StartTime = DateTime.Now.AddDays(8).AddHours(3),
+                    EndTime = DateTime.Now.AddDays(8).AddHours(5),
                     HallId = listHallId[2],
                     MovieId = listMovieId[6],
                     PriceId = listPriceId[1],
@@ -549,8 +550,8 @@ namespace eCinema.Services.Database
                 new Projection
                 {
                     Id = listProjectionId[20],
-                    StartTime = DateTime.Now.AddDays(7).AddHours(3),
-                    EndTime = DateTime.Now.AddDays(7).AddHours(5),
+                    StartTime = DateTime.Now.AddDays(8).AddHours(3),
+                    EndTime = DateTime.Now.AddDays(8).AddHours(5),
                     HallId = listHallId[0],
                     MovieId = listMovieId[8],
                     PriceId = listPriceId[1],
@@ -560,8 +561,8 @@ namespace eCinema.Services.Database
                 new Projection
                 {
                     Id = listProjectionId[21],
-                    StartTime = DateTime.Now.AddDays(7).AddHours(10),
-                    EndTime = DateTime.Now.AddDays(7).AddHours(12),
+                    StartTime = DateTime.Now.AddDays(6).AddHours(10),
+                    EndTime = DateTime.Now.AddDays(6).AddHours(12),
                     HallId = listHallId[0],
                     MovieId = listMovieId[8],
                     PriceId = listPriceId[0],
@@ -571,17 +572,18 @@ namespace eCinema.Services.Database
                 new Projection
                 {
                     Id = listProjectionId[22],
-                    StartTime = DateTime.Now.AddDays(8).AddHours(3),
-                    EndTime = DateTime.Now.AddDays(8).AddHours(5),
+                    StartTime = DateTime.Now.AddDays(2).AddHours(3),
+                    EndTime = DateTime.Now.AddDays(2).AddHours(5),
                     HallId = listHallId[1],
                     MovieId = listMovieId[7],
                     PriceId = listPriceId[1],
                     StateMachine = "Active",
                     IsActive = true,
-                }
-                
-            );
-         
+                }}; 
+
+            modelBuilder.Entity<Projection>().HasData(listProjection);
+
+
          var listNotificationId = new List<Guid>();
          for (int i = 0; i < 3; i++)
          {
@@ -644,7 +646,7 @@ namespace eCinema.Services.Database
                     UserId = registeredUserId,
                     ProjectionId = listProjectionId[i],
                     IsActive = true,
-                    DateTime = DateTime.Now.AddDays(i),
+                    DateTime = listProjection[i].StartTime.Value.AddHours(-i-1),
                 });
             }
             

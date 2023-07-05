@@ -260,9 +260,9 @@
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label6.Location = new System.Drawing.Point(25, 15);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(148, 28);
+            this.label6.Size = new System.Drawing.Size(151, 28);
             this.label6.TabIndex = 21;
-            this.label6.Text = "Dodaj korisnika";
+            this.label6.Text = "Detalji korisnika";
             // 
             // label8
             // 

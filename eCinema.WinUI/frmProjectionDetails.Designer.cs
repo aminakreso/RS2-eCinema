@@ -188,9 +188,9 @@
             this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label7.Location = new System.Drawing.Point(25, 15);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(156, 28);
+            this.label7.Size = new System.Drawing.Size(158, 28);
             this.label7.TabIndex = 22;
-            this.label7.Text = "Dodaj projekciju";
+            this.label7.Text = "Detalji projekcije";
             // 
             // frmProjectionDetails
             // 
