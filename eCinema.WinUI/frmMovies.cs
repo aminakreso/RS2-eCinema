@@ -73,7 +73,7 @@ namespace eCinema.WinUI
             else
             {
                 _selectedPage--;
-                MessageBox.Show("There are no more pages!");
+                MessageBox.Show("Nema više stranica!");
             }
         }
 
@@ -105,7 +105,7 @@ namespace eCinema.WinUI
             }
             catch(Exception ex)
             {
-                MessageBox.Show("There are active projections for selected movie!");
+                MessageBox.Show("Postoje aktivne projekcije za odabrani film!");
             }
         }
 
@@ -113,7 +113,7 @@ namespace eCinema.WinUI
         {
             if(_selectedPage == 0)
             {
-                MessageBox.Show("There are no previous pages!");
+                MessageBox.Show("Nema prethodnih stranica!");
                 return;
             }
             _selectedPage--;

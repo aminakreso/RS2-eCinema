@@ -114,7 +114,7 @@ namespace eCinema.WinUI
             // close the document
             doc.Close();
 
-            MessageBox.Show("Report generated on desktop.");
+            MessageBox.Show("Izvještaj generisan na desktopu.");
             //this.Close();
         }
 
@@ -173,7 +173,7 @@ namespace eCinema.WinUI
 
             // close the document
             doc.Close();
-            MessageBox.Show("Report generated on desktop.");
+            MessageBox.Show("Izvještaj generisan na desktopu.");
             //this.Close();
         }
 

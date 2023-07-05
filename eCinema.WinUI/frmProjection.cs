@@ -109,7 +109,7 @@ namespace eCinema.WinUI
             else
             {
                _selectedPage--;
-               MessageBox.Show("There are no more pages!");
+               MessageBox.Show("Nema više stranica!");
                
             }
 
@@ -166,7 +166,7 @@ namespace eCinema.WinUI
         {
             if (_selectedPage == 0)
             {
-                MessageBox.Show("There are no previous pages!");
+                MessageBox.Show("Nema prethodnih stranica!");
                 return;
             }
             _selectedPage--;

@@ -17,16 +17,16 @@ namespace eCinema.WinUI
                 e.Cancel = true;
                 textBox.Focus();
                 if(number)
-                    errorProvider.SetError(textBox, name + " must be a number!");
+                    errorProvider.SetError(textBox, name + " mora biti broj!");
 
                 else
-                    errorProvider.SetError(textBox, name + " should not be left blank!");
+                    errorProvider.SetError(textBox, name + " ne smije biti prazno!");
             }
             else if(minLenght>0 && textBox.Text.Length < minLenght)
             {
                 e.Cancel = true;
                 textBox.Focus();
-                errorProvider.SetError(textBox, name + $" must be at least {minLenght} characters long !");
+                errorProvider.SetError(textBox, name + $" mora imati najmanje {minLenght} karaktera !");
             }
             else
             {
@@ -43,7 +43,7 @@ namespace eCinema.WinUI
                 e.Cancel = true;
                 textBox.Focus();
 
-                errorProvider.SetError(textBox, name + " is not in valid format");
+                errorProvider.SetError(textBox, name + " nije u validnom formatu!");
 
             }
      
@@ -56,7 +56,7 @@ namespace eCinema.WinUI
                 e.Cancel = true;
                 textBox.Focus();
 
-                errorProvider.SetError(textBox, name + " is not in valid format");
+                errorProvider.SetError(textBox, name + " nije u validnom formatu!");
 
             }
 
@@ -82,7 +82,7 @@ namespace eCinema.WinUI
                 e.Cancel = true;
                 textBox.Focus();
         
-                errorProvider.SetError(textBox, name + " should not be left blank!");
+                errorProvider.SetError(textBox, name + " ne smije biti prazno!");
             }
             else
             {
@@ -99,7 +99,7 @@ namespace eCinema.WinUI
                 e.Cancel = true;
                 comboBox.Focus();
 
-                errorProvider.SetError(comboBox, name + " should not be left blank!");
+                errorProvider.SetError(comboBox, name + " ne smije biti prazno!");
             }
             else
             {
@@ -116,21 +116,21 @@ namespace eCinema.WinUI
                 e.Cancel = true;
                 dateTime.Focus();
 
-                errorProvider.SetError(dateTime, name + " can't be in the past!");
+                errorProvider.SetError(dateTime, name + " ne može biti u prošlosti!");
             }
             else if (lessThan && dateTime.Value>= compareDate.Value)
             {
                 e.Cancel = true;
                 dateTime.Focus();
 
-                errorProvider.SetError(dateTime, name + $" must be before {compareDate.Value}");
+                errorProvider.SetError(dateTime, name + $" mora biti prije {compareDate.Value}");
             }
             else if (!lessThan && dateTime.Value <= compareDate.Value)
             {
                 e.Cancel = true;
                 dateTime.Focus();
 
-                errorProvider.SetError(dateTime, name + $" must be after {compareDate.Value}");
+                errorProvider.SetError(dateTime, name + $" mora biti poslije {compareDate.Value}");
             }
             else
             {

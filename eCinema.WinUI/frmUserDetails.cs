@@ -90,7 +90,7 @@ namespace eCinema.WinUI
                 var users = await _userService.Get<List<UserDto>>(null);
                 if (users.Any(x => x.Username.Equals(txtUsernamee.Text) && _model?.Id != x.Id)){
                     txtUsernamee.Focus();
-                    errorProvider.SetError(txtUsernamee, "User already exists!");
+                    errorProvider.SetError(txtUsernamee, "Korisnik već postoji!");
                     return;
                 }
                 else
@@ -115,7 +115,7 @@ namespace eCinema.WinUI
                     };
 
                     var user = await _userService.Post<UserDto>(insert);
-                    MessageBox.Show("User added.");
+                    MessageBox.Show("Korisnik dodan.");
                     var frmUsers = new frmUsers();
                     frmUsers.MdiParent = this.MdiParent;
                     frmUsers.StartPosition = FormStartPosition.CenterScreen;
@@ -136,7 +136,7 @@ namespace eCinema.WinUI
                     };
 
                     _model = await _userService.PutAdminUser<UserDto>(_model.Id, update);
-                    MessageBox.Show("User edited.");
+                    MessageBox.Show("Korisik uređen.");
                     this.Close();
                 }
             }
@@ -144,12 +144,12 @@ namespace eCinema.WinUI
 
         private void txtFirstName_Validating(object sender, CancelEventArgs e)
         {
-            ValidationHelper.Validate(txtFirstName, e, "First name", errorProvider, false, 2);
+            ValidationHelper.Validate(txtFirstName, e, "Ime", errorProvider, false, 2);
         }
 
         private void txtLastName_Validating(object sender, CancelEventArgs e)
         {
-            ValidationHelper.Validate(txtLastName, e, "Last name", errorProvider, false, 2);
+            ValidationHelper.Validate(txtLastName, e, "Prezime", errorProvider, false, 2);
         }
 
         private void txtEmail_Validating(object sender, CancelEventArgs e)
@@ -160,31 +160,31 @@ namespace eCinema.WinUI
 
         private void txtPhoneNumber_Validating(object sender, CancelEventArgs e)
         {
-            ValidationHelper.Validate(txtPhoneNumber, e, "Phone number", errorProvider);
-            ValidationHelper.ValidatePhoneNumber(txtPhoneNumber, e, "Phone number", errorProvider);
+            ValidationHelper.Validate(txtPhoneNumber, e, "Broj telefona", errorProvider);
+            ValidationHelper.ValidatePhoneNumber(txtPhoneNumber, e, "Broj telefona", errorProvider);
         }
 
         private void txtUserPassword_Validating(object sender, CancelEventArgs e)
         {
             if(_model is null)
-                ValidationHelper.Validate(txtUserPassword, e, "Password", errorProvider, false, 6);
+                ValidationHelper.Validate(txtUserPassword, e, "Lozinka", errorProvider, false, 6);
         }
 
         private void txtPasswordConfirm_Validating(object sender, CancelEventArgs e)
         {
             if (_model is null)
-                ValidationHelper.Validate(txtPasswordConfirm, e, "Confirm password number", errorProvider, false, 6);
+                ValidationHelper.Validate(txtPasswordConfirm, e, "Potvrdi lozinku", errorProvider, false, 6);
         }
 
         private void cmbRole_Validating(object sender, CancelEventArgs e)
         {
-            ValidationHelper.ValidateComboBox(cmbRole, e, "Role", errorProvider);
+            ValidationHelper.ValidateComboBox(cmbRole, e, "Uloga", errorProvider);
         }
 
         private void txtUsernamee_Validating(object sender, CancelEventArgs e)
         {
             if (_model is null)
-                ValidationHelper.Validate(txtUsernamee, e, "Username", errorProvider, false, 6);
+                ValidationHelper.Validate(txtUsernamee, e, "Korisničko ime", errorProvider, false, 6);
         }
     }
 }

@@ -67,7 +67,7 @@ namespace eCinema.WinUI
             }
             catch (Exception ex)
             {
-                MessageBox.Show("There are active projections for selected price!");
+                MessageBox.Show("Postoje aktivne projekcije za odabranu cijenu!");
 
             }
         }

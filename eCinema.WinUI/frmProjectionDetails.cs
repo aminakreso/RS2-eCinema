@@ -142,7 +142,7 @@ namespace eCinema.WinUI
                 if (_model is null)
                 {
                     await _projectionService.Post<ProjectionDto>(upsert);
-                    MessageBox.Show("Projection added.");
+                    MessageBox.Show("Projekcija dodana.");
                     var frmProjection = new frmProjection();
                     frmProjection.MdiParent = this.MdiParent;
                     frmProjection.StartPosition = FormStartPosition.CenterScreen;
@@ -153,7 +153,7 @@ namespace eCinema.WinUI
                 else
                 {
                     _model = await _projectionService.Put<ProjectionDto>(_model.Id, upsert);
-                    MessageBox.Show("Projection edited.");
+                    MessageBox.Show("Projekcija uređena.");
                     this.Close();
                 }
             }
@@ -180,7 +180,7 @@ namespace eCinema.WinUI
                 await _projectionService.Activate<ProjectionDto>(_model.Id, upsert);
                 loadingPictureBox.Hide();
 
-                MessageBox.Show("Projection activated.");
+                MessageBox.Show("Projekcija aktivirana.");
                 this.Close();
             }
         }
@@ -204,41 +204,41 @@ namespace eCinema.WinUI
                 await _projectionService.Hide<ProjectionDto>(_model.Id, upsert);
                 loadingPictureBox.Hide();
 
-                MessageBox.Show("Projection hidden.");
+                MessageBox.Show("Projekcija skrivena.");
             }
             catch
             {
-                MessageBox.Show("This projection has active reservations!");
+                MessageBox.Show("Ova projekcija ima aktivnih rezervacija!");
             }
             this.Close();
         }
 
         private void cmbMovieName_Validating(object sender, CancelEventArgs e)
         {
-            ValidationHelper.ValidateComboBox(cmbMovieName, e, "Movie name", errorProvider);
+            ValidationHelper.ValidateComboBox(cmbMovieName, e, "Naziv", errorProvider);
         }
 
         private void cmbHall_Validating(object sender, CancelEventArgs e)
         {
-            ValidationHelper.ValidateComboBox(cmbHall, e, "Hall name", errorProvider);
+            ValidationHelper.ValidateComboBox(cmbHall, e, "Sala", errorProvider);
 
         }
 
         private void cmbPrice_Validating(object sender, CancelEventArgs e)
         {
-            ValidationHelper.ValidateComboBox(cmbPrice, e, "Price name", errorProvider);
+            ValidationHelper.ValidateComboBox(cmbPrice, e, "Cijena", errorProvider);
 
         }
 
         private void dtpProjectionDateTime_Validating(object sender, CancelEventArgs e)
         {
-            ValidationHelper.ValidateDateTime(dtpProjectionDateTime, e, "Start date", errorProvider, true, dtpEndTime);
+            ValidationHelper.ValidateDateTime(dtpProjectionDateTime, e, "Početno vrijeme", errorProvider, true, dtpEndTime);
 
         }
 
         private void dtpEndTime_Validating(object sender, CancelEventArgs e)
         {
-            ValidationHelper.ValidateDateTime(dtpEndTime, e, "End date", errorProvider, false, dtpProjectionDateTime);
+            ValidationHelper.ValidateDateTime(dtpEndTime, e, "Završno vrijeme", errorProvider, false, dtpProjectionDateTime);
 
         }
     }

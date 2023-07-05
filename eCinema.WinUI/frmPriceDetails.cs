@@ -38,7 +38,7 @@ namespace eCinema.WinUI
                 if (_model is null)
                 {
                     await _priceService.Post<PriceDto>(upsert);
-                    MessageBox.Show("Price added.");
+                    MessageBox.Show("Cijena dodana.");
                     var frmPrices = new frmPrices();
                     frmPrices.MdiParent = this.MdiParent;
                     frmPrices.StartPosition = FormStartPosition.CenterScreen;
@@ -49,7 +49,7 @@ namespace eCinema.WinUI
                 else
                 {
                     _model = await _priceService.Put<PriceDto>(_model.Id, upsert);
-                    MessageBox.Show("Price edited.");
+                    MessageBox.Show("Cijena uređena.");
                     this.Close();
 
                 }
@@ -67,18 +67,18 @@ namespace eCinema.WinUI
 
         private void txtName_Validating(object sender, CancelEventArgs e)
         {
-            ValidationHelper.Validate(txtName, e, "Name", errorProvider, false, 3);
+            ValidationHelper.Validate(txtName, e, "Naziv", errorProvider, false, 3);
 
         }
 
         private void txtPrice_Validating(object sender, CancelEventArgs e)
         {
-            ValidationHelper.Validate(txtPrice, e, "Price", errorProvider);
+            ValidationHelper.Validate(txtPrice, e, "Vrijednost", errorProvider);
             if (!IsNumber(txtPrice.Text))
             {
                 e.Cancel = true;
                 txtPrice.Focus();
-                errorProvider.SetError(txtPrice, "Price should be a number.");
+                errorProvider.SetError(txtPrice, "Vrijednost mora biti brojčana.");
             }
 
         }

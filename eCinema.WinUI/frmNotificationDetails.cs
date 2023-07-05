@@ -69,7 +69,7 @@ namespace eCinema.WinUI
                         insert.Picture = ImageHelper.FromImageToBase64(pbSlika.Image);
 
                     await _notificationService.Post<NotificationDto>(insert);
-                    MessageBox.Show("Notification added.");
+                    MessageBox.Show("Obavijest dodana.");
                     var frmNotification = new frmNotification();
                     frmNotification.MdiParent = this.MdiParent;
                     frmNotification.StartPosition = FormStartPosition.CenterScreen;
@@ -94,7 +94,7 @@ namespace eCinema.WinUI
                     }        
 
                     _model = await _notificationService.Put<NotificationDto>(_model.Id, update);
-                    MessageBox.Show("Notification edited.");
+                    MessageBox.Show("Obavijest uređena.");
                     this.Close();
                 }
             }
@@ -102,13 +102,13 @@ namespace eCinema.WinUI
 
         private void txtTitle_Validating(object sender, CancelEventArgs e)
         {
-            ValidationHelper.Validate(txtTitle, e, "Title", errorProvider);
+            ValidationHelper.Validate(txtTitle, e, "Naziv", errorProvider);
 
         }
 
         private void txtContent_Validating(object sender, CancelEventArgs e)
         {
-            ValidationHelper.ValidateRichTextBox(txtContent, e, "Content", errorProvider);
+            ValidationHelper.ValidateRichTextBox(txtContent, e, "Sadržaj", errorProvider);
         }
 
         private void btnAddPicture_Click(object sender, EventArgs e)
@@ -122,7 +122,7 @@ namespace eCinema.WinUI
 
         private void cmbNotificationType_Validating(object sender, CancelEventArgs e)
         {
-            ValidationHelper.ValidateComboBox(cmbNotificationType, e, "Notification type", errorProvider);
+            ValidationHelper.ValidateComboBox(cmbNotificationType, e, "Tip obavijesti", errorProvider);
 
         }
 

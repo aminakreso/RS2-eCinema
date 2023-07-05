@@ -43,12 +43,12 @@ namespace eCinema.WinUI
                     }
                     else
                     {
-                        MessageBox.Show("Invalid username or password!");
+                        MessageBox.Show("Pogrešno korisničko ime ili lozinka!");
                     }
                 }
                 catch
                 {
-                    MessageBox.Show("Invalid username or password!");
+                    MessageBox.Show("Pogrešno korisničko ime ili lozinka!");
                 }
 
             }
@@ -56,12 +56,12 @@ namespace eCinema.WinUI
 
         private void txtUsername_Validating(object sender, CancelEventArgs e)
         {
-            ValidationHelper.Validate(txtUsername, e, "Username", err);
+            ValidationHelper.Validate(txtUsername, e, "Korisničko ime", err);
         }
 
         private void txtPassword_Validating(object sender, CancelEventArgs e)
         {
-            ValidationHelper.Validate(txtPassword, e, "Password", err);
+            ValidationHelper.Validate(txtPassword, e, "Lozinka", err);
         }
     }
 }

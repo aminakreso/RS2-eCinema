@@ -61,7 +61,7 @@ namespace eCinema.WinUI
                 else
                 {
                     pbPicture.Focus();
-                    errorProvider.SetError(pbPicture, "You must upload movie image!");
+                    errorProvider.SetError(pbPicture, "Slika filma ne smije biti prazna!");
                     return;
 
                 }
@@ -119,30 +119,30 @@ namespace eCinema.WinUI
 
         private void txtName_Validating(object sender, CancelEventArgs e)
         {
-            ValidationHelper.Validate(txtName, e, "Name", errorProvider);
+            ValidationHelper.Validate(txtName, e, "Naziv", errorProvider);
         }
 
         private void txtDirector_Validating(object sender, CancelEventArgs e)
         {
-            ValidationHelper.Validate(txtDirector, e, "Director", errorProvider);
+            ValidationHelper.Validate(txtDirector, e, "Režiser", errorProvider);
 
         }
 
         private void txtDuration_Validating(object sender, CancelEventArgs e)
         {
-            ValidationHelper.Validate(txtDuration, e, "Duration", errorProvider, true);
+            ValidationHelper.Validate(txtDuration, e, "Trajanje", errorProvider, true);
 
         }
 
         private void txtReleaseYear_Validating(object sender, CancelEventArgs e)
         {
-            ValidationHelper.Validate(txtReleaseYear, e, "ReleaseYear", errorProvider, true);
+            ValidationHelper.Validate(txtReleaseYear, e, "Godina izlaska", errorProvider, true);
 
         }
 
         private void txtCountry_Validating(object sender, CancelEventArgs e)
         {
-            ValidationHelper.Validate(txtCountry, e, "Country", errorProvider);
+            ValidationHelper.Validate(txtCountry, e, "Država", errorProvider);
 
         }
 
@@ -154,13 +154,13 @@ namespace eCinema.WinUI
 
         private void txtActors_Validating(object sender, CancelEventArgs e)
         {
-            ValidationHelper.ValidateRichTextBox(txtActors, e, "Actors", errorProvider);
+            ValidationHelper.ValidateRichTextBox(txtActors, e, "Glumci", errorProvider);
 
         }
 
         private void txtDescription_Validating(object sender, CancelEventArgs e)
         {
-            ValidationHelper.ValidateRichTextBox(txtDescription, e, "Description", errorProvider);
+            ValidationHelper.ValidateRichTextBox(txtDescription, e, "Opis", errorProvider);
         }
 
         private void clbGenres_Validating(object sender, CancelEventArgs e)
