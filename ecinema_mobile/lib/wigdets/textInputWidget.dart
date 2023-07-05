@@ -17,7 +17,7 @@ class TextInputWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool password = labelText == "Password" || labelText == "Confirm password";
+    bool password = labelText == "Lozinka" || labelText == "Potvrdi lozinku";
     return Container(
         margin: EdgeInsets.all(8),
         decoration: BoxDecoration(
