@@ -12,10 +12,6 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
-builder.Services.AddDbContext<CinemaContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
-        b => b.MigrationsAssembly(nameof(eCinema))));
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -62,6 +58,10 @@ builder.Services.AddAutoMapper(typeof(INotificationService));
 
 builder.Services.AddAuthentication("BasicAuthentication")
     .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
+
+builder.Services.AddDbContext<CinemaContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
+        b => b.MigrationsAssembly(nameof(eCinema))));
 
 var app = builder.Build();
 

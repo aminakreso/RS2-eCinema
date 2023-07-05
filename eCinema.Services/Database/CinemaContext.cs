@@ -362,8 +362,8 @@ namespace eCinema.Services.Database
                 new Projection
                 {
                     Id = listProjectionId[3],
-                    StartTime = DateTime.Now,
-                    EndTime = DateTime.Now.AddHours(2),
+                    StartTime = DateTime.Now.AddDays(1),
+                    EndTime = DateTime.Now.AddDays(1).AddHours(2),
                     HallId = listHallId[1],
                     MovieId = listMovieId[1],
                     PriceId = listPriceId[0],
@@ -384,8 +384,8 @@ namespace eCinema.Services.Database
                 new Projection
                 {
                     Id = listProjectionId[5],
-                    StartTime = DateTime.Now.AddHours(3),
-                    EndTime = DateTime.Now.AddHours(5),
+                    StartTime = DateTime.Now.AddDays(2).AddHours(3),
+                    EndTime = DateTime.Now.AddDays(2).AddHours(5),
                     HallId = listHallId[1],
                     MovieId = listMovieId[1],
                     PriceId = listPriceId[1],
@@ -395,8 +395,8 @@ namespace eCinema.Services.Database
                 new Projection
                 {
                     Id = listProjectionId[6],
-                    StartTime = DateTime.Now,
-                    EndTime = DateTime.Now.AddHours(2),
+                    StartTime = DateTime.Now.AddDays(2),
+                    EndTime = DateTime.Now.AddDays(2).AddHours(2),
                     HallId = listHallId[2],
                     MovieId = listMovieId[2],
                     PriceId = listPriceId[0],
@@ -406,8 +406,8 @@ namespace eCinema.Services.Database
                 new Projection
                 {
                     Id = listProjectionId[7],
-                    StartTime = DateTime.Now.AddHours(3),
-                    EndTime = DateTime.Now.AddHours(5),
+                    StartTime = DateTime.Now.AddDays(2).AddHours(3),
+                    EndTime = DateTime.Now.AddDays(2).AddHours(5),
                     HallId = listHallId[2],
                     MovieId = listMovieId[2],
                     PriceId = listPriceId[1],
@@ -417,8 +417,8 @@ namespace eCinema.Services.Database
                 new Projection
                 {
                     Id = listProjectionId[8],
-                    StartTime = DateTime.Now,
-                    EndTime = DateTime.Now.AddHours(2),
+                    StartTime = DateTime.Now.AddDays(3),
+                    EndTime = DateTime.Now.AddDays(3).AddHours(2),
                     HallId = listHallId[3],
                     MovieId = listMovieId[3],
                     PriceId = listPriceId[0],
@@ -428,8 +428,8 @@ namespace eCinema.Services.Database
                 new Projection
                 {
                     Id = listProjectionId[9],
-                    StartTime = DateTime.Now.AddHours(3),
-                    EndTime = DateTime.Now.AddHours(5),
+                    StartTime = DateTime.Now.AddDays(3).AddHours(3),
+                    EndTime = DateTime.Now.AddDays(3).AddHours(5),
                     HallId = listHallId[3],
                     MovieId = listMovieId[3],
                     PriceId = listPriceId[1],
@@ -439,8 +439,8 @@ namespace eCinema.Services.Database
                 new Projection
                 {
                     Id = listProjectionId[10],
-                    StartTime = DateTime.Now.AddHours(3),
-                    EndTime = DateTime.Now.AddHours(5),
+                    StartTime = DateTime.Now.AddDays(4).AddHours(3),
+                    EndTime = DateTime.Now.AddDays(4).AddHours(5),
                     HallId = listHallId[4],
                     MovieId = listMovieId[3],
                     PriceId = listPriceId[2],
@@ -450,8 +450,8 @@ namespace eCinema.Services.Database
                 new Projection
                 {
                     Id = listProjectionId[11],
-                    StartTime = DateTime.Now,
-                    EndTime = DateTime.Now.AddHours(2),
+                    StartTime = DateTime.Now.AddDays(4),
+                    EndTime = DateTime.Now.AddDays(4).AddHours(2),
                     HallId = listHallId[4],
                     MovieId = listMovieId[3],
                     PriceId = listPriceId[0],
@@ -461,8 +461,8 @@ namespace eCinema.Services.Database
                 new Projection
                 {
                     Id = listProjectionId[12],
-                    StartTime = DateTime.Now.AddHours(13),
-                    EndTime = DateTime.Now.AddHours(15),
+                    StartTime = DateTime.Now.AddDays(4).AddHours(13),
+                    EndTime = DateTime.Now.AddDays(4).AddHours(15),
                     HallId = listHallId[4],
                     MovieId = listMovieId[4],
                     PriceId = listPriceId[1],
@@ -472,8 +472,8 @@ namespace eCinema.Services.Database
                 new Projection
                 {
                     Id = listProjectionId[13],
-                    StartTime = DateTime.Now.AddHours(10),
-                    EndTime = DateTime.Now.AddHours(2),
+                    StartTime = DateTime.Now.AddDays(5).AddHours(10),
+                    EndTime = DateTime.Now.AddDays(5).AddHours(12),
                     HallId = listHallId[4],
                     MovieId = listMovieId[4],
                     PriceId = listPriceId[0],
@@ -483,8 +483,8 @@ namespace eCinema.Services.Database
                 new Projection
                 {
                     Id = listProjectionId[14],
-                    StartTime = DateTime.Now.AddHours(3),
-                    EndTime = DateTime.Now.AddHours(5),
+                    StartTime = DateTime.Now.AddDays(5).AddHours(3),
+                    EndTime = DateTime.Now.AddDays(5).AddHours(5),
                     HallId = listHallId[4],
                     MovieId = listMovieId[4],
                     PriceId = listPriceId[1],
@@ -494,8 +494,8 @@ namespace eCinema.Services.Database
                 new Projection
                 {
                     Id = listProjectionId[15],
-                    StartTime = DateTime.Now.AddHours(10),
-                    EndTime = DateTime.Now.AddHours(12),
+                    StartTime = DateTime.Now.AddDays(9).AddHours(10),
+                    EndTime = DateTime.Now.AddDays(9).AddHours(12),
                     HallId = listHallId[3],
                     MovieId = listMovieId[5],
                     PriceId = listPriceId[0],
@@ -505,8 +505,8 @@ namespace eCinema.Services.Database
                 new Projection
                 {
                     Id = listProjectionId[16],
-                    StartTime = DateTime.Now.AddHours(3),
-                    EndTime = DateTime.Now.AddHours(5),
+                    StartTime = DateTime.Now.AddDays(5).AddHours(3),
+                    EndTime = DateTime.Now.AddDays(5).AddHours(5),
                     HallId = listHallId[3],
                     MovieId = listMovieId[5],
                     PriceId = listPriceId[1],
@@ -516,8 +516,8 @@ namespace eCinema.Services.Database
                 new Projection
                 {
                     Id = listProjectionId[17],
-                    StartTime = DateTime.Now.AddHours(10),
-                    EndTime = DateTime.Now.AddHours(12),
+                    StartTime = DateTime.Now.AddDays(9).AddHours(10),
+                    EndTime = DateTime.Now.AddDays(9).AddHours(12),
                     HallId = listHallId[2],
                     MovieId = listMovieId[6],
                     PriceId = listPriceId[0],
@@ -527,8 +527,8 @@ namespace eCinema.Services.Database
                 new Projection
                 {
                     Id = listProjectionId[18],
-                    StartTime = DateTime.Now.AddHours(3),
-                    EndTime = DateTime.Now.AddHours(5),
+                    StartTime = DateTime.Now.AddDays(6).AddHours(3),
+                    EndTime = DateTime.Now.AddDays(6).AddHours(5),
                     HallId = listHallId[2],
                     MovieId = listMovieId[6],
                     PriceId = listPriceId[1],
@@ -538,8 +538,8 @@ namespace eCinema.Services.Database
                 new Projection
                 {
                     Id = listProjectionId[19],
-                    StartTime = DateTime.Now.AddHours(10),
-                    EndTime = DateTime.Now.AddHours(12),
+                    StartTime = DateTime.Now.AddDays(6).AddHours(10),
+                    EndTime = DateTime.Now.AddDays(6).AddHours(12),
                     HallId = listHallId[1],
                     MovieId = listMovieId[7],
                     PriceId = listPriceId[0],
@@ -549,8 +549,8 @@ namespace eCinema.Services.Database
                 new Projection
                 {
                     Id = listProjectionId[20],
-                    StartTime = DateTime.Now.AddHours(3),
-                    EndTime = DateTime.Now.AddHours(5),
+                    StartTime = DateTime.Now.AddDays(7).AddHours(3),
+                    EndTime = DateTime.Now.AddDays(7).AddHours(5),
                     HallId = listHallId[0],
                     MovieId = listMovieId[8],
                     PriceId = listPriceId[1],
@@ -560,8 +560,8 @@ namespace eCinema.Services.Database
                 new Projection
                 {
                     Id = listProjectionId[21],
-                    StartTime = DateTime.Now.AddHours(10),
-                    EndTime = DateTime.Now.AddHours(12),
+                    StartTime = DateTime.Now.AddDays(7).AddHours(10),
+                    EndTime = DateTime.Now.AddDays(7).AddHours(12),
                     HallId = listHallId[0],
                     MovieId = listMovieId[8],
                     PriceId = listPriceId[0],
@@ -571,8 +571,8 @@ namespace eCinema.Services.Database
                 new Projection
                 {
                     Id = listProjectionId[22],
-                    StartTime = DateTime.Now.AddHours(3),
-                    EndTime = DateTime.Now.AddHours(5),
+                    StartTime = DateTime.Now.AddDays(8).AddHours(3),
+                    EndTime = DateTime.Now.AddDays(8).AddHours(5),
                     HallId = listHallId[1],
                     MovieId = listMovieId[7],
                     PriceId = listPriceId[1],
@@ -644,7 +644,7 @@ namespace eCinema.Services.Database
                     UserId = registeredUserId,
                     ProjectionId = listProjectionId[i],
                     IsActive = true,
-                    DateTime = DateTime.Now,
+                    DateTime = DateTime.Now.AddDays(i),
                 });
             }
             
@@ -669,7 +669,7 @@ namespace eCinema.Services.Database
                 {
                     Id = listPaymentId[i],
                     StripePaymentId = "stripe payment id",
-                    Created = DateTime.Now,
+                    Created = DateTime.Now.AddDays(i),
                     Amount = i % 2 == 0 ? 24 : 18,
                     ReservationId = listReservationId[i],
                 });
