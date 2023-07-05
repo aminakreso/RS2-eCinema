@@ -211,16 +211,18 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
     if (freeSeats) {
       return TextButton(
         onPressed: () {
-          insert?.projectionId = widget.id;
-          insert?.seats = _selectedSeats;
+          if (_selectedSeats!.isNotEmpty) {
+            insert?.projectionId = widget.id;
+            insert?.seats = _selectedSeats;
 
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) =>
-                  ReservationDetailsScreen(reservationInsertRequest: insert!),
-            ),
-          );
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) =>
+                    ReservationDetailsScreen(reservationInsertRequest: insert!),
+              ),
+            );
+          }
         },
         child: Text("Confirm reservation"),
       );
