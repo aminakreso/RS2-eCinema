@@ -25,31 +25,25 @@ class ReservationDetailsScreen extends StatefulWidget {
   static const String routeName = "/reservation_details";
   late ReservationUpsertRequest? reservationInsertRequest;
   late String? id;
-  String? stripe_sk;
-  late String stripe_pk;
 
   ReservationDetailsScreen(
-      {this.reservationInsertRequest, this.id, super.key}) {
-    stripe_pk = const String.fromEnvironment("stripePublishableKey",
-        defaultValue: stripePublishableKey);
-
-    stripe_sk = const String.fromEnvironment("stripeSecretKey",
-        defaultValue: stripeSecretKey);
-
-    print("secret $stripe_pk");
-  }
+      {this.reservationInsertRequest, this.id, super.key}) {}
 
   @override
   _ReservationDetailsScreenState createState() =>
-      _ReservationDetailsScreenState(reservationInsertRequest, id, stripe_sk);
+      _ReservationDetailsScreenState(reservationInsertRequest, id);
 }
 
 class _ReservationDetailsScreenState extends State<ReservationDetailsScreen> {
-  _ReservationDetailsScreenState(reservationInsertRequest, id, stripe_sk);
+  _ReservationDetailsScreenState(reservationInsertRequest, id);
   Map<String, dynamic>? paymentIntentData;
   ReservationUpsertRequest? reservationInsertRequest =
       ReservationUpsertRequest();
-  String? stripe_sk = null;
+  String stripe_sk = const String.fromEnvironment("stripeSecretKey",
+      defaultValue: stripeSecretKey);
+  String stripe_pk = const String.fromEnvironment("stripePublishableKey",
+      defaultValue: stripePublishableKey);
+
   String? id = null;
   Projection? projection = null;
 
@@ -72,11 +66,11 @@ class _ReservationDetailsScreenState extends State<ReservationDetailsScreen> {
   }
 
   Future loadData() async {
-    Stripe.publishableKey = widget.stripe_pk;
+    Stripe.publishableKey = stripe_pk;
     Stripe.merchantIdentifier = 'any string works';
     await Stripe.instance.applySettings();
 
-    stripe_sk = widget.stripe_sk;
+    stripe_sk = stripe_sk;
     if (widget.reservationInsertRequest != null) {
       reservationInsertRequest = widget.reservationInsertRequest!;
       loadProjection();
