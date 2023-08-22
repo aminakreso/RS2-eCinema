@@ -90,6 +90,7 @@ namespace eCinema.Services.Database
                     Username = "admin", LozinkaSalt = saltAdmin, LozinkaHash = UserService.GenerateHash(saltAdmin, "admin"),
                     RoleId = adminRoleId,
                     IsActive = true,
+                    PhoneNumber = "061 111 111"
                 },
                 new User
                 {
@@ -97,6 +98,7 @@ namespace eCinema.Services.Database
                     Username = "user", LozinkaSalt = saltUser, LozinkaHash = UserService.GenerateHash(saltUser, "user"),
                     RoleId = userRoleId,
                     IsActive = true,
+                    PhoneNumber = "060 222 2222"
                 }
             );
 

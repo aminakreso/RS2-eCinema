@@ -18,7 +18,5 @@
 
         public Guid RoleId { get; set; }
 
-        public bool? IsActive { get; set; }
-
     }
 }

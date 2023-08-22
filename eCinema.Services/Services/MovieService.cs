@@ -98,7 +98,7 @@ namespace eCinema.Services.Services
                     mlContext = new MLContext();
                     // lista usera
                     var tmpData = _cinemaContext.Users.Include(x => x.Reservations).ThenInclude(y => y.Projection).ToList();
-                    List<ProductEntry> data = new List<ProductEntry>();
+                    List<MovieEntry> data = new List<MovieEntry>();
 
                     foreach (var x in tmpData)
                     {
@@ -117,7 +117,7 @@ namespace eCinema.Services.Services
                                     foreach (var z in relatedItems)
                                     {
                                         var movie = _cinemaContext.Movies.Find(y);
-                                        data.Add(new ProductEntry()
+                                        data.Add(new MovieEntry()
                                         {
                                             MovieId = (uint)_cinemaContext.Movies.Local.ToList().IndexOf(movie),
                                             UserId = (uint) counterUser,
@@ -137,8 +137,8 @@ namespace eCinema.Services.Services
                     //STEP 3: Your data is already encoded so all you need to do is specify options for MatrxiFactorizationTrainer with a few extra hyperparameters
                     //        LossFunction, Alpa, Lambda and a few others like K and C as shown below and call the trainer.
                     MatrixFactorizationTrainer.Options options = new MatrixFactorizationTrainer.Options();
-                    options.MatrixColumnIndexColumnName = nameof(ProductEntry.MovieId);
-                    options.MatrixRowIndexColumnName = nameof(ProductEntry.UserId);
+                    options.MatrixColumnIndexColumnName = nameof(MovieEntry.MovieId);
+                    options.MatrixRowIndexColumnName = nameof(MovieEntry.UserId);
                     options.LabelColumnName = "Label";
                     options.LossFunction = MatrixFactorizationTrainer.LossFunctionType.SquareLossOneClass;
                     options.Alpha = 0.01;
@@ -166,8 +166,8 @@ namespace eCinema.Services.Services
             {
                 var counter = 0;
                 var predictionEngine =
-                    mlContext.Model.CreatePredictionEngine<ProductEntry, Copurchase_prediction>(model);
-                var prediction = predictionEngine.Predict(new ProductEntry()
+                    mlContext.Model.CreatePredictionEngine<MovieEntry, Copurchase_prediction>(model);
+                var prediction = predictionEngine.Predict(new MovieEntry()
                 {
                     MovieId = (uint)movieId,
                     UserId = (uint)(counter)
@@ -197,7 +197,7 @@ namespace eCinema.Services.Services
         public float Score { get; set; }
     }
     
-    public class ProductEntry
+    public class MovieEntry
     {
         [KeyType(count: 10)]
         public uint MovieId { get; set; }

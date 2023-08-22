@@ -43,6 +43,10 @@ namespace eCinema.WinUI
                 cmbRole.Text = _model.Role?.Name;
                 cbIsActive.Checked = _model.IsActive.GetValueOrDefault(false);
             }
+            else
+            {
+                cbIsActive.Visible = false;
+            }
         }
 
         private void SetAdminReadOnly()
@@ -111,7 +115,7 @@ namespace eCinema.WinUI
                         Password = txtUserPassword.Text,
                         ConfirmPassword = txtPasswordConfirm.Text,
                         RoleId = roleId,
-                        IsActive = cbIsActive.Checked,
+                        //IsActive = cbIsActive.Checked,
                     };
 
                     var user = await _userService.Post<UserDto>(insert);
