@@ -20,7 +20,7 @@ class TextInputWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool password = labelText == "Lozinka" || labelText == "Potvrdi lozinku";
-    RegExp phoneNumberRegex = RegExp(r'^\d{3}\s\d{3}\s\d{3,4}$');
+    RegExp phoneNumberRegex = RegExp(r'^\d{3}[\s-]\d{3}[\s-]\d{3,4}$');
 
     return Container(
         margin: EdgeInsets.all(8),

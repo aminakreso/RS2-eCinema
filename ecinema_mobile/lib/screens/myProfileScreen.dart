@@ -1,9 +1,8 @@
 import 'package:ecinema_mobile/providers/userProvider.dart';
 import 'package:ecinema_mobile/screens/movieListScreen.dart';
+import 'package:ecinema_mobile/wigdets/textInputWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:email_validator/email_validator.dart';
-
 import '../models/user.dart';
 import '../requests/userUpdateRequest.dart';
 import '../utils/util.dart';
@@ -68,21 +67,11 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("Ime ", style: Theme.of(context).textTheme.bodyText2),
-                    setProfileInput(_firstNameController, "First name", 2),
-                    Text("Prezime ",
-                        style: Theme.of(context).textTheme.bodyText2),
-                    setProfileInput(_lastnameController, "Last name", 2),
-                    Text("Email ",
-                        style: Theme.of(context).textTheme.bodyText2),
-                    setProfileInput(_emailController, "Email", 7, true),
-                    Text("Broj telefona ",
-                        style: Theme.of(context).textTheme.bodyText2),
-                    setProfileInput(
-                        _phoneController, "Phone number", 9, false, true),
-                    Text("Korisničko ime ",
-                        style: Theme.of(context).textTheme.bodyText2),
-                    setProfileInput(_usernameController, "Username", 4),
+                    setInput(context, "Ime", _firstNameController),
+                    setInput(context, "Prezime", _lastnameController),
+                    setInput(context, "Email", _emailController),
+                    setInput(context, "Broj telefona", _phoneController),
+                    setInput(context, "Korisničko ime", _usernameController),
                   ],
                 ),
               ),
@@ -112,31 +101,31 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
     );
   }
 
-  Container setProfileInput(TextEditingController controller, String labelText,
-      [int minLenght = 0, bool isEmail = false, bool isPhoneNumber = false]) {
-    RegExp phoneNumberRegex = RegExp(r'^\d{3}\s\d{3}\s\d{3,4}$');
+  Container setInput(
+      BuildContext context, String label, TextEditingController controller) {
+    var email = false;
+    var phoneNumber = false;
+
+    if (label == "Email") email = true;
+    if (label == "Broj telefona") phoneNumber = true;
+
     return Container(
-        margin: EdgeInsets.all(8),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: TextFormField(
-          validator: (value) {
-            if (value!.isEmpty) {
-              return '$labelText ne smije biti prazno!';
-            } else if (minLenght > 0 && value.length < minLenght) {
-              return '$labelText mora imat minimalno $minLenght karaktera!';
-            } else if (isEmail && !EmailValidator.validate(value)) {
-              return '$labelText mora biti u tačnom formatu';
-            } else if (isPhoneNumber && !phoneNumberRegex.hasMatch(value)) {
-              return '$labelText mora biti u formatu kao npr 061 111 111';
-            }
-            return null;
-          },
-          style: Theme.of(context).textTheme.bodyText1,
-          controller: controller,
-        ));
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(10, 5, 0, 0),
+            child: Text(label, style: Theme.of(context).textTheme.bodyText2),
+          ),
+          TextInputWidget(
+              labelText: label,
+              controller: controller,
+              minLength: 4,
+              isEmail: email,
+              isPhoneNumber: phoneNumber),
+        ],
+      ),
+    );
   }
 }
 
