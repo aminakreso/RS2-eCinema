@@ -140,17 +140,17 @@ class MovieList extends StatelessWidget {
                 child: Column(
                   children: [
                     TextInputWidget(
-                      controller: _usernameController,
-                      labelText: 'Korisničko ime',
-                      minLength: 4,
-                      isEmail: false,
-                    ),
+                        controller: _usernameController,
+                        labelText: 'Korisničko ime',
+                        minLength: 4,
+                        isEmail: false,
+                        isPhoneNumber: false),
                     TextInputWidget(
-                      controller: _passwordController,
-                      labelText: 'Lozinka',
-                      minLength: 4,
-                      isEmail: false,
-                    ),
+                        controller: _passwordController,
+                        labelText: 'Lozinka',
+                        minLength: 4,
+                        isEmail: false,
+                        isPhoneNumber: false),
                     SizedBox(
                       height: 10,
                     ),

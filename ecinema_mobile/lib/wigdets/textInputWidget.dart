@@ -7,17 +7,21 @@ class TextInputWidget extends StatelessWidget {
       required this.controller,
       required this.labelText,
       required this.minLength,
-      required this.isEmail})
+      required this.isEmail,
+      required this.isPhoneNumber})
       : super(key: key);
 
   final TextEditingController controller;
   final String? labelText;
   final int minLength;
   final bool isEmail;
+  final bool isPhoneNumber;
 
   @override
   Widget build(BuildContext context) {
     bool password = labelText == "Lozinka" || labelText == "Potvrdi lozinku";
+    RegExp phoneNumberRegex = RegExp(r'^\d{3}\s\d{3}\s\d{3,4}$');
+
     return Container(
         margin: EdgeInsets.all(8),
         decoration: BoxDecoration(
@@ -32,6 +36,8 @@ class TextInputWidget extends StatelessWidget {
                 return '$labelText mora imat minimalno $minLength karaktera!';
               } else if (isEmail && !EmailValidator.validate(value)) {
                 return '$labelText mora biti u tačnom formatu!';
+              } else if (isPhoneNumber && !phoneNumberRegex.hasMatch(value)) {
+                return '$labelText mora biti u formatu kao npr 061 111 111';
               }
               return null;
             },

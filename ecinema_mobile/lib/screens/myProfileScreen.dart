@@ -78,7 +78,8 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
                     setProfileInput(_emailController, "Email", 7, true),
                     Text("Broj telefona ",
                         style: Theme.of(context).textTheme.bodyText2),
-                    setProfileInput(_phoneController, "Phone number", 9),
+                    setProfileInput(
+                        _phoneController, "Phone number", 9, false, true),
                     Text("Korisničko ime ",
                         style: Theme.of(context).textTheme.bodyText2),
                     setProfileInput(_usernameController, "Username", 4),
@@ -112,7 +113,8 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
   }
 
   Container setProfileInput(TextEditingController controller, String labelText,
-      [int minLenght = 0, bool isEmail = false]) {
+      [int minLenght = 0, bool isEmail = false, bool isPhoneNumber = false]) {
+    RegExp phoneNumberRegex = RegExp(r'^\d{3}\s\d{3}\s\d{3,4}$');
     return Container(
         margin: EdgeInsets.all(8),
         decoration: BoxDecoration(
@@ -127,6 +129,8 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
               return '$labelText mora imat minimalno $minLenght karaktera!';
             } else if (isEmail && !EmailValidator.validate(value)) {
               return '$labelText mora biti u tačnom formatu';
+            } else if (isPhoneNumber && !phoneNumberRegex.hasMatch(value)) {
+              return '$labelText mora biti u formatu kao npr 061 111 111';
             }
             return null;
           },
