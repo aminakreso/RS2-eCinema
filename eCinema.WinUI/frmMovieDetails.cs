@@ -186,21 +186,5 @@ namespace eCinema.WinUI
                 errorProvider.SetError(clbGenres, "");
             }
         }
-
-        private void pbPicture_Validating(object sender, CancelEventArgs e)
-        {
-            //if (pbPicture.Image == null)
-            //{
-            //    e.Cancel = true;
-            //    pbPicture.Focus();
-
-            //    errorProvider.SetError(pbPicture, "Slika filma ne smije biti prazna!");
-            //}
-            //else
-            //{
-            //     e.Cancel = false;
-            //    errorProvider.SetError(clbGenres, "");
-            //}
-        }
     }
 }

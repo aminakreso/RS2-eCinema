@@ -208,9 +208,13 @@ namespace eCinema.WinUI
                 IncludePrices = true
             };
 
+            if(cmbMovies.Text != "Svi")
+                searchObject.Name = cmbMovies.Text;
+
             List<ReservationDto> data = await _reservationService.Get<List<ReservationDto>>(searchObject);
 
             data = data.Where(x => x.Projection.StartTime.Value >= dtpProjectionStart.Value && x.Projection.StartTime.Value <= dtpProjectionEnd.Value).ToList();
+
             frmReport1 frmReport1 = new frmReport1(data);
             frmReport1.ShowDialog();
 

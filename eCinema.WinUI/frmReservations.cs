@@ -80,12 +80,6 @@ namespace eCinema.WinUI
                     {
                         e.Value = $"{reservation.User.FirstName} {reservation.User.LastName}";
                     }
-
-                    if (reservation.Projection is not null && e.ColumnIndex == 1)
-                    {
-                        e.Value = reservation.Projection.StartTime.ToString();
-                    }
-
                     if (reservation.Projection?.Movie is not null && e.ColumnIndex == 2)
                     {
                         e.Value = reservation.Projection.Movie.Name;
@@ -97,6 +91,10 @@ namespace eCinema.WinUI
                     if (reservation.Payment is not null && e.ColumnIndex == 4)
                     {
                         e.Value = reservation.Payment.Amount;
+                    }
+                    if (reservation.Projection is not null && e.ColumnIndex == 5)
+                    {
+                        e.Value = reservation.Projection.StartTime.ToString();
                     }
                 }
             }

@@ -31,12 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReservations));
             this.dgvReservations = new System.Windows.Forms.DataGridView();
-            this.userIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.projectionIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.projectionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tickets = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reservationDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Film = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -50,6 +44,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnShow = new System.Windows.Forms.Button();
             this.btnIzvjestaj = new System.Windows.Forms.Button();
+            this.userIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.projectionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tickets = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.projectionIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReservations)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reservationDtoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loadingPictureBox)).BeginInit();
@@ -64,11 +64,11 @@
             this.dgvReservations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReservations.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.userIdDataGridViewTextBoxColumn,
-            this.projectionIdDataGridViewTextBoxColumn,
+            this.dateTimeDataGridViewTextBoxColumn,
             this.projectionDataGridViewTextBoxColumn,
             this.Price,
             this.Tickets,
-            this.dateTimeDataGridViewTextBoxColumn});
+            this.projectionIdDataGridViewTextBoxColumn});
             this.dgvReservations.DataSource = this.reservationDtoBindingSource;
             this.dgvReservations.Location = new System.Drawing.Point(25, 90);
             this.dgvReservations.Name = "dgvReservations";
@@ -78,49 +78,6 @@
             this.dgvReservations.Size = new System.Drawing.Size(764, 306);
             this.dgvReservations.TabIndex = 0;
             this.dgvReservations.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvReservations_CellFormatting);
-            // 
-            // userIdDataGridViewTextBoxColumn
-            // 
-            this.userIdDataGridViewTextBoxColumn.HeaderText = "Korisnik";
-            this.userIdDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.userIdDataGridViewTextBoxColumn.Name = "userIdDataGridViewTextBoxColumn";
-            this.userIdDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // projectionIdDataGridViewTextBoxColumn
-            // 
-            this.projectionIdDataGridViewTextBoxColumn.HeaderText = "Datum projekcije";
-            this.projectionIdDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.projectionIdDataGridViewTextBoxColumn.Name = "projectionIdDataGridViewTextBoxColumn";
-            this.projectionIdDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // projectionDataGridViewTextBoxColumn
-            // 
-            this.projectionDataGridViewTextBoxColumn.HeaderText = "Film";
-            this.projectionDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.projectionDataGridViewTextBoxColumn.Name = "projectionDataGridViewTextBoxColumn";
-            this.projectionDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // Price
-            // 
-            this.Price.HeaderText = "Cijena karte";
-            this.Price.MinimumWidth = 6;
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
-            // 
-            // Tickets
-            // 
-            this.Tickets.HeaderText = "Količina";
-            this.Tickets.MinimumWidth = 6;
-            this.Tickets.Name = "Tickets";
-            this.Tickets.ReadOnly = true;
-            // 
-            // dateTimeDataGridViewTextBoxColumn
-            // 
-            this.dateTimeDataGridViewTextBoxColumn.DataPropertyName = "DateTime";
-            this.dateTimeDataGridViewTextBoxColumn.HeaderText = "Datum rezervacije";
-            this.dateTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.dateTimeDataGridViewTextBoxColumn.Name = "dateTimeDataGridViewTextBoxColumn";
-            this.dateTimeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // reservationDtoBindingSource
             // 
@@ -234,6 +191,49 @@
             this.btnIzvjestaj.UseVisualStyleBackColor = true;
             this.btnIzvjestaj.Click += new System.EventHandler(this.btnIzvjestaj_Click);
             // 
+            // userIdDataGridViewTextBoxColumn
+            // 
+            this.userIdDataGridViewTextBoxColumn.HeaderText = "Korisnik";
+            this.userIdDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.userIdDataGridViewTextBoxColumn.Name = "userIdDataGridViewTextBoxColumn";
+            this.userIdDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dateTimeDataGridViewTextBoxColumn
+            // 
+            this.dateTimeDataGridViewTextBoxColumn.DataPropertyName = "DateTime";
+            this.dateTimeDataGridViewTextBoxColumn.HeaderText = "Datum rezervacije";
+            this.dateTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.dateTimeDataGridViewTextBoxColumn.Name = "dateTimeDataGridViewTextBoxColumn";
+            this.dateTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // projectionDataGridViewTextBoxColumn
+            // 
+            this.projectionDataGridViewTextBoxColumn.HeaderText = "Film";
+            this.projectionDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.projectionDataGridViewTextBoxColumn.Name = "projectionDataGridViewTextBoxColumn";
+            this.projectionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Price
+            // 
+            this.Price.HeaderText = "Cijena karte";
+            this.Price.MinimumWidth = 6;
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            // 
+            // Tickets
+            // 
+            this.Tickets.HeaderText = "Količina";
+            this.Tickets.MinimumWidth = 6;
+            this.Tickets.Name = "Tickets";
+            this.Tickets.ReadOnly = true;
+            // 
+            // projectionIdDataGridViewTextBoxColumn
+            // 
+            this.projectionIdDataGridViewTextBoxColumn.HeaderText = "Datum projekcije";
+            this.projectionIdDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.projectionIdDataGridViewTextBoxColumn.Name = "projectionIdDataGridViewTextBoxColumn";
+            this.projectionIdDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // frmReservations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -274,17 +274,17 @@
         private DateTimePicker dtpDate;
         private Label label3;
         private BindingSource reservationDtoBindingSource;
-        private DataGridViewTextBoxColumn userIdDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn projectionIdDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn projectionDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn Price;
-        private DataGridViewTextBoxColumn Tickets;
-        private DataGridViewTextBoxColumn dateTimeDataGridViewTextBoxColumn;
         private PictureBox loadingPictureBox;
         private Button btnNext;
         private Button btnPrevious;
         private Label label1;
         private Button btnShow;
         private Button btnIzvjestaj;
+        private DataGridViewTextBoxColumn userIdDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn dateTimeDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn projectionDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn Price;
+        private DataGridViewTextBoxColumn Tickets;
+        private DataGridViewTextBoxColumn projectionIdDataGridViewTextBoxColumn;
     }
 }

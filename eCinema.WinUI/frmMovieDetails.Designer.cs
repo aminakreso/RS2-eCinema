@@ -205,7 +205,6 @@
             this.pbPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbPicture.TabIndex = 34;
             this.pbPicture.TabStop = false;
-            this.pbPicture.Validating += new System.ComponentModel.CancelEventHandler(this.pbPicture_Validating);
             // 
             // ofdPicture
             // 

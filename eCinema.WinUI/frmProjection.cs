@@ -140,17 +140,12 @@ namespace eCinema.WinUI
         }
         private async Task LoadStatus()
         {
-            var list = new List<ProjectionDto>
+            var list = new List<string>
             {
-                new ProjectionDto { StateMachine = "Svi" }
+                "Svi", "Draft", "Active", "Hidden"
             };
-            var projections = await _projectionService.Get<List<ProjectionDto>>();
-            projections = projections.DistinctBy(x => x.StateMachine).ToList();
-            list.AddRange(projections);
 
             cmbStatus.DataSource = list;
-            cmbStatus.DisplayMember = "StateMachine";
-            cmbStatus.ValueMember = "StateMachine";
         }
 
         private async void dgvProjection_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
