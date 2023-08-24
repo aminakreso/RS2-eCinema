@@ -29,23 +29,28 @@ namespace eCinema.WinUI
         {
             if (_model is not null)
             {
-                txtName.Text = _model.Name;
-                
-                for (int count = 0; count < clbGenres.Items.Count; count++)
-                {
-                    if (_model.Genres.Contains(clbGenres.Items[count].ToString().ToLower()))
-                    {
-                        clbGenres.SetItemChecked(count, true);
-                    }
-                }
+                loadSelectedGenres();
                 txtReleaseYear.Text = _model.ReleaseYear.ToString();
                 txtDuration.Text = _model.Duration.ToString();
                 txtDirector.Text = _model.Director;
                 txtDescription.Text = _model.Description;
                 txtCountry.Text = _model.Country;
                 txtActors.Text = _model.Actors;
-                if(_model.Picture != null)
+                if (_model.Picture != null)
                     pbPicture.Image = ImageHelper.FromByteToImage(_model.Picture);
+            }
+        }
+
+        private async void loadSelectedGenres()
+        {
+            txtName.Text = _model.Name;
+
+            for (int count = 0; count < clbGenres.Items.Count; count++)
+            {
+                if (_model.Genres.ToLower().Contains(clbGenres.Items[count].ToString().ToLower()))
+                {
+                    clbGenres.SetItemChecked(count, true);
+                }
             }
         }
 
@@ -53,7 +58,7 @@ namespace eCinema.WinUI
         {
             if (ValidateChildren())
             {
-                if(pbPicture.Image != null)
+                if (pbPicture.Image != null)
                 {
                     errorProvider.SetError(pbPicture, "");
                     errorProvider.Clear();
@@ -65,6 +70,7 @@ namespace eCinema.WinUI
                     return;
 
                 }
+
                 var genreList = "";
                 foreach (var genre in Genres.ListOfGenres)
                 {
@@ -91,7 +97,7 @@ namespace eCinema.WinUI
                 if (_model is null)
                 {
                     await _movieService.Post<MovieDto>(upsert);
-                    MessageBox.Show("Movie added.");
+                    MessageBox.Show("Film dodan.");
                     var frmMovies = new frmMovies();
                     frmMovies.MdiParent = this.MdiParent;
                     frmMovies.StartPosition = FormStartPosition.CenterScreen;
@@ -102,7 +108,7 @@ namespace eCinema.WinUI
                 else
                 {
                     _model = await _movieService.Put<MovieDto>(_model.Id, upsert);
-                    MessageBox.Show("Movie edited.");
+                    MessageBox.Show("Film uređen.");
                     this.Close();
                 }
             }
@@ -130,13 +136,13 @@ namespace eCinema.WinUI
 
         private void txtDuration_Validating(object sender, CancelEventArgs e)
         {
-            ValidationHelper.Validate(txtDuration, e, "Trajanje", errorProvider, true);
+            ValidationHelper.Validate(txtDuration, e, "Trajanje", errorProvider, true, 0, 30);
 
         }
 
         private void txtReleaseYear_Validating(object sender, CancelEventArgs e)
         {
-            ValidationHelper.Validate(txtReleaseYear, e, "Godina izlaska", errorProvider, true);
+            ValidationHelper.Validate(txtReleaseYear, e, "Godina izlaska", errorProvider, true, 0, 1920);
 
         }
 
@@ -173,6 +179,28 @@ namespace eCinema.WinUI
                 errorProvider.SetError(clbGenres, " Film mora imati bar jedan žanr!");
 
             }
+
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(clbGenres, "");
+            }
+        }
+
+        private void pbPicture_Validating(object sender, CancelEventArgs e)
+        {
+            //if (pbPicture.Image == null)
+            //{
+            //    e.Cancel = true;
+            //    pbPicture.Focus();
+
+            //    errorProvider.SetError(pbPicture, "Slika filma ne smije biti prazna!");
+            //}
+            //else
+            //{
+            //     e.Cancel = false;
+            //    errorProvider.SetError(clbGenres, "");
+            //}
         }
     }
 }

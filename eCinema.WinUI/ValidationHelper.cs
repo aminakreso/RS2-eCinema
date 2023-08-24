@@ -10,7 +10,7 @@ namespace eCinema.WinUI
 {
     public static class ValidationHelper
     {
-        public static void  Validate(TextBox textBox, CancelEventArgs e, string name, ErrorProvider errorProvider, bool number = false, int minLenght=0)
+        public static void  Validate(TextBox textBox, CancelEventArgs e, string name, ErrorProvider errorProvider, bool number = false, int minLenght=0, int greaterThan = 0)
         {
             if (string.IsNullOrWhiteSpace(textBox.Text) || (number && !int.TryParse(textBox.Text, out int result)))
             {
@@ -27,6 +27,12 @@ namespace eCinema.WinUI
                 e.Cancel = true;
                 textBox.Focus();
                 errorProvider.SetError(textBox, name + $" mora imati najmanje {minLenght} karaktera !");
+            }
+            else if (greaterThan >0 && Convert.ToInt32(textBox.Text)< greaterThan)
+            {
+                e.Cancel = true;
+                textBox.Focus();
+                errorProvider.SetError(textBox, name + $" mora mora biti veće od {greaterThan}!");
             }
             else
             {
@@ -46,7 +52,12 @@ namespace eCinema.WinUI
                 errorProvider.SetError(textBox, name + " nije u validnom formatu!");
 
             }
-     
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(textBox, "");
+            }
+
         }
 
         public static void ValidatePhoneNumber(TextBox textBox, CancelEventArgs e, string name, ErrorProvider errorProvider)
@@ -59,6 +70,11 @@ namespace eCinema.WinUI
                 errorProvider.SetError(textBox, name + " nije u validnom formatu!");
 
             }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(textBox, "");
+            }
 
         }
 
@@ -70,8 +86,8 @@ namespace eCinema.WinUI
         }
 
         private static bool isPhoneNumber(string text)
-        {
-            Regex regex = new Regex(@"^\d{3}\s\d{3}\s\d{3,4}$");
+        { //^\d{3}[\s-]\d{3}[\s-]\d{3,4}$
+            Regex regex = new Regex(@"^\d{3}[\s-]\d{3}[\s-]\d{3,4}$");
             return regex.IsMatch(text);
         }
 
