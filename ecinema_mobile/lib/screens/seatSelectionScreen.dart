@@ -144,7 +144,7 @@ class _SeatSelectionScreenState extends State<SeatSelectionScreen> {
                             Text(
                               "*za odabir sjedišta duže držite ikonicu*",
                               style:
-                                  TextStyle(color: Colors.black, fontSize: 8),
+                                  TextStyle(color: Colors.black, fontSize: 11),
                             ),
                             Text(
                               "${getDate(_projection?.startTime)} ${getTime(_projection?.startTime)}",

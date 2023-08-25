@@ -180,24 +180,16 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
 
     List<Widget> list = _recommendList!
         .map((x) => Container(
-              child: Stack(
-                children: [
-                  InkWell(
-                    onTap: () {
-                      Navigator.pushNamed(
-                          context, "${MovieDetailsScreen.routeName}/${x.id}");
-                    },
-                    child: Container(
-                      // height: 100,
-                      // width: 100,
-                      child: imageFromBase64String(x.picture!),
-                    ),
-                  ),
-                  Text(
-                    x.name ?? "",
-                    style: Theme.of(context).textTheme.bodyText2,
-                  ),
-                ],
+              child: InkWell(
+                onTap: () {
+                  Navigator.pushNamed(
+                      context, "${MovieDetailsScreen.routeName}/${x.id}");
+                },
+                child: Container(
+                  // height: 100,
+                  // width: 100,
+                  child: imageFromBase64String(x.picture!),
+                ),
               ),
             ))
         .cast<Widget>()
