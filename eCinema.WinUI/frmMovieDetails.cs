@@ -83,7 +83,7 @@ namespace eCinema.WinUI
                     Description = txtDescription.Text,
                     Actors = txtActors.Text,
                     Director = txtDirector.Text,
-                    Country = txtDirector.Text,
+                    Country = txtCountry.Text,
                     Genres = genreList,
                     Duration = Convert.ToInt32(txtDuration?.Text),
                     ReleaseYear = Convert.ToInt32(txtReleaseYear?.Text)
