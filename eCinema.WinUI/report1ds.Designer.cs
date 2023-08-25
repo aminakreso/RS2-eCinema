@@ -637,6 +637,8 @@ namespace eCinema.WinUI {
             
             private global::System.Data.DataColumn columnBrKorisnika;
             
+            private global::System.Data.DataColumn columnBrojProdanihKarata;
+            
             private global::System.Data.DataColumn columnUkupanPrihod;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -698,6 +700,14 @@ namespace eCinema.WinUI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn BrojProdanihKarataColumn {
+                get {
+                    return this.columnBrojProdanihKarata;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn UkupanPrihodColumn {
                 get {
                     return this.columnUkupanPrihod;
@@ -741,12 +751,13 @@ namespace eCinema.WinUI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ProjekcijeRow AddProjekcijeRow(string NazivProjekcije, string Cijena, string BrKorisnika, string UkupanPrihod) {
+            public ProjekcijeRow AddProjekcijeRow(string NazivProjekcije, string Cijena, string BrKorisnika, string BrojProdanihKarata, string UkupanPrihod) {
                 ProjekcijeRow rowProjekcijeRow = ((ProjekcijeRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         NazivProjekcije,
                         Cijena,
                         BrKorisnika,
+                        BrojProdanihKarata,
                         UkupanPrihod};
                 rowProjekcijeRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowProjekcijeRow);
@@ -773,6 +784,7 @@ namespace eCinema.WinUI {
                 this.columnNazivProjekcije = base.Columns["NazivProjekcije"];
                 this.columnCijena = base.Columns["Cijena"];
                 this.columnBrKorisnika = base.Columns["BrKorisnika"];
+                this.columnBrojProdanihKarata = base.Columns["BrojProdanihKarata"];
                 this.columnUkupanPrihod = base.Columns["UkupanPrihod"];
             }
             
@@ -785,6 +797,8 @@ namespace eCinema.WinUI {
                 base.Columns.Add(this.columnCijena);
                 this.columnBrKorisnika = new global::System.Data.DataColumn("BrKorisnika", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBrKorisnika);
+                this.columnBrojProdanihKarata = new global::System.Data.DataColumn("BrojProdanihKarata", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBrojProdanihKarata);
                 this.columnUkupanPrihod = new global::System.Data.DataColumn("UkupanPrihod", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUkupanPrihod);
             }
@@ -1160,6 +1174,22 @@ namespace eCinema.WinUI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string BrojProdanihKarata {
+                get {
+                    try {
+                        return ((string)(this[this.tableProjekcije.BrojProdanihKarataColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BrojProdanihKarata\' in table \'Projekcije\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjekcije.BrojProdanihKarataColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string UkupanPrihod {
                 get {
                     try {
@@ -1208,6 +1238,18 @@ namespace eCinema.WinUI {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetBrKorisnikaNull() {
                 this[this.tableProjekcije.BrKorisnikaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsBrojProdanihKarataNull() {
+                return this.IsNull(this.tableProjekcije.BrojProdanihKarataColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetBrojProdanihKarataNull() {
+                this[this.tableProjekcije.BrojProdanihKarataColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

@@ -108,7 +108,7 @@ namespace eCinema.Services.Services
             if (search.DateTime is not null)
                 filteredQuery = filteredQuery.Where(x => x.DateTime.Value.Date == search.DateTime.Value.Date);
 
-            return filteredQuery;
+            return filteredQuery.OrderByDescending(x=> x.DateTime);
 
         }
     }

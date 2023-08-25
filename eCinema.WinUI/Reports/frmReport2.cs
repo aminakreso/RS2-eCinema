@@ -16,11 +16,13 @@ namespace eCinema.WinUI.Reports
     {
         public List<Model.Dtos.ProjectionDto> _data { get; set; }
         public List<Model.Dtos.ReservationDto> _reservations { get; set; }
-        public frmReport2(List<Model.Dtos.ProjectionDto> data, List<Model.Dtos.ReservationDto> reservations)
+        public List<Model.Dtos.SeatxrefReservationDto> _seatReservations { get; set; }
+        public frmReport2(List<Model.Dtos.ProjectionDto> data, List<Model.Dtos.ReservationDto> reservations, List<Model.Dtos.SeatxrefReservationDto> seatReservations)
         {
             InitializeComponent();
             _data = data;
             _reservations = reservations;
+            _seatReservations = seatReservations;
         }
 
         //table.AddCell(projection.Movie.Name);
@@ -37,16 +39,20 @@ namespace eCinema.WinUI.Reports
             foreach (var r in _reservations)
             {
                 var red = rezervacije.NewProjekcijeRow();
-                red.BrKorisnika = _data.Where(x=> x.Id == r.ProjectionId).Count().ToString();
+                red.BrKorisnika = _reservations.Where(x=> x.ProjectionId == r.ProjectionId).DistinctBy(x=> x.UserId).Count().ToString();
+                var ukupnoKarata = _seatReservations.Where(x=> x.ReservationId == r.Id).Count();
+                red.BrojProdanihKarata = ukupnoKarata.ToString();
                 red.NazivProjekcije = _data.Where(x=> x.Id == r.ProjectionId).Select(x=>x.Movie.Name).FirstOrDefault();
                 red.Cijena = _data.Where(x => x.Id == r.ProjectionId).Select(x => x.Price.Name).FirstOrDefault();
                 decimal? reservationPerProjectionCount = _data.Where(x => x.Id == r.ProjectionId).Count();
 
-                ukupniPrihod += r.Payment?.Amount * reservationPerProjectionCount;
+                ukupniPrihod += _reservations.Where(x => x.ProjectionId == r.ProjectionId).Select(x => x.Payment.Amount).Sum();
 
                 red.UkupanPrihod = ukupniPrihod.ToString();
 
                 rezervacije.Rows.Add(red);
+
+                ukupniPrihod = 0;
 
 
             }

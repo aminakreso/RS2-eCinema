@@ -14,6 +14,7 @@ namespace eCinema.WinUI
         private APIService _reservationService = new APIService("Reservation");
         private APIService _projectionService = new APIService("Projection");
         private APIService _movieService = new APIService("Movie");
+        private APIService _seatReservationService = new APIService("SeatReservation");
 
         public frmReportOptions()
         {
@@ -25,6 +26,8 @@ namespace eCinema.WinUI
             var projectionSearchObject = new ProjectionSearchObject { IncludeMovies = true, IncludePrices = true };
             List<ProjectionDto> data = await _projectionService.Get<List<ProjectionDto>>(projectionSearchObject);
             List<ReservationDto> reservations = new List<ReservationDto>();
+            List<SeatxrefReservationDto> seatReservations = await _seatReservationService.Get<List<SeatxrefReservationDto>>();
+
             foreach (ProjectionDto item in data)
             {
                 ReservationSearchObject reservation = new ReservationSearchObject();
@@ -34,7 +37,7 @@ namespace eCinema.WinUI
                 reservations.AddRange(temp);
             }
 
-            frmReport2 frmReport2 = new frmReport2(data, reservations);
+            frmReport2 frmReport2 = new frmReport2(data, reservations, seatReservations);
             frmReport2.ShowDialog();
            
             //MessageBox.Show("Report generated on desktop.");

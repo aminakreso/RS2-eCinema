@@ -571,9 +571,20 @@ namespace eCinema.Services.Database
                     StateMachine = "Active",
                     IsActive = true,
                 },
-                new Projection
+                 new Projection
                 {
                     Id = listProjectionId[22],
+                    StartTime = DateTime.Now.AddDays(7).AddHours(10),
+                    EndTime = DateTime.Now.AddDays(7).AddHours(12),
+                    HallId = listHallId[0],
+                    MovieId = listMovieId[8],
+                    PriceId = listPriceId[0],
+                    StateMachine = "Active",
+                    IsActive = true,
+                },
+                new Projection
+                {
+                    Id = listProjectionId[23],
                     StartTime = DateTime.Now.AddDays(2).AddHours(3),
                     EndTime = DateTime.Now.AddDays(2).AddHours(5),
                     HallId = listHallId[1],
@@ -637,7 +648,7 @@ namespace eCinema.Services.Database
             
             Guid registeredUserId = Guid.Empty; 
             
-            for (int i = 0; i < 22; i++)
+            for (int i = 0; i < 23; i++)
             {
                 listReservationId.Add(Guid.NewGuid());
                 //listPaymentId.Add(Guid.NewGuid());
@@ -659,12 +670,12 @@ namespace eCinema.Services.Database
                 {
                     Id = listSeatReservationId[i],
                     SeatId = loadAllList[i].Id ,
-                    ReservationId = i <22 ? listReservationId[i] : listReservationId[i-22],
+                    ReservationId = i <23 ? listReservationId[i] : listReservationId[i-23],
                     IsTaken = true
                 });
             }
             
-            for (int i = 0; i < 22; i++)
+            for (int i = 0; i < 23; i++)
             {
                 //listReservationId.Add(Guid.NewGuid());
                 listPaymentId.Add(Guid.NewGuid());
@@ -673,7 +684,7 @@ namespace eCinema.Services.Database
                 {
                     Id = listPaymentId[i],
                     StripePaymentId = "stripe payment id",
-                    Created = DateTime.Now.AddDays(i),
+                    Created = listReservation[i].DateTime,
                     Amount = i % 2 == 0 ? 24 : 18,
                     ReservationId = listReservationId[i],
                 });

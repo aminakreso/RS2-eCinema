@@ -44,6 +44,9 @@
               <Width>1in</Width>
             </TablixColumn>
             <TablixColumn>
+              <Width>1.35333in</Width>
+            </TablixColumn>
+            <TablixColumn>
               <Width>1in</Width>
             </TablixColumn>
           </TablixColumns>
@@ -120,7 +123,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Br Korisnika</Value>
+                              <Value>Broj Kupaca</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -128,6 +131,45 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox6</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox3">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Broj prodanih karata</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox3</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -268,6 +310,36 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
+                    <Textbox Name="BrojProdanihKarata">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!BrojProdanihKarata.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>BrojProdanihKarata</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
                     <Textbox Name="UkupanPrihod">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -306,6 +378,7 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
+            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -322,7 +395,7 @@
         <Top>0.97167in</Top>
         <Left>1.14667in</Left>
         <Height>0.5in</Height>
-        <Width>4in</Width>
+        <Width>5.35333in</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -369,6 +442,10 @@
         </Field>
         <Field Name="BrKorisnika">
           <DataField>BrKorisnika</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="BrojProdanihKarata">
+          <DataField>BrojProdanihKarata</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="UkupanPrihod">
