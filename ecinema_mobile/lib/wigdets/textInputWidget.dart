@@ -46,7 +46,8 @@ class TextInputWidget extends StatelessWidget {
             controller: controller,
             decoration: InputDecoration(
               hintText: this.labelText ?? "",
-              hintStyle: Theme.of(context).textTheme.bodyText1,
+              hintStyle:
+                  TextStyle(fontSize: 18.0, color: Colors.red.withOpacity(0.6)),
             )));
   }
 }
