@@ -33,5 +33,11 @@ namespace eCinema.Controllers
             return await _baseCRUDService.Delete(id);
         }
 
+        [HttpPut("{id}/HardDelete")]
+        public virtual async Task<T> HardDelete(Guid id)
+        {
+            return await _baseCRUDService.HardDelete(id);
+        }
+
     }
 }

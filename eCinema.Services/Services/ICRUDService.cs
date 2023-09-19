@@ -8,6 +8,7 @@ namespace eCinema.Services.Services
         Task<T> Insert(TInsert insert);
         Task<T> Update(Guid id, TUpdate update);
         Task<T> Delete(Guid id);
+        Task<T> HardDelete(Guid id);
 
     }
 }

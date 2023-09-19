@@ -63,6 +63,19 @@ namespace eCinema.Services.Services
             return await GetById(id);
         }
 
+        public virtual async Task<T> HardDelete(Guid id)
+        {
+            var set = _cinemaContext.Set<TDb>();
+
+            var entity = await set.FindAsync(id);
+
+            set.Remove(entity);
+
+            await _cinemaContext.SaveChangesAsync();
+
+            return await GetById(id);
+        }
+
         public virtual void BeforeInsert(TInsert insert, TDb entity)
         {
 
