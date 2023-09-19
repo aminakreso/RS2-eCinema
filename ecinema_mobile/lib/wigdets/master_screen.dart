@@ -1,8 +1,6 @@
 import 'package:ecinema_mobile/screens/myProfileScreen.dart';
 import 'package:ecinema_mobile/screens/notificationListScreen.dart';
 import 'package:flutter/material.dart';
-
-import '../screens/movieListScreen.dart';
 import '../screens/reservationListScreen.dart';
 import 'eCinema_drawer.dart';
 

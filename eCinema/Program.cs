@@ -47,6 +47,7 @@ builder.Services.AddTransient<IHallService, HallService>();
 builder.Services.AddTransient<IReservationService, ReservationService>();
 builder.Services.AddTransient<ISeatReservationService, SeatReservationService>();
 builder.Services.AddTransient<IPaymentService, PaymentService>();
+builder.Services.AddTransient<IFITPasosService, FITPasosService>();
 
 builder.Services.AddTransient<BaseProjectionState>();
 builder.Services.AddTransient<InitialProjectionState>();

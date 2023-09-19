@@ -16,7 +16,7 @@ abstract class BaseProvider<T> with ChangeNotifier {
 //http://192.168.0.18:5192/api/
   BaseProvider(String endpoint) {
     _baseUrl = const String.fromEnvironment("baseUrl",
-        defaultValue: "http://10.0.2.2:5192/api/");
+        defaultValue: "http://192.168.0.18:5192/api/");
     print("baseurl: $_baseUrl");
 
     if (_baseUrl!.endsWith("/") == false) {

@@ -29,6 +29,8 @@
         public ICollection<Reservation> Reservations { get; set; }
         
         public bool? IsActive { get; set; }
+        public FITPasos? Pasos { get; set; }
+
 
     }
 }

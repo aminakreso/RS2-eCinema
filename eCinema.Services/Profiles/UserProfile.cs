@@ -40,6 +40,10 @@ namespace eCinema.Services.Profiles
             
             CreateMap<PaymentDto, Payment>().ReverseMap();
 
+            CreateMap<FITPasos, FITPasosDto>().ReverseMap();
+            CreateMap<FITPasosDto, FITPasosUpsertRequest>().ReverseMap();
+            CreateMap<FITPasos, FITPasosUpsertRequest>().ReverseMap();
+
         }
     }
 }

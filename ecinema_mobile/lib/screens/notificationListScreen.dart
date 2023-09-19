@@ -1,3 +1,4 @@
+import 'package:ecinema_mobile/screens/frmPasosiScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -55,9 +56,9 @@ class _NotificationListScreenState extends State<NotificationListScreen> {
           ),
           TextButton(
               onPressed: () {
-                Navigator.pushNamed(context, MovieListScreen.routeName);
+                Navigator.pushNamed(context, FrmPasosiScreen.routeName);
               },
-              child: Text("Pogledaj ponudu"))
+              child: Text("Pasoši"))
         ],
       ),
     );

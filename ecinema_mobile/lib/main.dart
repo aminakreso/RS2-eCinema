@@ -1,3 +1,4 @@
+import 'package:ecinema_mobile/providers/fitPasosProvider.dart';
 import 'package:ecinema_mobile/providers/movieProvider.dart';
 import 'package:ecinema_mobile/providers/notificationProvider.dart';
 import 'package:ecinema_mobile/providers/paymentProvider.dart';
@@ -6,6 +7,8 @@ import 'package:ecinema_mobile/providers/reservationProvider.dart';
 import 'package:ecinema_mobile/providers/hallProvider.dart';
 import 'package:ecinema_mobile/providers/seatReservationProvider.dart';
 import 'package:ecinema_mobile/providers/userProvider.dart';
+import 'package:ecinema_mobile/screens/frmPasosNoviScreen.dart';
+import 'package:ecinema_mobile/screens/frmPasosiScreen.dart';
 import 'package:ecinema_mobile/screens/movieDetailsScreen.dart';
 import 'package:ecinema_mobile/screens/movieListScreen.dart';
 import 'package:ecinema_mobile/screens/myProfileScreen.dart';
@@ -37,6 +40,7 @@ Future<void> main() async {
       ChangeNotifierProvider(create: (_) => HallProvider()),
       ChangeNotifierProvider(create: (_) => PaymentProvider()),
       ChangeNotifierProvider(create: (_) => NotificationProvider()),
+      ChangeNotifierProvider(create: (_) => FITPasosProvider()),
     ],
     child: MaterialApp(
         debugShowCheckedModeBanner: true,
@@ -93,6 +97,11 @@ Future<void> main() async {
           } else if (settings.name == NotificationListScreen.routeName) {
             return MaterialPageRoute(
                 builder: ((context) => NotificationListScreen()));
+          } else if (settings.name == FrmPasosiScreen.routeName) {
+            return MaterialPageRoute(builder: ((context) => FrmPasosiScreen()));
+          } else if (settings.name == FrmPasosNoviScreen.routeName) {
+            return MaterialPageRoute(
+                builder: ((context) => FrmPasosNoviScreen()));
           }
 
           var uri = Uri.parse(settings.name!);

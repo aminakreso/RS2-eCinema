@@ -30,6 +30,7 @@ namespace eCinema.Services.Database
         public DbSet<Seat> Seats { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<SeatxrefReservation> SeatReservations { get; set; }
+        public DbSet<FITPasos> FitPasosi { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -693,8 +694,14 @@ namespace eCinema.Services.Database
             modelBuilder.Entity<Reservation>().HasData(listReservation);
             modelBuilder.Entity<SeatxrefReservation>().HasData(listSeatReservation);
             modelBuilder.Entity<Payment>().HasData(listPayment);
-            
-            
+
+            modelBuilder.Entity<FITPasos>().HasData(
+                new FITPasos { Id = Guid.NewGuid(), Value = "A23B45", UserId = userId, IssueDate = DateTime.Now, ExpirationDate = DateTime.Now.AddYears(5), IsValid = true},
+                new FITPasos { Id = Guid.NewGuid(), Value = "C678D22", UserId = adminId, ExpirationDate = DateTime.Now.AddYears(10), IssueDate = DateTime.Now, IsValid = true}
+     
+            );
+
+
         }
     }
 }
