@@ -40,12 +40,13 @@ dependencies:
   http: ^0.13.4
   intl: ^0.17.0
   collection: ^1.16.0
-  json_annotation: ^4.8.0
+  json_annotation: ^4.8.1
   image: ^4.0.15
   flutter_bloc: ^8.1.2
   equatable: ^2.0.5
   flutter_stripe: ^8.0.0+1
   email_validator: ^2.1.17
+  google_fonts: ^4.0.4
 
 dev_dependencies:
   flutter_test:
