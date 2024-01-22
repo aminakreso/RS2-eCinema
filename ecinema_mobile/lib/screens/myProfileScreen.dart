@@ -67,11 +67,11 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    setInput(context, "Ime", _firstNameController),
-                    setInput(context, "Prezime", _lastnameController),
-                    setInput(context, "Email", _emailController),
-                    setInput(context, "Broj telefona", _phoneController),
-                    setInput(context, "Korisničko ime", _usernameController),
+                    setInput(context, "Ime", _firstNameController, 2),
+                    setInput(context, "Prezime", _lastnameController, 2),
+                    setInput(context, "Email", _emailController, 7),
+                    setInput(context, "Broj telefona", _phoneController, 9),
+                    setInput(context, "Korisničko ime", _usernameController, 6),
                   ],
                 ),
               ),
@@ -101,8 +101,8 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
     );
   }
 
-  Container setInput(
-      BuildContext context, String label, TextEditingController controller) {
+  Container setInput(BuildContext context, String label,
+      TextEditingController controller, int minLength) {
     var email = false;
     var phoneNumber = false;
 
@@ -120,7 +120,7 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
           TextInputWidget(
               labelText: label,
               controller: controller,
-              minLength: 4,
+              minLength: minLength,
               isEmail: email,
               isPhoneNumber: phoneNumber),
         ],

@@ -11,7 +11,7 @@ class Notification {
   String? title;
   String? description;
   String? userId;
-  DateTime? dateTime;
+  DateTime? date;
   User? user;
   String? picture;
   String? notificationType;

@@ -49,13 +49,13 @@ class _UserRegistrationScreenState extends State<UserRegistrationScreen> {
           TextInputWidget(
               labelText: "Ime",
               controller: _firstNameController,
-              minLength: 6,
+              minLength: 2,
               isEmail: false,
               isPhoneNumber: false),
           TextInputWidget(
               labelText: "Prezime",
               controller: _lastnameController,
-              minLength: 6,
+              minLength: 2,
               isEmail: false,
               isPhoneNumber: false),
           TextInputWidget(

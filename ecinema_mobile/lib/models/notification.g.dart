@@ -11,9 +11,7 @@ Notification _$NotificationFromJson(Map<String, dynamic> json) => Notification()
   ..title = json['title'] as String?
   ..description = json['description'] as String?
   ..userId = json['userId'] as String?
-  ..dateTime = json['dateTime'] == null
-      ? null
-      : DateTime.parse(json['dateTime'] as String)
+  ..date = json['date'] == null ? null : DateTime.parse(json['date'] as String)
   ..user = json['user'] == null
       ? null
       : User.fromJson(json['user'] as Map<String, dynamic>)
@@ -27,7 +25,7 @@ Map<String, dynamic> _$NotificationToJson(Notification instance) =>
       'title': instance.title,
       'description': instance.description,
       'userId': instance.userId,
-      'dateTime': instance.dateTime?.toIso8601String(),
+      'dateTime': instance.date?.toIso8601String(),
       'user': instance.user,
       'picture': instance.picture,
       'notificationType': instance.notificationType,

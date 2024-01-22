@@ -13,10 +13,10 @@ abstract class BaseProvider<T> with ChangeNotifier {
 
   HttpClient client = new HttpClient();
   IOClient? http;
-//http://192.168.0.18:5192/api/
+
   BaseProvider(String endpoint) {
     _baseUrl = const String.fromEnvironment("baseUrl",
-        defaultValue: "http://10.0.2.2:5192/api/");
+        defaultValue: "https://ecinema.azurewebsites.net/api");
     print("baseurl: $_baseUrl");
 
     if (_baseUrl!.endsWith("/") == false) {
@@ -55,11 +55,11 @@ abstract class BaseProvider<T> with ChangeNotifier {
     var uri = Uri.parse(url);
 
     Map<String, String> headers = createHeaders();
-    print("get me");
+    //print("get me");
 
     var response = await http!.get(uri, headers: headers);
 
-    print("done ${response.body}");
+    //print("done ${response.body}");
     if (isValidResponseCode(response)) {
       var data = jsonDecode(response.body);
       return data.map((x) => fromJson(x)).cast<T>().toList();

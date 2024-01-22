@@ -84,7 +84,7 @@ class _NotificationListScreenState extends State<NotificationListScreen> {
                   height: 20,
                 ),
                 MovieCardLine(label: "Description:", text: x.description),
-                MovieCardLine(label: "Datum:", text: x.description),
+                MovieCardLine(label: "Datum:", text: getDate(x.date)),
               ],
             ),
           ],

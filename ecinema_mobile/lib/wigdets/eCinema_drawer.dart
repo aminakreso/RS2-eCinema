@@ -1,3 +1,4 @@
+import 'package:ecinema_mobile/main.dart';
 import 'package:ecinema_mobile/screens/movieListScreen.dart';
 import 'package:ecinema_mobile/screens/myProfileScreen.dart';
 import 'package:ecinema_mobile/screens/reservationListScreen.dart';
@@ -37,6 +38,13 @@ class eCinemaDrawer extends StatelessWidget {
               title: Text('Profil'),
               onTap: () {
                 Navigator.pushNamed(context, MyProfileScreen.routeName);
+              },
+            ),
+            ListTile(
+              title: Text('Logout'),
+              onTap: () {
+                Navigator.pushNamedAndRemoveUntil(context, MovieList.routeName,
+                    (Route<dynamic> route) => false);
               },
             ),
           ],
