@@ -73,7 +73,7 @@ namespace eCinema.WinUI
             
             var searchObject = new ProjectionSearchObject
             {
-                StartDate = dtpDate.Value,
+                //StartDate = dtpDate.Value,
                 IncludeHalls = true,
                 IncludeMovies = true,
                 IncludePrices = true,

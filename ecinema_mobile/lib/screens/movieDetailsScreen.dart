@@ -39,7 +39,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
     _projectionProvider = context.read<ProjectionProvider>();
 
     loadData();
-    loadRecommendedList(this.widget.id);
+    //loadRecommendedList(this.widget.id);
   }
 
   Future loadData() async {
@@ -76,10 +76,11 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    if (movie == null ||
-        movieProjection == null ||
-        movieProjectionDates == null ||
-        _recommendList == null) {
+    if (movie == null
+        //     movieProjection == null ||
+        //     movieProjectionDates == null ||
+        //     _recommendList == null
+        ) {
       loadData();
       return LoadingScreen();
     } else {
@@ -153,20 +154,20 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                     return _buildProjectionCard(movieProjectionDates![index]);
                   }),
             ),
-            Text("Preporučeno ", style: Theme.of(context).textTheme.headline6),
-            Container(
-              margin: EdgeInsets.only(top: 10),
-              height: 200,
-              child: GridView(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 1,
-                    childAspectRatio: 1.5 / 1,
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 20),
-                scrollDirection: Axis.horizontal,
-                children: _buildMovieCardList(),
-              ),
-            ),
+            // Text("Preporučeno ", style: Theme.of(context).textTheme.headline6),
+            // Container(
+            //   margin: EdgeInsets.only(top: 10),
+            //   height: 200,
+            //   child: GridView(
+            //     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            //         crossAxisCount: 1,
+            //         childAspectRatio: 1.5 / 1,
+            //         crossAxisSpacing: 10,
+            //         mainAxisSpacing: 20),
+            //     scrollDirection: Axis.horizontal,
+            //     children: _buildMovieCardList(),
+            //   ),
+            // ),
           ],
         ),
       ));

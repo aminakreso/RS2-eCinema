@@ -8,7 +8,8 @@ namespace eCinema.WinUI;
 public class APIService
 {
     private readonly string _resource;
-    private readonly string _endpoint = Settings.Default.ApiURL;
+    private readonly string _endpoint = 
+        "https://ecinema.azurewebsites.net/api/";
 
     public APIService(string resource)
     {
@@ -61,6 +62,6 @@ public class APIService
 
     public async Task<T> Delete<T>(Guid id)
     {
-        return await $"{_endpoint}{_resource}/{id}/delete".WithBasicAuth(Username, Password).PutJsonAsync(id).ReceiveJson<T>();
+        return await $"{_endpoint}{_resource}/{id}/hardDelete".WithBasicAuth(Username, Password).PutJsonAsync(id).ReceiveJson<T>();
     }
 }
