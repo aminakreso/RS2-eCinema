@@ -41,7 +41,7 @@ namespace eCinema.WinUI
             {
                 Name = txtMovie.Text,
                 User = txtUser.Text,
-                //DateTime = dtpDate.Value,
+                DateTime = dtpDate.Value,
                 IncludeUsers = true,
                 IncludeProjection = true,
                 IncludeMovies = true,
@@ -50,8 +50,8 @@ namespace eCinema.WinUI
                 PageSize = _pageSize,
                 Page = _selectedPage,
             };
-            var list = await _reservationService.Get<List<ReservationDto>>(searchObject);
 
+            var list = await _reservationService.Get<List<ReservationDto>>(searchObject);
             loadingPictureBox.Hide();
             btnShow.Enabled = true;
 
