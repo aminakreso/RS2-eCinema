@@ -125,6 +125,12 @@ namespace eCinema.Services.Services
                                     }
 
                                 });
+
+                                if (data == null || data.Count() < 3)
+                                {
+                                    var lastThree = _cinemaContext.Movies.AsEnumerable().TakeLast(3).ToList();
+                                    return _mapper.Map<List<MovieDto>>(lastThree);
+                                }
                             }
                             else
                             {
