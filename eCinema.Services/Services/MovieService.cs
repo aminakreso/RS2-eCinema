@@ -132,6 +132,11 @@ namespace eCinema.Services.Services
                                 return _mapper.Map<List<MovieDto>>(lastThree);
                             }
                         }
+                        else
+                        {
+                            var lastThree = _cinemaContext.Movies.AsEnumerable().TakeLast(3).ToList();
+                            return _mapper.Map<List<MovieDto>>(lastThree);
+                        }
 
                         counterUser++;
                     }
