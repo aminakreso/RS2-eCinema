@@ -60,7 +60,7 @@ builder.Services.AddAuthentication("BasicAuthentication")
     .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
 
 builder.Services.AddDbContext<CinemaContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("LocalConnection"),
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
         b => b.MigrationsAssembly(nameof(eCinema))));
 
 var app = builder.Build();

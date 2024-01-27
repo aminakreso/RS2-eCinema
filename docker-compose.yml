@@ -1,17 +1,17 @@
-version: '3'
+version: "3.4"
 services:
-#mssql docker
+  #mssql docker
   ecinema-sql:
-    image: mcr.microsoft.com/mssql/server:2017-latest-ubuntu
+    image: mcr.microsoft.com/mssql/server:latest
     restart: unless-stopped
     environment:
       - ACCEPT_EULA=Y
       - SA_PASSWORD=QWElkj132!
       - MSSQL_PID=Developer
     ports:
-      - 1401:1433
+      - "1433:1433"
     expose:
-        - 1433
+      - 1433
     networks:
       - ecinemanet2022
 
@@ -30,7 +30,7 @@ services:
       - ecinema-sql
     depends_on:
       - ecinema-sql
-      
+
 networks:
   ecinemanet2022:
-    driver: bridge 
+    driver: bridge
