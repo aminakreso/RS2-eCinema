@@ -97,7 +97,7 @@ namespace eCinema.Services.Services
                 {
                     mlContext = new MLContext();
                     // lista usera
-                    var tmpData = _cinemaContext.Users.Include(x => x.Reservations).ThenInclude(y => y.Projection).ToList();
+                    var tmpData = _cinemaContext.Users?.Include(x => x.Reservations)?.ThenInclude(y => y.Projection).ToList();
                     List<MovieEntry> data = new List<MovieEntry>();
 
                     foreach (var x in tmpData)
@@ -125,6 +125,11 @@ namespace eCinema.Services.Services
                                     }
 
                                 });
+                            }
+                            else
+                            {
+                                var lastThree = _cinemaContext.Movies.AsEnumerable().TakeLast(3).ToList();
+                                return _mapper.Map<List<MovieDto>>(lastThree);
                             }
                         }
 
