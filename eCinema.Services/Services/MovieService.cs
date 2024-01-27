@@ -168,7 +168,11 @@ namespace eCinema.Services.Services
 
                     model = est.Fit(traindata);
                 }
-
+                else
+                {
+                    var lastThree = _cinemaContext.Movies.AsEnumerable().TakeLast(3).ToList();
+                    return _mapper.Map<List<MovieDto>>(lastThree);
+                }
             }
             
             var allItems = await _cinemaContext.Reservations.Where(x => x.Projection!.MovieId != id).ToListAsync();
